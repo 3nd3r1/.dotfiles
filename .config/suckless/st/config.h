@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/zsh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -100,22 +100,22 @@ float alpha = 0.8;
 static const char *colorname[] = {
 	/* 8 normal colors */
 	"black",
-	"#ff8000",
 	"#800080",
-	"#ff8000",
-	"#ff8000",
 	"#800080",
-	"#ff8000",
+	"#800080",
+	"#800080",
+	"#800080",
+	"#800080",
 	"gray90",
 
 	/* 8 bright colors */
 	"gray50",
-	"#ff8000",
 	"#800080",
 	"#ff8000",
 	"#ff8000",
 	"#ff8000",
-	"#ff8000",
+	"#800080",
+	"#800080",
 	"white",
 
 	[255] = 0,
