@@ -9,6 +9,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = {"MesloLGLDZNerdFont:size=12" };
 static const char dmenufont[]       = "MesloLGLDZNerdFont:size=12";
+static unsigned int baralpha        = 0xd0;
+static unsigned int borderalpha     = OPAQUE;
 static const char col_purple[]       = "#800080";
 static const char col_orange[]       = "#ff8000";
 static const char col_black[]       = "#000000";
