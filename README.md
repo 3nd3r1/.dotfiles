@@ -12,4 +12,4 @@ Here are all my .dotfiles
 
 ## Preview
 
-![Preview](/Pictures/preview.jpg)
+![Preview](/Pictures/preview.png)
