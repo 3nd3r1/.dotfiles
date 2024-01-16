@@ -17,8 +17,8 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-bindkey -s ^d "de\n"
-bindkey -s ^a "oe\n"
+bindkey -s ^d "~/Documents/Coding\n"
+bindkey -s ^a "~/.config\n"
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
