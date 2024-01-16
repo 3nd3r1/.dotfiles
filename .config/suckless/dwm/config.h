@@ -61,8 +61,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_purple, "-sb", col_purple, "-sf", col_black, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *scrot[]  = { "scrot", "-s", "-d3", "/home/viljami/Pictures/Screenshots/%Y-%m-%d-%s_$wx$h.jpg", NULL };config.h
-
 
 
 static const Key keys[] = {
@@ -104,7 +102,7 @@ static const Key keys[] = {
 	{ SUPER,             XK_l,      spawn,           SHCMD("slock") },
 
 	// Screenshot
-	{0, XK_Print, spawn, {.v = scrot} },
+	{0, XK_Print, spawn, SHCMD("screenshot")},
 
 	// System
 	{MODKEY, XK_s, spawn, SHCMD("~/.local/bin/systemControl")},
