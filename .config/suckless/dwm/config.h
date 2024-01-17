@@ -122,12 +122,10 @@ static const Key keys[] = {
 	{SUPER, XK_m, spawn, SHCMD("~/.local/bin/volumeControl mute")},
 	{0, XF86XK_AudioMute, spawn, SHCMD("~/.local/bin/volumeControl mute")},
 
-	// Open pulsemixer
-	{MODKEY, XK_F2, spawn, SHCMD("st -e pulsemixer")},
-	{MODKEY, XK_F3, spawn, SHCMD("st -e nmtui")},
-
-	// Mouse sense gui (xinput)
-	{MODKEY, XK_F4, spawn, SHCMD("xinput-gui")},
+	{MODKEY, XK_F2, spawn, SHCMD("st -e pulsemixer")}, // Pulse audio mixer
+	{MODKEY, XK_F3, spawn, SHCMD("st -e nmtui")}, // Network manager
+	{MODKEY, XK_F4, spawn, SHCMD("xinput-gui")}, // Mouse sense gui
+	{MODKEY, XK_F5, spawn, SHCMD("blueman-manager")}, // Bluetooth manager
 
 	// Xrandr gui
 	{SUPER, XK_p, spawn, SHCMD("arandr")},
