@@ -18,7 +18,7 @@ static const char col_darkpuple[]       = "#301934";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_purple, col_black, col_purple},
-	[SchemeSel]  = { col_purple, col_black,  col_purple},
+	[SchemeSel]  = { col_purple, col_black,  col_orange},
 };
 
 /* tagging */

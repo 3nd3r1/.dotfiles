@@ -1,6 +1,6 @@
 #! /bin/bash	
 
-slstatus &
 feh --bg-max ~/Pictures/Wallpapers/pain.jpg &
+picom &
 barrier &
-picom
+slstatus &
