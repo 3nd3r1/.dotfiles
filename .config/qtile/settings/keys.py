@@ -58,7 +58,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "Return", lazy.spawn("st")),
 
     # Screenshot
-    ([mod, "shift"], "s", lazy.spawn("~/.local/bin/screenshot")),
+    ([], "Print", lazy.spawn("/home/viljami/.local/bin/screenshot")),
 
     # ------------ Hardware Configs ------------
 
@@ -78,12 +78,13 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 
     # System Actions
-    ([mod, "shift"], "s", lazy.spawn("~/.local/bin/systemControl")),
+    ([mod, "shift"], "s", lazy.spawn("/home/viljami/.local/bin/systemControl")),
     ([super], "l", lazy.spawn("slock")),
+    ([super], "p", lazy.spawn("/home/viljami/.local/bin/screens")),
 
     ([mod], "F1", lazy.spawn("st -e pulsemixer")),
     ([mod], "F2", lazy.spawn("st -e nmtui")),
-    ([mod], "F3", lazy.spawn("st -e xinput-gui")),
-    ([mod], "F4", lazy.spawn("st -e blueman-manager")),
-    ([super], "p", lazy.spawn("st -e arandr")),
+    ([mod], "F3", lazy.spawn("xinput-gui")),
+    ([mod], "F4", lazy.spawn("blueman-manager")),
+    ([mod], "F5", lazy.spawn("arandr")),
 ]]
