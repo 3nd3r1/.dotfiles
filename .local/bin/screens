@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+monitors=$(printf "💻 PC Only\n💼 Extend\n🔀 Mirror" | dmenu )
+
+case $monitors in
+    "💻 PC Only")
+        /home/viljami/.screenlayout/onlyPc.sh
+        ;;
+    "💼 Extend")
+        /home/viljami/.screenlayout/extend.sh
+        ;;
+    "🔀 Mirror")
+        /home/viljami/.screenlayout/mirror.sh
+        ;;
+    *) echo "Unavailable command... $monitors"
+esac
