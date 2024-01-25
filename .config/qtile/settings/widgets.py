@@ -27,7 +27,7 @@ def icon(fg='text', bg='dark', fontsize=16, text="?"):
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
-        text="",  # Icon: nf-oct-triangle_left
+        text="",
         fontsize=37,
         padding=-2
     )
@@ -58,10 +58,10 @@ def workspaces():
             disable_drag=True
         ),
         separator(),
-        powerline('color2', 'dark'),
-        widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65, padding=10),
-        widget.CurrentLayout(**base(bg='color2'), padding=5),
-        powerline('dark', 'color2'),
+        powerline('color5', 'dark'),
+        widget.CurrentLayoutIcon(**base(bg='color5'), scale=0.65, padding=10),
+        widget.CurrentLayout(**base(bg='color5'), padding=5),
+        powerline('dark', 'color5'),
         separator(),
         widget.WindowName(**base(fg='focus'), fontsize=14, padding=5),
     ]
@@ -90,7 +90,7 @@ primary_widgets = [
     icon(bg="color4", text='  '),  # Icon: nf-fa-feed
     widget.Wlan(**base(bg='color4'), interface='wlp0s20f3',
                 disconnected_message='Disconnected', format='{essid}',
-                mouse_callbacks={'Button1': lazy.spawn('st -e nmtui')}),
+                mouse_callbacks={'Button3': lazy.spawn('st -e nmtui')}),
 
     powerline('color3', 'color4'),
 
@@ -105,8 +105,8 @@ primary_widgets = [
     powerline('color2', 'color3'),
 
     widget.Battery(**base(bg='color2'), format=' {char} {percent:2.0%}',
-                   charge_char='󰂄', full_char='󰁹', discharge_char='󰂃',
-                   empty_char='󰁻', not_charging_char='󰂂', update_interval=5),
+                   charge_char='󰂄', full_char='󰁹', discharge_char='󰂂',
+                   empty_char='󰁻', not_charging_char='󰂂', update_interval=5, show_short_text=False),
     powerline('color1', 'color2'),
 
     icon(bg="color1", fontsize=17, text='  '), # Icon: nf-mdi-calendar_clock
