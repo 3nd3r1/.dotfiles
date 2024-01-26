@@ -12,13 +12,16 @@ use {
     -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
 }
-use({
-    'Shatur/neovim-ayu',
-    as = 'ayu',
-    config = function()
-        vim.cmd('colorscheme ayu');
-    end
-})
+
+-- Colorscheme
+-- use({
+--    'Shatur/neovim-ayu',
+--    as = 'ayu',
+--    config = function()
+--        vim.cmd('colorscheme ayu');
+--    end
+-- })
+
 use('nvim-treesitter/nvim-treesitter', {run =':TSUpdate'})
 use('theprimeagen/harpoon')
 use('mbbill/undotree')

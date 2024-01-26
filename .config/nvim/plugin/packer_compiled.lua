@@ -85,12 +85,6 @@ _G.packer_plugins = {
     path = "/home/viljami/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ayu = {
-    config = { "\27LJ\2\0023\0\0\2\0\3\0\0056\0\0\0009\0\1\0'\1\2\0B\0\2\1K\0\1\0\20colorscheme ayu\bcmd\bvim\0" },
-    loaded = true,
-    path = "/home/viljami/.local/share/nvim/site/pack/packer/start/ayu",
-    url = "https://github.com/Shatur/neovim-ayu"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/viljami/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -156,6 +150,11 @@ _G.packer_plugins = {
     path = "/home/viljami/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["pain.vim"] = {
+    loaded = true,
+    path = "/home/viljami/.local/share/nvim/site/pack/packer/start/pain.vim",
+    url = "https://github.com//home/viljami/.config/nvim/lua/ender/themes/pain.vim"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/viljami/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -179,10 +178,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: ayu
-time([[Config for ayu]], true)
-try_loadstring("\27LJ\2\0023\0\0\2\0\3\0\0056\0\0\0009\0\1\0'\1\2\0B\0\2\1K\0\1\0\20colorscheme ayu\bcmd\bvim\0", "config", "ayu")
-time([[Config for ayu]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\2`\0\0\3\0\5\0\n6\0\0\0'\1\1\0B\0\2\0029\0\2\0006\1\0\0'\2\3\0B\1\2\0029\1\4\1B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")

@@ -7,6 +7,7 @@ custom_ayu.insert.a.bg = '#ff8000'
 custom_ayu.insert.b.fg = '#ff8000'
 custom_ayu.visual.a.bg = '#800080'
 custom_ayu.visual.b.fg = '#ff8000'
+custom_ayu.normal.c.bg = '#000000'
 
 require('lualine').setup {
   options = {
