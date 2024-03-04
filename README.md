@@ -12,3 +12,7 @@ Here are all my .dotfiles
 ## Preview
 
 ![Preview](/Pictures/preview.png)
+
+## Install
+
+```sudo apt-get install ripgrep picom blueman xorg-dev arandr```
