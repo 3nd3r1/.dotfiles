@@ -15,4 +15,4 @@ Here are all my .dotfiles
 
 ## Install
 
-```sudo apt-get install ripgrep```
+```sudo apt-get install ripgrep picom blueman xorg-dev```
