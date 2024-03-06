@@ -1,2 +1,4 @@
 #!/bin/sh
-scrot -s -d3 '/home/viljami/Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png' -e 'xclip -selection clipboard -t image/png -i $f' && notify-send "Screenshot taken"
+
+cd $HOME/Pictures/Screenshots
+scrot -s -d3 '%Y-%m-%d_$wx$h_scrot.png' -e 'xclip -selection clipboard -t image/png -i $f' && notify-send "Screenshot taken"
