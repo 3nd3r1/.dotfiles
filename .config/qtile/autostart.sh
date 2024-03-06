@@ -1,6 +1,6 @@
 #! /bin/bash	
 
-feh --bg-max ~/Pictures/Wallpapers/pain.jpg &
+feh --bg-fill ~/Pictures/Wallpapers/pain.jpg &
 picom &
 barrier &
 blueman-tray &
