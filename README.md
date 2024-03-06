@@ -15,4 +15,4 @@ Here are all my .dotfiles
 
 ## Install
 
-```sudo apt-get install ripgrep picom blueman xorg-dev arandr```
+```sudo apt-get install ripgrep picom blueman xorg-dev arandr i3lock-fancy```

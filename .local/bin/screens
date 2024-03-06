@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
 
-monitors=$(printf "💻 PC Only\n󰍺  Extend\n🔀 Mirror\n󰍹  External Only" | dmenu )
+monitors=$(printf "💻 PC Only\n󰍺  Extend\n󰍺  Extend Office\n🔀 Mirror\n󰍹  External Only" | dmenu )
 
 case $monitors in
     "💻 PC Only")
-        /home/viljami/.screenlayout/onlyPc.sh
+        $HOME/.screenlayout/onlyPc.sh
         ;;
     "󰍺  Extend")
-        /home/viljami/.screenlayout/extend.sh
+        $HOME/.screenlayout/extend.sh
+        ;;
+    "󰍺  Extend Office")
+        $HOME/.screenlayout/extendOffice.sh
         ;;
     "🔀 Mirror")
-        /home/viljami/.screenlayout/mirror.sh
+        $HOME/.screenlayout/mirror.sh
         ;;
     "󰍹  External Only")
-        /home/viljami/.screenlayout/onlyExternal.sh
+        $HOME/.screenlayout/onlyExternal.sh
         ;;
     *) echo "Unavailable command... $monitors"
 esac

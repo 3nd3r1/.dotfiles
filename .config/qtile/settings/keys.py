@@ -1,11 +1,14 @@
 # Qtile keybindings
 
+import os
 from libqtile.config import Key
 from libqtile.command import lazy
 
 
 mod = "mod1"
 super = "mod4"
+
+home= os.path.expanduser("~")
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
@@ -48,7 +51,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Menu
     ([mod], "p", lazy.spawn("dmenu_run")),
 
-    # Browser
+    # Browser+
     ([mod], "b", lazy.spawn("brave-browser")),
 
     # File Explorer
@@ -58,7 +61,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "Return", lazy.spawn("st")),
 
     # Screenshot
-    ([], "Print", lazy.spawn("/home/viljami/.local/bin/screenshot")),
+    ([], "Print", lazy.spawn(home+"/.local/bin/screenshot")),
 
     # ------------ Hardware Configs ------------
 
@@ -78,9 +81,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 
     # System Actions
-    ([mod, "shift"], "s", lazy.spawn("/home/viljami/.local/bin/systemControl")),
-    ([super], "l", lazy.spawn("slock")),
-    ([super], "p", lazy.spawn("/home/viljami/.local/bin/screens")),
+    ([mod, "shift"], "s", lazy.spawn(home+"/.local/bin/systemControl")),
+    ([super], "l", lazy.spawn("i3lock-fancy")),
+    ([super], "p", lazy.spawn(home+"/.local/bin/screens")),
 
     ([mod], "F1", lazy.spawn("st -e pulsemixer")),
     ([mod], "F2", lazy.spawn("st -e nmtui")),
