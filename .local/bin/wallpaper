@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+feh --bg-max $HOME/Pictures/Wallpapers/pain.jpg &
+pkill picom 
+picom &

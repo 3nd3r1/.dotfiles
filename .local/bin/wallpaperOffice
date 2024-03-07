@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+feh --bg-fill $HOME/Pictures/Wallpapers/office.png &
+pkill picom 
+picom &

@@ -5,18 +5,23 @@ monitors=$(printf "💻 PC Only\n󰍺  Extend\n󰍺  Extend Office\n🔀 Mirror\
 case $monitors in
     "💻 PC Only")
         $HOME/.screenlayout/onlyPc.sh
+        $HOME/.local/bin/wallpaper
         ;;
     "󰍺  Extend")
         $HOME/.screenlayout/extend.sh
+        $HOME/.local/bin/wallpaper
         ;;
     "󰍺  Extend Office")
         $HOME/.screenlayout/extendOffice.sh
+        $HOME/.local/bin/wallpaperOffice
         ;;
     "🔀 Mirror")
         $HOME/.screenlayout/mirror.sh
+        $HOME/.local/bin/wallpaper
         ;;
     "󰍹  External Only")
         $HOME/.screenlayout/onlyExternal.sh
+        $HOME/.local/bin/wallpaper
         ;;
     *) echo "Unavailable command... $monitors"
 esac
