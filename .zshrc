@@ -35,7 +35,7 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 
 alias vi="nvim"
 alias vim="nvim"
-alias oldvim="vim"
+alias oldvim="\vim"
 
 alias myscrot='scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
