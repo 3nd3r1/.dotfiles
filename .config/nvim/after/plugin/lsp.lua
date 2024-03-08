@@ -14,6 +14,7 @@ require('mason-lspconfig').setup({
         "pylsp",
         "tsserver",
         "html",
+        "yamlls"
     },
     handlers = {
         lsp_zero.default_setup,

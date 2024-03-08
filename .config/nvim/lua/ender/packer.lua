@@ -59,4 +59,5 @@ use {
     'github/copilot.vim',
   }
 }
+
 end)
