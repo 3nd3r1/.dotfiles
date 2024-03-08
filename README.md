@@ -15,8 +15,9 @@ Here are all my .dotfiles
 
 ## Install
 
-```
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install ripgrep picom blueman xorg-dev arandr i3lock-fancy nvim
-```
+- Install packages
+    ```
+    sudo apt-get install picom blueman xorg-dev arandr i3lock-fancy 
+    ```
+- [Install nvim](https://github.com/3nd3r1/init.lua)
+
