@@ -6,7 +6,7 @@ input=$(echo $input | tr " " "\n" | dmenu -nb "#000000" -nf "#ff8000" -sb "#ff80
 
 case "$input" in
     "Logout")
-        pkill $(wmctrl -m | grep "Name:" | awk '{print $2}')
+        loginctl terminate-user $(whoami)
         ;;
     "Shutdown")
         shutdown -h now

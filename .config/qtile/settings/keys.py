@@ -8,7 +8,7 @@ from libqtile.command import lazy
 mod = "mod1"
 super = "mod4"
 
-home= os.path.expanduser("~")
+home = os.path.expanduser("~")
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
@@ -43,7 +43,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Restart Qtile
     ([mod, "control"], "r", lazy.restart()),
-    #([mod, "control"], "c", lazy.shutdown()),
+    # ([mod, "control"], "c", lazy.shutdown()),
     ([mod], "r", lazy.spawncmd()),
 
     # ------------ App Configs ------------
