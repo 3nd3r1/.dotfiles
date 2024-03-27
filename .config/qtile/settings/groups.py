@@ -1,12 +1,21 @@
 # Qtile workspaces
 
+import socket
+
 from libqtile.config import Key, Group
 from libqtile.command import lazy
 from .keys import mod, keys
 
-groups = [Group(i) for i in [
-    "1", "2", "3", "4", "5", "6", "7", "󰙯", "",
-]]
+if socket.gethostname() == "elx-5cg2183zp2":
+    # If office
+    groups = [Group(i) for i in [
+        "1", "2", "3", "4", "5", "6", "7", "󰴢", "",
+    ]]
+else:
+    # If home
+    groups = [Group(i) for i in [
+        "1", "2", "3", "4", "5", "6", "7", "󰙯", "",
+    ]]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
