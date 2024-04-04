@@ -49,7 +49,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ App Configs ------------
 
     # Menu
-    ([mod], "p", lazy.spawn("dmenu_run")),
+    ([mod], "p", lazy.spawn("rofi -show run")),
 
     # Browser+
     ([mod], "b", lazy.spawn("brave-browser")),
