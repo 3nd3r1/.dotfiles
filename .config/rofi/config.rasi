@@ -4,6 +4,7 @@ configuration {
     sidebar-mode:   true;
 	lines: 			10;
     show-icons:     true;
+    font: "MesloLGLDZNerdFont 12";
 	fullscreen: false;
 	show-match: 		false;
 	separator-style: 	"solid";
