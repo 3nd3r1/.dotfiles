@@ -2,6 +2,7 @@
 # http://www.qtile.org/
 
 from libqtile import hook
+from libqtile.command import lazy
 
 from settings.keys import mod, keys
 from settings.groups import groups

@@ -4,7 +4,8 @@ from .theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
-def base(fg='text', bg='dark'): 
+
+def base(fg='text', bg='dark'):
     return {
         'foreground': colors[fg],
         'background': colors[bg]
@@ -33,7 +34,7 @@ def powerline(fg="light", bg="dark"):
     )
 
 
-def workspaces(): 
+def workspaces():
     return [
         separator(),
         widget.GroupBox(
@@ -74,7 +75,7 @@ primary_widgets = [
 
     powerline('color5', 'dark'),
 
-    icon(bg="color5", text='  '), # Icon: nf-fa-download
+    icon(bg="color5", text='  '),  # Icon: nf-fa-download
     widget.CheckUpdates(
         background=colors['color5'],
         colour_have_updates=colors['text'],

@@ -12,14 +12,9 @@ layout_conf = {
 }
 
 layouts = [
+    layout.MonadThreeCol(**layout_conf),
     layout.MonadTall(**layout_conf),
-    layout.Max(),
-    # layout.MonadWide(**layout_conf),
-    # layout.Columns(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.Max(**layout_conf)
 ]
 
 floating_layout = layout.Floating(
