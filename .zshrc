@@ -20,9 +20,6 @@ bindkey -v '^?' backward-delete-char
 bindkey -s ^d "~/Documents/Coding\n"
 bindkey -s ^a "~/.config\n"
 
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -36,6 +33,8 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 alias vi="nvim"
 alias vim="nvim"
 alias oldvim="\vim"
+
+export EDITOR="nvim"
 
 alias myscrot='scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
