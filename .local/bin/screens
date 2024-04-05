@@ -88,7 +88,7 @@ function gen_entries()
 {
     for a in $(seq 0 $(( ${#TILES[@]} -1 )))
     do
-        echo ${TILES[a]}
+        echo $a ${TILES[a]}
     done
 }
 
