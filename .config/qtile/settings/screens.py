@@ -1,7 +1,7 @@
 # Multimonitor support
 
 import subprocess
-import socket
+import os
 
 from libqtile.config import Screen
 from libqtile import bar
@@ -13,14 +13,9 @@ def status_bar(widgets):
     return bar.Bar(widgets, 24, opacity=0.92)
 
 
-def wallpaper_path():
-    if socket.gethostname() == "elx-5cg2183zp2":
-        return "~/Pictures/Wallpapers/office.png"
-    else:
-        return "~/Pictures/Wallpapers/pain.jpg"
+wallpaper_path = os.getenv("WALLPAPER_PATH", "~/Pictures/Wallpapers/pain.jpg")
 
-
-screens = [Screen(wallpaper=wallpaper_path(),
+screens = [Screen(wallpaper=wallpaper_path,
                   wallpaper_mode="fill",
                   top=status_bar(primary_widgets))]
 
@@ -42,6 +37,6 @@ else:
 
 if connected_monitors > 1:
     for _ in range(1, connected_monitors):
-        screens.append(Screen(wallpaper=wallpaper_path(),
+        screens.append(Screen(wallpaper=wallpaper_path,
                               wallpaper_mode="fill",
                               top=status_bar(secondary_widgets)))

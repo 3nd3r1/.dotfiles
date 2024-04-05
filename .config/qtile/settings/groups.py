@@ -1,21 +1,18 @@
 # Qtile workspaces
 
-import socket
+import os
 
 from libqtile.config import Key, Group
 from libqtile.command import lazy
+from libqtile.log_utils import logger
 from .keys import mod, keys
 
-groups = [Group(i) for i in ["1", "2", "3", "4", "5", "6", "7"]]
+groups = []
+for i in range(1, 10):
+    name = os.getenv(f"GROUP_{str(i)}_ICON", str(i))
+    spawn = os.getenv(f"GROUP_{str(i)}_STARTUP_APPS", "").split(',')
+    groups.append(Group(name, spawn=spawn if spawn[0] != "" else []))
 
-if socket.gethostname() == "elx-5cg2183zp2":
-    # If office
-    groups.append(Group(name="󰴢", spawn=["ms-teams", "ms-outlook"]))
-    groups.append(Group(name="", spawn=["brave-browser https://notion.so/"]))
-else:
-    # If home
-    groups.append(Group(name="󰙯", spawn=["ms-teams", "ms-outlook"]))
-    groups.append(Group(name="", spawn=["brave-browser https://youtube.com/"]))
 
 for i, group in enumerate(groups):
     actual_key = str(i+1)

@@ -1,6 +1,15 @@
 # Qtile Config File
 # http://www.qtile.org/
 
+from os import path
+import subprocess
+from settings.path import qtile_path
+
+from dotenv import load_dotenv
+if path.isfile(path.join(qtile_path, "local.env")):
+    load_dotenv(path.join(qtile_path, "local.env"))
+
+
 from libqtile import hook
 from libqtile.command import lazy
 
@@ -10,15 +19,13 @@ from settings.layouts import layouts, floating_layout
 from settings.widgets import widget_defaults, extension_defaults
 from settings.screens import screens
 from settings.mouse import mouse
-from settings.path import qtile_path
-
-from os import path
-import subprocess
 
 
 @hook.subscribe.startup_once
 def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
+
+
 
 
 main = None
