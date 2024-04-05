@@ -1,17 +1,26 @@
 #!/usr/bin/env bash
 
-input="Logout Shutdown Restart"
+lockapp=i3lock-fancy
+echo "Using $lockapp to lock the screen."
 
-input=$(echo $input | tr " " "\n" | dmenu -nb "#000000" -nf "#ff8000" -sb "#ff8000" -sf "#000000")
+option1="  lock"
+option2="  logout"
+option3="  reboot"
+option4="  power off"
 
-case "$input" in
-    "Logout")
-        loginctl terminate-user $(whoami)
-        ;;
-    "Shutdown")
-        shutdown -h now
-        ;;
-    "Restart")
-        shutdown -r now
-        ;;
+options="$option1\n"
+options="$options$option2\n"
+options="$options$option3\n$option4"
+
+choice=$(echo -e "$options" | rofi -dmenu -replace -i -no-show-icons -l 4 -width 30 -p "Powermenu") 
+
+case $choice in
+	$option1)
+		$lockapp ;;
+	$option2)
+		qtile cmd-obj -o cmd -f shutdown ;;
+	$option3)
+		systemctl reboot ;;
+	$option4)
+		systemctl poweroff ;;
 esac
