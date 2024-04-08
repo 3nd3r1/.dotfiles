@@ -2,16 +2,16 @@
 
 import os
 
-from libqtile.config import Key, Group
+from libqtile.config import Key, Group, Match
 from libqtile.command import lazy
-from libqtile.log_utils import logger
 from .keys import mod, keys
 
 groups = []
 for i in range(1, 10):
     name = os.getenv(f"GROUP_{str(i)}_ICON", str(i))
-    spawn = os.getenv(f"GROUP_{str(i)}_STARTUP_APPS", "").split(',')
-    groups.append(Group(name, spawn=spawn if spawn[0] != "" else []))
+    spawn = [process for process in os.getenv(f"GROUP_{str(i)}_STARTUP_APPS", "").split(',') if process != ""]
+    matches = [Match(wm_class=wm_class) for wm_class in os.getenv(f"GROUP_{str(i)}_MATCHES", "").split(',') if wm_class != ""]
+    groups.append(Group(name, spawn=spawn, matches=matches))
 
 
 for i, group in enumerate(groups):
