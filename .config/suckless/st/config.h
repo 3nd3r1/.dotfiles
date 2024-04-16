@@ -101,7 +101,7 @@ float alpha = 0.8;
 static const char *colorname[] = {
 	"#000000", 
 	"#800080",
-	"#260e36",
+	"#EE82EE",
 	"#800080",
 	"#ff8000",
 	"#3d1120",
@@ -110,7 +110,7 @@ static const char *colorname[] = {
 
 	"gray50",
 	"#800080",
-	"#260e36",
+	"#EE82EE",
 	"#800080",
 	"#ff8000",
 	"#3d1120",
