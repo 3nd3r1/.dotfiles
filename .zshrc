@@ -17,9 +17,6 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-bindkey -s ^d "~/Documents/Coding\n"
-bindkey -s ^a "~/.config\n"
-
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -33,11 +30,9 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 alias vi="nvim"
 alias vim="nvim"
 alias oldvim="\vim"
+alias myscrot='scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png'
 
 export EDITOR="nvim"
-
-alias myscrot='scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
