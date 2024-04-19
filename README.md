@@ -20,7 +20,7 @@ Here are all my .dotfiles
 
 - Install packages
     ```
-    sudo apt-get install picom blueman xorg-dev arandr i3lock-fancy rofi
+    sudo apt-get install picom blueman xorg-dev arandr i3lock-fancy rofi xclip stow
     ```
 - [Install nvim](https://github.com/3nd3r1/init.lua)
 - Install zoxide
