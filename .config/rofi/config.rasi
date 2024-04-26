@@ -1,5 +1,5 @@
 configuration {
-	modi: 			"drun,window";
+	modi: 			"drun,run,window";
 	width: 			1000;
     sidebar-mode:   true;
 	lines: 			10;
