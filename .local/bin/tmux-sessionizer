@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+tmux_running=$(pgrep tmux)
+if [[ -z $tmux_running ]]; then
+    tmux start-server
+fi
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(tmux list-sessions -F '#S' | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+if [[ -z $TMUX ]]; then
+    if tmux has-session -t=$selected_name 2> /dev/null; then
+        tmux attach-session -t $selected_name -c $selected
+    else
+        tmux new-session -s $selected_name -c $selected
+    fi
+    exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name -c $selected
+fi
+
+tmux switch-client -t $selected_name
