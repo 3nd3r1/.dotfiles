@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 tmux start-server
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(tmux list-sessions -F '#S' | fzf)
+    selected=$(tmux list-sessions -F '#S' | fzf --print-query | awk 'END{print}')
 fi
 
 if [[ -z $selected ]]; then
