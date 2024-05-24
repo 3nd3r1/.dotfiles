@@ -1,51 +1,49 @@
-autoload -U colors && colors
 
-setopt autocd
-stty stop undef
-setopt interactive_comments
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 
-# File completions
+ZSH_THEME="pain"
+
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# zstyle ':omz:update' frequency 13
+
+# DISABLE_MAGIC_FUNCTIONS="true"
+# DISABLE_LS_COLORS="true"
+# DISABLE_AUTO_TITLE="true"
+# ENABLE_CORRECTION="true"
+# COMPLETION_WAITING_DOTS="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# HIST_STAMPS="mm/dd/yyyy"
+ZSH_CUSTOM="$XDG_CONFIG_HOME/oh-my-zsh/custom"
+
+# Use vi movements in menus
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
-
-# Move with vim in menus
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
-# Git info in prompt
-autoload -Uz vcs_info
-precmd_functions+=( vcs_info )
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats '%F{7} %F{4}(%b)%r%f'
-zstyle ':vcs_info:*' enable git
+# Tmux settings
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=false
+ZSH_TMUX_AUTOQUIT=true
+ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
+ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 
-# Prompt
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+plugins=(git fzf nvm zoxide tmux zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker)
+
+source $ZSH/oh-my-zsh.sh
+
+# zsh-autosuggestions settings
+bindkey '^ ' autosuggest-accept
+
+# User configuration
 
 # Load aliases and vars
 [ -f ~/.env.zsh ] && source ~/.env.zsh
 
 # Load private aliases and vars
 [ -f ~/.env.private.zsh ] && source ~/.env.private.zsh
-
-# Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Load nvm
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# zoxide
-eval "$(zoxide init zsh)"
-
-# start tmux if not already running
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux new-session -A -s terminal
-fi
