@@ -17,7 +17,7 @@ ZSH_THEME="pain"
 # HIST_STAMPS="mm/dd/yyyy"
 ZSH_CUSTOM="$XDG_CONFIG_HOME/oh-my-zsh/custom"
 
-# Use vi movements in menus
+# Completions
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -32,14 +32,16 @@ ZSH_TMUX_AUTOQUIT=true
 ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
 ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 
+# Custom completions
+fpath=($ZSH_CUSTOM/completions $fpath)
+
 plugins=(git fzf nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker)
 
 source $ZSH/oh-my-zsh.sh
 
+
 # zsh-autosuggestions settings
 bindkey '^ ' autosuggest-accept
-
-# User configuration
 
 # Load aliases and vars
 [ -f ~/.env.zsh ] && source ~/.env.zsh
