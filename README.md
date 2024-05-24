@@ -20,10 +20,19 @@ Here are all my .dotfiles
 
 - Install packages
     ```
-    sudo apt-get install picom blueman xorg-dev arandr i3lock-fancy rofi xclip stow xsel rlwrap
+    sudo apt-get install zsh picom blueman xorg-dev arandr i3lock-fancy rofi xclip stow xsel rlwrap
     ```
 - [Install nvim](https://github.com/3nd3r1/init.lua)
 - Install zoxide
     ```
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    ```
+- Install oh-my-zsh
+    ```
+    ZSH=$HOME/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ```
+- Install cht.sh
+    ```
+    curl https://cht.sh/:cht.sh > "$HOME/.local/bin/cht.sh"
+    chmod +x "$HOME/.local/bin/cht.sh"
     ```
