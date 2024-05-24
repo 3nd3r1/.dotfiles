@@ -1,4 +1,3 @@
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 
@@ -33,7 +32,7 @@ ZSH_TMUX_AUTOQUIT=true
 ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
 ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 
-plugins=(git fzf nvm zoxide tmux zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker)
+plugins=(git fzf nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker)
 
 source $ZSH/oh-my-zsh.sh
 
