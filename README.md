@@ -31,6 +31,14 @@ Here are all my .dotfiles
     ```
     ZSH=$HOME/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     ```
+- Install zsh-autosuggestions
+    ```
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions
+    ```
+- Install zsh-syntax-highlighting
+    ```
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    ```
 - Install cht.sh
     ```
     curl https://cht.sh/:cht.sh > "$HOME/.local/bin/cht.sh"
