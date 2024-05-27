@@ -32,10 +32,14 @@ ZSH_TMUX_AUTOQUIT=true
 ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
 ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 
+# Fzf settings
+DISABLE_FZF_AUTO_COMPLETION="true"
+DISABLE_FZF_KEY_BINDINGS="false"
+
 # Custom completions
 fpath=($ZSH_CUSTOM/completions $fpath)
 
-plugins=(git fzf nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker)
+plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf)
 
 source $ZSH/oh-my-zsh.sh
 
