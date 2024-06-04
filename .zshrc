@@ -39,7 +39,7 @@ DISABLE_FZF_KEY_BINDINGS="false"
 # Custom completions
 fpath=($ZSH_CUSTOM/completions $fpath)
 
-plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf)
+plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang)
 
 source $ZSH/oh-my-zsh.sh
 
