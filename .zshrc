@@ -43,7 +43,6 @@ plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
-
 # zsh-autosuggestions settings
 bindkey '^ ' autosuggest-accept
 
