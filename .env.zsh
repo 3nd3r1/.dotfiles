@@ -7,3 +7,4 @@ alias myscrot='scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png'
 
 [ -s "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 export PATH="$PATH:/opt/nvim-linux64/bin"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

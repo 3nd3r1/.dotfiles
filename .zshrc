@@ -36,6 +36,12 @@ ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 DISABLE_FZF_AUTO_COMPLETION="true"
 DISABLE_FZF_KEY_BINDINGS="false"
 
+# Load aliases and vars
+[ -f ~/.env.zsh ] && source ~/.env.zsh
+
+# Load private aliases and vars
+[ -f ~/.env.private.zsh ] && source ~/.env.private.zsh
+
 # Custom completions
 fpath=($ZSH_CUSTOM/completions $fpath)
 
@@ -46,8 +52,4 @@ source $ZSH/oh-my-zsh.sh
 # zsh-autosuggestions settings
 bindkey '^ ' autosuggest-accept
 
-# Load aliases and vars
-[ -f ~/.env.zsh ] && source ~/.env.zsh
 
-# Load private aliases and vars
-[ -f ~/.env.private.zsh ] && source ~/.env.private.zsh
