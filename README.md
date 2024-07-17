@@ -7,10 +7,11 @@ Here are all my .dotfiles
 - neovim 
 - qtile
 - tmux
-- zsh
+- zsh (oh-my-zsh)
 - st
 - Theme: Material-Black-Plum-BE
 - Icons: Material-Black-Plum-Suru
+- Font: [MesloLG Nerd Font](https://github.com/andreberg/Meslo-Font)
 
 ## Preview
 
