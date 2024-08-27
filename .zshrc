@@ -39,15 +39,15 @@ DISABLE_FZF_KEY_BINDINGS="false"
 # Custom completions
 fpath=($ZSH_CUSTOM/completions $fpath)
 
-plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang)
-
-source $ZSH/oh-my-zsh.sh
-
 # Load aliases and vars
 [ -f ~/.env.zsh ] && source ~/.env.zsh
 
 # Load private aliases and vars
 [ -f ~/.env.private.zsh ] && source ~/.env.private.zsh
+
+plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang)
+
+source $ZSH/oh-my-zsh.sh
 
 # zsh-autosuggestions settings
 bindkey '^ ' autosuggest-accept
