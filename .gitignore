@@ -1,3 +1,4 @@
 **/__pycache__/**
 **/.config/qtile/local.env
-.env.private.zsh
+.aliases.private.zsh
+.path.private.zsh

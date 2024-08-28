@@ -35,8 +35,16 @@ ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 # Fzf settings
 DISABLE_FZF_AUTO_COMPLETION="true"
 DISABLE_FZF_KEY_BINDINGS="false"
+FZF_CTRL_T_COMMAND='find -L . -mindepth 1'
+FZF_ALT_C_COMMAND='find -L . -type d -mindepth 1'
 
-plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang)
+# Load path
+[ -f ~/.path.zsh ] && source ~/.path.zsh
+
+# Load private path
+[ -f ~/.path.private.zsh ] && source ~/.path.private.zsh
+
+plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang brew)
 
 # Custom completions
 fpath=($ZSH_CUSTOM/completions $fpath)
@@ -46,8 +54,8 @@ source $ZSH/oh-my-zsh.sh
 # zsh-autosuggestions settings
 bindkey '^ ' autosuggest-accept
 
-# Load aliases and vars
-[ -f ~/.env.zsh ] && source ~/.env.zsh
+# Load aliases
+[ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
 
-# Load private aliases and vars
-[ -f ~/.env.private.zsh ] && source ~/.env.private.zsh
+# Load private aliases
+[ -f ~/.aliases.private.zsh ] && source ~/.aliases.private.zsh
