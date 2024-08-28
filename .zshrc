@@ -38,10 +38,10 @@ DISABLE_FZF_KEY_BINDINGS="false"
 FZF_CTRL_T_COMMAND='find -L . -mindepth 1'
 FZF_ALT_C_COMMAND='find -L . -type d -mindepth 1'
 
-# Load path
+# Load path and fpath
 [ -f ~/.path.zsh ] && source ~/.path.zsh
 
-# Load private path
+# Load private path and fpath
 [ -f ~/.path.private.zsh ] && source ~/.path.private.zsh
 
 plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang brew)
