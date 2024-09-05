@@ -81,9 +81,11 @@ primary_widgets = [
         colour_have_updates=colors['text'],
         colour_no_updates=colors['text'],
         no_update_string='0',
+        initial_text='0',
         display_format='{updates}',
         update_interval=1800,
         distro="Ubuntu",
+        execute="st -e sudo apt-get upgrade"
     ),
 
     powerline('color4', 'color5'),
