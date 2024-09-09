@@ -21,7 +21,7 @@ Here are all my .dotfiles
 
 - Install packages
     ```
-    sudo apt-get install zsh picom blueman xorg-dev arandr i3lock-fancy rofi xclip stow xsel rlwrap
+    sudo apt-get install zsh picom blueman xorg-dev arandr i3lock-fancy rofi xclip stow xsel rlwrap aptitude
     ```
 - [Install tmux](https://github.com/3nd3r1/.tmux)
 - [Install nvim](https://github.com/3nd3r1/init.lua)
