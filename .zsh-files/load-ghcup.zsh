@@ -1,1 +1,1 @@
-[ -f "/home/viljami/.ghcup/env" ] && . "/home/viljami/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env

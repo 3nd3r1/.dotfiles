@@ -1,1 +1,1 @@
-. "/home/viljami/.deno/env"
+. "$HOME/.deno/env"
