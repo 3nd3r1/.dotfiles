@@ -44,7 +44,7 @@ FZF_ALT_C_COMMAND='find -L . -type d -mindepth 1'
 # Load private path and fpath
 [ -f ~/.path.private.zsh ] && source ~/.path.private.zsh
 
-plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang brew gcloud poetry-env poetry virtualenv rust deno)
+plugins=(git nvm zoxide tmux vi-mode zsh-autosuggestions zsh-syntax-highlighting helm kubectl docker fzf golang gcloud poetry-env poetry virtualenv rust deno)
 
 # Custom completions
 fpath=($ZSH_CUSTOM/completions $fpath)

@@ -9,7 +9,7 @@ Here are all my .dotfiles
 - tmux
 - zsh (oh-my-zsh)
 - st
-- brew (Yes I use brew on linux. For me its the best option for packages not in apt)
+- nix
 - Theme: Material-Black-Plum-BE
 - Icons: Material-Black-Plum-Suru
 - Font: [MesloLG Nerd Font](https://github.com/andreberg/Meslo-Font)
@@ -24,13 +24,13 @@ Here are all my .dotfiles
     ```
     sudo apt-get install zsh picom blueman xorg-dev arandr i3lock-fancy rofi xclip stow xsel rlwrap aptitude
     ```
-- Install brew
+- Install nix
     ```
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    sh <(curl -L https://nixos.org/nix/install) --daemon
     ```
-- Install brew packages
+- Install nix packages
     ```
-    brew install zoxide lazygit
+    nix-env -i kubernetes-helm kotlin krew yq zoxide lazygit
     ```
 - Install oh-my-zsh
     ```
