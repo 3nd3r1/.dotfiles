@@ -101,9 +101,9 @@ primary_widgets = [
                   fontsize=17,
                   emoji=True,
                   emoji_list=[' 󰝟 ', ' 󰕿 ', ' 󰖀 ', ' 󰕾 '],
-                  mouse_callbacks={'Button3': lazy.spawn('st -e pulsemixer')}),
+                  mouse_callbacks={'Button3': lazy.spawn('st -e pavucontrol')}),
     widget.Volume(**base(bg='color3'), device='pulse',
-                  mouse_callbacks={'Button3': lazy.spawn('st -e pulsemixer')}),
+                  mouse_callbacks={'Button3': lazy.spawn('st -e pavucontrol')}),
 
     powerline('color2', 'color3'),
 
