@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -16,8 +15,10 @@
 
   networking.hostName = "enderlaptop"; # Define your hostname.
   # Pick only one of the below networking options.
-  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.wireless.enable =
+    false; # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";
@@ -38,31 +39,46 @@
   # Enable the X11 windowing system.
   services.xserver.enable = false;
 
-	services.displayManager.sddm = {
-		enable = true;
-		wayland.enable = true;
-	};
-	programs.zsh = {
-		enable = true;
-		syntaxHighlighting.enable = true;
-		autosuggestions.enable = true;
-		enableCompletion = true;
-		ohMyZsh = {
-		    enable = true;
-		    theme = "pain";
-		    custom = "/home/ender/.config/oh-my-zsh/custom";
-		    plugins = [ "git" "nvm" "zoxide" "tmux" "vi-mode" "helm" "kubectl" "docker" "fzf" "golang" "gcloud" "poetry-env" "poetry" "virtualenv" "rust" "deno" ];
-		};
-	};
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
+    enableCompletion = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "pain";
+      custom = "/home/ender/.config/oh-my-zsh/custom";
+      plugins = [
+        "git"
+        "nvm"
+        "zoxide"
+        "tmux"
+        "vi-mode"
+        "helm"
+        "kubectl"
+        "docker"
+        "fzf"
+        "golang"
+        "gcloud"
+        "poetry-env"
+        "poetry"
+        "virtualenv"
+        "rust"
+        "deno"
+      ];
+    };
+  };
 
-	programs.tmux = {
-		enable = true;
-	};
+  programs.tmux = { enable = true; };
 
-	programs.hyprland = {
-		enable = true;
-		xwayland.enable = true;
-	};
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -76,7 +92,7 @@
   # OR
   services.pipewire = {
     enable = true;
-		alsa.enable = true;
+    alsa.enable = true;
     pulse.enable = true;
   };
 
@@ -86,39 +102,40 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ender = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ]; # Enable ‘sudo’ for the user.
-		shell = pkgs.zsh;
-    packages = with pkgs; [
-      rose-pine-hyprcursor
-    ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "audio"
+      "video"
+    ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+    packages = with pkgs; [ rose-pine-hyprcursor ];
   };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
 
-  environment.sessionVariables = rec {
-    NIXOS_OZONE_WL = "1";
-  };
+  environment.sessionVariables = rec { NIXOS_OZONE_WL = "1"; };
 
   environment.systemPackages = with pkgs; [
     vim
     wget
-neofetch
-stow
-oh-my-zsh
-		curl
-		hyprland
-		waybar
-		kitty
-		neovim
-		brave
-		git
-		zoxide
-		fzf
-		tmux
+    neofetch
+    stow
+    oh-my-zsh
+    curl
+    hyprland
+    waybar
+    kitty
+    neovim
+    brave
+    git
+    zoxide
+    fzf
+    tmux
   ];
 
-	nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

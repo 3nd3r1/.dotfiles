@@ -30,7 +30,6 @@
     # '';
   };
 
-
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -51,25 +50,24 @@
     # EDITOR = "emacs";
   };
 
-    services.ssh-agent = {
-      enable = true;
-    };
+  services.ssh-agent = { enable = true; };
 
   home.packages = with pkgs; [
-	ripgrep
-	python3
-	gcc
+    ripgrep
+    python3
+    gcc
     nodejs_24
-	yaml-language-server
+    yaml-language-server
+    lazygit
   ];
 
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/dotfiles/nvim";
 
-programs.ssh = {
-  enable = true;
-  addKeysToAgent = "yes";
-};
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
