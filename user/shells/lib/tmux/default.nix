@@ -28,7 +28,6 @@ in {
         prefix-highlight
         yank
         tmux-fzf
-        sysstat
         #tmux-window-name
         #kube-tmux
       ] ++ theme;

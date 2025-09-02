@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 [{
-  plugin = pkgs.tmuxPlugins.tokyo-night-tmux;
+  plugin = pkgs.tmuxPlugins.sysstat;
   extraConfig = ''
     color_dark="color0"
     color_light="color7"
