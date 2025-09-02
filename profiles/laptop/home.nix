@@ -1,5 +1,5 @@
-{ lib, config, settings, pkgs, ... }: let
-  details = settings.themeDetails;
+{ lib, config, settings, pkgs, ... }:
+let details = settings.themeDetails;
 in {
 
   imports = [
@@ -16,7 +16,7 @@ in {
     homeDirectory = "/home/${settings.username}";
   };
 
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [ neofetch ];
 
   home.sessionVariables = {
     EDITOR = settings.preferredEditor;

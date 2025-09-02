@@ -4,22 +4,22 @@
 
   # Stylix palette override.
   override = {
-    base00 = "000000"; # background (black)
-    base01 = "800080"; # lighter background
-    base02 = "EE82EE"; # selection background
-    base03 = "800080"; # comments
-    base04 = "ff8000"; # dark foreground
-    base05 = "72147E"; # default foreground
-    base06 = "FF5200"; # light foreground
-    base07 = "ffffff"; # lightest foreground (white)
-    base08 = "808080"; # variables (gray50)
-    base09 = "800080"; # integers
-    base0A = "EE82EE"; # classes
-    base0B = "800080"; # strings
-    base0C = "ff8000"; # support
-    base0D = "72147E"; # functions
-    base0E = "FF5200"; # keywords
-    base0F = "e5e5e5"; # deprecated (gray90)
+    base00 = "000000"; # Your color 0
+    base01 = "1a1a1a"; # Base16 convention (darker gray)
+    base02 = "2d2d2d"; # Base16 convention
+    base03 = "404040"; # Base16 convention
+    base04 = "a0a0a0"; # Base16 convention
+    base05 = "ffffff"; # Your color 7 (white) - main foreground
+    base06 = "e0e0e0"; # Base16 convention
+    base07 = "ffffff"; # Your color 15 (gray90 -> white)
+    base08 = "800080"; # Your color 1 (purple)
+    base09 = "ff8000"; # Your color 4 (orange)
+    base0A = "EE82EE"; # Your color 2 (light purple)
+    base0B = "800080"; # Your color 3 (purple)
+    base0C = "72147E"; # Your color 5 (dark magenta)
+    base0D = "FF5200"; # Your color 6 (red-orange)
+    base0E = "800080"; # Your color 9 (purple)
+    base0F = "EE82EE"; # Your color 10 (light purple)
   };
 
   # Override stylix theme of btop.
