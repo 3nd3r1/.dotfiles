@@ -1,66 +1,45 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, pkgs, ... }:
+{ pkgs, lib, settings, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ]
+    ++ (map (wm: ../../system/wm/${wm}.nix) settings.wms);
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "enderlaptop"; # Define your hostname.
-  # Pick only one of the below networking options.
-  networking.wireless.enable =
-    false; # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable =
-    true; # Easiest to use and most distros use this by default.
+  # Nix thing
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Set your time zone.
-  time.timeZone = "Europe/Helsinki";
+  # Networking
+  networking.hostName = settings.hostname;
+  networking.networkmanager.enable = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Timezone
+  time.timeZone = settings.timezone;
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  # Locale
+  i18n.defaultLocale = settings.locale;
   console.keyMap = "fi";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = false;
+  # Shell
+  programs.${settings.shell}.enable = true;
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
+  # Users.
+  users.users.${settings.username} = {
+    isNormalUser = true;
+    shell = settings.shellPkg;
+    description = settings.username;
+    extraGroups = [ "wheel" ];
   };
 
+  # Misc
   programs.tmux = { enable = true; };
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  services.pulseaudio.enable = false;
-  # OR
+  # Sound
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -70,41 +49,23 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ender = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "audio"
-      "video"
-    ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-    packages = with pkgs; [ rose-pine-hyprcursor ];
-  };
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
 
   environment.sessionVariables = rec { NIXOS_OZONE_WL = "1"; };
 
   environment.systemPackages = with pkgs; [
+    home-manager
     vim
     xsel
     wget
-    neofetch
-    stow
     oh-my-zsh
     curl
-    hyprland
-    waybar
     kitty
     neovim
-    brave
     git
     zoxide
     fzf
-    tmux
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -151,6 +112,5 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
 
