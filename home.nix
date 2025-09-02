@@ -72,6 +72,14 @@
     # EDITOR = "emacs";
   };
 
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+  };
+
+  # SSH agent service
+  services.ssh-agent.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
