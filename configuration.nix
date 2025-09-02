@@ -43,35 +43,6 @@
     enable = true;
     wayland.enable = true;
   };
-  programs.zsh = {
-    enable = true;
-    syntaxHighlighting.enable = true;
-    autosuggestions.enable = true;
-    enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "pain";
-      custom = "/home/ender/.config/oh-my-zsh/custom";
-      plugins = [
-        "git"
-        "nvm"
-        "zoxide"
-        "tmux"
-        "vi-mode"
-        "helm"
-        "kubectl"
-        "docker"
-        "fzf"
-        "golang"
-        "gcloud"
-        "poetry-env"
-        "poetry"
-        "virtualenv"
-        "rust"
-        "deno"
-      ];
-    };
-  };
 
   programs.tmux = { enable = true; };
 
@@ -119,6 +90,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    xsel
     wget
     neofetch
     stow
