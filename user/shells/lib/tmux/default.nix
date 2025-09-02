@@ -1,4 +1,6 @@
-{ pkgs, settings, ... }: {
+{ pkgs, settings, ... }:
+let theme = import ./themes/pain.nix { inherit pkgs; };
+in {
   programs.tmux = {
     enable = true;
     prefix = "C-a";
@@ -6,29 +8,30 @@
     escapeTime = 0;
     mouse = true;
     historyLimit = 10000;
-    plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
-      {
-        plugin = resurrect;
-        extraConfig = ''
-          set -g @resurrect-save 'C-F1'
-          set -g @resurrect-restore 'C-F2'
-        '';
-      }
-      {
-        plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-        '';
-      }
-      sensible
-      prefix-highlight
-      yank
-      tmux-fzf
-      sysstat
-      #tmux-window-name
-      #kube-tmux
-    ];
+    plugins = with pkgs.tmuxPlugins;
+      [
+        vim-tmux-navigator
+        {
+          plugin = resurrect;
+          extraConfig = ''
+            set -g @resurrect-save 'C-F1'
+            set -g @resurrect-restore 'C-F2'
+          '';
+        }
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+          '';
+        }
+        sensible
+        prefix-highlight
+        yank
+        tmux-fzf
+        sysstat
+        #tmux-window-name
+        #kube-tmux
+      ] ++ theme;
     extraConfig = ''
       # Tmux nesting
       if-shell 'test -n "$SSH_CLIENT"' 'unbind F12'

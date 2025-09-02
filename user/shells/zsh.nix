@@ -46,7 +46,7 @@
         ZSH_TMUX_AUTOSTART=true
         ZSH_TMUX_AUTOSTART_ONCE=false
         ZSH_TMUX_AUTOQUIT=true
-        ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
+        ZSH_TMUX_CONFIG="/home/ender/.config/tmux/tmux.conf"
         ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 
         # Fzf settings
