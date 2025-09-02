@@ -80,7 +80,10 @@
     pulse.enable = true;
   };
 
-  programs.ssh.startAgent = true;
+  programs.ssh = {
+    enable = true;
+    startAgent = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
