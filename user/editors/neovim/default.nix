@@ -1,8 +1,9 @@
-{ settings, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
 
   home.packages = with pkgs; [
     ripgrep
     python3
+    cargo
     gcc
     nodejs_24
     yaml-language-server

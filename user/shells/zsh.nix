@@ -11,9 +11,9 @@
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       theme = "pain";
       custom = "/home/ender/.config/oh-my-zsh/custom";
