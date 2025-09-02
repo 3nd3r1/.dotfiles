@@ -76,9 +76,14 @@
 	  enable = true;
 	};
 
-	programs.ssh = {
-	  enable = true;
-	};
+programs.ssh = {
+  enable = true;
+  addKeysToAgent = "yes";
+  extraConfig = ''
+    AddKeysToAgent yes
+    UseKeychain yes
+  '';
+};
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
