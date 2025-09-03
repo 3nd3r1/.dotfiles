@@ -15,6 +15,9 @@
   networking.hostName = settings.hostname;
   networking.networkmanager.enable = true;
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # Timezone
   time.timeZone = settings.timezone;
 
@@ -30,7 +33,7 @@
     isNormalUser = true;
     shell = settings.shellPkg;
     description = settings.username;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
   };
 
   # Misc
