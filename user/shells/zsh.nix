@@ -43,9 +43,9 @@
         bindkey -M menuselect 'l' vi-forward-char
         bindkey -M menuselect 'j' vi-down-line-or-history
 
-        ZSH_TMUX_AUTOSTART=false
+        ZSH_TMUX_AUTOSTART=true
         ZSH_TMUX_AUTOSTART_ONCE=false
-        ZSH_TMUX_AUTOQUIT=false
+        ZSH_TMUX_AUTOQUIT=true
         ZSH_TMUX_CONFIG="/home/ender/.config/tmux/tmux.conf"
         ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 
