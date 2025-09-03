@@ -8,9 +8,9 @@
    xkb = {
 	variant = "";
 	layout = "fi";
-}
+};
 	displayManager.startx.enable = true;
-  }
+  };
 
 
   programs = {
