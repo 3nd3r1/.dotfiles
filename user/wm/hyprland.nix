@@ -13,17 +13,19 @@
       inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     settings = {
       exec-once = [
-        # Save environment info for debugging
-        "env > /tmp/hyprland_env.log"
-        "echo 'DISPLAY: '$DISPLAY >> /tmp/hyprland_env.log"
-        "echo 'WAYLAND_DISPLAY: '$WAYLAND_DISPLAY >> /tmp/hyprland_env.log"
-        "echo 'XDG_SESSION_TYPE: '$XDG_SESSION_TYPE >> /tmp/hyprland_env.log"
+        # Check if processes start and stay running
+        "sleep 1 && ps aux > /tmp/processes_after_start.log"
+        "foot &"
+        "sleep 3"
+        "ps aux | grep foot > /tmp/foot_processes.log"
+        "hyprctl clients > /tmp/hyprland_clients.log"
 
-        # Try launching terminal with debug output
-        "foot 2>&1 > /tmp/foot_debug.log &"
+        # Try multiple terminals
+        "alacritty 2>&1 > /tmp/alacritty_debug.log &"
+        "kitty 2>&1 > /tmp/kitty_debug.log &"
 
-        # Check if XWayland is running
-        "ps aux | grep -i xwayland > /tmp/xwayland_status.log"
+        # Test if any GUI app works
+        "notify-send 'Test' 'Notification' 2>&1 > /tmp/notify_debug.log"
       ];
     };
   };
