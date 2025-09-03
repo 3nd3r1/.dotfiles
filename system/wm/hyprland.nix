@@ -9,18 +9,22 @@
 	variant = "";
 	layout = "fi";
 };
-	displayManager.startx.enable = true;
   };
 
+	services.displayManager.sddm = {
+		enable = true;
+		wayland.enable = true;
+	};
 
-  programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.default;
-      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
-    };
-  };
+
+	  programs = {
+	    hyprland = {
+	      enable = true;
+	      xwayland.enable = true;
+	      package = inputs.hyprland.packages.${pkgs.system}.default;
+	      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+	    };
+	  };
 
 	xdg.portal = {
 	enable = true;
