@@ -17,7 +17,6 @@
 
   # Virtualbox
   virtualisation.virtualbox.guest.enable = true;
-  system.copySystemConfiguration = true;
 
   # Timezone
   time.timeZone = settings.timezone;
