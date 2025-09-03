@@ -5,33 +5,31 @@
 
   services.xserver = {
     enable = true;
-   xkb = {
-	variant = "";
-	layout = "fi";
-};
+    xkb = {
+      variant = "";
+      layout = "fi";
+    };
   };
 
-	services.displayManager.sddm = {
-		enable = true;
-		wayland.enable = true;
-	};
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.default;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    };
+  };
 
-	  programs = {
-	    hyprland = {
-	      enable = true;
-	      xwayland.enable = true;
-	      package = inputs.hyprland.packages.${pkgs.system}.default;
-	      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
-	    };
-	  };
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config = { hyprland.default = [ "hyprland" ]; };
 
-	xdg.portal = {
-	enable = true;
-	xdgOpenUsePortal = true;
-	config = {
-		hyprland.default = ["hyprland"];
-	};
-
-	};
+  };
 }

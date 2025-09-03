@@ -7,6 +7,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.kernelModules = [ "vboxquest" "vboxsf" "vboxvideo" ];
 
   # Nix thing
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -16,7 +17,10 @@
   networking.networkmanager.enable = true;
 
   # Virtualbox
-  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest = {
+    enable = true;
+    clipboard = true;
+  };
 
   # Timezone
   time.timeZone = settings.timezone;
@@ -52,7 +56,12 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
 
-  environment.sessionVariables = rec { NIXOS_OZONE_WL = "1"; };
+  environment.sessionVariables = rec {
+    NIXOS_OZONE_WL = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_RENDERER_ALLOW_SOFTWARE = "1";
+    LIBGL_ALWAYS_SOFTWARE = "1";
+  };
 
   environment.systemPackages = with pkgs; [
     home-manager
