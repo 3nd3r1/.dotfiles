@@ -1,8 +1,8 @@
 { pkgs, inputs, ... }: rec {
   system = "x86_64-linux";
-  hostname = "enderlaptop"; # Hostname
+  hostname = "endervm"; # Hostname
   username = "ender"; # Username
-  profile = "laptop"; # Select from profiles directory
+  profile = "vm"; # Select from profiles directory
   timezone = "Europe/Helsinki"; # Select timezone
   locale = "en_US.UTF-8"; # Select locale
   name = "3nd3r1"; # Name (git config)
