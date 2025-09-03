@@ -3,12 +3,15 @@
 {
   environment.systemPackages = [ pkgs.wayland pkgs.wl-clipboard ];
 
-  services.xserver.enable = false;
-
-  services.displayManager.sddm = {
+  services.xserver = {
     enable = true;
-    wayland.enable = true;
-  };
+   xkb = {
+	variant = "";
+	layout = "fi";
+}
+	displayManager.startx.enable = true;
+  }
+
 
   programs = {
     hyprland = {
@@ -16,4 +19,13 @@
       xwayland.enable = true;
     };
   };
+
+	xdg.portal = {
+	enable = true;
+	xdgOpenUsePortal = true;
+	config = {
+		hyprland.default = ["hyprland"];
+	};
+
+	};
 }
