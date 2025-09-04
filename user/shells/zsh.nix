@@ -16,8 +16,12 @@
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
-      oldvim = "\vim";
+      oldvim = "vim";
     };
+    initContent = ''
+        USERNAME="$USER"
+        bindkey '^ ' autosuggest-accept
+    '';
     oh-my-zsh = {
       enable = true;
       theme = "pain";
@@ -41,6 +45,8 @@
         "deno"
       ];
       extraConfig = ''
+        autoload -U colors && colors
+
         zstyle ':completion:*' menu select
         zmodload zsh/complist
         bindkey -M menuselect 'h' vi-backward-char
@@ -62,8 +68,6 @@
         FZF_ALT_C_COMMAND='find -L . -type d -mindepth 1'
 
         fpath=($ZSH_CUSTOM/completions $fpath)
-
-        bindkey '^ ' autosuggest-accept
       '';
     };
   };

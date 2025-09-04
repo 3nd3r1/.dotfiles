@@ -12,10 +12,11 @@ in {
 
   home.packages = with pkgs; [ neofetch docker ];
 
-  # home.sessionVariables = {
-  #   EDITOR = settings.preferredEditor;
-  #   BROWSER = settings.preferredBrowser;
-  # };
+  home.sessionVariables = {
+    EDITOR = settings.preferredEditor;
+    BROWSER = settings.preferredBrowser;
+    USERNAME = settings.username;
+  };
 
   # stylix = {
   #   enable = true;
