@@ -1,5 +1,5 @@
 {
-  description = "My minimal NixOS flake";
+  description = "My minimal NixOS flake with multiple profiles";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -17,39 +17,45 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      settings = import (./. + "/settings.nix") { inherit pkgs inputs; };
-      pkgs = import nixpkgs { system = settings.system; };
-    in {
-      # NixOS configuration entrypoint.
-      # 'nixos-rebuild switch --flake .#hostname
-      nixosConfigurations = {
-        ${settings.hostname} = nixpkgs.lib.nixosSystem {
-          specialArgs = {
+      profiles = [ "laptop" "vm" "work" ];
+
+      mkNixosConfiguration = profile:
+        let
+          settings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit inputs;
-            inherit settings;
           };
+          pkgs = import nixpkgs { system = settings.system; };
+        in nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs settings; };
           modules = [
-            (./. + "/profiles" + ("/" + settings.profile)
-              + "/configuration.nix")
+            (./. + "/profiles/${profile}/configuration.nix")
             inputs.stylix.nixosModules.stylix
           ];
         };
-      };
 
-      # Standalone home-manager configuration entrypoint.
-      # 'home-manager switch --flake .#username
-      homeConfigurations = {
-        ${settings.username} = home-manager.lib.homeManagerConfiguration {
+      mkHomeConfiguration = profile:
+        let
+          settings = import (./. + "/profiles/${profile}/settings.nix") {
+            inherit inputs;
+          };
+        in home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${settings.system};
           modules = [
-            (./. + "/profiles" + ("/" + settings.profile) + "/home.nix")
+            (./. + "/profiles/${profile}/home.nix")
             inputs.stylix.homeModules.stylix
           ];
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit settings;
-          };
+          extraSpecialArgs = { inherit inputs settings; };
         };
-      };
+
+    in {
+      nixosConfigurations = nixpkgs.lib.listToAttrs (map (profile: {
+        name = profile;
+        value = mkNixosConfiguration profile;
+      }) profiles);
+
+      homeConfigurations = nixpkgs.lib.listToAttrs (map (profile: {
+        name = profile;
+        value = mkHomeConfiguration profile;
+      }) profiles);
     };
 }
