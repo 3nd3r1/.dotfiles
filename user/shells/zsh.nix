@@ -3,8 +3,8 @@
 {
   imports = [ ./lib/tmux ];
   # Move the custom directory
-  home.file.".config/oh-my-zsh".source = config.lib.file.mkOutOfStoreSymlink
-    "${settings.dotfilesDir}/oh-my-zsh";
+  home.file.".config/oh-my-zsh".source =
+    config.lib.file.mkOutOfStoreSymlink "${settings.dotfilesDir}/oh-my-zsh";
 
   programs.tmux.shell = "${pkgs.zsh}/bin/zsh";
 
@@ -13,6 +13,11 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
+    shellAliases = {
+      vi = "nvim";
+      vim = "nvim";
+      oldvim = "\vim";
+    };
     oh-my-zsh = {
       enable = true;
       theme = "pain";
@@ -43,10 +48,11 @@
         bindkey -M menuselect 'l' vi-forward-char
         bindkey -M menuselect 'j' vi-down-line-or-history
 
+        # Tmux
         ZSH_TMUX_AUTOSTART=true
         ZSH_TMUX_AUTOSTART_ONCE=false
         ZSH_TMUX_AUTOQUIT=true
-        ZSH_TMUX_CONFIG="/home/ender/.config/tmux/tmux.conf"
+        ZSH_TMUX_CONFIG="${config.home.homeDirectory}/.config/tmux/tmux.conf"
         ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
 
         # Fzf settings

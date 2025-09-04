@@ -6,8 +6,11 @@ in {
     prefix = "C-a";
     terminal = "tmux-256color";
     escapeTime = 0;
+    baseIndex = 1;
     mouse = true;
-    historyLimit = 10000;
+    historyLimit = 20000;
+    aggressiveResize = true;
+    keyMode = "vi";
     plugins = with pkgs.tmuxPlugins;
       [
         vim-tmux-navigator
@@ -32,6 +35,20 @@ in {
         #kube-tmux
       ] ++ theme;
     extraConfig = ''
+      # ==========================
+      # ===  General settings  ===
+      # ==========================
+      set -g display-time 1500
+      set -g remain-on-exit off
+      set -g repeat-time 300
+      set -g set-clipboard on
+      setw -g allow-rename off
+      setw -g automatic-rename off
+
+      # Set parent terminal title to reflect current window in tmux session 
+      set -g set-titles on
+      set -g set-titles-string "#I:#W"
+
       # Tmux nesting
       if-shell 'test -n "$SSH_CLIENT"' 'unbind F12'
       bind -T root F12  \
@@ -47,9 +64,9 @@ in {
         set -u key-table \;\
         refresh-client -S
 
-      ####################
-      #     Shortcuts    #
-      ####################
+      # ==========================
+      # ===   Key bindings     ===
+      # ==========================
 
       # new window and retain cwd
       bind c new-window -c "#{pane_current_path}"

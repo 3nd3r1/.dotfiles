@@ -3,6 +3,9 @@
 [{
   plugin = pkgs.tmuxPlugins.sysstat;
   extraConfig = ''
+    # =====================================
+    # ===           Theme               ===
+    # =====================================
     color_dark="color0"
     color_light="color7"
     color_session_text="color3"
@@ -15,6 +18,11 @@
     color_window_off_indicator="colour088"
     color_window_off_status_bg="colour238"
     color_window_off_status_current_bg="colour254"
+
+    # =====================================
+    # ===    Appearence and status bar  ===
+    # ======================================
+
     set -g mode-style "fg=default,bg=$color_main"
 
     # command line style
@@ -58,5 +66,29 @@
     set -g status-right-length 120
     set -g status-left "$wg_session"
     set -g status-right "#{prefix_highlight} $wg_is_keys_off $wg_is_zoomed #{sysstat_cpu}  #{sysstat_mem}   $wg_kube_context  $wg_host"
+
+    # Configure view templates for tmux-plugin-sysstat "MEM" and "CPU" widget
+    set -g @sysstat_mem_view_tmpl 'MEM:#[fg=#{mem.color}]#{mem.pused}#[default] #{mem.used}'
+
+    # Configure colors for tmux-plugin-sysstat "MEM" and "CPU" widget
+    set -g @sysstat_cpu_color_low "$color_level_ok"
+    set -g @sysstat_cpu_color_medium "$color_level_warn"
+    set -g @sysstat_cpu_color_stress "$color_level_stress"
+
+    set -g @sysstat_mem_color_low "$color_level_ok"
+    set -g @sysstat_mem_color_medium "$color_level_warn"
+    set -g @sysstat_mem_color_stress "$color_level_stress"
+
+    set -g @sysstat_swap_color_low "$color_level_ok"
+    set -g @sysstat_swap_color_medium "$color_level_warn"
+    set -g @sysstat_swap_color_stress "$color_level_stress"
+
+    # Configure tmux-prefix-highlight colors
+    set -g @prefix_highlight_output_prefix '['
+    set -g @prefix_highlight_output_suffix ']'
+    set -g @prefix_highlight_fg "$color_dark"
+    set -g @prefix_highlight_bg "$color_secondary"
+    set -g @prefix_highlight_show_copy_mode 'on'
+    set -g @prefix_highlight_copy_mode_attr "fg=$color_dark,bg=$color_secondary"
   '';
 }]
