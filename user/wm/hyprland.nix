@@ -1,6 +1,8 @@
 { inputs, config, lib, settings, pkgs, ... }:
 
 {
+  imports = [ ./waybar ];
+
   home.packages = with pkgs; [ hyprcursor rose-pine-hyprcursor ];
 
   wayland.windowManager.hyprland = {
