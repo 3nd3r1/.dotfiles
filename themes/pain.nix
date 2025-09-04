@@ -27,7 +27,7 @@
 
   # Hyprland and ags.
   opacity = 0.8;
-  rounding = 25;
+  rounding = 0;
   shadow = false;
   bordersPlusPlus = false;
 

@@ -1,4 +1,16 @@
-{ settings, lib, ... }: {
+{ settings, lib, ... }:
+let
+  editorCmd = if builtins.elem "neovim" settings.editors then
+    "nvim"
+  else if builtins.elem "vim" settings.editors then
+    "vim"
+  else if builtins.elem "emacs" settings.editors then
+    "emacs"
+  else if builtins.elem "nano" settings.editors then
+    "nano"
+  else
+    "nvim";
+in {
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
@@ -11,7 +23,7 @@
       cursor_stop_blinking_after = 0;
       cursor_underline_thickness = "1.5";
       disable_ligatures = "never";
-      editor = "nvim";
+      editor = editorCmd;
       font_family = settings.themeDetails.font;
       font_size = settings.themeDetails.fontSize;
       hide_window_decorations = "titlebar-only";
@@ -24,7 +36,7 @@
       touch_scroll_multiplier = "1.0";
       wheel_scroll_multiplier = "5.0";
       window_margin_width = 0;
-      window_padding_width = 15;
+      window_padding_width = 0;
       enable_audio_bell = "no";
     };
     keybindings = {

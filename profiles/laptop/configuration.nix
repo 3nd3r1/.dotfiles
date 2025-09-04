@@ -36,9 +36,6 @@
     extraGroups = [ "wheel" "docker" ];
   };
 
-  # Misc
-  programs.tmux = { enable = true; };
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -54,21 +51,14 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-
   environment.sessionVariables = rec { NIXOS_OZONE_WL = "1"; };
 
   environment.systemPackages = with pkgs; [
-    home-manager
     vim
-    xsel
     wget
-    oh-my-zsh
     curl
     kitty
-    neovim
     git
-    zoxide
-    fzf
   ];
 
   nixpkgs.config.allowUnfree = true;
