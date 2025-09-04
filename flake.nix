@@ -22,7 +22,7 @@
       mkNixosConfiguration = profile:
         let
           settings = import (./. + "/profiles/${profile}/settings.nix") {
-            inherit inputs;
+            inherit pkgs inputs;
           };
           pkgs = import nixpkgs { system = settings.system; };
         in nixpkgs.lib.nixosSystem {
@@ -36,8 +36,9 @@
       mkHomeConfiguration = profile:
         let
           settings = import (./. + "/profiles/${profile}/settings.nix") {
-            inherit inputs;
+            inherit pkgs inputs;
           };
+          pkgs = import nixpkgs { system = settings.system; };
         in home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${settings.system};
           modules = [

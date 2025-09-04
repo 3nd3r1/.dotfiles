@@ -2,8 +2,8 @@
 let details = settings.themeDetails;
 in {
 
-  imports = [
-  ] ++ (map (editor: ../../user/editors/${editor}) settings.editors)
+  imports = [ ../../user/shells/${settings.shell}.nix ]
+    ++ (map (editor: ../../user/editors/${editor}) settings.editors);
 
   home = {
     username = settings.username;

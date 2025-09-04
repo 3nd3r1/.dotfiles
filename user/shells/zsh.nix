@@ -4,7 +4,7 @@
   imports = [ ./lib/tmux ];
   # Move the custom directory
   home.file.".config/oh-my-zsh".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/oh-my-zsh";
+    "${settings.dotfilesDir}/oh-my-zsh";
 
   programs.tmux.shell = "${pkgs.zsh}/bin/zsh";
 
@@ -16,7 +16,7 @@
     oh-my-zsh = {
       enable = true;
       theme = "pain";
-      custom = "/home/ender/.config/oh-my-zsh/custom";
+      custom = "${config.home.homeDirectory}/.config/oh-my-zsh/custom";
       plugins = [
         "git"
         "nvm"
