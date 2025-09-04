@@ -1,7 +1,7 @@
 { settings, config, pkgs, lib, ... }:
 
 {
-  imports = [ ./lib/tmux ];
+  imports = [ ./lib/tmux ./lib/zoxide.nix ];
   # Move the custom directory
   home.file.".config/oh-my-zsh".source =
     config.lib.file.mkOutOfStoreSymlink "${settings.dotfilesDir}/oh-my-zsh";
@@ -19,8 +19,7 @@
       oldvim = "vim";
     };
     initContent = ''
-        USERNAME="$USER"
-        bindkey '^ ' autosuggest-accept
+      bindkey '^ ' autosuggest-accept
     '';
     oh-my-zsh = {
       enable = true;

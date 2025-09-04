@@ -1,5 +1,6 @@
 { config, lib, pkgs, settings, ... }: {
   home.packages = with pkgs; [
+    neovim
     ripgrep
     python3
     cargo
