@@ -1,7 +1,7 @@
 { settings, config, pkgs, lib, ... }:
 
 {
-  imports = [ ./lib/tmux ./lib/zoxide.nix ];
+  imports = [ ./lib/tmux ./lib/zoxide.nix ./lib/fzf.nix ];
   # Move the custom directory
   home.file.".config/oh-my-zsh".source =
     config.lib.file.mkOutOfStoreSymlink "${settings.dotfilesDir}/oh-my-zsh";
