@@ -17,7 +17,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      profiles = [ "laptop" "vm" "work" ];
+      profiles = [ "laptop" "work" ];
 
       mkNixosConfiguration = profile:
         let

@@ -12,7 +12,7 @@
   shellPkg = pkgs.zsh;
 
   theme = "pain";
-  themeDetails = import (./. + "/themes/${theme}.nix") { inherit pkgs; };
+  themeDetails = import (../../. + "/themes/${theme}.nix") { inherit pkgs; };
 
   wms = [ "hyprland" ]; # See user/wm/ and system/wm directories.
   editors = [ "neovim" ]; # See user/editors directory.
