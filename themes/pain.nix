@@ -4,10 +4,10 @@
 
   # Stylix palette override.
   override = {
-    base00 = "000000"; # Your color 0
-    base01 = "1a1a1a"; # Base16 convention (darker gray)
-    base02 = "2d2d2d"; # Base16 convention
-    base03 = "404040"; # Base16 convention
+    base00 = "000000"; # Black
+    base01 = "1a1a1a"; # Dark gray
+    base02 = "2d2d2d"; # Gray
+    base03 = "404040"; # Dark light gray
     base04 = "a0a0a0"; # Base16 convention
     base05 = "ffffff"; # Your color 7 (white) - main foreground
     base06 = "e0e0e0"; # Base16 convention
