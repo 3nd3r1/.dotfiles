@@ -12,7 +12,7 @@ if path.isfile(path.join(qtile_path, "local.env")):
 
 
 from libqtile import hook
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from settings.groups import groups
 from settings.keys import keys, mod
 from settings.layouts import floating_layout, layouts
