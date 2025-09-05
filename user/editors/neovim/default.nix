@@ -10,6 +10,5 @@
   ];
 
   # Use the external dotfiles nvim config for quicker hacking
-  home.file.".config/nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${settings.dotfilesDir}/nvim";
+  home.file.".config/nvim".source = ./nvim;
 }
