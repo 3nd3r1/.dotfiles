@@ -12,6 +12,10 @@
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix.url = "github:danth/stylix";
   };
 
@@ -44,6 +48,7 @@
           modules = [
             (./. + "/profiles/${profile}/home.nix")
             inputs.stylix.homeModules.stylix
+            inputs.nixvim.homeModules.nixvim
           ];
           extraSpecialArgs = { inherit inputs settings; };
         };

@@ -1,21 +1,37 @@
 { config, lib, pkgs, settings, ... }: {
+
+  imports = [
+    ./plugins/ai.nix
+    ./plugins/autocomplete.nix
+    ./plugins/colorizer.nix
+    ./plugins/format.nix
+    ./plugins/git.nix
+    ./plugins/lint.nix
+    ./plugins/lsp.nix
+    ./plugins/markview.nix
+    ./plugins/navigation.nix
+    ./plugins/suda.nix
+    ./plugins/telescope.nix
+    ./plugins/ui.nix
+  ];
+
+  home.packages = with pkgs; [
+    ripgrep
+    cargo
+    gcc
+    nodejs_24
+    python3
+    yaml-language-server
+  ];
+
   programs.neovim = {
-    enable = true;
-    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    vimdiffAlias = true;
-
-    extraPackages = with pkgs; [
-      ripgrep
-      cargo
-      gcc
-      nodejs_24
-      python3
-      yaml-language-server
-    ];
   };
 
-  # Use the external dotfiles nvim config for quicker hacking
-  home.file.".config/nvim".source = ./nvim;
+  programs.nixvim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 }
