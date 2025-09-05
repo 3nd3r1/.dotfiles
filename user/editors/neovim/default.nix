@@ -1,12 +1,20 @@
 { config, lib, pkgs, settings, ... }: {
-  home.packages = with pkgs; [
-    neovim
-    ripgrep
-    cargo
-    gcc
-    nodejs_24
-    yaml-language-server
-  ];
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
+    extraPackages = with pkgs; [
+      ripgrep
+      cargo
+      gcc
+      nodejs_24
+      python3
+      yaml-language-server
+    ];
+  };
 
   # Use the external dotfiles nvim config for quicker hacking
   home.file.".config/nvim".source = ./nvim;
