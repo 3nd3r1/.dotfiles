@@ -1,1 +1,4 @@
-{ pkgs, ... }: { home.file.".config/qtile".source = ./qtile; }
+{ pkgs, settings, ... }: {
+
+  home.file.".config/qtile".source = ./qtile;
+}
