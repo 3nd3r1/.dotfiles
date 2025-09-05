@@ -1,3 +1,0 @@
-[submodule "user/editors/neovim/nvim"]
-	path = user/editors/neovim/nvim
-	url = git@github.com:3nd3r1/init.lua.git
