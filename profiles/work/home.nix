@@ -6,7 +6,8 @@ in {
     ../../user/apps/ssh.nix
     ../../user/apps/git.nix
     ../../user/shells/${settings.shell}
-  ] ++ (map (editor: ../../user/editors/${editor}) settings.editors);
+  ] ++ (map (editor: ../../user/editors/${editor}) settings.editors)
+    ++ (map (wm: ../../user/wm/${wm}) settings.wms);
 
   home = {
     username = settings.username;

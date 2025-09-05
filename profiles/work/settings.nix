@@ -16,7 +16,7 @@
   theme = "pain";
   themeDetails = import (../../. + "/themes/${theme}.nix") { inherit pkgs; };
 
-  wms = [ "hyprland" ]; # See user/wm/ and system/wm directories.
+  wms = [ "qtile" ]; # See user/wm/ and system/wm directories.
   editors = [ "neovim" ]; # See user/editors directory.
   browsers = [ "brave" ]; # See user/browsers directory.
   preferredEditor = "nvim"; # Session variable $TERM.
