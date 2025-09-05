@@ -1,4 +1,6 @@
 { pkgs, inputs, ... }: rec {
+  profile = "work";
+
   system = "x86_64-linux";
   hostname = "elx-5cg2183zp2"; # Hostname
   username = "eavinrl"; # Username

@@ -1,6 +1,16 @@
-{ settings, config, pkgs, lib, additionalAliases ? {}, ... }:
+{ settings, config, pkgs, lib, ... }:
+let
+  profileAliases = {
+    laptop = { };
+    work = { devenv = "ssh devenv -X"; };
+  };
 
-{
+  aliases = {
+    vi = "nvim";
+    vim = "nvim";
+    oldvim = "vim";
+  } // (profileAliases.${settings.profile} or { });
+in {
   imports = [ ./lib/tmux ./lib/zoxide.nix ./lib/fzf.nix ];
   # Move the custom directory
   home.file.".config/oh-my-zsh".source =
@@ -13,11 +23,7 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
-    shellAliases = {
-      vi = "nvim";
-      vim = "nvim";
-      oldvim = "vim";
-    } // additionalAliases;
+    shellAliases = aliases;
     initContent = ''
       bindkey '^ ' autosuggest-accept
     '';
