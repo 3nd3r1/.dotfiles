@@ -11,6 +11,7 @@ in {
   home = {
     username = settings.username;
     homeDirectory = "/home/${settings.username}";
+    shell = { enableZshIntegration = true; };
   };
 
   home.packages = with pkgs; [ neofetch docker ];
