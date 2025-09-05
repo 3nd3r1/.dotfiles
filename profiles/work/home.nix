@@ -2,8 +2,11 @@
 let details = settings.themeDetails;
 in {
 
-  imports = [ ../../user/shells/${settings.shell}.nix ]
-    ++ (map (editor: ../../user/editors/${editor}) settings.editors);
+  imports = [
+    ../../user/apps/ssh.nix
+    ../../user/apps/git.nix
+    ../../user/shells/${settings.shell}.nix
+  ] ++ (map (editor: ../../user/editors/${editor}) settings.editors);
 
   _module.args.additionalAliases = { devenv = "ssh devenv -X"; };
 
