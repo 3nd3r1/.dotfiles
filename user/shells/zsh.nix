@@ -1,4 +1,4 @@
-{ settings, config, pkgs, lib, ... }:
+{ settings, config, pkgs, lib, additionalAliases ? {}, ... }:
 
 {
   imports = [ ./lib/tmux ./lib/zoxide.nix ./lib/fzf.nix ];
@@ -17,7 +17,7 @@
       vi = "nvim";
       vim = "nvim";
       oldvim = "vim";
-    };
+    } // additionalAliases;
     initContent = ''
       bindkey '^ ' autosuggest-accept
     '';

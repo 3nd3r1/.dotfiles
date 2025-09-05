@@ -5,6 +5,8 @@ in {
   imports = [ ../../user/shells/${settings.shell}.nix ]
     ++ (map (editor: ../../user/editors/${editor}) settings.editors);
 
+  _module.args.additionalAliases = { devenv = "ssh devenv -X"; };
+
   home = {
     username = settings.username;
     homeDirectory = "/home/${settings.username}";
