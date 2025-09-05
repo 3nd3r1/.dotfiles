@@ -11,10 +11,10 @@ let
     oldvim = "vim";
   } // (profileAliases.${settings.profile} or { });
 in {
-  imports = [ ./lib/tmux ./lib/zoxide.nix ./lib/fzf.nix ];
+  imports = [ ../lib/tmux ../lib/zoxide.nix ../lib/fzf.nix ];
+
   # Move the custom directory
-  home.file.".config/oh-my-zsh".source =
-    config.lib.file.mkOutOfStoreSymlink "${settings.dotfilesDir}/oh-my-zsh";
+  home.file.".config/oh-my-zsh".source = ./oh-my-zsh;
 
   programs.tmux.shell = "${pkgs.zsh}/bin/zsh";
 

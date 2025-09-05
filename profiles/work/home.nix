@@ -5,7 +5,7 @@ in {
   imports = [
     ../../user/apps/ssh.nix
     ../../user/apps/git.nix
-    ../../user/shells/${settings.shell}.nix
+    ../../user/shells/${settings.shell}
   ] ++ (map (editor: ../../user/editors/${editor}) settings.editors);
 
   home = {

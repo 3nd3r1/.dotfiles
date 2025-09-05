@@ -6,7 +6,7 @@ in {
     ../../user/apps/ssh.nix
     ../../user/apps/git.nix
     ../../user/apps/kitty.nix
-    ../../user/shells/${settings.shell}.nix
+    ../../user/shells/${settings.shell}
   ] ++ (map (wm: ../../user/wm/${wm}) settings.wms)
     ++ (map (editor: ../../user/editors/${editor}) settings.editors)
     ++ (map (browser: ../../user/browsers/${browser}.nix) settings.browsers);
