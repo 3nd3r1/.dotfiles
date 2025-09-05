@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     neovim
     ripgrep
-    python3
     cargo
     gcc
     nodejs_24
