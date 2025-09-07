@@ -7,7 +7,7 @@
     ./plugins/ui
     ./plugins/navigation
     ./plugins/lsp
-    ./plugins/ai.nix
+    ./plugins/codebuddy.nix
     ./plugins/autocomplete.nix
     ./plugins/colorizer.nix
     ./plugins/format.nix
@@ -16,7 +16,9 @@
     ./plugins/markview.nix
     ./plugins/suda.nix
     ./plugins/telescope.nix
-  ] ++ ./colorscheme/${settings.theme}.nix;
+
+    ./colorscheme/${settings.theme}.nix
+  ];
 
   home.packages = with pkgs; [
     ripgrep

@@ -10,48 +10,19 @@
           return capabilities
         end)()
       '';
-      keymaps = [
-        {
-          key = "<leader>K";
-          lspBufAction = "hover";
-        }
-        {
-          key = "<leader>ld";
-          lspBufAction = "definition";
-        }
-        {
-          key = "<leader>lD";
-          lspBufAction = "declaration";
-        }
-        {
-          key = "<leader>li";
-          lspBufAction = "implementation";
-        }
-        {
-          key = "<leader>lo";
-          lspBufAction = "type_definition";
-        }
-        {
-          key = "<leader>lr";
-          lspBufAction = "references";
-        }
-        {
-          key = "<leader>ls";
-          lspBufAction = "signature_help";
-        }
-        {
-          key = "<leader><F2>";
-          lspBufAction = "rename";
-        }
-        {
-          key = "<leader><F4>";
-          lspBufAction = "code_action";
-        }
-        {
-          key = "<leader>lx";
-          action = "<cmd>Trouble diagnostics toggle<cr>";
-        }
-      ];
+      keymaps = {
+        lspBuf = {
+          "<leader>K" = "hover";
+          "<leader>ld" = "definition";
+          "<leader>lD" = "declaration";
+          "<leader>li" = "implementation";
+          "<leader>lo" = "type_definition";
+          "<leader>lr" = "references";
+          "<leader>ls" = "signature_help";
+          "<leader><F2>" = "rename";
+          "<leader><F4>" = "code_action";
+        };
+      };
     };
 
     trouble = {

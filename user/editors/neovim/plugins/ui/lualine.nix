@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins.lualine-nvim = {
+  programs.nixvim.plugins.lualine = {
     enable = true;
     settings = {
       options = {

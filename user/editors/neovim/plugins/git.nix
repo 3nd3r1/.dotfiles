@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.fugitive = { enable = false; };
-  programs.nixvim.plugins.git-blame = { enable = true; };
+  programs.nixvim.plugins.gitblame = { enable = true; };
 
   programs.nixvim.keymaps = [{
     mode = "n";

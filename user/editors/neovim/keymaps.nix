@@ -1,6 +1,6 @@
 {
   programs.nixvim.globals.mapleader = " ";
-  programs.nixvim.keysmaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "<C-d>";

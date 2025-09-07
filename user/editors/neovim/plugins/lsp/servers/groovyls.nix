@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins.lsp.servers.groovy = {
+  programs.nixvim.plugins.lsp.servers.groovyls = {
     enable = true;
     settings = {
       groovy = {
