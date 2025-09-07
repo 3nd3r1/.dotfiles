@@ -1,6 +1,9 @@
 { config, lib, pkgs, settings, ... }: {
 
   imports = [
+    ./options.nix
+    ./keymaps.nix
+
     ./plugins/ai.nix
     ./plugins/autocomplete.nix
     ./plugins/colorizer.nix
@@ -13,7 +16,7 @@
     ./plugins/suda.nix
     ./plugins/telescope.nix
     ./plugins/ui.nix
-  ];
+  ] ++ ./colorscheme/${settings.theme}.nix;
 
   home.packages = with pkgs; [
     ripgrep
@@ -23,11 +26,6 @@
     python3
     yaml-language-server
   ];
-
-  programs.neovim = {
-    viAlias = true;
-    vimAlias = true;
-  };
 
   programs.nixvim = {
     enable = true;

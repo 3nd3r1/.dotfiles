@@ -1,1 +1,1 @@
-{ programs.nixvim.plugins.markview-nvim = { enable = true; }; }
+{ programs.nixvim.plugins.markview-nvim.enable = true; }
