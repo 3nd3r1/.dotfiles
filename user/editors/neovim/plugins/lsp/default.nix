@@ -34,22 +34,6 @@
       };
     };
 
-    mason = { enable = true; };
-    mason-lspconfig = {
-      enable = true;
-      settings = {
-        ensure_installed = [
-          "lua_ls"
-          "pyright"
-          "ts_ls"
-          "html"
-          "yamlls"
-          "helm_ls"
-          "bashls"
-          "gopls"
-        ];
-      };
-    };
-    vim-helm.enable = true;
+    helm.enable = true;
   };
 }

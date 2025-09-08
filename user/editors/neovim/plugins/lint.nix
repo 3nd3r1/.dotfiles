@@ -7,7 +7,6 @@
         yaml = [ "yamllint" ];
       };
     };
-    mason-nvim-lint.enable = true;
   };
 
   programs.nixvim.autoCmd = [{

@@ -2,10 +2,12 @@
   imports = [ ./lualine.nix ];
 
   programs.nixvim.plugins = {
-    nvim-web-icons.enable = true;
-    alpha.enable = true;
-    nvim-notify.enable = true;
-    which-key-nvim.enable = true;
-    trouble-nvim.enable = true;
+    web-devicons.enable = true;
+    notify.enable = true;
+    which-key.enable = true;
+    alpha = {
+      enable = true;
+      theme = "startify";
+    };
   };
 }

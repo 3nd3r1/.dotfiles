@@ -1,1 +1,1 @@
-{ programs.nixvim.plugins.suda.enable = true; }
+{ programs.nixvim.plugins.vim-suda.enable = true; }
