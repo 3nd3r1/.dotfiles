@@ -24,7 +24,7 @@
           "pulseaudio"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
-          "memory"
+          "network"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
           "cpu"
