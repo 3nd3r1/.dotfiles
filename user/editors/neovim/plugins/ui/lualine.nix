@@ -4,20 +4,97 @@
     settings = {
       options = {
         icons_enabled = true;
-        theme.__raw = ''
-          (function()
-            local custom_ayu = require("lualine.themes.ayu")
-            -- Change the background of lualine sections
-            custom_ayu.normal.a.bg = "#800080"
-            custom_ayu.normal.b.fg = "#ff8000"
-            custom_ayu.insert.a.bg = "#ff8000"
-            custom_ayu.insert.b.fg = "#ff8000"
-            custom_ayu.visual.a.bg = "#800080"
-            custom_ayu.visual.b.fg = "#ff8000"
-            custom_ayu.normal.c.bg = "#000000"
-            return custom_ayu
-          end)()
-        '';
+        theme = {
+          normal = {
+            a = {
+              bg = "#800080";
+              fg = "#000000";
+              gui = "bold";
+            };
+            b = {
+              bg = "#000000";
+              fg = "#ff8000";
+            };
+            c = {
+              bg = "#000000";
+              fg = "#800080";
+            };
+          };
+          insert = {
+            a = {
+              bg = "#ff8000";
+              fg = "#000000";
+              gui = "bold";
+            };
+            b = {
+              bg = "#000000";
+              fg = "#ff8000";
+            };
+            c = {
+              bg = "#000000";
+              fg = "#800080";
+            };
+          };
+          visual = {
+            a = {
+              bg = "#800080";
+              fg = "#000000";
+              gui = "bold";
+            };
+            b = {
+              bg = "#000000";
+              fg = "#ff8000";
+            };
+            c = {
+              bg = "#000000";
+              fg = "#800080";
+            };
+          };
+          replace = {
+            a = {
+              bg = "#bd10e0";
+              fg = "#000000";
+              gui = "bold";
+            };
+            b = {
+              bg = "#000000";
+              fg = "#ff8000";
+            };
+            c = {
+              bg = "#000000";
+              fg = "#800080";
+            };
+          };
+          command = {
+            a = {
+              bg = "#f1e9ff";
+              fg = "#000000";
+              gui = "bold";
+            };
+            b = {
+              bg = "#000000";
+              fg = "#ff8000";
+            };
+            c = {
+              bg = "#000000";
+              fg = "#800080";
+            };
+          };
+          inactive = {
+            a = {
+              bg = "#000000";
+              fg = "#422744";
+            };
+            b = {
+              bg = "#000000";
+              fg = "#422744";
+            };
+            c = {
+              bg = "#000000";
+              fg = "#422744";
+            };
+          };
+        };
         component_separators = {
           left = "";
           right = "";

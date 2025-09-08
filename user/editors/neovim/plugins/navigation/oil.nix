@@ -23,7 +23,7 @@
         	end
         	vim.cmd.cd(cwd)
         	print("Changed cwd to: " .. cwd)
-        end,
+        end
       '';
       options = { desc = "Change cwd"; };
     }

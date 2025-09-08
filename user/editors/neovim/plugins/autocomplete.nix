@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs.nixvim.plugins.cmp = {
     enable = true;
     settings = {
@@ -19,13 +19,15 @@
       sources = [ { name = "nvim_lsp"; } { name = "buffer"; } ];
 
       formatting = {
-        format.__raw = ''
-          require("lspkind").cmp_format({
-            mode = "symbol_text",
-            preset = "codicons",
-            maxwidth = 50,
-            ellipsis_char = "...",
-          })
+        format = lib.mkForce ''
+          function(entry, vim_item)
+            return require("lspkind").cmp_format({
+              mode = "symbol_text",
+              preset = "codicons",
+              maxwidth = 50,
+              ellipsis_char = "...",
+            })(entry, vim_item)
+          end
         '';
       };
     };

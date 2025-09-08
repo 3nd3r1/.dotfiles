@@ -3,12 +3,10 @@
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
-      capabilities.__raw = ''
-        (function()
-          local capabilities = require('cmp_nvim_lsp').default_capabilities()
-          capabilities.textDocument.semanticTokens = nil
-          return capabilities
-        end)()
+      onAttach = ''
+        if client then
+          client.server_capabilities.semanticTokensProvider = nil
+        end
       '';
       keymaps = {
         lspBuf = {
