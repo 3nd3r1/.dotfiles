@@ -16,7 +16,7 @@ in {
     homeDirectory = "/home/${settings.username}";
   };
 
-  home.packages = with pkgs; [ neofetch docker ];
+  home.packages = with pkgs; [ neofetch docker netrc ];
 
   home.sessionVariables = {
     EDITOR = settings.preferredEditor;
