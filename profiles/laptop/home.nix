@@ -14,14 +14,15 @@ in {
   home = {
     username = settings.username;
     homeDirectory = "/home/${settings.username}";
+    sessionVariables = {
+      EDITOR = settings.preferredEditor;
+      BROWSER = settings.preferredBrowser;
+    };
   };
 
   home.packages = with pkgs; [ neofetch docker ];
 
-  home.sessionVariables = {
-    EDITOR = settings.preferredEditor;
-    BROWSER = settings.preferredBrowser;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   stylix = {
     enable = true;

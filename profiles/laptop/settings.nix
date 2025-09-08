@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }: rec {
   profile = "laptop";
 
-  system = "x86_64-linux";
   hostname = "enderlaptop"; # Hostname
   username = "ender"; # Username
   timezone = "Europe/Helsinki"; # Select timezone

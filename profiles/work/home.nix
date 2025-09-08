@@ -13,15 +13,15 @@ in {
     username = settings.username;
     homeDirectory = "/home/${settings.username}";
     shell = { enableZshIntegration = true; };
-  };
-
-  home.packages = with pkgs; [ neofetch docker ];
-
-  home.sessionVariables = {
+    sessionVariables = {
     EDITOR = settings.preferredEditor;
     BROWSER = settings.preferredBrowser;
     USERNAME = settings.username;
+    };
   };
+  home.packages = with pkgs; [ neofetch docker ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # stylix = {
   #   enable = true;

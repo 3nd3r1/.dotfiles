@@ -22,13 +22,15 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       profiles = [ "laptop" "work" ];
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+      settings = import (./. + "/settings.nix") { inherit pkgs inputs; };
 
       mkNixosConfiguration = profile:
         let
           settings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit pkgs inputs;
           };
-          pkgs = import nixpkgs { system = settings.system; };
         in nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs settings; };
           modules = [
@@ -42,9 +44,8 @@
           settings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit pkgs inputs;
           };
-          pkgs = import nixpkgs { system = settings.system; };
         in home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${settings.system};
+          inherit pkgs;
           modules = [
             (./. + "/profiles/${profile}/home.nix")
             inputs.stylix.homeModules.stylix
@@ -52,7 +53,6 @@
           ];
           extraSpecialArgs = { inherit inputs settings; };
         };
-
     in {
       nixosConfigurations = nixpkgs.lib.listToAttrs (map (profile: {
         name = profile;
