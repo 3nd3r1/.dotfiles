@@ -6,6 +6,7 @@ in {
     ../../user/apps/ssh.nix
     ../../user/apps/git.nix
     ../../user/apps/kitty.nix
+    ../../user/apps/lanmouse.nix
     ../../user/shells/${settings.shell}
   ] ++ (map (wm: ../../user/wm/${wm}) settings.wms)
     ++ (map (editor: ../../user/editors/${editor}) settings.editors)
@@ -23,8 +24,6 @@ in {
   home.packages = with pkgs; [ neofetch docker ];
 
   nixpkgs.config.allowUnfree = true;
-
-  programs.lan-mouse.enable = true;
 
   stylix = {
     enable = true;
