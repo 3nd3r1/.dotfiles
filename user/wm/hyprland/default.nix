@@ -1,7 +1,7 @@
 { inputs, config, lib, settings, pkgs, ... }:
 
 {
-  imports = [ ./waybar ];
+  imports = [ ./waybar ../../apps/rofi ];
 
   home.packages = with pkgs; [ hyprcursor rose-pine-hyprcursor ];
 
