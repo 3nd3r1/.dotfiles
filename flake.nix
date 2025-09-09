@@ -17,6 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    lan-mouse.url = "github:feschber/lan-mouse";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -50,6 +51,7 @@
             (./. + "/profiles/${profile}/home.nix")
             inputs.stylix.homeModules.stylix
             inputs.nixvim.homeModules.nixvim
+            inputs.lan-mouse.homeManagerModules.default
           ];
           extraSpecialArgs = { inherit inputs settings; };
         };
