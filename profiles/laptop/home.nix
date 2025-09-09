@@ -24,6 +24,8 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.lan-mouse.enable = true;
+
   stylix = {
     enable = true;
     polarity = "dark";
