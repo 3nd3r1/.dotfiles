@@ -16,7 +16,7 @@
   themeDetails = import (../../. + "/themes/${theme}.nix") { inherit pkgs; };
 
   wms = [ "qtile" ]; # See user/wm/ and system/wm directories.
-  editors = [ ]; # See user/editors directory.
+  editors = [ "neovim-old" ]; # See user/editors directory.
   browsers = [ "brave" ]; # See user/browsers directory.
   preferredEditor = "nvim"; # Session variable $TERM.
   preferredBrowser = "brave"; # Session variable $BROWSER.
