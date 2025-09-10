@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   themeName = "pain";
-  wallpaper = ../Pictures/Wallpapers/pain.jpg;
+  wallpaper = "${inputs.self}/assets/wallpapers/pain.jpg";
 
   # Stylix palette override.
   override = {
