@@ -1,4 +1,4 @@
-{ config, lib, pkgs, settings, ... }: {
+{ pkgs, inputs, ... }: {
 
   home.packages = with pkgs; [
     ripgrep
@@ -16,5 +16,8 @@
     vimAlias = true;
   };
 
-  home.file.".config/nvim".source = ./nvim;
+  xdg.configFile."nvim" = {
+    source = "${inputs.self}/config/nvim";
+    recursive = true;
+  };
 }

@@ -1,4 +1,4 @@
-{ settings, config, pkgs, lib, ... }:
+{ settings, config, pkgs, lib, inputs, ... }:
 let
   profileAliases = {
     laptop = { };
@@ -14,7 +14,10 @@ in {
   imports = [ ../lib/tmux ../lib/zoxide.nix ../lib/fzf.nix ];
 
   # Move the custom directory
-  home.file.".config/oh-my-zsh".source = ./oh-my-zsh;
+  xdg.configFile."oh-my-zsh" = {
+    source = "${inputs.self}/config/oh-my-zsh";
+    recursive = true;
+  };
 
   programs.tmux.shell = "${pkgs.zsh}/bin/zsh";
 

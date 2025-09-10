@@ -1,4 +1,6 @@
-{ pkgs, settings, ... }: {
-
-  home.file.".config/qtile".source = ./qtile;
+{ inputs, ... }: {
+  xdg.configFile."qtile" = {
+    source = "${inputs.self}/config/qtile";
+    recursive = true;
+  };
 }
