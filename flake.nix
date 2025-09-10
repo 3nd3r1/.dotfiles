@@ -25,7 +25,6 @@
       profiles = [ "laptop" "work" ];
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      settings = import (./. + "/settings.nix") { inherit pkgs inputs; };
 
       mkNixosConfiguration = profile:
         let

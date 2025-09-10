@@ -1,13 +1,14 @@
-{ lib, config, settings, pkgs, ... }:
-let details = settings.themeDetails;
+{ lib, config, settings, pkgs, inputs, ... }:
+let
+details = settings.themeDetails;
+homeManagerModulesPath = "${inputs.self}/modules/home-manager";
 in {
-
   imports = [
-    ../../user/apps/ssh.nix
-    ../../user/apps/git.nix
-    ../../user/shells/${settings.shell}
-  ] ++ (map (editor: ../../user/editors/${editor}) settings.editors)
-    ++ (map (wm: ../../user/wm/${wm}) settings.wms);
+    "${homeManagerModulesPath}/apps/ssh.nix"
+    "${homeManagerModulesPath}/apps/git.nix"
+    "${homeManagerModulesPath}/shells/${settings.shell}"
+  ] ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
+    ++ (map (wm: "${homeManagerModulesPath}/wm/${wm}") settings.wms);
 
   home = {
     username = settings.username;

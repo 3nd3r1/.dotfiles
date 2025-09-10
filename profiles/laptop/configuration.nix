@@ -1,8 +1,10 @@
-{ pkgs, lib, settings, ... }:
-
+{ pkgs, lib, settings, inputs, ... }:
+let
+  nixosModulesPath = "${inputs.self}/modules/nixos";
+in
 {
   imports = [ ./hardware-configuration.nix ]
-    ++ (map (wm: ../../system/wm/${wm}.nix) settings.wms);
+    ++ (map (wm: "${nixosModulesPath}/wm/${wm}.nix") settings.wms);
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

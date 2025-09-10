@@ -1,16 +1,17 @@
-{ lib, config, settings, pkgs, ... }:
-let details = settings.themeDetails;
+{ lib, config, settings, pkgs, inputs, ... }:
+let 
+details = settings.themeDetails;
+homeManagerModulesPath = "${inputs.self}/modules/home-manager";
 in {
-
   imports = [
-    ../../user/apps/ssh.nix
-    ../../user/apps/git.nix
-    ../../user/apps/kitty.nix
-    ../../user/apps/lanmouse.nix
-    ../../user/shells/${settings.shell}
-  ] ++ (map (wm: ../../user/wm/${wm}) settings.wms)
-    ++ (map (editor: ../../user/editors/${editor}) settings.editors)
-    ++ (map (browser: ../../user/browsers/${browser}.nix) settings.browsers);
+    "${homeManagerModulesPath}/apps/ssh.nix"
+    "${homeManagerModulesPath}/apps/git.nix"
+    "${homeManagerModulesPath}/apps/kitty.nix"
+    "${homeManagerModulesPath}/apps/lanmouse.nix"
+    "${homeManagerModulesPath}/shells/${settings.shell}"
+  ] ++ (map (wm: "${homeManagerModulesPath}/wm/${wm}") settings.wms)
+    ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
+    ++ (map (browser: "${homeManagerModulesPath}/browsers/${browser}.nix") settings.browsers);
 
   home = {
     username = settings.username;
