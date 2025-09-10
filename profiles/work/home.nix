@@ -7,7 +7,8 @@ in {
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
-  ] ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
+  ] ++ (map (terminal: "${homeManagerModulesPath}/terminals/${terminal}.nix") settings.terminals)
+    ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
     ++ (map (wm: "${homeManagerModulesPath}/wm/${wm}") settings.wms);
 
   home = {

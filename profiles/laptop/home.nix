@@ -1,17 +1,21 @@
 { lib, config, settings, pkgs, inputs, ... }:
-let 
-  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") { inherit pkgs; };
+let
+  themeDetails =
+    import ("${inputs.self}/themes/${settings.theme}.nix") { inherit pkgs; };
   homeManagerModulesPath = "${inputs.self}/modules/home-manager";
 in {
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
-    "${homeManagerModulesPath}/apps/kitty.nix"
     "${homeManagerModulesPath}/apps/lanmouse.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
-  ] ++ (map (wm: "${homeManagerModulesPath}/wm/${wm}") settings.wms)
-    ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
-    ++ (map (browser: "${homeManagerModulesPath}/browsers/${browser}.nix") settings.browsers);
+  ] ++ (map (terminal: "${homeManagerModulesPath}/terminals/${terminal}.nix")
+    settings.terminals)
+    ++ (map (wm: "${homeManagerModulesPath}/wm/${wm}") settings.wms)
+    ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}")
+      settings.editors)
+    ++ (map (browser: "${homeManagerModulesPath}/browsers/${browser}.nix")
+      settings.browsers);
 
   home = {
     username = settings.username;
