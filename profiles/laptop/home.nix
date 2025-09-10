@@ -1,7 +1,8 @@
 { lib, config, settings, pkgs, inputs, ... }:
 let
-  themeDetails =
-    import ("${inputs.self}/themes/${settings.theme}.nix") { inherit pkgs; };
+  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") {
+    inherit pkgs inputs;
+  };
   homeManagerModulesPath = "${inputs.self}/modules/home-manager";
 in {
   imports = [

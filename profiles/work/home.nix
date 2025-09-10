@@ -1,14 +1,18 @@
 { lib, config, settings, pkgs, inputs, ... }:
 let
-  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") { inherit pkgs; };
+  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") {
+    inherit pkgs inputs;
+  };
   homeManagerModulesPath = "${inputs.self}/modules/home-manager";
 in {
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
-  ] ++ (map (terminal: "${homeManagerModulesPath}/terminals/${terminal}.nix") settings.terminals)
-    ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
+  ] ++ (map (terminal: "${homeManagerModulesPath}/terminals/${terminal}.nix")
+    settings.terminals)
+    ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}")
+      settings.editors)
     ++ (map (wm: "${homeManagerModulesPath}/wm/${wm}") settings.wms);
 
   home = {
@@ -16,9 +20,9 @@ in {
     homeDirectory = "/home/${settings.username}";
     shell = { enableZshIntegration = true; };
     sessionVariables = {
-    EDITOR = settings.preferredEditor;
-    BROWSER = settings.preferredBrowser;
-    USERNAME = settings.username;
+      EDITOR = settings.preferredEditor;
+      BROWSER = settings.preferredBrowser;
+      USERNAME = settings.username;
     };
   };
   home.packages = with pkgs; [ neofetch docker ];
