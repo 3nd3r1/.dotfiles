@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }: {
   themeName = "pain";
+
   wallpaper = "${inputs.self}/assets/wallpapers/pain.jpg";
 
   # Stylix palette override.
@@ -25,30 +26,25 @@
   # Override stylix theme of btop.
   # btopTheme = "catppuccin";
 
-  # Hyprland and ags.
   opacity = 0.8;
   rounding = 0;
   shadow = false;
   bordersPlusPlus = false;
 
-  # Override default settings in ags.
-  shell = "ags";
-  ags = {
-    theme = {
-      palette = { widget = "#25253a"; };
-      border = {
-        width = 1;
-        opacity = 96;
-      };
-    };
-    bar = { curved = true; };
-    widget = { opacity = 0; };
+  font = {
+    name = "MesloLGLDZNerdFont";
+    package = (pkgs.nerd-fonts.meslo-lg);
+    size = 12;
   };
 
-  font = "MesloLGLDZNerdFont"; # Selected font
-  fontPkg = (pkgs.nerd-fonts.meslo-lg);
-  fontSize = 12; # Font size
+  icons = {
+    name = "Papirus";
+    package = pkgs.papirus-icon-theme;
+  };
 
-  icons = "Papirus";
-  iconsPkg = pkgs.papirus-icon-theme;
+  cursor = {
+    name = "phinger-cursors-light";
+    package = pkgs.phinger-cursors;
+    size = 32;    
+  };
 }
