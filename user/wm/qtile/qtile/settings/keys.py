@@ -47,7 +47,7 @@ keys = [
         # File Explorer
         ([mod], "e", lazy.spawn("nautilus")),
         # Terminal
-        ([mod], "Return", lazy.spawn("kitty")),
+        ([mod], "Return", lazy.spawn("gnome-terminal")),
         # Screenshot
         ([], "Print", lazy.spawn(home + "/.local/bin/screenshot")),
         # ------------ Hardware Configs ------------
