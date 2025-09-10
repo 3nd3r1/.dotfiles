@@ -1,7 +1,7 @@
 { lib, config, settings, pkgs, inputs, ... }:
 let 
-details = settings.themeDetails;
-homeManagerModulesPath = "${inputs.self}/modules/home-manager";
+  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") { inherit pkgs; };
+  homeManagerModulesPath = "${inputs.self}/modules/home-manager";
 in {
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
@@ -29,19 +29,19 @@ in {
   stylix = {
     enable = true;
     polarity = "dark";
-    image = details.wallpaper;
-    override = lib.mkIf (details.override != null) details.override;
+    image = themeDetails.wallpaper;
+    override = lib.mkIf (themeDetails.override != null) themeDetails.override;
     opacity = {
-      terminal = details.opacity;
-      applications = details.opacity;
-      desktop = details.opacity;
-      popups = details.opacity;
+      terminal = themeDetails.opacity;
+      applications = themeDetails.opacity;
+      desktop = themeDetails.opacity;
+      popups = themeDetails.opacity;
     };
 
     fonts = {
       sansSerif = {
-        package = details.fontPkg;
-        name = details.font;
+        package = themeDetails.fontPkg;
+        name = themeDetails.font;
       };
       serif = config.stylix.fonts.sansSerif;
       monospace = config.stylix.fonts.sansSerif;

@@ -9,15 +9,17 @@
   email = "ender.spam.guru@gmail.com"; # Email (git config)
   dotfilesDir = "/home/${username}/dotfiles"; # Absolute path of the repo;
 
-  shell = "zsh"; # See user/shells directory.
+  theme = "pain";
+
+  shell = "zsh";
   shellPkg = pkgs.zsh;
 
-  theme = "pain";
-  themeDetails = import ("${inputs.self}/themes/${theme}.nix") { inherit pkgs; };
+  wms = [ "hyprland" ];
+  editors = [ "neovim" ];
+  browsers = [ "brave" ];
+  terminals = [ "kitty" ];
 
-  wms = [ "hyprland" ]; # See user/wm/ and system/wm directories.
-  editors = [ "neovim" ]; # See user/editors directory.
-  browsers = [ "brave" ]; # See user/browsers directory.
-  preferredEditor = "nvim"; # Session variable $TERM.
-  preferredBrowser = "brave"; # Session variable $BROWSER.
+  preferredEditor = "nvim";
+  preferredBrowser = "brave";
+  preferredTerminal = "kitty";
 }
