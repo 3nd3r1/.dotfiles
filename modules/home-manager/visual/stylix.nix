@@ -36,6 +36,8 @@ in {
       hyprlock.enable = false;
       hyprland.enable = false;
       btop.enable = false;
+      lazygit.enable = true;
+      gnome.enable = true;
     };
   };
 }
