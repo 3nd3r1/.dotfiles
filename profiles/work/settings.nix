@@ -14,7 +14,7 @@
   shell = "zsh";
   shellPkg = pkgs.zsh;
 
-  wms = [ "qtile" ];
+  wms = [ "qtile" "hyprland" ];
   editors = [ "neovim-old" ];
   browsers = [ "brave" ];
   terminals = [ "gnome-terminal" ];
