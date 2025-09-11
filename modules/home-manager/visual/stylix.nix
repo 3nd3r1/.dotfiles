@@ -37,6 +37,7 @@ in {
       btop.enable = false;
       lazygit.enable = true;
       gnome.enable = true;
+      rofi.enable = false;
     };
   };
 }
