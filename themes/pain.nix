@@ -40,8 +40,8 @@
   };
 
   icons = {
-    name = "Papirus";
-    package = pkgs.papirus-icon-theme;
+    name = "Material Black Plum";
+    package = pkgs.material-black-plum-icons;
   };
 
   cursor = {
