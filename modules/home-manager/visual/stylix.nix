@@ -8,8 +8,7 @@ in {
     enable = true;
     polarity = "dark"; # I WILL NOT ALLOW CHANGING THIS
     image = themeDetails.wallpaper;
-    #  base16Scheme =
-    # "${pkgs.base16-schemes}/share/themes/${themeDetails.themeName}.yaml";
+    base16Scheme = themeDetails.base16Scheme;
     override = lib.mkIf (themeDetails.override != null) themeDetails.override;
     opacity = {
       terminal = themeDetails.opacity;

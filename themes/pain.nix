@@ -4,7 +4,7 @@
   wallpaper = "${inputs.self}/assets/wallpapers/pain.jpg";
 
   # Stylix palette override.
-  override = {
+  base16Scheme = {
     base00 = "000000"; # Black
     base01 = "1a1a1a"; # Dark gray
     base02 = "2d2d2d"; # Gray
@@ -22,6 +22,8 @@
     base0E = "800080"; # Your color 9 (purple)
     base0F = "EE82EE"; # Your color 10 (light purple)
   };
+
+  override = { };
 
   # Override stylix theme of btop.
   # btopTheme = "catppuccin";
@@ -45,6 +47,6 @@
   cursor = {
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
-    size = 32;    
+    size = 32;
   };
 }
