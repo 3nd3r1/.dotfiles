@@ -24,7 +24,7 @@ in {
     };
   };
 
-  home.packages = with pkgs; [ neofetch docker ];
+  home.packages = with pkgs; [ neofetch docker arandr blueman ];
 
   nixpkgs.config.allowUnfree = true;
 
