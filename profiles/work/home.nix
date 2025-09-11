@@ -1,6 +1,5 @@
 { settings, pkgs, inputs, ... }:
-let
-  homeManagerModulesPath = "${inputs.self}/modules/home-manager";
+let homeManagerModulesPath = "${inputs.self}/modules/home-manager";
 in {
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
@@ -21,6 +20,7 @@ in {
       EDITOR = settings.preferredEditor;
       BROWSER = settings.preferredBrowser;
       USERNAME = settings.username;
+      USER = settings.username;
     };
   };
   home.packages = with pkgs; [ neofetch docker arandr blueman ];
