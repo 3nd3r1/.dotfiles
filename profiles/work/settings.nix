@@ -17,7 +17,7 @@
   wms = [ "qtile" ];
   editors = [ "neovim-old" ];
   browsers = [ "brave" ];
-  terminals = [ ];
+  terminals = [ "gnome-terminal" ];
 
   preferredEditor = "nvim";
   preferredBrowser = "brave";
