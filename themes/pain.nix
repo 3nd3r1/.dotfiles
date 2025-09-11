@@ -5,22 +5,24 @@
 
   # Stylix palette override.
   base16Scheme = {
-    base00 = "000000"; # Black
-    base01 = "1a1a1a"; # Dark gray
-    base02 = "2d2d2d"; # Gray
-    base03 = "404040"; # Dark light gray
-    base04 = "a0a0a0"; # Base16 convention
-    base05 = "ffffff"; # Your color 7 (white) - main foreground
-    base06 = "e0e0e0"; # Base16 convention
-    base07 = "ffffff"; # Your color 15 (gray90 -> white)
-    base08 = "800080"; # Your color 1 (purple)
-    base09 = "ff8000"; # Your color 4 (orange)
-    base0A = "EE82EE"; # Your color 2 (light purple)
-    base0B = "800080"; # Your color 3 (purple)
-    base0C = "72147E"; # Your color 5 (dark magenta)
-    base0D = "FF5200"; # Your color 6 (red-orange)
-    base0E = "800080"; # Your color 9 (purple)
-    base0F = "EE82EE"; # Your color 10 (light purple)
+    base00 = "#000000";
+    base08 = "#800080";
+    base0B = "#EE82EE";
+    base0A = "#800080";
+    base0D = "#FF8000";
+    base0E = "#72147E";
+    base0C = "#FF5200";
+
+    base03 = "#404040";
+    base05 = "#FFFFFF";
+    base07 = "#ffffff";
+
+    base01 = "#800080";
+    base02 = "#800080";
+    base04 = "#800080";
+    base06 = "#800080";
+    base09 = "#800080";
+    base0F = "#800080";
   };
 
   override = { };
