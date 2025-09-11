@@ -1,4 +1,4 @@
-{ settings, lib, ... }:
+{ settings, lib, inputs, pkgs, ... }:
 let
   editorCmd = if builtins.elem "neovim" settings.editors then
     "nvim"
@@ -10,6 +10,9 @@ let
     "nano"
   else
     "nvim";
+  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") {
+    inherit pkgs inputs;
+  };
 in {
   programs.kitty = {
     enable = true;
@@ -24,8 +27,8 @@ in {
       cursor_underline_thickness = "1.5";
       disable_ligatures = "never";
       editor = editorCmd;
-      font_family = settings.themeDetails.font;
-      font_size = settings.themeDetails.fontSize;
+      font_family = themeDetails.font.name;
+      font_size = themeDetails.font.size;
       hide_window_decorations = "titlebar-only";
       inactive_tab_font_style = "normal";
       inactive_text_alpha = "1.0";
