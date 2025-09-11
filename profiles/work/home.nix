@@ -23,7 +23,7 @@ in {
       USERNAME = settings.username;
     };
   };
-  home.packages = with pkgs; [ neofetch docker ];
+  home.packages = with pkgs; [ neofetch docker arandr ];
 
   nixpkgs.config.allowUnfree = true;
 
