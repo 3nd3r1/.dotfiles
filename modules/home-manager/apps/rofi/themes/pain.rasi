@@ -1,34 +1,39 @@
 * {
-  selected-normal-foreground: @background;
-  foreground: #800080;
-  normal-foreground: @foreground;
-  alternate-normal-background: @background;
-  selected-urgent-foreground: @background;
-  urgent-foreground: @foreground;
-  alternate-urgent-background: @background;
-  active-foreground: #ff8000;
+  purple: #800080;
+  orange: #FF8000;
+  black: #000000;
+
+  normal-foreground: @purple;
+  urgent-foreground: @purple;
+  active-foreground: @orange;
+  selected-normal-foreground: @black;
+  selected-urgent-foreground: @black;
   selected-active-foreground: @active-foreground;
-  alternate-active-background: @background;
-  bordercolor: #800080;
-  background: #030006B3;
-  alternate-normal-foreground: @foreground;
-  normal-background: @background;
-  selected-normal-background: #800080;
-  border-color: #800080;
-  spacing: 2;
-  separatorcolor: @border-color;
-  urgent-background: @background;
-  selected-urgent-background: @background;
+  alternate-normal-foreground: @normal-foreground;
   alternate-urgent-foreground: @urgent-foreground;
-  background-color: @background;
   alternate-active-foreground: @active-foreground;
-  active-background: @background;
-  selected-active-background: @selected-normal-background;
+
+  normal-background: @black;
+  urgent-background: @black;
+  active-background: @black;
+  selected-normal-background: @purple;
+  selected-urgent-background: @purple;
+  selected-active-background: @purple;
+  alternate-normal-background: @normal-background;
+  alternate-urgent-background: @urgent-background;
+  alternate-active-background: @active-background;
+
+  // Actual default values
+  background-color: @normal-background;
+  text-color: @normal-foreground;
+  border-color: @purple;
+  spacing: 2;
+  border: 0;
+  padding: 0;
 }
 
 /*****----- Window -----*****/
 window {
-  background-color: @background;
   border: 0;
   padding: 0;
 }
@@ -36,25 +41,21 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
   border: 2;
-  padding: 20;
 }
 
 /*****----- Message -----*****/
 message {
   border: 1px 1px 1px;
-  border-color: @separatorcolor;
   padding: 20;
 }
 
 textbox {
-  text-color: @foreground;
 }
 
 /*****----- Listview -----*****/
 listview {
   fixed-height: 0;
   border: 1px 0px 0px;
-  border-color: @separatorcolor;
   spacing: 5px;
   scrollbar: false;
   padding: 5 0 0;
@@ -62,8 +63,20 @@ listview {
 
 /*****----- Elements -----*****/
 element {
-  border: 0;
-  padding: 5px;
+  children: [element-icon, element-text];
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  padding: 10px 0;
+}
+
+element-icon {
+  background-color: inherit;
+  text-color: inherit;
+  padding: 10px 10px;
+  size: 20px;
 }
 
 element.normal.normal {
@@ -123,13 +136,12 @@ scrollbar {
 /*****----- Sidebar -----*****/
 sidebar {
   border: 1px 0px 0px;
-  border-color: @separatorcolor;
 }
 
 /*****----- Button -----*****/
 button {
   spacing: 0;
-  text-color: @normal-foreground;
+  padding: 5px;
 }
 
 button.selected {
@@ -140,33 +152,25 @@ button.selected {
 /*****----- Inputbar -----*****/
 inputbar {
   spacing: 5;
-  text-color: @normal-foreground;
-  padding: 5px;
-  border: 0 0 1;
-  border-color: @separatorcolor;
+  padding: 10px;
   children: [ textbox-prompt-colon, entry, case-indicator ];
 }
 
 case-indicator {
   spacing: 0;
-  text-color: @normal-foreground;
 }
 
 entry {
   spacing: 0;
-  text-color: @normal-foreground;
 }
 
 prompt {
   spacing: 0;
-  text-color: @normal-foreground;
 }
 
 #textbox-prompt-colon {
-  padding: 0px 0px;
+  padding: 0px 5px 0px 5px;
   expand: false;
-  str: "";
-  margin: 0px 0.3em 0em 0em;
-  text-color: @bordercolor;
-  background-color: @background-color;
+  str: "";
+  margin: 0px 0.5em 0em 0em;
 }

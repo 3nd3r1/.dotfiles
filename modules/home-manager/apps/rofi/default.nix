@@ -1,10 +1,15 @@
-{ settings, lib, ... }:
-{
+{ settings, lib, inputs, pkgs, ... }:
+let
+  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") {
+    inherit inputs pkgs;
+  };
+in {
   programs.rofi = {
     enable = true;
     theme = lib.mkForce ./themes/${settings.theme}.rasi;
+    font = "${themeDetails.font.name} ${toString themeDetails.font.size}";
+    modes = [ "drun" "run" "window" ];
     extraConfig = {
-      modi = "drun,run,window";
       width = 1000;
       sidebar-mode = true;
       lines = 10;
