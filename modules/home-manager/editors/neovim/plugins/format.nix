@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 let
   prettierFormat = {
     __unkeyed-1 = "prettierd";
@@ -6,6 +6,18 @@ let
     stop_after_first = true;
   };
 in {
+  home.packages = with pkgs; [
+    stylua
+    isort
+    black
+    prettier
+    robotframework-tidy
+    go
+    beautysh
+    nixfmt
+    deno
+  ];
+
   programs.nixvim.plugins.conform-nvim = {
     enable = true;
     settings = {

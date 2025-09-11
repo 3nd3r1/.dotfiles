@@ -1,15 +1,26 @@
 {
-  programs.nixvim.plugins.fugitive = { enable = false; };
-  programs.nixvim.plugins.gitblame = { enable = true; };
+  programs.nixvim.plugins.fugitive = {
+    enable = false;
+  };
+  programs.nixvim.plugins.gitblame = {
+    enable = true;
+    settings = {
+      enabled = false;
+    };
+  };
 
-  programs.nixvim.keymaps = [{
-    mode = "n";
-    key = "<leader>gb";
-    action.__raw = ''
-      function()
-        require("gitblame").toggle()
-      end
-    '';
-    options = { desc = "Toggle Git blame"; };
-  }];
+  programs.nixvim.keymaps = [
+    {
+      mode = "n";
+      key = "<leader>gb";
+      action.__raw = ''
+        function()
+          require("gitblame").toggle()
+        end
+      '';
+      options = {
+        desc = "Toggle Git blame";
+      };
+    }
+  ];
 }

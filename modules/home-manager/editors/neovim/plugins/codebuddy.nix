@@ -7,8 +7,11 @@
 
     copilot_no_tab_map = true;
     codeium_disable_bindings = 1;
-  };
 
+    copilot_enabled = 1;
+    codeium_enabled = 0;
+  };
+ 
   programs.nixvim.keymaps = [
     {
       mode = "i";
