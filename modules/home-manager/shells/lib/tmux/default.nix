@@ -30,7 +30,12 @@ in {
         sensible
         prefix-highlight
         yank
-        tmux-fzf
+        {
+          plugin = tmux-fzf;
+          extraConfig = ''
+            bind-key -r f run-shell -b "${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/session.sh switch"
+          '';
+        }
         #tmux-window-name
         #kube-tmux
       ] ++ theme;
@@ -103,8 +108,6 @@ in {
       # Cht
       bind-key -r i run-shell "tmux neww cht.sh --shell"
 
-      # Session switcher
-      bind-key -r f run-shell -b "$HOME/.config/tmux/plugins/tmux-fzf/scripts/session.sh switch"
     '';
   };
 }
