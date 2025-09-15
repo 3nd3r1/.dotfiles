@@ -46,6 +46,11 @@
     package = pkgs.material-black-plum-suru-icons;
   };
 
+  theme = {
+    name = "Material-Black-Plum-BE";
+    package = pkgs.material-black-plum-be-colors;
+  };
+
   cursor = {
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;

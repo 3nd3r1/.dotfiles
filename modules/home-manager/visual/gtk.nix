@@ -1,4 +1,4 @@
-{ inputs, settings, pkgs, ... }:
+{ inputs, settings, pkgs, lib, ... }:
 let
   themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") {
     inherit pkgs inputs;
@@ -6,6 +6,7 @@ let
 in {
   gtk = {
     enable = true;
-    iconTheme = themeDetails.icons;
+    iconTheme = lib.mkForce themeDetails.icons;
+    theme = lib.mkForce themeDetails.theme;
   };
 }
