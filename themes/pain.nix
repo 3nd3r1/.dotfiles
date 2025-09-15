@@ -42,8 +42,8 @@
   };
 
   icons = {
-    name = "Material Black Plum";
-    package = pkgs.material-black-plum-icons;
+    name = "Material-Black-Plum-Suru";
+    package = pkgs.material-black-plum-suru-icons;
   };
 
   cursor = {

@@ -30,13 +30,13 @@ in {
     };
 
     targets = {
+      lazygit.enable = true;
       nixvim.enable = false;
       tmux.enable = false;
       hyprlock.enable = false;
       hyprland.enable = false;
       btop.enable = false;
-      lazygit.enable = true;
-      gnome.enable = true;
+      gnome.enable = false;
       rofi.enable = false;
     };
   };
