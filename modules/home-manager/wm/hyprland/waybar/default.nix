@@ -1,14 +1,7 @@
-{ settings, themeDetails, ... }:
-let
-  baseCSS = ''
-    * {
-      font-family: ${themeDetails.font.name};
-      font-size: ${toString themeDetails.font.size}px;
-    }
-  '';
-in
-
+{ settings, ... }:
 {
+  imports = [ (./styles + "/${settings.theme}.nix") ];
+
   programs.waybar = {
     enable = true;
     settings = [
@@ -29,13 +22,12 @@ in
           "custom/left-arrow-dark"
           "battery"
           "custom/left-arrow-dark"
-          "time"
+          "clock"
           "custom/left-arrow-dark"
           "tray"
         ];
       }
     ];
-    style = baseCSS + builtins.readFile (./styles + "/${settings.theme}.css");
     systemd.enable = true;
   };
 }
