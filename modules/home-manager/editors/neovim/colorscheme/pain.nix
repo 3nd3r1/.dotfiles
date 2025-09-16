@@ -34,7 +34,7 @@
       
       -- UI Elements
       Pmenu = { fg = colors.purple1, bg = colors.black },
-      PMenuSel = { fg = colors.purple2 },
+      PMenuSel = { fg = colors.purple1 },
       SignColumn = { bg = colors.black },
       LineNr = { fg = colors.purple7, bg = colors.black },
       CursorLineNR = { fg = colors.white, bg = colors.black },
@@ -47,18 +47,18 @@
       NonText = { fg = colors.purple5, bg = colors.black },
       
       -- Status line and tabs
-      StatusLine = { fg = colors.purple, bg = colors.black, bold = true },
-      StatusLineNC = { fg = colors.purple, bg = colors.black },
+      StatusLine = { fg = colors.purple1, bg = colors.black, bold = true },
+      StatusLineNC = { fg = colors.purple1, bg = colors.black },
       TabLineFill = { bg = colors.black },
       TabLine = { fg = colors.black, bg = colors.black },
       Title = { fg = colors.white },
       Directory = { fg = colors.purple3 },
       
       -- Error and warning messages
-      ErrorMsg = { fg = colors.purple },
-      WarningMsg = { fg = colors.purple },
-      Error = { fg = colors.purple },
-      Exception = { fg = colors.purple },
+      ErrorMsg = { fg = colors.purple1 },
+      WarningMsg = { fg = colors.purple1 },
+      Error = { fg = colors.purple1 },
+      Exception = { fg = colors.purple1 },
       MoreMsg = { fg = colors.white },
       
       -- Comments
@@ -68,24 +68,24 @@
       
       -- Language constructs
       Statement = { fg = colors.purple5 },
-      Keyword = { fg = colors.bright_purple },
+      Keyword = { fg = colors.purple2 },
       Conditional = { fg = colors.white },
-      Repeat = { fg = colors.bright_purple },
+      Repeat = { fg = colors.purple2 },
       Label = { fg = colors.white },
       Operator = { fg = colors.purple5 },
       
       -- Types and identifiers
-      Type = { fg = colors.purple },
-      Identifier = { fg = colors.purple },
+      Type = { fg = colors.purple1 },
+      Identifier = { fg = colors.purple1 },
       Function = { fg = colors.orange },
       
       -- Constants and strings
-      Constant = { fg = colors.bright_purple },
+      Constant = { fg = colors.purple2 },
       String = { fg = colors.plum },
       Number = { fg = colors.white },
       
       -- Preprocessing
-      PreProc = { fg = colors.purple },
+      PreProc = { fg = colors.purple1 },
       PreCondit = { fg = colors.white },
       Include = { fg = colors.purple3 },
       Define = { fg = colors.white },
@@ -100,21 +100,21 @@
       Storage = { fg = colors.purple3 },
       
       -- Diff colors
-      DiffAdd = { fg = colors.bright_purple },
+      DiffAdd = { fg = colors.purple2 },
       DiffChange = { fg = colors.white },
-      DiffDelete = { fg = colors.purple },
-      DiffText = { fg = colors.purple },
+      DiffDelete = { fg = colors.purple1 },
+      DiffText = { fg = colors.purple1 },
       
       -- Git gutter
-      GitGutterAdd = { fg = colors.bright_purple },
+      GitGutterAdd = { fg = colors.purple2 },
       GitGutterChange = { fg = colors.white },
-      GitGutterDelete = { fg = colors.purple },
-      GitGutterChangeDelete = { fg = colors.purple },
+      GitGutterDelete = { fg = colors.purple1 },
+      GitGutterChangeDelete = { fg = colors.purple1 },
       
       -- CSS specific
-      cssIdentifier = { fg = colors.purple },
-      cssImportant = { fg = colors.purple },
-      cssIncludeKeyword = { fg = colors.bright_purple },
+      cssIdentifier = { fg = colors.purple1 },
+      cssImportant = { fg = colors.purple1 },
+      cssIncludeKeyword = { fg = colors.purple2 },
       cssClassName = { fg = colors.purple3 },
       cssClassNameDot = { fg = colors.purple3 },
       cssColor = { fg = colors.white },
