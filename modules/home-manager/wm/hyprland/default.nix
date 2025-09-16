@@ -15,7 +15,7 @@ in
     ./keybinds.nix
     ./rules.nix
 
-    ./shells/ags
+    ./waybar
 
     "${homeManagerModulesPath}/apps/rofi"
   ];
