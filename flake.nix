@@ -18,7 +18,6 @@
     };
     stylix.url = "github:danth/stylix";
     lan-mouse.url = "github:feschber/lan-mouse";
-    ags.url = "github:Aylur/ags";
   };
 
   outputs =
