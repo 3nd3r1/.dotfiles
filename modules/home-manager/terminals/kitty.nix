@@ -24,8 +24,8 @@ in
     enable = true;
     shellIntegration.enableZshIntegration = true;
     settings = {
-      active_tab_font_style = "bold";
       bold_font = "auto";
+      active_tab_font_style = "bold";
       bold_italic_font = "auto";
       confirm_os_window_close = 0;
       cursor_shape = "underline";
@@ -33,8 +33,6 @@ in
       cursor_underline_thickness = "1.5";
       disable_ligatures = "never";
       editor = editorCmd;
-      font_family = themeDetails.font.name;
-      font_size = themeDetails.font.size;
       hide_window_decorations = "titlebar-only";
       inactive_tab_font_style = "normal";
       inactive_text_alpha = "1.0";
