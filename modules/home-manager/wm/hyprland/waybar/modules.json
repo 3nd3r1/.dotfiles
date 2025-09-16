@@ -1,21 +1,30 @@
 {
   "layer": "top",
-  "custom/left-arrow-dark": {
+  "custom/left-arrow-1": {
     "format": "",
     "tooltip": false
   },
-  "custom/left-arrow-light": {
+  "custom/left-arrow-2": {
     "format": "",
     "tooltip": false
   },
-  "custom/right-arrow-dark": {
-    "format": "",
+  "custom/left-arrow-3": {
+    "format": "",
     "tooltip": false
   },
-  "custom/right-arrow-light": {
-    "format": "",
+  "custom/left-arrow-4": {
+    "format": "",
     "tooltip": false
   },
+  "custom/left-arrow-5": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left-arrow-6": {
+    "format": "",
+    "tooltip": false
+  },
+
   "hyprland/workspaces": {
     "disable-scroll": false,
     "all-outputs": true,
@@ -33,7 +42,7 @@
     }
   },
   "clock": {
-    "format": "{%d/%m %H:%M}",
+    "format": "{:%d/%m %H:%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
@@ -41,11 +50,11 @@
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span class='color-1'><b>{}</b></span>",
-        "days": "<span class='color-2'><b>{}</b></span>",
-        "weeks": "<span class='color-3'><b>W{}</b></span>",
-        "weekdays": "<span class='color-4'><b>{}</b></span>",
-        "today": "<span class='color-5'><b><u>{}</u></b></span>"
+        "months": "<span><b>{}</b></span>",
+        "days": "<span><b>{}</b></span>",
+        "weeks": "<span><b>W{}</b></span>",
+        "weekdays": "<span><b>{}</b></span>",
+        "today": "<span><b><u>{}</u></b></span>"
       }
     },
     "actions": {

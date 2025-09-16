@@ -15,15 +15,17 @@
         modules-center = [
         ];
         modules-right = [
-          "custom/left-arrow-dark"
+          "custom/left-arrow-1"
+          "cpu"
+          "custom/left-arrow-2"
           "network"
-          "custom/left-arrow-dark"
+          "custom/left-arrow-3"
           "pulseaudio"
-          "custom/left-arrow-dark"
+          "custom/left-arrow-4"
           "battery"
-          "custom/left-arrow-dark"
+          "custom/left-arrow-5"
           "clock"
-          "custom/left-arrow-dark"
+          "custom/left-arrow-6"
           "tray"
         ];
       }

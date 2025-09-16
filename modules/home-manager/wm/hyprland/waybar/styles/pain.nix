@@ -1,5 +1,9 @@
 { themeDetails, ... }:
 let
+  black1 = "#000000";
+
+  white1 = "#ffffff";
+
   purple1 = "#800080";
   purple2 = "#6a046e";
   purple3 = "#500859";
@@ -17,69 +21,53 @@ in
       font-size: ${toString (themeDetails.font.size + 5)}px;
     }
 
-    .color-1 {
+    window#waybar {
+      background: ${black1};
+    }
+
+    /* The powerline */
+    #custom-left-arrow-1 {
+      background: ${black1};
       color: ${purple1};
     }
-
-    .color-2 {
+    #cpu {
+      background: ${purple1};
+    }
+    #custom-left-arrow-2 {
+      background: ${purple1};
       color: ${purple2};
     }
-
-    .color-3 {
+    #network {
+      background: ${purple2};
+    }
+    #custom-left-arrow-3 {
+      background: ${purple2};
       color: ${purple3};
     }
-
-    .color-4 {
+    #pulseaudio {
+      background: ${purple3};
+    }
+    #custom-left-arrow-4 {
+      background: ${purple3};
       color: ${purple4};
     }
-
-    .color-5 {
+    #battery {
+      background: ${purple4};
+    }
+    #custom-left-arrow-5 {
+      background: ${purple4};
       color: ${purple5};
     }
-
-    window#waybar {
-      background: #292b2e;
-      color: #fdf6e3;
+    #clock {
+      background: ${purple5};
+    }
+    #custom-left-arrow-6 {
+      background: ${purple5};
+      color: ${black1};
     }
 
-    #custom-right-arrow-dark,
-    #custom-left-arrow-dark {
-      color: #1a1a1a;
-    }
-    #custom-right-arrow-light,
-    #custom-left-arrow-light {
-      color: #292b2e;
-      background: #1a1a1a;
-    }
-
-    /* just the logo */
-    #custom-spotify {
-      background: #1a1a1a;
-      color: #04982c;
-      padding: 5px 5px;
-    }
-
-    /* the info displayed by playerctl */
-    #custom-mpris {
-      background: #1a1a1a;
-      color: #2aa198;
-      padding: 5px 5px;
-    }
-
-    #workspaces,
-    #clock.1,
-    #clock.2,
-    #clock.3,
-    #pulseaudio,
-    #language,
-    #network,
-    #window,
-    #memory,
-    #cpu,
-    #battery,
-    #disk,
-    #tray {
-      background: #1a1a1a;
+    #clock, #battery, #power, #pulseaudio, #network, #cpu {
+      color: ${white1};
     }
 
     #workspaces button {
@@ -100,22 +88,6 @@ in
       background: #1a1a1a;
       border: #1a1a1a;
       padding: 0 3px;
-    }
-
-    #pulseaudio {
-      color: #268bd2;
-    }
-    #memory {
-      color: #2aa198;
-    }
-    #cpu {
-      color: #6c71c4;
-    }
-    #battery {
-      color: #859900;
-    }
-    #disk {
-      color: #b58900;
     }
 
     #clock,
@@ -150,27 +122,6 @@ in
     #not-power {
       padding: 0 0px;
       padding-left: 10px;
-    }
-
-    #network {
-      background: #1a1a1a;
-      padding: 0px 15px;
-    }
-
-    #network.disabled {
-      color: #aba8a8;
-    }
-
-    #network.disconnected {
-      color: #aba8a8;
-    }
-
-    #network.ethernet {
-      color: #2aa198;
-    }
-
-    #network.wifi {
-      color: #268bd2;
     }
 
     #language {
