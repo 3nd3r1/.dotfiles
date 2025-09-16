@@ -1,4 +1,12 @@
-{ ... }:
+{ settings, themeDetails, ... }:
+let
+  baseCSS = ''
+    * {
+      font-family: ${themeDetails.font.name};
+      font-size: ${toString themeDetails.font.size}px;
+    }
+  '';
+in
 
 {
   programs.waybar = {
@@ -6,8 +14,11 @@
     settings = [
       {
         position = "top";
-        include = [ "${./shared.json}" ];
-        modules-left = [ "hyprland/workspaces" "custom/right-arrow-dark" ];
+        include = [ "${./modules.json}" ];
+        modules-left = [
+          "hyprland/workspaces"
+          "custom/right-arrow-dark"
+        ];
         modules-center = [
           "custom/left-arrow-dark"
           "clock#2"
@@ -40,7 +51,7 @@
       }
       {
         position = "bottom";
-        include = [ "${./shared.json}" ];
+        include = [ "${./modules.json}" ];
         modules-left = [
           "custom/right-arrow-dark"
           "custom/right-arrow-light"
@@ -67,7 +78,7 @@
         ];
       }
     ];
-    style = builtins.readFile ./style.css;
+    style = baseCSS + builtins.readFile (./styles + "/${settings.theme}.css");
     systemd.enable = true;
   };
 }
