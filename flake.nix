@@ -34,6 +34,7 @@
         "work"
       ];
       system = "x86_64-linux";
+
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ (import ./overlays { inherit inputs; }) ];
@@ -45,9 +46,12 @@
           settings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit pkgs inputs;
           };
+          themeDetails = import (./. + "/themes/${settings.theme}.nix") {
+            inherit pkgs inputs;
+          };
         in
         nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs settings; };
+          specialArgs = { inherit inputs settings themeDetails; };
           modules = [
             (./. + "/profiles/${profile}/configuration.nix")
             inputs.stylix.nixosModules.stylix
@@ -60,6 +64,9 @@
           settings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit pkgs inputs;
           };
+          themeDetails = import (./. + "/themes/${settings.theme}.nix") {
+            inherit pkgs inputs;
+          };
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -69,7 +76,7 @@
             inputs.nixvim.homeModules.nixvim
             inputs.lan-mouse.homeManagerModules.default
           ];
-          extraSpecialArgs = { inherit inputs settings; };
+          extraSpecialArgs = { inherit inputs settings themeDetails; };
         };
     in
     {

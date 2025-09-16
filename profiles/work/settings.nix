@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: rec {
+{ pkgs, inputs, ... }:
+rec {
   profile = "work";
 
   hostname = "elx-5cg2183zp2"; # Hostname
@@ -14,7 +15,10 @@
   shell = "zsh";
   shellPkg = pkgs.zsh;
 
-  wms = [ "qtile" "hyprland" ];
+  wms = [
+    "qtile"
+    "hyprland"
+  ];
   editors = [ "neovim-old" ];
   browsers = [ "brave" ];
   terminals = [ "gnome-terminal" ];

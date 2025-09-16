@@ -1,19 +1,25 @@
-{ settings, lib, inputs, pkgs, ... }:
+{
+  settings,
+  themeDetails,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 let
-  editorCmd = if builtins.elem "neovim" settings.editors then
-    "nvim"
-  else if builtins.elem "vim" settings.editors then
-    "vim"
-  else if builtins.elem "emacs" settings.editors then
-    "emacs"
-  else if builtins.elem "nano" settings.editors then
-    "nano"
-  else
-    "nvim";
-  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") {
-    inherit pkgs inputs;
-  };
-in {
+  editorCmd =
+    if builtins.elem "neovim" settings.editors then
+      "nvim"
+    else if builtins.elem "vim" settings.editors then
+      "vim"
+    else if builtins.elem "emacs" settings.editors then
+      "emacs"
+    else if builtins.elem "nano" settings.editors then
+      "nano"
+    else
+      "nvim";
+in
+{
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;

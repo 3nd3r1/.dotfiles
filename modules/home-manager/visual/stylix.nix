@@ -1,9 +1,12 @@
-{ inputs, settings, pkgs, lib, config, ... }:
-let
-  themeDetails = import ("${inputs.self}/themes/${settings.theme}.nix") {
-    inherit pkgs inputs;
-  };
-in {
+{
+  inputs,
+  themeDetails,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   stylix = {
     enable = true;
     polarity = "dark"; # I WILL NOT ALLOW CHANGING THIS
