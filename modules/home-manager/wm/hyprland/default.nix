@@ -16,6 +16,7 @@ in
     ./rules.nix
 
     ./waybar
+    ./hyprpaper
 
     "${homeManagerModulesPath}/apps/rofi"
   ];
