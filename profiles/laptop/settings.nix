@@ -22,4 +22,5 @@
   preferredEditor = "nvim";
   preferredBrowser = "brave";
   preferredTerminal = "kitty";
+  preferredFileManager = "thunar";
 }

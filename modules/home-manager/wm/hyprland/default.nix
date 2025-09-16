@@ -11,13 +11,13 @@ let
 in
 {
   imports = [
-    ./shells/ags
-    "${homeManagerModulesPath}/apps/rofi"
-  ];
+    ./settings.nix
+    ./keybinds.nix
+    ./rules.nix
 
-  home.packages = with pkgs; [
-    hyprcursor
-    rose-pine-hyprcursor
+    ./shells/ags
+
+    "${homeManagerModulesPath}/apps/rofi"
   ];
 
   wayland.windowManager.hyprland = {
@@ -25,6 +25,5 @@ in
     systemd.enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
-    extraConfig = (builtins.readFile ./hyprland.conf);
   };
 }

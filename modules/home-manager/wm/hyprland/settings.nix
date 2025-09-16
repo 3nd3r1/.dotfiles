@@ -7,11 +7,6 @@
   ...
 }:
 {
-  home.packages = with pkgs; [
-    swww
-    wayvnc
-  ];
-
   wayland.windowManager.hyprland.settings = {
     monitor = [
       ",preferred,auto,1"
@@ -36,8 +31,14 @@
     };
 
     decoration = {
-      dim_special = 0.5;
       rounding = themeDetails.rounding;
+      shadow = {
+        enabled = themeDetails.shadow;
+        ignore_window = false;
+        offset = "2 2";
+        range = 20;
+        color = "rgba(${config.lib.stylix.colors.base00}ff)";
+      };
       blur = {
         enabled = true;
         special = true;
@@ -46,14 +47,6 @@
         noise = 0.02;
         passes = 3;
         size = 10;
-      };
-
-      shadow = {
-        enabled = details.shadow;
-        ignore_window = false;
-        offset = "2 2";
-        range = 20;
-        color = "rgba(${config.lib.stylix.colors.base00}ff)";
       };
     };
 
@@ -79,31 +72,7 @@
       ];
     };
 
-    debug = {
-      disable_logs = false;
-    };
-
-    input = {
-      kb_layout = "us,ru";
-      kb_options = "grp:alt_shift_toggle";
-      follow_mouse = true;
-      touchpad = {
-        natural_scroll = true;
-      };
-    };
-
-    device = {
-      name = "logitech-usb-receiver-mouse";
-      sensitivity = -1.0;
-    };
-
-    gestures = {
-      workspace_swipe_forever = true;
-      workspace_swipe_distance = 200;
-    };
-
     dwindle = {
-      # keep floating dimentions while tiling
       pseudotile = true;
       preserve_split = true;
       force_split = 2;
@@ -111,8 +80,23 @@
     };
 
     misc = {
-      force_default_wallpaper = -1;
+      force_default_wallpaper = 0;
+      disable_hyprland_logo = true;
       exit_window_retains_fullscreen = true;
+    };
+
+    debug = {
+      disable_logs = false;
+    };
+
+    input = {
+      kb_layout = "fi";
+      kb_options = "";
+      follow_mouse = true;
+      sensitivity = 0;
+      touchpad = {
+        natural_scroll = true;
+      };
     };
   };
 }

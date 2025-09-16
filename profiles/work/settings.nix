@@ -26,4 +26,5 @@ rec {
   preferredEditor = "nvim";
   preferredBrowser = "brave";
   preferredTerminal = "gnome-terminal";
+  preferredFileManager = "thunar";
 }
