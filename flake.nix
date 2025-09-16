@@ -18,23 +18,35 @@
     };
     stylix.url = "github:danth/stylix";
     lan-mouse.url = "github:feschber/lan-mouse";
+    ags.url = "github:Aylur/ags";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
-      profiles = [ "laptop" "work" ];
+      profiles = [
+        "laptop"
+        "work"
+      ];
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ (import ./overlays { inherit inputs; }) ];
       };
 
-      mkNixosConfiguration = profile:
+      mkNixosConfiguration =
+        profile:
         let
           settings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit pkgs inputs;
           };
-        in nixpkgs.lib.nixosSystem {
+        in
+        nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs settings; };
           modules = [
             (./. + "/profiles/${profile}/configuration.nix")
@@ -42,12 +54,14 @@
           ];
         };
 
-      mkHomeConfiguration = profile:
+      mkHomeConfiguration =
+        profile:
         let
           settings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit pkgs inputs;
           };
-        in home-manager.lib.homeManagerConfiguration {
+        in
+        home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             (./. + "/profiles/${profile}/home.nix")
@@ -57,15 +71,20 @@
           ];
           extraSpecialArgs = { inherit inputs settings; };
         };
-    in {
-      nixosConfigurations = nixpkgs.lib.listToAttrs (map (profile: {
-        name = profile;
-        value = mkNixosConfiguration profile;
-      }) profiles);
+    in
+    {
+      nixosConfigurations = nixpkgs.lib.listToAttrs (
+        map (profile: {
+          name = profile;
+          value = mkNixosConfiguration profile;
+        }) profiles
+      );
 
-      homeConfigurations = nixpkgs.lib.listToAttrs (map (profile: {
-        name = profile;
-        value = mkHomeConfiguration profile;
-      }) profiles);
+      homeConfigurations = nixpkgs.lib.listToAttrs (
+        map (profile: {
+          name = profile;
+          value = mkHomeConfiguration profile;
+        }) profiles
+      );
     };
 }
