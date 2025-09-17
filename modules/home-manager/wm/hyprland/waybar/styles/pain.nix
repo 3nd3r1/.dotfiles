@@ -70,24 +70,22 @@ in
       color: ${white1};
     }
 
+    /* The workspaces */
     #workspaces button {
       padding: 0 2px;
-      color: #fdf6e3;
+      color: ${purple1};
     }
     #workspaces button.active {
-      color: #268bd2;
+      color: ${orange1};
     }
     #workspaces button.focused {
-      color: #268bd2;
+      background: ${purple1};
     }
     #workspaces button:hover {
       box-shadow: inherit;
       text-shadow: inherit;
     }
     #workspaces button:hover {
-      background: #1a1a1a;
-      border: #1a1a1a;
-      padding: 0 3px;
     }
 
     #clock,

@@ -29,6 +29,9 @@
     "disable-scroll": false,
     "all-outputs": true,
     "format": "{icon}",
+    "persistent-workspaces": {
+      "*": 9,
+    },
     "format-icons": {
       "1": "1",
       "2": "2",
@@ -146,11 +149,11 @@
   },
   "network": {
     "format": "{ifname}",
-    "format-wifi": "{ipaddr}/{cidr} ",
+    "format-wifi": "{essid} ",
     "format-ethernet": "{ifname} ",
-    "format-disconnected": "",
+    "format-disconnected": "󰖪",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-wifi": "{ipaddr}/{cidr} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ipaddr}/{cidr} 󰊗",
     "tooltip-format-disconnected": "Disconnected 󰌙",
     "max-length": 50
