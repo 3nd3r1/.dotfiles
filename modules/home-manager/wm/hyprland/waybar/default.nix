@@ -1,7 +1,13 @@
-{ settings, ... }:
+{ settings, themeDetails, ... }:
+let
+  baseCSS = ''
+    * {
+      font-family: "${themeDetails.font.name}";
+      font-size: ${toString (themeDetails.font.size + 5)}px;
+    }
+  '';
+in
 {
-  imports = [ (./styles + "/${settings.theme}.nix") ];
-
   programs.waybar = {
     enable = true;
     settings = [
@@ -31,5 +37,6 @@
       }
     ];
     systemd.enable = true;
+    style = baseCSS + builtins.readFile (./styles + "/${settings.theme}.css");
   };
 }
