@@ -4,7 +4,6 @@
   lib,
   settings,
   pkgs,
-  nixGL,
   ...
 }:
 let
@@ -21,11 +20,6 @@ in
 
     "${homeManagerModulesPath}/apps/rofi"
   ];
-
-  nixGL = {
-    packages = nixGL.packages;
-    defaultWrapper = "mesa";
-  };
 
   wayland.windowManager.hyprland = {
     enable = true;

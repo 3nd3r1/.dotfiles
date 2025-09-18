@@ -4,6 +4,7 @@
   lib,
   inputs,
   pkgs,
+  config,
   ...
 }:
 let
@@ -18,6 +19,9 @@ let
       "nano"
     else
       "nvim";
+
+  kittyPkg =
+    if builtins.elem "work" settings.profile then config.lib.nixGL.wrap pkgs.kitty else pkgs.kitty;
 in
 {
   programs.kitty = {

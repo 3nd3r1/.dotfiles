@@ -39,9 +39,10 @@
       emoji = config.stylix.fonts.sansSerif;
     };
 
+    autoEnable = false;
     targets = {
-      lazygit.enable = true;
-      kitty.enable = true;
+      lazygit.enable = false;
+      kitty.enable = false;
       nixvim.enable = false;
       tmux.enable = false;
       hyprlock.enable = false;
