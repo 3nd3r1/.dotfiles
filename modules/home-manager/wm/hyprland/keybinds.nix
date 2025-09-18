@@ -51,11 +51,11 @@
       "$mod, j, cyclenext"
 
       # Swap windows with vim keys
-      # "$mod SHIFT, h, movewindow, l"
-      # "$mod SHIFT, l, movewindow, r"
-      # "$mod SHIFT, k, movewindow, u"
-      # "$mod SHIFT, j, movewindow, d"
-      # "$mod SHIFT, c, centerwindow, 1"
+      "$mod SHIFT, h, movewindow, l"
+      "$mod SHIFT, l, movewindow, r"
+      "$mod SHIFT, k, movewindow, u"
+      "$mod SHIFT, j, movewindow, d"
+      "$mod SHIFT, c, centerwindow, 1"
 
       # Move monitor focus.
       "$mod, period, focusmonitor, +1"
