@@ -7,6 +7,13 @@
   ...
 }:
 {
+
+  # This will ensure the font is loaded
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    themeDetails.font.package
+  ];
+
   stylix = {
     enable = true;
     polarity = "dark"; # I WILL NOT ALLOW CHANGING THIS
@@ -41,6 +48,7 @@
       hyprland.enable = false;
       btop.enable = false;
       gnome.enable = false;
+      gtk.enable = false;
       rofi.enable = false;
     };
   };

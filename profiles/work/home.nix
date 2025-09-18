@@ -19,8 +19,6 @@ in {
     sessionVariables = {
       EDITOR = settings.preferredEditor;
       BROWSER = settings.preferredBrowser;
-      USERNAME = settings.username;
-      USER = settings.username;
     };
   };
   home.packages = with pkgs; [ neofetch docker arandr blueman ];
