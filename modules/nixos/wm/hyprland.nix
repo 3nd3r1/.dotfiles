@@ -1,7 +1,15 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
-  environment.systemPackages = [ pkgs.wayland pkgs.wl-clipboard ];
+  environment.systemPackages = [
+    pkgs.wayland
+    pkgs.wl-clipboard
+  ];
 
   services.xserver = {
     enable = true;
@@ -21,15 +29,16 @@
       enable = true;
       xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.default;
-      portalPackage =
-        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
   };
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    config = { hyprland.default = [ "hyprland" ]; };
+    config = {
+      hyprland.default = [ "hyprland" ];
+    };
 
   };
 }
