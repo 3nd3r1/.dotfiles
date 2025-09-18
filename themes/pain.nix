@@ -1,8 +1,6 @@
 { pkgs, inputs, ... }: {
   themeName = "pain";
 
-  wallpaper = "${inputs.self}/assets/wallpapers/pain.jpg";
-
   # Stylix palette override.
   base16Scheme = {
     base00 = "#000000";

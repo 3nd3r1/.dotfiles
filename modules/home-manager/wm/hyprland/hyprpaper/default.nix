@@ -1,5 +1,5 @@
 {
-  themeDetails,
+  settings,
   ...
 }:
 {
@@ -11,11 +11,11 @@
       splash_offset = 2.0;
 
       preload = [
-        "${themeDetails.wallpaper}"
+        "${settings.wallpaper}"
       ];
 
       wallpaper = [
-        ",${themeDetails.wallpaper}"
+        ",${settings.wallpaper}"
       ];
     };
   };

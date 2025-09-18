@@ -2,6 +2,7 @@
   settings,
   pkgs,
   inputs,
+  themeDetails,
   ...
 }:
 let
@@ -38,11 +39,13 @@ in
     blueman
   ];
 
-
   # Fix gdm overwriting path
   xdg.configFile."environment.d/envvars.conf".text = ''
     PATH="$HOME/.nix-profile/bin:$PATH"
   '';
+
+  # Fix gtk
+  targets.genericLinux.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

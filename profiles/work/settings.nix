@@ -11,6 +11,7 @@ rec {
   dotfilesDir = "/home/${username}/dotfiles"; # Absolute path of the repo;
 
   theme = "pain";
+  wallpaper = "${inputs.self}/assets/wallpapers/office.png";
 
   shell = "zsh";
   shellPkg = pkgs.zsh;
@@ -22,6 +23,6 @@ rec {
 
   preferredEditor = "nvim";
   preferredBrowser = "brave";
-  preferredTerminal = "gnome-terminal";
+  preferredTerminal = "kitty";
   preferredFileManager = "nautilus";
 }

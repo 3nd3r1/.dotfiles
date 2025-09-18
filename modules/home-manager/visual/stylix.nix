@@ -1,5 +1,6 @@
 {
   inputs,
+  settings,
   themeDetails,
   pkgs,
   lib,
@@ -17,7 +18,7 @@
   stylix = {
     enable = true;
     polarity = "dark"; # I WILL NOT ALLOW CHANGING THIS
-    image = themeDetails.wallpaper;
+    image = settings.wallpaper;
     base16Scheme = themeDetails.base16Scheme;
     override = lib.mkIf (themeDetails.override != null) themeDetails.override;
     opacity = {

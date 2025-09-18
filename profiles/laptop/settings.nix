@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: rec {
+{ pkgs, inputs, ... }:
+rec {
   profile = "laptop";
 
   hostname = "enderlaptop"; # Hostname
@@ -10,6 +11,7 @@
   dotfilesDir = "/home/${username}/dotfiles"; # Absolute path of the repo;
 
   theme = "pain";
+  wallpaper = "${inputs.self}/assets/wallpaper/pain.jpg";
 
   shell = "zsh";
   shellPkg = pkgs.zsh;
