@@ -38,6 +38,12 @@ in
     blueman
   ];
 
+
+  # Fix gdm overwriting path
+  xdg.configFile."environment.d/envvars.conf".text = ''
+    PATH="$HOME/.nix-profile/bin:$PATH"
+  '';
+
   nixpkgs.config.allowUnfree = true;
 
   # Let Home Manager install and manage itself.
