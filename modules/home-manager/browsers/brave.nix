@@ -12,7 +12,6 @@ let
           ${pkgs.brave}/bin/brave \
             --enable-features=UseOzonePlatform,WaylandWindowDecorations \
             --ozone-platform=wayland \
-            --disable-gpu-sandbox \
             "$@"''
       ))
     else
