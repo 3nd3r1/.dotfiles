@@ -15,7 +15,7 @@ rec {
   shell = "zsh";
   shellPkg = pkgs.zsh;
 
-  wms = [ "hyprland" ];
+  wms = [ ];
   editors = [ "neovim" ];
   browsers = [ "brave" ];
   terminals = [ "kitty" ];
