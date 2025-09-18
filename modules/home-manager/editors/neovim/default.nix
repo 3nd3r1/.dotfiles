@@ -22,6 +22,7 @@
 
   home.packages = with pkgs; [
     ripgrep
+    xclip
     cargo
     gcc
     nodejs_24
