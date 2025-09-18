@@ -42,8 +42,8 @@
 
     autoEnable = false;
     targets = {
-      lazygit.enable = false;
-      kitty.enable = false;
+      lazygit.enable = true;
+      kitty.enable = true;
       nixvim.enable = false;
       tmux.enable = false;
       hyprlock.enable = false;
