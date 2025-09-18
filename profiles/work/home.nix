@@ -2,7 +2,6 @@
   settings,
   pkgs,
   inputs,
-  themeDetails,
   ...
 }:
 let
