@@ -8,25 +8,13 @@
   ...
 }:
 let
-  editorCmd =
-    if builtins.elem "neovim" settings.editors then
-      "nvim"
-    else if builtins.elem "vim" settings.editors then
-      "vim"
-    else if builtins.elem "emacs" settings.editors then
-      "emacs"
-    else if builtins.elem "nano" settings.editors then
-      "nano"
-    else
-      "nvim";
-
-  kittyPkg =
-    if builtins.elem "work" settings.profile then config.lib.nixGL.wrap pkgs.kitty else pkgs.kitty;
+  kittyPkg = if settings.profile == "work" then (config.lib.nixGL.wrap pkgs.kitty) else pkgs.kitty;
 in
 {
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
+    package = kittyPkg;
     settings = {
       bold_font = "auto";
       active_tab_font_style = "bold";
@@ -36,7 +24,7 @@ in
       cursor_stop_blinking_after = 0;
       cursor_underline_thickness = "1.5";
       disable_ligatures = "never";
-      editor = editorCmd;
+      editor = settings.preferredEditor;
       hide_window_decorations = "titlebar-only";
       inactive_tab_font_style = "normal";
       inactive_text_alpha = "1.0";

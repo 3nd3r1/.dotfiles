@@ -15,7 +15,7 @@ rec {
   shell = "zsh";
   shellPkg = pkgs.zsh;
 
-  wms = [ ];
+  wms = [ "hyprland" ];
   editors = [ "neovim" ];
   browsers = [ "brave" ];
   terminals = [ "kitty" ];
@@ -23,5 +23,5 @@ rec {
   preferredEditor = "nvim";
   preferredBrowser = "brave";
   preferredTerminal = "gnome-terminal";
-  preferredFileManager = "thunar";
+  preferredFileManager = "nautilus";
 }
