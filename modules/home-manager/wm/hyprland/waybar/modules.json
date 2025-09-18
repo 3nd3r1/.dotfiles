@@ -28,6 +28,7 @@
   "hyprland/workspaces": {
     "disable-scroll": false,
     "all-outputs": true,
+    "move-to-monitor": true,
     "format": "{icon}",
     "persistent-workspaces": {
       "1": [],

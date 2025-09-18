@@ -69,12 +69,13 @@ window#waybar {
 /* The workspaces */
 #workspaces button {
   padding: 0 2px;
-  color: @purple1;
-}
-#workspaces button.urgent {
   color: @orange1;
 }
-#workspaces button.active {
+#workspaces button.empty {
+  padding: 0 2px;
+  color: @purple1;
+}
+#workspaces button.visible.hosting-monitor {
   background: @purple1;
   color: @white1;
 }
