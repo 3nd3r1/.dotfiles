@@ -36,7 +36,6 @@ in
         ];
       }
     ];
-    systemd.enable = true;
     style = baseCSS + builtins.readFile (./styles + "/${settings.theme}.css");
   };
 }

@@ -18,7 +18,7 @@ rec {
   wms = [ "hyprland" ];
   editors = [ "neovim" ];
   browsers = [ "brave" ];
-  terminals = [ "gnome-terminal" ];
+  terminals = [ "kitty" ];
 
   preferredEditor = "nvim";
   preferredBrowser = "brave";

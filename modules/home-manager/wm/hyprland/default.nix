@@ -16,8 +16,8 @@ in
     ./keybinds.nix
     ./rules.nix
 
-    #./waybar
-    #./hyprpaper
+    ./waybar
+    ./hyprpaper
 
     "${homeManagerModulesPath}/apps/rofi"
   ];
@@ -30,6 +30,6 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     package = config.lib.nixGL.wrap inputs.hyprland.packages.${pkgs.system}.hyprland;
-    #portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 }
