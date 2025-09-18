@@ -17,6 +17,7 @@ in
 
     ./waybar
     ./hyprpaper
+    ./hyprlock
 
     "${homeManagerModulesPath}/apps/rofi"
   ];
