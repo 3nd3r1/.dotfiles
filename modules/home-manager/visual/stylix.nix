@@ -15,7 +15,7 @@
   ];
 
   stylix = {
-    enable = true;
+    enable = false;
     polarity = "dark"; # I WILL NOT ALLOW CHANGING THIS
     image = themeDetails.wallpaper;
     base16Scheme = themeDetails.base16Scheme;

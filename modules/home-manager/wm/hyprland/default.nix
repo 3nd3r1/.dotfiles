@@ -4,6 +4,7 @@
   lib,
   settings,
   pkgs,
+  nixGL,
   ...
 }:
 let
@@ -15,16 +16,20 @@ in
     ./keybinds.nix
     ./rules.nix
 
-    ./waybar
-    ./hyprpaper
+    #./waybar
+    #./hyprpaper
 
     "${homeManagerModulesPath}/apps/rofi"
   ];
 
+  nixGL = {
+    packages = nixGL.packages;
+    defaultWrapper = "mesa";
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = false;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    package = config.lib.nixGL.wrap inputs.hyprland.packages.${pkgs.system}.hyprland;
+    #portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 }

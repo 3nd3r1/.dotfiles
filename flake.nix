@@ -16,6 +16,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixGL = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix.url = "github:danth/stylix";
     lan-mouse.url = "github:feschber/lan-mouse";
   };
@@ -25,6 +29,7 @@
       self,
       nixpkgs,
       home-manager,
+      nixGL,
       ...
     }@inputs:
     let
@@ -75,7 +80,7 @@
             inputs.nixvim.homeModules.nixvim
             inputs.lan-mouse.homeManagerModules.default
           ];
-          extraSpecialArgs = { inherit inputs settings themeDetails; };
+          extraSpecialArgs = { inherit inputs settings themeDetails nixGL; };
         };
     in
     {
