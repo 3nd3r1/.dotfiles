@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     ripgrep
     xclip
+    wl-clipboard
     cargo
     gcc
     nodejs_24
