@@ -1,4 +1,10 @@
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    yamllint
+    pylint
+  ];
+
   programs.nixvim.plugins = {
     lint = {
       enable = true;
@@ -9,12 +15,14 @@
     };
   };
 
-  programs.nixvim.autoCmd = [{
-    event = [ "BufWritePost" ];
-    callback.__raw = ''
-      function()
-        require("lint").try_lint()
-      end
-    '';
-  }];
+  programs.nixvim.autoCmd = [
+    {
+      event = [ "BufWritePost" ];
+      callback.__raw = ''
+        function()
+          require("lint").try_lint()
+        end
+      '';
+    }
+  ];
 }
