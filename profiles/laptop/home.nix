@@ -37,6 +37,8 @@ in
     docker
     arandr
     blueman
+    telegram-desktop
+    notion-app
   ];
 
   nixpkgs.config.allowUnfree = true;
