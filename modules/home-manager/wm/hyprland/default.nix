@@ -28,8 +28,31 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = if settings.profile == "work" then false else true;
+    xwayland.enable = true;
+    systemd = {
+      enable = if settings.profile == "work" then false else true;
+      variables = [ "--all" ];
+    };
     package = hyprlandPkg;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+  };
+
+  xdg.portal = {
+    enable = true;
+    config = {
+      common = {
+        default = [ "hyprland" ];
+      };
+      hyprland = {
+        default = [
+          "gtk"
+          "hyprland"
+        ];
+      };
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+    xdgOpenUsePortal = true;
   };
 }
