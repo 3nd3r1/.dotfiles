@@ -6,9 +6,10 @@
 }:
 
 {
-  environment.systemPackages = [
-    pkgs.wayland
-    pkgs.wl-clipboard
+  environment.systemPackages = with pkgs; [
+    wayland
+    wl-clipboard
+    xdg-utils
   ];
 
   services.xserver = {
@@ -36,8 +37,15 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
     config = {
-      hyprland.default = [ "hyprland" ];
+      common.default = [ "gtk" ];
+      hyprland.default = [
+        "hyprland"
+        "gtk"
+      ];
     };
 
   };
