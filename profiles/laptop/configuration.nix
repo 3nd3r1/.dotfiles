@@ -12,6 +12,7 @@ in
   imports = [
     ./hardware-configuration.nix
     "${nixosModulesPath}/apps/thunar.nix"
+    "${nixosModulesPath}/apps/zoom.nix"
     "${nixosModulesPath}/apps/lanmouse.nix"
     "${nixosModulesPath}/apps/kdeconnect.nix"
   ]
@@ -101,8 +102,6 @@ in
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 4242 ];
-      allowedUDPPorts = [ 4242 ];
     };
   };
 
