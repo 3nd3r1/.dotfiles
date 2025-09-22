@@ -20,22 +20,14 @@
     };
   };
 
-  services.displayManager.sddm = {
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
-    setupScript = ''
-      # Get connected displays
-      EXTERNAL=$(${pkgs.xorg.xrandr}/bin/xrandr | grep " connected" | grep -v "eDP" | head -n1 | awk '{print $1}')
-      INTERNAL=$(${pkgs.xorg.xrandr}/bin/xrandr | grep "eDP" | grep " connected" | awk '{print $1}')
-
-      # If external display is connected, use it as primary and turn off internal
-      if [ -n "$EXTERNAL" ]; then
-        ${pkgs.xorg.xrandr}/bin/xrandr --output "$EXTERNAL" --primary --auto
-        if [ -n "$INTERNAL" ]; then
-          ${pkgs.xorg.xrandr}/bin/xrandr --output "$INTERNAL" --off
-        fi
-      fi
-    '';
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "greeter";
+      };
+    };
   };
 
   programs = {
