@@ -11,7 +11,7 @@ rec {
   dotfilesDir = "/home/${username}/dotfiles"; # Absolute path of the repo;
 
   theme = "pain";
-  wallpaper = "${inputs.self}/assets/wallpaper/pain.jpg";
+  wallpaper = "${inputs.self}/assets/wallpapers/pain.jpg";
 
   shell = "zsh";
   shellPkg = pkgs.zsh;
