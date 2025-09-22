@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  lib,
   settings,
   pkgs,
   ...
@@ -29,6 +28,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = if settings.profile == "work" then false else true;
     package = hyprlandPkg;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
