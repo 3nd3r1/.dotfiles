@@ -6,7 +6,7 @@
 }:
 let
   bravePkg =
-    if settings.profile == "work" then
+    if settings.nixgl then
       (config.lib.nixGL.wrap (
         pkgs.writeShellScriptBin "brave" ''
           ${pkgs.brave}/bin/brave \

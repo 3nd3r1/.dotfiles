@@ -8,6 +8,11 @@
 }:
 let
   homeManagerModulesPath = "${inputs.self}/modules/home-manager";
+  hyprlandPkg =
+    if settings.nixgl then
+      config.lib.nixGL.wrap inputs.hyprland.packages.${pkgs.system}.hyprland
+    else
+      inputs.hyprland.packages.${pkgs.system}.hyprland;
 in
 {
   imports = [
@@ -24,7 +29,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = config.lib.nixGL.wrap inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = hyprlandPkg;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 }

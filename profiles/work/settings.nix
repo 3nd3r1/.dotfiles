@@ -16,6 +16,8 @@ rec {
   shell = "zsh";
   shellPkg = pkgs.zsh;
 
+  nixgl = true; # Enable nixGL
+
   wms = [ "hyprland" ];
   editors = [ "neovim" ];
   browsers = [ "brave" ];

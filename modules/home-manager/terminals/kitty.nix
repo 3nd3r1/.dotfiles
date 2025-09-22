@@ -8,7 +8,7 @@
   ...
 }:
 let
-  kittyPkg = if settings.profile == "work" then (config.lib.nixGL.wrap pkgs.kitty) else pkgs.kitty;
+  kittyPkg = if settings.nixgl then (config.lib.nixGL.wrap pkgs.kitty) else pkgs.kitty;
 in
 {
   programs.kitty = {
