@@ -12,7 +12,8 @@ in
   imports = [
     ./hardware-configuration.nix
     "${nixosModulesPath}/apps/thunar.nix"
-
+    "${nixosModulesPath}/apps/lanmouse.nix"
+    "${nixosModulesPath}/apps/kdeconnect.nix"
   ]
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}.nix") settings.wms);
 
@@ -97,10 +98,13 @@ in
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 4242 ];
-  networking.firewall.allowedUDPPorts = [ 4242 ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 4242 ];
+      allowedUDPPorts = [ 4242 ];
+    };
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

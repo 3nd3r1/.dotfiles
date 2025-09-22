@@ -38,7 +38,6 @@ in
     arandr
     blueman
     telegram-desktop
-    kdePackages.kdeconnect-kde
   ];
 
   nixpkgs.config.allowUnfree = true;
