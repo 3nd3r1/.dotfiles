@@ -39,6 +39,7 @@ in
     blueman
     telegram-desktop
     speedcrunch
+    gnumake
   ];
 
   nixpkgs.config.allowUnfree = true;
