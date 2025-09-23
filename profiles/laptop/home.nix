@@ -38,6 +38,7 @@ in
     arandr
     blueman
     telegram-desktop
+    speedcrunch
   ];
 
   nixpkgs.config.allowUnfree = true;
