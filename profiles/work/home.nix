@@ -12,6 +12,7 @@ in
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
     "${homeManagerModulesPath}/apps/nixgl.nix"
+    "${homeManagerModulesPath}/apps/evolution.nix"
     "${homeManagerModulesPath}/apps/teams.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
     "${homeManagerModulesPath}/visual"
