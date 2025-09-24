@@ -1,19 +1,15 @@
 {
-  settings,
   pkgs,
   ...
 }:
-let
-  bravePkg =
-    if settings.nixgl then
-      (pkgs.writeShellScriptBin "brave" ''
-        ${pkgs.brave}/bin/brave \
-          --enable-features=UseOzonePlatform,WaylandWindowDecorations \
-          --ozone-platform=wayland \
-          "$@"'')
-    else
-      (pkgs.brave);
-in
 {
-  home.packages = with pkgs; [ bravePkg ];
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+    commandLineArgs = [
+      "--enable-features=UseOzonePlatform,WaylandWindowDecorations"
+      "--ozone-platform=wayland"
+      "--no-sandbox"
+    ];
+  };
 }
