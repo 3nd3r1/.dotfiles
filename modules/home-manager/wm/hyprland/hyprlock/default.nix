@@ -21,6 +21,13 @@
         grace = 0;
         disable_loading_bar = false;
       };
+      auth = {
+        "pam:enabled" = true;
+        "pam:module" = "hyprlock";
+        "fingerprint:enabled" = true;
+        "fingerprint:ready_message" = "󰟃 Ready - Touch fingerprint sensor";
+        "fingerprint:present_message" = "󰤦  Scanning fingerprint...";
+      };
 
       # Foreground
       # image = [{
@@ -39,7 +46,7 @@
       # Time
       label = [
         {
-          text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
+          text = "$TIME12";
           color = "rgba(216, 222, 233, .7)";
           font_size = 160;
           font_family = "steelfish outline regular";
@@ -68,6 +75,36 @@
           font_size = 18;
           font_family = "SF Pro Display Bold";
           position = "0, -180";
+          halign = "center";
+          valign = "center";
+        }
+        # Fingerprint Prompt (dynamically shows status)
+        {
+          text = "$FPRINTPROMPT";
+          color = "rgba(255, 128, 0, 0.8)"; # Orange from your pain theme
+          font_size = 16;
+          font_family = "SF Pro Display Bold";
+          position = "0, -320";
+          halign = "center";
+          valign = "center";
+        }
+        # Authentication Failure Messages
+        {
+          text = "$FPRINTFAIL";
+          color = "rgba(255, 82, 0, 0.8)"; # Red-orange for errors
+          font_size = 12;
+          font_family = "SF Pro Display";
+          position = "0, -370";
+          halign = "center";
+          valign = "center";
+        }
+        # Keyboard Layout
+        {
+          text = "⌨ $LAYOUT";
+          color = "rgba(128, 0, 128, 0.8)"; # Purple from pain theme
+          font_size = 12;
+          font_family = "SF Pro Display";
+          position = "0, -500";
           halign = "center";
           valign = "center";
         }
