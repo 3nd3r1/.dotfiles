@@ -1,8 +1,15 @@
 {
   settings,
+  pkgs,
+  themeDetails,
   ...
 }:
 {
+  home.packages = with pkgs; [
+    sf-pro-display-font
+    steelfish-outline-regular-font
+  ];
+
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -46,8 +53,8 @@
       # Time
       label = [
         {
-          text = "$TIME12";
-          color = "rgba(216, 222, 233, .7)";
+          text = "$TIME";
+          color = "rgba(128, 0, 128, 0.8)";
           font_size = 160;
           font_family = "steelfish outline regular";
           position = "0, 370";
@@ -56,7 +63,7 @@
         }
         # Day-Month-Date
         {
-          text = "cmd[update:1000] echo -e '$(date +'%A, %B %d')'";
+          text = ''cmd[update:1000] echo "$(date +'%A, %B %d')"'';
           color = "rgba(216, 222, 233, .7)";
           font_size = 28;
           font_family = "SF Pro Display Bold";
