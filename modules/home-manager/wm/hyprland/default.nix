@@ -30,7 +30,7 @@ in
     enable = true;
     xwayland.enable = true;
     systemd = {
-      enable = if settings.profile == "work" then false else true;
+      enable = true;
       variables = [ "--all" ];
     };
     package = hyprlandPkg;
