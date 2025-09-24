@@ -1,4 +1,9 @@
-{ config, pkgs, settings, ... }:
+{
+  config,
+  pkgs,
+  settings,
+  ...
+}:
 
 {
   wayland.windowManager.hyprland.settings = {
@@ -42,7 +47,7 @@
       #"$mod SHIFT, A, exec, ags -t launcher"
 
       # Screenshot
-      # "$mod SHIFT, z, exec, wl-copy < $(grimshot --notify save area $XDG_PICTURES_DIR/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png'))"
+      ", Print, exec, wl-copy < $(grimshot --notify save area $HOME/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png'))"
 
       # Move window focus with vim keys.
       "$mod, h, cyclenext, prev"

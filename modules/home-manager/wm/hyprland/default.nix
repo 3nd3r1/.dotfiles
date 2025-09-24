@@ -24,6 +24,7 @@ in
     ./hyprlock
 
     "${homeManagerModulesPath}/apps/rofi"
+    "${homeManagerModulesPath}/apps/grimshot.nix"
   ];
 
   wayland.windowManager.hyprland = {
