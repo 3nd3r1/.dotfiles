@@ -27,8 +27,9 @@
       "$mod SHIFT, Q, killactive,"
       "$mod SUPER, Q, exit,"
       "$mod SHIFT, F, togglefloating,"
-      # "$mod, W, fullscreen, 1"
       # "$mode SHIFT, W, fullscreen,"
+
+      "$mod, TAB, fullscreen"
 
       # Dwindle
       # "$mod, O, togglesplit,"
