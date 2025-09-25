@@ -1,17 +1,38 @@
-{ settings, config, pkgs, lib, inputs, ... }:
+{
+  settings,
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 let
   profileAliases = {
     laptop = { };
-    work = { devenv = "ssh devenv -X"; };
+    work = {
+      devenv = "waypipe ssh devenv";
+    };
   };
 
   aliases = {
     vi = "nvim";
     vim = "nvim";
     oldvim = "vim";
-  } // (profileAliases.${settings.profile} or { });
-in {
-  imports = [ ../lib/tmux ../lib/zoxide.nix ../lib/fzf.nix ];
+    wssh = "waypipe ssh";
+  }
+  // (profileAliases.${settings.profile} or { });
+in
+{
+  imports = [
+    ../lib/tmux
+    ../lib/zoxide.nix
+    ../lib/fzf.nix
+  ];
+
+  # Add waypipe package
+  home.packages = with pkgs; [
+    waypipe
+  ];
 
   # Move the custom directory
   xdg.configFile."oh-my-zsh" = {
