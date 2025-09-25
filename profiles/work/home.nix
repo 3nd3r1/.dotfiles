@@ -38,6 +38,8 @@ in
     docker
     arandr
     blueman
+    gnumake
+    gh
   ];
 
   # Fix gdm overwriting path

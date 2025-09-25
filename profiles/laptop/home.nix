@@ -40,6 +40,7 @@ in
     telegram-desktop
     speedcrunch
     gnumake
+    gh
   ];
 
   nixpkgs.config.allowUnfree = true;
