@@ -16,7 +16,7 @@
       background = [
         {
           path = settings.wallpaper;
-          blur_passes = 0;
+          blur_passes = 1;
           contrast = 0.8916;
           brightness = 0.8172;
           vibrancy = 0.1696;
@@ -32,35 +32,12 @@
         "pam:enabled" = true;
         "pam:module" = "hyprlock";
         "fingerprint:enabled" = true;
-        "fingerprint:ready_message" = "󰟃 Ready - Touch fingerprint sensor";
-        "fingerprint:present_message" = "󰤦  Scanning fingerprint...";
+        "fingerprint:ready_message" = "   Touch fingerprint sensor";
+        "fingerprint:present_message" = "   Scanning fingerprint...";
       };
-
-      # Foreground
-      # image = [{
-      #     path = ~/.config/hypr/foreground.png;
-      #     size = 700;
-      #     border_size = 0;
-      #     rounding = 0;
-      #     rotate = 0;
-      #     reload_time = 0;
-      #     reload_cmd = ;
-      #     position = 0, -66;
-      #     halign = center;
-      #     valign = center;
-      # }];
 
       # Time
       label = [
-        {
-          text = "$TIME";
-          color = "rgba(128, 0, 128, 0.8)";
-          font_size = 160;
-          font_family = "steelfish outline regular";
-          position = "0, 370";
-          halign = "center";
-          valign = "center";
-        }
         # Day-Month-Date
         {
           text = ''cmd[update:1000] echo "$(date +'%A, %B %d')"'';
@@ -71,15 +48,25 @@
           halign = "center";
           valign = "center";
         }
+        # Clock
+        {
+          text = "$TIME";
+          color = "rgba(216, 222, 233, .7)";
+          font_size = 240;
+          font_family = "steelfish outline regular";
+          position = "0, 300";
+          halign = "center";
+          valign = "center";
+        }
         # USER
         {
-          text = '' $USER'';
+          text = ''   $USER'';
           color = "rgba(216, 222, 233, 0.80)";
           outline_thickness = 2;
           dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
           dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
           dots_center = true;
-          font_size = 18;
+          font_size = 24;
           font_family = "SF Pro Display Bold";
           position = "0, -180";
           halign = "center";
@@ -88,7 +75,7 @@
         # Fingerprint Prompt (dynamically shows status)
         {
           text = "$FPRINTPROMPT";
-          color = "rgba(255, 128, 0, 0.8)"; # Orange from your pain theme
+          color = "rgba(216, 222, 233, .7)"; # Orange from your pain theme
           font_size = 16;
           font_family = "SF Pro Display Bold";
           position = "0, -320";
@@ -99,8 +86,8 @@
         {
           text = "$FPRINTFAIL";
           color = "rgba(255, 82, 0, 0.8)"; # Red-orange for errors
-          font_size = 12;
-          font_family = "SF Pro Display";
+          font_size = 16;
+          font_family = "SF Pro Display Bold";
           position = "0, -370";
           halign = "center";
           valign = "center";
@@ -108,9 +95,9 @@
         # Keyboard Layout
         {
           text = "⌨ $LAYOUT";
-          color = "rgba(128, 0, 128, 0.8)"; # Purple from pain theme
+          color = "rgba(216, 222, 233, .7)"; # Purple from pain theme
           font_size = 12;
-          font_family = "SF Pro Display";
+          font_family = "SF Pro Display Bold";
           position = "0, -500";
           halign = "center";
           valign = "center";
