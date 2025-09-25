@@ -63,6 +63,12 @@
       "$mod SHIFT, j, movewindow, d"
       "$mod SHIFT, c, centerwindow, 1"
 
+      # Resize windows
+      "$mod CTRL, h, resizeactive, -50 0"
+      "$mod CTRL, l, resizeactive, 50 0"
+      "$mod CTRL, k, resizeactive, 0 -50"
+      "$mod CTRL, j, resizeactive, 0 50"
+
       # Move monitor focus.
       "$mod, period, focusmonitor, +1"
       "$mod, comma, focusmonitor, -1"
