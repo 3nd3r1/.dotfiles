@@ -10,7 +10,7 @@ let
   profileAliases = {
     laptop = { };
     work = {
-      devenv = "waypipe ssh devenv";
+      devenv = "ssh devenv 'rm -rf /run/user/$(id -u)/wayland-0' 2>/dev/null; waypipe --no-gpu --display wayland-0 ssh devenv &>/dev/null";
     };
   };
 
