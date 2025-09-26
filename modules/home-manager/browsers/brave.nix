@@ -9,6 +9,8 @@
     commandLineArgs = [
       "--enable-features=UseOzonePlatform,WaylandWindowDecorations"
       "--ozone-platform=wayland"
+      "--disable-features=WaylandTextInputV3"
+      "--enable-wayland-ime=false"
     ];
   };
 }
