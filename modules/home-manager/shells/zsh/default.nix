@@ -7,10 +7,16 @@
   ...
 }:
 let
+  profileModules = {
+    laptop = [ ];
+    work = [
+      ./scripts/devenv.nix
+    ];
+  };
+
   profileAliases = {
     laptop = { };
     work = {
-      devenv = "ssh devenv 'rm -rf /run/user/$(id -u)/wayland-0' 2>/dev/null; waypipe --no-gpu --display wayland-0 ssh devenv &>/dev/null";
     };
   };
 
@@ -27,12 +33,8 @@ in
     ../lib/tmux
     ../lib/zoxide.nix
     ../lib/fzf.nix
-  ];
-
-  # Add waypipe package
-  home.packages = with pkgs; [
-    waypipe
-  ];
+  ]
+  ++ (profileModules.${settings.profile} or { });
 
   # Move the custom directory
   xdg.configFile."oh-my-zsh" = {
