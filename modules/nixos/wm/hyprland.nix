@@ -28,6 +28,7 @@
         user = "greeter";
       };
     };
+    vt = 7;
   };
 
   programs = {
