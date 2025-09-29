@@ -41,6 +41,7 @@ in
     speedcrunch
     gnumake
     gh
+    webcord-vencord
   ];
 
   nixpkgs.config.allowUnfree = true;
