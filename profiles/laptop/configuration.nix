@@ -14,6 +14,7 @@ in
     "${nixosModulesPath}/apps/thunar.nix"
     "${nixosModulesPath}/apps/zoom.nix"
     "${nixosModulesPath}/apps/lanmouse.nix"
+    "${nixosModulesPath}/apps/expo.nix"
     "${nixosModulesPath}/apps/kdeconnect.nix"
   ]
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}.nix") settings.wms);
