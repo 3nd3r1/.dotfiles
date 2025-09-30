@@ -42,6 +42,7 @@ in
     gnumake
     gh
     webcord-vencord
+    notion-app
   ];
 
   nixpkgs.config.allowUnfree = true;
