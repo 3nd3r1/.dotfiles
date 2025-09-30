@@ -42,7 +42,6 @@ in
     gnumake
     gh
     vesktop
-    notion-app-enhanced
   ];
 
   nixpkgs.config.allowUnfree = true;
