@@ -30,16 +30,6 @@
     };
   };
 
-  # Add systemd service override to disable console output
-  systemd.services.greetd = {
-    serviceConfig = {
-      # Disable systemd status messages on console before greetd starts
-      ExecStartPre = "${pkgs.coreutils}/bin/kill -s RTMIN+21 1";
-      # Re-enable them after greetd stops
-      ExecStopPost = "${pkgs.coreutils}/bin/kill -s RTMIN+20 1";
-    };
-  };
-
   programs = {
     hyprland = {
       enable = true;
