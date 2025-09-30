@@ -41,8 +41,8 @@ in
     speedcrunch
     gnumake
     gh
-    webcord-vencord
-    notion-app
+    vesktop
+    notion-app-enhanced
   ];
 
   nixpkgs.config.allowUnfree = true;
