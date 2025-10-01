@@ -15,7 +15,16 @@
       ",preferred,auto,1"
     ];
 
+    workspace = [
+      "7, on-created-empty:${settings.preferredBrowser} --new-window https://notion.so/"
+    ];
+
+    windowrulev2 = [
+      "workspace 7 silent, class:^(${settings.preferredBrowser})$, title:^(.*Notion.*)$"
+    ];
+
     exec-once = [
+      "${settings.preferredBrowser} --new-window https://notion.so/"
     ];
 
     general = {
