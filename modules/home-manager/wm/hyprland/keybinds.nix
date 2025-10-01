@@ -51,10 +51,10 @@
       ", Print, exec, wl-copy < $(grimshot --notify save area $HOME/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png'))"
 
       # Move window focus with vim keys.
-      "$mod, h, cyclenext, prev"
-      "$mod, l, cyclenext"
-      "$mod, k, cyclenext, prev"
-      "$mod, j, cyclenext"
+      "$mod, h, movefocus, l"
+      "$mod, l, movefocus, r"
+      "$mod, k, movefocus, u"
+      "$mod, j, movefocus, d"
 
       # Swap windows with vim keys
       "$mod SHIFT, h, movewindow, l"
