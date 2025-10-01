@@ -40,6 +40,7 @@ in
     blueman
     gnumake
     gh
+    speedcrunch
   ];
 
   # Fix gdm overwriting path
