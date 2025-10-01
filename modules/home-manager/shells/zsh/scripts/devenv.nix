@@ -110,34 +110,7 @@
       }
 
       connect_ssh() {
-        # Check if waypipe client is running, start if not
-        if ! ${pkgs.procps}/bin/pgrep -f "waypipe.*client" >/dev/null; then
-            echo "Starting local waypipe client..."
-            ${pkgs.waypipe}/bin/waypipe --compress none --socket "/tmp/waypipe-client.sock" client &
-            sleep 1
-            
-            if [[ ! -S "/tmp/waypipe-client.sock" ]]; then
-                echo "Failed to start waypipe client"
-                return 1
-            fi
-        fi
-
-        # Check if server is already running
-        if ! ssh devenv "pgrep -f 'waypipe.*server'" >/dev/null 2>&1; then
-            echo "Starting remote waypipe server..."
-            ssh -f -q -R /tmp/waypipe-server.sock:/tmp/waypipe-client.sock devenv \
-                "waypipe --compress none --socket /tmp/waypipe-server.sock --display wayland-devenv server sleep infinity 2>/dev/null"
-            
-            sleep 1
-            
-            # Verify the wayland display was created
-            if ! ssh devenv "test -S /run/user/\$(id -u)/wayland-devenv" 2>/dev/null; then
-                echo "Warning: Wayland display socket not found"
-            fi
-        else
-            echo "Remote waypipe server already running"
-        fi
-
+        start_waypipe
         echo "Connecting to devenv..."
         ssh -t devenv 'export WAYLAND_DISPLAY=wayland-devenv; exec $SHELL'
       }
