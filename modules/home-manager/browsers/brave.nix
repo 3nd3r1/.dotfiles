@@ -13,7 +13,7 @@
       "--disable-features=WaylandTextInputV3"
       "--enable-wayland-ime=false"
 
-      "--disable-gpu-driver-bug-workarounds"
+      "--password-store=basic"
     ];
   };
 }
