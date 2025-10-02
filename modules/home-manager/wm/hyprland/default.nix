@@ -24,6 +24,7 @@ in
     ./waybar
     ./hyprpaper
     ./hyprlock
+    ./swaync
 
     "${homeManagerModulesPath}/apps/rofi"
     "${homeManagerModulesPath}/apps/grimshot.nix"
