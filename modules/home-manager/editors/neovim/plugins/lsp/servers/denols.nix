@@ -1,10 +1,13 @@
 {
   programs.nixvim.plugins.lsp.servers.denols = {
     enable = true;
+    autostart = false;
+    rootMarkers = [
+      "deno.json"
+      "deno.jsonc"
+    ];
     extraOptions = {
-      root_dir =
-        ''require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")'';
+      single_file_support = false;
     };
-    rootMarkers = [ "deno.json" "deno.jsonc" ];
   };
 }

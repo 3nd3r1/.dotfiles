@@ -25,6 +25,7 @@
 
     trouble = {
       enable = true;
+      autoLoad = true;
       settings = {
         keys = {
           "<leader>lx" = { action = "<cmd>Trouble diagnostics toggle<cr>"; };
