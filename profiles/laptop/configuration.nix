@@ -25,10 +25,13 @@ in
 
   # Silence kernel logs
   boot.kernelParams = [
-    "quiet" # Suppress most kernel messages
-    "loglevel=3" # Only show errors and critical messages
-    "systemd.show_status=auto" # Only show systemd status on errors
-    "rd.udev.log_level=3" # Reduce udev logging
+    "quiet"
+    "loglevel=3"
+    "systemd.show_status=auto"
+    "rd.udev.log_level=3"
+    "acpi_osi=Linux"
+    "acpi_backlight=vendor"
+    "pci=noaer"
   ];
 
   # Nix thing
