@@ -42,6 +42,8 @@ in
     gnumake
     gh
     vesktop
+    pulsemixer
+    pavucontrol
   ];
 
   nixpkgs.config.allowUnfree = true;
