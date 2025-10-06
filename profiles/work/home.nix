@@ -41,6 +41,8 @@ in
     gnumake
     gh
     speedcrunch
+    pulsemixer
+    pavucontrol
   ];
 
   # Fix gdm overwriting path
