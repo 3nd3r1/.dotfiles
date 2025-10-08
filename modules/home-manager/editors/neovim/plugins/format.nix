@@ -11,6 +11,7 @@ in {
     isort
     black
     prettier
+    prettierd
     robotframework-tidy
     go
     beautysh
