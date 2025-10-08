@@ -7,7 +7,7 @@
     ./plugins/ui
     ./plugins/navigation
     ./plugins/lsp
-    ./plugins/codebuddy.nix
+    ./plugins/codebuddy
     ./plugins/autocomplete.nix
     ./plugins/colorizer.nix
     ./plugins/format.nix
