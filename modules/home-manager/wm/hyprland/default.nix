@@ -26,6 +26,8 @@ in
     ./hyprlock
     ./swaync
 
+    ./scripts/power-menu.nix
+
     "${homeManagerModulesPath}/apps/rofi"
     "${homeManagerModulesPath}/apps/grimshot.nix"
   ];

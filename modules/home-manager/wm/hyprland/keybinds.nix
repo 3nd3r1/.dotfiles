@@ -45,6 +45,7 @@
 
       # Launcher
       "$mod, P, exec, rofi -show drun"
+      "$mod SHIFT, S, exec, power-menu"
       #"$mod SHIFT, A, exec, ags -t launcher"
 
       # Screenshot
