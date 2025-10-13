@@ -1,3 +1,4 @@
+{ config, lib, ... }:
 {
   programs.nixvim.plugins.lualine = {
     enable = true;
@@ -118,7 +119,11 @@
       };
       sections = {
         lualine_a = [ "mode" ];
-        lualine_b = [ "branch" "diff" "diagnostics" ];
+        lualine_b = [
+          "branch"
+          "diff"
+          "diagnostics"
+        ];
         lualine_c = [ "filename" ];
         lualine_x = [
           "encoding"
@@ -154,6 +159,8 @@
               end
             '';
           }
+        ]
+        ++ lib.optionals config.programs.nixvim.plugins.copilot-vim.enable [
           {
             __unkeyed-1.__raw = ''
               function()
@@ -165,6 +172,8 @@
               end
             '';
           }
+        ]
+        ++ lib.optionals config.programs.nixvim.plugins.windsurf-vim.enable [
           {
             __unkeyed-1.__raw = ''
               function()

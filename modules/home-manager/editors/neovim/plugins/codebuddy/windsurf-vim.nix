@@ -14,6 +14,20 @@
 
   programs.nixvim.keymaps = [
     {
+      mode = "i";
+      key = "<C-Space>";
+      action.__raw = ''
+        function()
+          return vim.fn["codeium#Accept"]()
+        end
+      '';
+      options = {
+        expr = true;
+        replace_keycodes = false;
+        desc = "Accept Codeium Completion";
+      };
+    }
+    {
       mode = "n";
       key = "<leader>cc";
       action.__raw = ''
@@ -28,13 +42,10 @@
     }
     {
       mode = "n";
-      key = "<leader>c2";
+      key = "<leader>c1";
       action.__raw = ''
         function()
           vim.g.codeium_enabled = not vim.g.codeium_enabled
-          if vim.g.codeium_enabled then
-            vim.g.copilot_enabled = 0
-          end
         end
       '';
       options = {
