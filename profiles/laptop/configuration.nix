@@ -20,19 +20,21 @@ in
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}.nix") settings.wms);
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Silence kernel logs
-  boot.kernelParams = [
-    "quiet"
-    "loglevel=3"
-    "systemd.show_status=auto"
-    "rd.udev.log_level=3"
-    "acpi_osi=Linux"
-    "acpi_backlight=vendor"
-    "pci=noaer"
-  ];
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelParams = [
+      "quiet"
+      "loglevel=3"
+      "systemd.show_status=auto"
+      "rd.udev.log_level=3"
+      "acpi_osi=Linux"
+      "acpi_backlight=vendor"
+      "pci=noaer"
+    ];
+  };
 
   # Nix thing
   nix.settings.experimental-features = [
