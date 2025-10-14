@@ -44,6 +44,9 @@ in
     vesktop
     pulsemixer
     pavucontrol
+    postman
+    uv
+    unzip
   ];
 
   nixpkgs.config.allowUnfree = true;
