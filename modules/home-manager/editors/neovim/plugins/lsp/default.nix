@@ -1,5 +1,10 @@
 {
-  imports = [ ./servers ];
+  imports = [
+    ./servers
+
+    ./trouble.nix
+  ];
+
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
@@ -19,16 +24,6 @@
           "<leader>ls" = "signature_help";
           "<leader><F2>" = "rename";
           "<leader><F4>" = "code_action";
-        };
-      };
-    };
-
-    trouble = {
-      enable = true;
-      autoLoad = true;
-      settings = {
-        keys = {
-          "<leader>lx" = { action = "<cmd>Trouble diagnostics toggle<cr>"; };
         };
       };
     };
