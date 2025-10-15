@@ -91,6 +91,8 @@ in {
       bind -r l select-pane -R
       bind -r C-o swap-pane -D
 
+      bind -n C-l send-keys C-l
+
       # Copy mode
       bind q copy-mode
       bind-key -T copy-mode-vi v send-keys -X begin-selection
