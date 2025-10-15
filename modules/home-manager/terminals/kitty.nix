@@ -48,6 +48,8 @@ in
       "ctrl+shift+minus" = "decrease_font_size";
       "ctrl+shift+backspace" = "restore_font_size";
       "ctrl+shift+f6" = "set_font_size 16.0";
+
+      "ctrl+l" = "no_op";
     };
   };
 }
