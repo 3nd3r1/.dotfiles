@@ -125,6 +125,41 @@
       
       -- Markdown specific
       markdownLinkText = { fg = colors.purple3 },
+
+      -- Trouble
+      TroubleNormal = { bg = colors.black, fg = colors.purple1 },
+      TroublePos = { fg = colors.orange },
+      TroubleCursor = { bg = colors.purple1, fg = colors.white, bold = true },
+      TroubleCount = { fg = colors.orange, bg = colors.black },
+      TroubleCode = { fg = colors.purple6 },
+      TroubleDirectory = { fg = colors.purple3 },
+      TroubleSource = { fg = colors.purple2 },
+      TroubleIconArray = { fg = colors.orange },
+      TroubleIconBoolean = { fg = colors.purple2 },
+      TroubleIconClass = { fg = colors.purple1 },
+      TroubleIconConstant = { fg = colors.purple2 },
+      TroubleIconConstructor = { fg = colors.orange },
+      TroubleIconEnum = { fg = colors.purple1 },
+      TroubleIconEnumMember = { fg = colors.purple2 },
+      TroubleIconEvent = { fg = colors.orange },
+      TroubleIconField = { fg = colors.purple3 },
+      TroubleIconFile = { fg = colors.white },
+      TroubleIconFunction = { fg = colors.orange },
+      TroubleIconInterface = { fg = colors.purple1 },
+      TroubleIconKey = { fg = colors.purple2 },
+      TroubleIconMethod = { fg = colors.orange },
+      TroubleIconModule = { fg = colors.purple3 },
+      TroubleIconNamespace = { fg = colors.purple3 },
+      TroubleIconNull = { fg = colors.purple6 },
+      TroubleIconNumber = { fg = colors.white },
+      TroubleIconObject = { fg = colors.purple1 },
+      TroubleIconOperator = { fg = colors.purple5 },
+      TroubleIconPackage = { fg = colors.purple3 },
+      TroubleIconProperty = { fg = colors.purple3 },
+      TroubleIconString = { fg = colors.plum },
+      TroubleIconStruct = { fg = colors.purple1 },
+      TroubleIconTypeParameter = { fg = colors.purple1 },
+      TroubleIconVariable = { fg = colors.purple3 },
     }
 
     -- Apply all highlights
