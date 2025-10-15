@@ -47,6 +47,7 @@ in
     postman
     uv
     unzip
+    keymapp
   ];
 
   nixpkgs.config.allowUnfree = true;

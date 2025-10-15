@@ -43,6 +43,7 @@ in
     speedcrunch
     pulsemixer
     pavucontrol
+    keymapp
   ];
 
   # Fix gdm overwriting path
