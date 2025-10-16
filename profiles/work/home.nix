@@ -44,6 +44,7 @@ in
     pulsemixer
     pavucontrol
     keymapp
+    amazon-q-cli
   ];
 
   # Fix gdm overwriting path
