@@ -16,7 +16,7 @@ let
             ${pkgs.systemd}/bin/systemctl reboot
             ;;
         "⇠ Logout")
-            ${pkgs.hyprland}/bin/hyprctl dispatch exit
+            ${pkgs.systemd}/bin/loginctl terminate-user $USER
             ;;
         "󰒲 Suspend")
             ${pkgs.systemd}/bin/systemctl suspend
