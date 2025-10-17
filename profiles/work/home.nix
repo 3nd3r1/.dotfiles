@@ -29,7 +29,6 @@ in
     sessionVariables = {
       EDITOR = settings.preferredEditor;
       BROWSER = settings.preferredBrowser;
-      NIX_BUILD_SHELL = "${settings.shellPkg}/bin/${settings.shell}";
     };
   };
   home.packages = with pkgs; [
