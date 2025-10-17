@@ -36,6 +36,8 @@ in
   ]
   ++ (profileModules.${settings.profile} or { });
 
+  home.shell.enableZshIntegration = true;
+
   # Move the custom directory
   xdg.configFile."oh-my-zsh" = {
     source = "${inputs.self}/config/oh-my-zsh";

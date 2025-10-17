@@ -26,12 +26,10 @@ in
   home = {
     username = settings.username;
     homeDirectory = "/home/${settings.username}";
-    shell = {
-      enableZshIntegration = true;
-    };
     sessionVariables = {
       EDITOR = settings.preferredEditor;
       BROWSER = settings.preferredBrowser;
+      NIX_BUILD_SHELL = "${settings.shellPkg}/bin/${settings.shell}";
     };
   };
   home.packages = with pkgs; [
