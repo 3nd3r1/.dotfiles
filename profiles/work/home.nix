@@ -46,6 +46,7 @@ in
     pavucontrol
     keymapp
     amazon-q-cli
+    python3
   ];
 
   # Fix gdm overwriting path

@@ -48,6 +48,7 @@ in
     uv
     unzip
     keymapp
+    python3
   ];
 
   nixpkgs.config.allowUnfree = true;
