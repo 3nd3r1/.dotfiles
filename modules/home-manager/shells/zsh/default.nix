@@ -33,6 +33,7 @@ in
     ../lib/tmux
     ../lib/zoxide.nix
     ../lib/fzf.nix
+    ../lib/direnv.nix
   ]
   ++ (profileModules.${settings.profile} or { });
 
