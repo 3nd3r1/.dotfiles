@@ -16,6 +16,7 @@ in
     "${nixosModulesPath}/apps/lanmouse.nix"
     "${nixosModulesPath}/apps/expo.nix"
     "${nixosModulesPath}/apps/kdeconnect.nix"
+    "${nixosModulesPath}/apps/nixld.nix"
   ]
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}.nix") settings.wms);
 
