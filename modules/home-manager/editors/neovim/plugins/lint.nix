@@ -2,14 +2,12 @@
 {
   home.packages = with pkgs; [
     yamllint
-    pylint
   ];
 
   programs.nixvim.plugins = {
     lint = {
       enable = true;
       lintersByFt = {
-        python = [ "pylint" ];
         yaml = [ "yamllint" ];
       };
     };
