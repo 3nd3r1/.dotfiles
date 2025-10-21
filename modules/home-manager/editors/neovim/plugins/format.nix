@@ -5,11 +5,10 @@ let
     __unkeyed-2 = "prettier";
     stop_after_first = true;
   };
-in {
+in
+{
   home.packages = with pkgs; [
     stylua
-    isort
-    black
     prettier
     prettierd
     robotframework-tidy
@@ -17,6 +16,7 @@ in {
     beautysh
     nixfmt
     deno
+    ruff
   ];
 
   programs.nixvim.plugins.conform-nvim = {
@@ -24,7 +24,11 @@ in {
     settings = {
       formatters_by_ft = {
         lua = [ "stylua" ];
-        python = [ "isort" "black" ];
+        python = [
+          "ruff_fix"
+          "ruff_format"
+          "ruff_organize_imports"
+        ];
         javascript = prettierFormat;
         javascriptreact = prettierFormat;
         typescript = prettierFormat;
@@ -34,7 +38,10 @@ in {
         scss = prettierFormat;
         yaml = prettierFormat;
         robot = [ "robotidy" ];
-        go = [ "gofmt" "goimports" ];
+        go = [
+          "gofmt"
+          "goimports"
+        ];
         markdown = prettierFormat;
         json = prettierFormat;
         bash = [ "beautysh" ];
@@ -45,7 +52,10 @@ in {
       formatters = {
         dockfmt = {
           command = "/usr/local/bin/dockfmt";
-          args = [ "fmt" "$FILENAME" ];
+          args = [
+            "fmt"
+            "$FILENAME"
+          ];
         };
 
         robotidy = {
@@ -93,7 +103,10 @@ in {
 
         deno_fmt = {
           command = "deno";
-          args = [ "fmt" "-" ];
+          args = [
+            "fmt"
+            "-"
+          ];
           cwd.__raw = ''
             function(_, ctx)
               return vim.fn.fnamemodify(ctx.filename, ":h")
@@ -115,7 +128,9 @@ in {
           })
         end
       '';
-      options = { desc = "Format code"; };
+      options = {
+        desc = "Format code";
+      };
     }
 
     {
@@ -128,7 +143,9 @@ in {
           })
         end
       '';
-      options = { desc = "Format code"; };
+      options = {
+        desc = "Format code";
+      };
     }
   ];
 }
