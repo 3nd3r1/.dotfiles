@@ -15,10 +15,15 @@ let
       };
     };
     devenv = {
+      "github.com" = {
+        hostname = "ssh.github.com";
+        port = 443;
+        identityFile = "~/.ssh/id_3nd3r1";
+      };
     };
   };
   blocks = {
-    "*" = {
+    "github.com" = {
       identityFile = "~/.ssh/id_3nd3r1";
     };
   }
