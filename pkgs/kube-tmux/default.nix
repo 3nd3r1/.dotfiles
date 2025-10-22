@@ -3,7 +3,6 @@
   tmuxPlugins,
   fetchFromGitHub,
   kubectl,
-  makeWrapper,
 }:
 
 tmuxPlugins.mkTmuxPlugin {
@@ -19,11 +18,11 @@ tmuxPlugins.mkTmuxPlugin {
 
   rtpFilePath = "kube.tmux";
 
-  nativeBuildInputs = [ makeWrapper ];
-
   postInstall = ''
-    wrapProgram $target/kube.tmux \
-      --prefix PATH : ${lib.makeBinPath [ kubectl ]}
+    # Substitute kubectl path in the actual script
+    substituteInPlace $target/scripts/kube-tmux.sh \
+      --replace 'KUBE_TMUX_BINARY="''${KUBE_TMUX_BINARY:-kubectl}"' \
+                'KUBE_TMUX_BINARY="''${KUBE_TMUX_BINARY:-${kubectl}/bin/kubectl}"'
   '';
 
   meta = with lib; {
