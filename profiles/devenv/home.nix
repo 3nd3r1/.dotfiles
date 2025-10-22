@@ -14,7 +14,7 @@ in
 
     "${homeManagerModulesPath}/shells/${settings.shell}"
 
-    "${homeManagerModulesPath}/visual"
+    #"${homeManagerModulesPath}/visual"
   ]
   ++ (map (terminal: "${homeManagerModulesPath}/terminals/${terminal}.nix") settings.terminals)
   ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)

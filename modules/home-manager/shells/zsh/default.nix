@@ -8,15 +8,21 @@
 }:
 let
   profileModules = {
-    laptop = [ ];
     work = [
       ./scripts/devenv.nix
+      ../lib/krew.nix
     ];
   };
 
   profileAliases = {
-    laptop = { };
-    work = {
+    devenv = {
+      setcurl014config ="kubectl config set-cluster curl014; export KUBERNETES_CLUSTER=curl014; export KUBERNETES_LOADBALANCER_IP=10.120.57.132";
+      setcurl020config="kubectl config set-cluster curl020; export KUBERNETES_CLUSTER=curl020; export KUBERNETES_LOADBALANCER_IP=10.120.57.236";
+      setcurl022config="kubectl config set-cluster curl022; export KUBERNETES_CLUSTER=curl022; export KUBERNETES_LOADBALANCER_IP=10.63.142.233";
+      setkarle002config="kubectl config set-cluster karle002; export KUBERNETES_CLUSTER=karle002; export KUBERNETES_LOADBALANCER_IP=10.120.56.237";
+      kc="kubectl-ctx";
+      kctx="kubectl-ctx";
+      kubectx="kubectl-ctx";
     };
   };
 
@@ -35,7 +41,7 @@ in
     ../lib/fzf.nix
     ../lib/direnv.nix
   ]
-  ++ (profileModules.${settings.profile} or { });
+  ++ (profileModules.${settings.profile} or [ ]);
 
   home.shell.enableZshIntegration = true;
 

@@ -3,7 +3,7 @@ rec {
   profile = "devenv";
 
   hostname = "node-100-77-161-117";
-  username = "eavinrl"
+  username = "eavinrl";
   timezone = "Europe/Helsinki";
   locale = "en_US.UTF-8";
   name = "Viljami Ranta";
@@ -19,7 +19,7 @@ rec {
   nixgl = false; # Enable nixGL
 
   wms = [ ];
-  editors = [ "neovim" ];
+  editors = [ ];
   browsers = [ ];
   terminals = [ ];
 
