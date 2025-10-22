@@ -39,8 +39,8 @@ in
             bind-key -r f run-shell -b "${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/session.sh switch"
           '';
         }
+        kube-tmux
         #tmux-window-name
-        #kube-tmux
       ]
       ++ theme;
     extraConfig = ''

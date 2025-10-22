@@ -1,8 +1,9 @@
 { pkgs, ... }:
 
-[
+with pkgs.tmuxPlugins; [
+  kube-tmux
   {
-    plugin = pkgs.tmuxPlugins.sysstat;
+    plugin = sysstat;
     extraConfig = ''
       # =====================================
       # ===           Theme               ===
@@ -60,7 +61,7 @@
       wg_session="#[fg=$color_session_text] #S #[default]"
       wg_host="#[default]#H"
       wg_git_branch="#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)"
-      wg_kube_context="#(/bin/bash $HOME/.config/tmux/plugins/kube-tmux/kube.tmux)"
+      wg_kube_context="#(/bin/sh ${pkgs.tmuxPlugins.kube-tmux}/share/tmux-plugins/kube-tmux/kube.tmux)"
       wg_is_zoomed="#[fg=$color_dark,bg=$color_secondary]#{?window_zoomed_flag,[Z],}#[default]"
       wg_is_keys_off="#[fg=$color_light,bg=$color_window_off_indicator]#([ $(tmux show-option -qv key-table) = 'off' ] && echo 'OFF')#[default]"
 
