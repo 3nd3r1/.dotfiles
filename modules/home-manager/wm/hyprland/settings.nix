@@ -1,9 +1,6 @@
 {
   config,
-  pkgs,
-  settings,
   themeDetails,
-  inputs,
   ...
 }:
 {
@@ -13,13 +10,6 @@
       "DP-1,preferred,1920x0,1"
       "HDMI-A-1,preferred,1920x0,1"
       ",preferred,auto,1"
-    ];
-
-    workspace = [
-      "7, on-created-empty:${settings.preferredBrowser} --new-window https://notion.so/"
-    ];
-
-    exec-once = [
     ];
 
     general = {

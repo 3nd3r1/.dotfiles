@@ -19,8 +19,6 @@ in
     ./keybinds.nix
     ./rules.nix
 
-    ./profile-config.nix
-
     ./waybar
     ./hyprpaper
     ./hyprlock
