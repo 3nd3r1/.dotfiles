@@ -19,7 +19,7 @@ rec {
   nixgl = false; # Enable nixGL
 
   wms = [ ];
-  editors = [ ];
+  editors = [ "neovim" ];
   browsers = [ ];
   terminals = [ ];
 
