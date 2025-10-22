@@ -81,7 +81,14 @@
             inputs.nixvim.homeModules.nixvim
             inputs.lan-mouse.homeManagerModules.default
           ];
-          extraSpecialArgs = { inherit inputs settings themeDetails nixGL; };
+          extraSpecialArgs = {
+            inherit
+              inputs
+              settings
+              themeDetails
+              nixGL
+              ;
+          };
         };
     in
     {

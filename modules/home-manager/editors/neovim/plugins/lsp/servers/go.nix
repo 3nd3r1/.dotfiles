@@ -3,7 +3,9 @@
     enable = true;
     settings = {
       gopls = {
-        analyses = { unusedparams = true; };
+        analyses = {
+          unusedparams = true;
+        };
         staticcheck = true;
       };
     };

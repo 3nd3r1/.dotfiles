@@ -2,7 +2,11 @@
   programs.nixvim.plugins.lsp.servers.lua_ls = {
     enable = true;
     settings = {
-      root_markers = [ ".luarc.json" ".luarc.json" ".git" ];
+      root_markers = [
+        ".luarc.json"
+        ".luarc.json"
+        ".git"
+      ];
       Lua = {
         workspace = {
           library.__raw = ''

@@ -1,6 +1,8 @@
 { pkgs, settings, ... }:
-let theme = import ./themes/pain.nix { inherit pkgs; };
-in {
+let
+  theme = import ./themes/pain.nix { inherit pkgs; };
+in
+{
   programs.tmux = {
     enable = true;
     prefix = "C-a";
@@ -11,7 +13,8 @@ in {
     historyLimit = 20000;
     aggressiveResize = true;
     keyMode = "vi";
-    plugins = with pkgs.tmuxPlugins;
+    plugins =
+      with pkgs.tmuxPlugins;
       [
         vim-tmux-navigator
         {
@@ -38,7 +41,8 @@ in {
         }
         #tmux-window-name
         #kube-tmux
-      ] ++ theme;
+      ]
+      ++ theme;
     extraConfig = ''
       # ==========================
       # ===  General settings  ===

@@ -14,7 +14,9 @@
           path = "yaml-language-server";
           showDiagnosticsDirectly = false;
           config = {
-            schemas = { kubernetes = "templates/**"; };
+            schemas = {
+              kubernetes = "templates/**";
+            };
             completion = true;
             hover = true;
           };

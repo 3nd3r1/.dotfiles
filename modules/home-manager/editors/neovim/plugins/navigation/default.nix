@@ -1,1 +1,6 @@
-{ imports = [ ./harpoon.nix ./oil.nix ]; }
+{
+  imports = [
+    ./harpoon.nix
+    ./oil.nix
+  ];
+}

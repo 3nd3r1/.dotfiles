@@ -1,14 +1,20 @@
 {
   programs.nixvim.plugins.oil = {
     enable = true;
-    settings = { view_options = { show_hidden = true; }; };
+    settings = {
+      view_options = {
+        show_hidden = true;
+      };
+    };
   };
 
   programs.nixvim.keymaps = [
     {
       key = "<leader>pv";
       action = "<cmd>Oil<CR>";
-      options = { desc = "Open Oil"; };
+      options = {
+        desc = "Open Oil";
+      };
     }
 
     {
@@ -25,7 +31,9 @@
         	print("Changed cwd to: " .. cwd)
         end
       '';
-      options = { desc = "Change cwd"; };
+      options = {
+        desc = "Change cwd";
+      };
     }
   ];
 }

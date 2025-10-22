@@ -1,1 +1,5 @@
-{ programs.gnome-terminal = { enable = false; }; }
+{
+  programs.gnome-terminal = {
+    enable = false;
+  };
+}

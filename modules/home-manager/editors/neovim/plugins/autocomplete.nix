@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   programs.nixvim.plugins.cmp = {
     enable = true;
     settings = {
@@ -6,17 +7,18 @@
         # Tab key to confirm completion
         "<Tab>" = "cmp.mapping.confirm({ select = true })";
 
-        # Ctrl+Space to trigger completion menu  
+        # Ctrl+Space to trigger completion menu
         "<C-c>" = "cmp.mapping.complete()";
 
         # Navigate between completions
-        "<C-k>" =
-          "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.select })";
-        "<C-j>" =
-          "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.select })";
+        "<C-k>" = "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.select })";
+        "<C-j>" = "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.select })";
       };
 
-      sources = [ { name = "nvim_lsp"; } { name = "buffer"; } ];
+      sources = [
+        { name = "nvim_lsp"; }
+        { name = "buffer"; }
+      ];
 
       formatting = {
         format = lib.mkForce ''
