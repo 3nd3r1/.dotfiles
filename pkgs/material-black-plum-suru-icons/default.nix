@@ -6,7 +6,7 @@
 
 stdenv.mkDerivation rec {
   pname = "material-black-plum-suru-icons";
-  version = "1.0.0"; # Use appropriate version
+  version = "unstable-master";
 
   src = fetchFromGitHub {
     owner = "rtlewis88";
