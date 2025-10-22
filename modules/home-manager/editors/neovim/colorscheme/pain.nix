@@ -30,8 +30,9 @@
 
     local highlights = {
       -- Base colors
-      Normal = { fg = colors.purple1, bg = colors.black, ctermbg = "NONE" },
-      NormalFloat = { fg = colors.purple1, bg = colors.black, ctermbg = "NONE" },
+      Normal = { fg = colors.purple1, bg = "none" },
+      NormalFloat = { bg = "none" },
+      EndOfBuffer = { fg = "none", bg = "none" },
       
       -- UI Elements
       Pmenu = { fg = colors.purple1, bg = colors.black },
@@ -45,13 +46,13 @@
       Search = { bg = colors.purple6, fg = colors.purple1 },
       IncSearch = { fg = colors.white },
       MatchParen = { fg = colors.white },
-      NonText = { fg = colors.purple5, bg = colors.black },
+      NonText = { fg = colors.purple6, bg = colors.black },
       
       -- Status line and tabs
       StatusLine = { fg = colors.purple1, bg = colors.black, bold = true },
       StatusLineNC = { fg = colors.purple1, bg = colors.black },
-      TabLineFill = { fg = colors.purple1, bg = colors.black },
-      TabLine = { fg = colors.purple1, bg = colors.black },
+      TabLineFill = { bg = colors.black },
+      TabLine = { fg = colors.black, bg = colors.black },
       TabLineSel = { fg = colors.purple1, bg = colors.black },
       Title = { fg = colors.white },
       Directory = { fg = colors.purple3 },
