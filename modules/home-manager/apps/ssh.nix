@@ -14,11 +14,17 @@ let
         identityFile = "~/.ssh/id_eavinrl";
       };
     };
+    devenv = {
+    };
   };
   blocks = {
-    "*" = { identityFile = "~/.ssh/id_3nd3r1"; };
-  } // (profileBlocks.${settings.profile} or { });
-in {
+    "*" = {
+      identityFile = "~/.ssh/id_3nd3r1";
+    };
+  }
+  // (profileBlocks.${settings.profile} or { });
+in
+{
   services.ssh-agent.enable = true;
 
   programs.ssh = {

@@ -36,6 +36,7 @@
       profiles = [
         "laptop"
         "work"
+        "devenv"
       ];
       system = "x86_64-linux";
 

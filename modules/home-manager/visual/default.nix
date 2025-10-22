@@ -1,1 +1,6 @@
-{ imports = [ ./stylix.nix ./gtk.nix ]; }
+{
+  imports = [
+    ./stylix.nix
+    ./gtk.nix
+  ];
+}
