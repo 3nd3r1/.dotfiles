@@ -7,16 +7,10 @@
     enable = true;
     package = pkgs.brave;
     commandLineArgs = [
-      "--enable-features=UseOzonePlatform"
+      "--enable-features=UseOzonePlatform,WaylandWindowDecorations,WaylandTextInputV3"
+      "--wayland-text-input-version=3"
       "--ozone-platform=wayland"
-
-      # "--disable-features=WaylandTextInputV3"
-      # "--enable-wayland-ime=false"
-
-      "--password-store=basic"
-
-      "--enable-features=WaylandWindowDecorations"
-      "--gtk-version=4"
+      "--enable-wayland-ime=true"
     ];
   };
 }
