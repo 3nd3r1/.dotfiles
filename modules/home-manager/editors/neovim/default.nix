@@ -17,7 +17,7 @@
     ./plugins/markview.nix
     ./plugins/suda.nix
     ./plugins/telescope.nix
-    ./plugins/treesitter.nix
+    #./plugins/treesitter.nix
 
     ./colorscheme/${settings.theme}.nix
   ];
