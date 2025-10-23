@@ -44,7 +44,6 @@ in
     keymapp
     amazon-q-cli
     python3
-    dbeaver-bin
   ];
 
   # Fix gdm overwriting path
