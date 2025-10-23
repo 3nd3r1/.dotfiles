@@ -44,6 +44,7 @@ in
     keymapp
     amazon-q-cli
     python3
+    pgadmin4-desktopmode
   ];
 
   # Fix gdm overwriting path
