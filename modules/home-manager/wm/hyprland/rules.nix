@@ -4,6 +4,7 @@ let
     work = {
       workspace = [
         "6, on-created-empty:teams-for-linux"
+        "6, on-created-empty:evolution"
       ];
       windowrulev2 = [
         "workspace 6 silent, class:^(teams-for-linux)$"
