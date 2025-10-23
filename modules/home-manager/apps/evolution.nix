@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   evolution-wrapped = pkgs.writeShellScriptBin "evolution" ''
-    exec GDK_BACKEND=x11 nonixgl /usr/bin/evolution "$@"
+    GDK_BACKEND=x11 exec nonixgl /usr/bin/evolution "$@"
   '';
 in
 {
