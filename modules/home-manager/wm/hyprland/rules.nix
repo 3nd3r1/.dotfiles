@@ -4,12 +4,12 @@ let
     work = {
       workspace = [
         "6, on-created-empty:teams-for-linux"
-        "6, on-created-empty:evolution"
+        "6, on-created-empty:Evolution"
       ];
       windowrulev2 = [
         "workspace 6 silent, class:^(teams-for-linux)$"
         "workspace 6 silent, title:^(Microsoft Teams)(.*)$"
-        "workspace 6 silent, class:^(evolution)$"
+        "workspace 6 silent, class:^(Evolution)$"
       ];
       exec-once = [
         "teams-for-linux"
