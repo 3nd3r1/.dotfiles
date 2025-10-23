@@ -7,7 +7,8 @@
     enable = true;
     package = pkgs.brave;
     commandLineArgs = [
-      "--disable-features=WaylandAsyncClipboard"
+      "--enable-features=UseOzonePlatform,WaylandWindowDecorations,WaylandTextInputV3"
+      "--ozone-platform=wayland"
     ];
   };
 }
