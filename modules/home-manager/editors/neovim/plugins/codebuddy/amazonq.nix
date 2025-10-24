@@ -35,7 +35,7 @@ in {
     -- Amazon Q setup
     require("amazonq").setup({
       -- Required: SSO portal URL for authentication
-      ssoStartUrl = ${ssoStartUrl},
+      ssoStartUrl = "${ssoStartUrl}",
 
       -- Filetypes where Amazon Q will be activated
       filetypes = {
