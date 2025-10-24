@@ -1,5 +1,7 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: let
+  ssoStartUrl = "https://d-9367077c28.awsapps.com/start";
+  ssoRegion = "eu-west-1";
+in {
   programs.nixvim.withNodeJs = true;
 
   # Add Amazon Q as an external vim plugin
@@ -12,6 +14,17 @@
         rev = "main";
         sha256 = "sha256-EoykpuPlck3JCY1dkkt0SBb7vj9miHVVIGi5UboB7lU="; # Replace with actual hash
       };
+
+      # Apply the region fix after fetching
+      postPatch = ''
+        if [ -f language-server/build/aws-lsp-codewhisperer-token-binary.js ]; then
+          ${pkgs.gnused}/bin/sed -i '
+            s/SsoRegion="us-east-1"/SsoRegion="${ssoRegion}"/g;
+            s/DEFAULT_AWS_Q_REGION="us-east-1"/DEFAULT_AWS_Q_REGION="${ssoRegion}"/g;
+            s#"eu-central-1","https://q.eu-central-1#"${ssoRegion}","https://q.eu-central-1#g
+          ' language-server/build/aws-lsp-codewhisperer-token-binary.js
+        fi
+      '';
     })
   ];
 
@@ -22,7 +35,7 @@
     -- Amazon Q setup
     require("amazonq").setup({
       -- Required: SSO portal URL for authentication
-      ssoStartUrl = "https://d-9367077c28.awsapps.com/start",  -- Free Tier with AWS Builder ID
+      ssoStartUrl = ${ssoStartUrl},
 
       -- Filetypes where Amazon Q will be activated
       filetypes = {
