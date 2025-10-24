@@ -1,7 +1,7 @@
 { settings, ... }:
 let
   profileImports = {
-    work = [ ./windsurf-vim.nix ];
+    work = [ ./amazonq.nix ];
     laptop = [ ./copilot.nix ];
     devenv = [ ./amazonq.nix ];
   };
