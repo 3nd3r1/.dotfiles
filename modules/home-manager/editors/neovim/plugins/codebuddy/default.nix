@@ -1,10 +1,11 @@
 { settings, ... }:
+let
+  profileImports = {
+    work = [ ./windsurf-vim.nix ];
+    laptop = [ ./copilot.nix ];
+    devenv = [ ./windsurf-vim.nix ];
+  };
+in
 {
-  imports =
-    if settings.profile == "work" then
-      [
-        ./windsurf-vim.nix
-      ]
-    else
-      [ ./copilot.nix ];
+  imports = profileImports.${settings.profile} or [ ];
 }
