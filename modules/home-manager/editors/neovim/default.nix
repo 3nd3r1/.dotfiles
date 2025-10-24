@@ -26,12 +26,6 @@
     ripgrep
     xclip
     wl-clipboard
-    cargo
-    gcc
-    nodejs_24
-    python3
-    yaml-language-server
-    eas-cli
   ];
 
   programs.nixvim = {
