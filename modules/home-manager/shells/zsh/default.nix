@@ -2,7 +2,6 @@
   settings,
   config,
   pkgs,
-  lib,
   inputs,
   ...
 }:
@@ -11,6 +10,9 @@ let
     work = [
       ./scripts/devenv.nix
       ../lib/krew.nix
+    ];
+    devenv = [
+      ./scripts/bob.nix
     ];
   };
 
