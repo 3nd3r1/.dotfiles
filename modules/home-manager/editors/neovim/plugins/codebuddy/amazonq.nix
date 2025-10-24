@@ -21,7 +21,7 @@ in {
           ${pkgs.gnused}/bin/sed -i '
             s/SsoRegion="us-east-1"/SsoRegion="${ssoRegion}"/g;
             s/DEFAULT_AWS_Q_REGION="us-east-1"/DEFAULT_AWS_Q_REGION="${ssoRegion}"/g;
-            s#"eu-central-1","https://q.eu-central-1#"${ssoRegion}","https://q.${ssoRegion}#g
+            s#"eu-central-1","https://q.eu-central-1#"${ssoRegion}","https://q.eu-central-1#g
           ' language-server/build/aws-lsp-codewhisperer-token-binary.js
         fi
       '';
