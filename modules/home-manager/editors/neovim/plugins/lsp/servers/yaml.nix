@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins.lsp.servers.yamlls = {
     enable = true;
-    settings = {
+    extraOptions = {
       on_attach.__raw = ''
         function(client, bufnr)
           local filename = vim.api.nvim_buf_get_name(bufnr)
@@ -10,7 +10,7 @@
               vim.lsp.buf_detach_client(bufnr, client.id)
             end, 100)
           end
-        end,
+        end
       '';
     };
   };
