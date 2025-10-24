@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
-with pkgs.tmuxPlugins; [
+with pkgs.tmuxPlugins;
+[
   kube-tmux
   {
     plugin = sysstat;
