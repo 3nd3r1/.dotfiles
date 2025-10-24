@@ -3,7 +3,7 @@ let
   profileImports = {
     work = [ ./windsurf-vim.nix ];
     laptop = [ ./copilot.nix ];
-    devenv = [ ./windsurf-vim.nix ];
+    devenv = [ ./amazonq.nix ];
   };
 in
 {

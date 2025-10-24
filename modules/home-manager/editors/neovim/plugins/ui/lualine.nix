@@ -182,20 +182,15 @@
             '';
           }
         ]
-        ++ lib.optionals (builtins.any (p: p.name == "amazonq-nvim") config.programs.nixvim.extraPlugins) [
+        ++ lib.optionals (config.programs.nixvim.globals.amazonq_enabled or false) [
           {
             __unkeyed-1.__raw = ''
               function()
-                local amazonq_ok, amazonq = pcall(require, "amazonq")
-                if not amazonq_ok then
-                  return ""
-                end
-                
-                if amazonq.config and amazonq.config.inline_suggest then
-                  return "  ON"
-                else
-                  return "  OFF"
-                end
+                if vim.g.amazonq_inline_suggest ~= true then
+                    return "  ON"
+                  else
+                    return "  OFF"
+                 end
               end
             '';
           }

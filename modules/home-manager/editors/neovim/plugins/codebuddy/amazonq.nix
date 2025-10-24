@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  programs.nixvim.withNodeJs = true;
+
   # Add Amazon Q as an external vim plugin
   programs.nixvim.extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
@@ -8,10 +10,12 @@
         owner = "awslabs";
         repo = "amazonq.nvim";
         rev = "main";
-        sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; # Replace with actual hash
+        sha256 = "sha256-EoykpuPlck3JCY1dkkt0SBb7vj9miHVVIGi5UboB7lU="; # Replace with actual hash
       };
     })
   ];
+
+  programs.nixvim.globals.amazonq_enabled = true;
 
   # Configure Amazon Q
   programs.nixvim.extraConfigLua = ''
@@ -76,9 +80,16 @@
       key = "<leader>c1";
       action.__raw = ''
         function()
-          local current = require('amazonq').config.inline_suggest
-          require('amazonq').config.inline_suggest = not current
-          print("Amazon Q inline suggestions " .. (not current and "enabled" or "disabled"))
+          vim.g.amazonq_inline_suggest = not vim.g.amazonq_inline_suggest
+          
+          -- Restart Amazon Q LSP to apply changes
+          vim.cmd('LspRestart')
+          
+          if vim.g.amazonq_inline_suggest then
+            print("Amazon Q inline suggestions enabled")
+          else
+            print("Amazon Q inline suggestions disabled")
+          end
         end
       '';
       options = {
