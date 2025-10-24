@@ -181,6 +181,24 @@
               end
             '';
           }
+        ]
+        ++ lib.optionals (builtins.any (p: p.name == "amazonq-nvim") config.programs.nixvim.extraPlugins) [
+          {
+            __unkeyed-1.__raw = ''
+              function()
+                local amazonq_ok, amazonq = pcall(require, "amazonq")
+                if not amazonq_ok then
+                  return ""
+                end
+                
+                if amazonq.config and amazonq.config.inline_suggest then
+                  return "  ON"
+                else
+                  return "  OFF"
+                end
+              end
+            '';
+          }
         ];
         lualine_z = [ "location" ];
       };
