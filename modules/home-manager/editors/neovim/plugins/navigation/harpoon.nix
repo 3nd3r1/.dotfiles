@@ -2,7 +2,7 @@
 {
   programs.nixvim.plugins.harpoon = {
     enable = true;
-    autoLoad = true;
+    enableTelescope = true;
   };
 
   programs.nixvim.plugins.which-key = {
