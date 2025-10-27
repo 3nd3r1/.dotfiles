@@ -1,4 +1,8 @@
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    gcc
+  ];
   programs.nixvim.plugins.treesitter = {
     enable = true;
     settings = {
