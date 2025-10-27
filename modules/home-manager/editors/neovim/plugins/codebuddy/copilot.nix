@@ -1,5 +1,10 @@
 {
-  programs.nixvim.plugins.copilot-vim.enable = true;
+  programs.nixvim.plugins.copilot-vim = {
+    enable = true;
+    settings = {
+      no_tab_map = true;
+    };
+  };
 
   programs.nixvim.keymaps = [
     {
