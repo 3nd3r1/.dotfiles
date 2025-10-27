@@ -48,6 +48,8 @@ in
     python3
   ];
 
+  services.blueman-applet.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   # Let Home Manager install and manage itself.

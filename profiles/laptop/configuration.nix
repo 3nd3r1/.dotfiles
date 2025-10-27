@@ -90,6 +90,8 @@ in
     NIXOS_OZONE_WL = "1";
   };
 
+  hardware.bluetooth.enable = true;
+
   environment.systemPackages = with pkgs; [
     vim
     wget
