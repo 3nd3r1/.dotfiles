@@ -43,10 +43,11 @@ in
     pavucontrol
     postman
     uv
-    nodejs_22
     unzip
     keymapp
     python3
+    nodejs_22
+    eas-cli
   ];
 
   services.blueman-applet.enable = true;
