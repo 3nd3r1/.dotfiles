@@ -43,6 +43,7 @@ in
     pavucontrol
     postman
     uv
+    nodejs_22
     unzip
     keymapp
     python3
