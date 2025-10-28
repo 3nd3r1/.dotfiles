@@ -48,6 +48,7 @@ in
     python3
     nodejs_22
     eas-cli
+    claude-code
   ];
 
   services.blueman-applet.enable = true;
