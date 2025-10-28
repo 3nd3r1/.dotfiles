@@ -46,8 +46,6 @@ in
     unzip
     keymapp
     python3
-    nodejs_22
-    eas-cli
     claude-code
   ];
 
