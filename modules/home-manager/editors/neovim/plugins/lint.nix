@@ -23,6 +23,10 @@
       enable = true;
       lintersByFt = {
         yaml = [ "yamllint" ];
+        typescript = [ "eslint" ];
+        javascript = [ "eslint" ];
+        typescriptreact = [ "eslint" ];
+        javascriptreact = [ "eslint" ];
       };
     };
   };
