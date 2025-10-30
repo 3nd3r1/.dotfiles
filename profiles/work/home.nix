@@ -44,6 +44,7 @@ in
     keymapp
     amazon-q-cli
     python3
+    claude-code
   ];
 
   # Fix gdm overwriting path
