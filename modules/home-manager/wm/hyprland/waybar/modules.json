@@ -165,7 +165,8 @@
     "tooltip-format-wifi": "{ipaddr}/{cidr} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ipaddr}/{cidr} 󰊗",
     "tooltip-format-disconnected": "Disconnected 󰌙",
-    "max-length": 50
+    "max-length": 50,
+    "on-click": "kitty nmtui"
   },
   "hyprland/language": {
     "format": "󰌌 {}",
