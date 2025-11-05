@@ -27,7 +27,7 @@ in
     };
     kernelParams = [
       "quiet"
-      "loglevel=2"
+      "loglevel=1"
       "systemd.show_status=auto"
       "acpi_osi=Linux"
       "acpi_backlight=vendor"
