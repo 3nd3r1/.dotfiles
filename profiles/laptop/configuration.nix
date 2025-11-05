@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   settings,
   inputs,
   ...
@@ -28,9 +27,8 @@ in
     };
     kernelParams = [
       "quiet"
-      "loglevel=3"
+      "loglevel=2"
       "systemd.show_status=auto"
-      "rd.udev.log_level=3"
       "acpi_osi=Linux"
       "acpi_backlight=vendor"
       "pci=noaer"
