@@ -13,6 +13,7 @@ let
     ];
     devenv = [
       ./scripts/bob.nix
+      ../lib/krew.nix
     ];
   };
 
