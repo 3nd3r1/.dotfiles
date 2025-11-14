@@ -109,6 +109,10 @@ in
   # };
 
   # List services that you want to enable:
+  # For usb
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
+  services.devmon.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
