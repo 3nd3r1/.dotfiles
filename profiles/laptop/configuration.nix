@@ -44,6 +44,7 @@ in
   # Networking
   networking.hostName = settings.hostname;
   networking.networkmanager.enable = true;
+  networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];
 
   # Docker
   virtualisation.docker.enable = true;
