@@ -47,6 +47,7 @@ in
     keymapp
     python3
     claude-code
+    eduvpn-client
   ];
 
   services.blueman-applet.enable = true;
