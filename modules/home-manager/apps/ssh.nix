@@ -1,7 +1,13 @@
 { pkgs, settings, ... }:
 let
   profileBlocks = {
-    laptop = { };
+    laptop = {
+      "melkki" = {
+        hostname = "melkki.cs.helsinki.fi";
+        user = "rviljami";
+        identityFile = "~/.ssh/id_rviljami";
+      };
+    };
     work = {
       "devenv" = {
         hostname = "node-100-77-161-117.rnd.gic.ericsson.se";
