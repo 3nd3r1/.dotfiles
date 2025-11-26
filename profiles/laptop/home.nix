@@ -48,6 +48,7 @@ in
     python3
     claude-code
     eduvpn-client
+    remmina
   ];
 
   services.blueman-applet.enable = true;
