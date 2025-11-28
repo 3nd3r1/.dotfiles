@@ -45,6 +45,7 @@ in
     amazon-q-cli
     python3
     claude-code
+    libreoffice
   ];
 
   # Fix gdm overwriting path
