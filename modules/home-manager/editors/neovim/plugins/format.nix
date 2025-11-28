@@ -10,7 +10,6 @@ in
   home.packages = with pkgs; [
     stylua
     prettier
-    prettierd
     robotframework-tidy
     go
     beautysh
