@@ -39,7 +39,10 @@
       ...
     }@inputs:
     let
-      profiles = [
+      nixosProfiles = [
+        "laptop"
+      ];
+      homeProfiles = [
         "laptop"
         "work"
         "devenv"
@@ -102,14 +105,14 @@
         map (profile: {
           name = profile;
           value = mkNixosConfiguration profile;
-        }) profiles
+        }) nixosProfiles
       );
 
       homeConfigurations = nixpkgs.lib.listToAttrs (
         map (profile: {
           name = profile;
           value = mkHomeConfiguration profile;
-        }) profiles
+        }) homeProfiles
       );
 
       devShells.${system}.default = pkgs.mkShell {

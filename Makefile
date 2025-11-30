@@ -28,7 +28,7 @@ devenv:
 
 # Development tasks
 format:
-	nixfmt-tree .
+	treefmt .
 	statix fix .
 
 lint:
