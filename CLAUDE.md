@@ -8,19 +8,23 @@ This is a NixOS/Home Manager dotfiles repository using Nix flakes with multiple 
 
 ## Build Commands
 
-### Profile Deployment
+### Profile Deployment (via Makefile)
 ```bash
-# Deploy laptop profile (NixOS + Home Manager)
-./rebuild-laptop.sh
-
-# Deploy work profile (Home Manager only)
-./rebuild-work.sh
-
-# Deploy devenv profile (Home Manager only)  
-./rebuild-devenv.sh
+make laptop    # Deploy laptop profile (NixOS + Home Manager)
+make work      # Deploy work profile (Home Manager only)
+make devenv    # Deploy devenv profile (Home Manager only)
+make help      # Show available targets
 ```
 
-### Manual Commands
+### Development Commands
+```bash
+make format    # Format all Nix files with treefmt and statix fix
+make lint      # Run nix flake check and statix check
+nix flake update    # Update flake inputs
+nix develop         # Enter development shell (or use direnv)
+```
+
+### Manual Commands (if needed)
 ```bash
 # NixOS rebuild for laptop profile
 sudo nixos-rebuild switch --flake ~/dotfiles#laptop
@@ -29,23 +33,12 @@ sudo nixos-rebuild switch --flake ~/dotfiles#laptop
 home-manager switch --flake .#<profile> --extra-experimental-features nix-command --extra-experimental-features flakes --extra-experimental-features pipe-operators -b backup
 ```
 
-### Development Commands
-```bash
-# Check flake syntax
-nix flake check
-
-# Update flake inputs
-nix flake update
-
-# Build specific configuration without switching
-nix build .#nixosConfigurations.<profile>.config.system.build.toplevel
-nix build .#homeConfigurations.<profile>.activationPackage
-```
-
 ## Architecture
 
 ### Flake Structure
-- **flake.nix**: Main flake configuration defining three profiles (laptop, work, devenv)
+- **flake.nix**: Main flake configuration with separated NixOS and Home Manager profiles
+- **Makefile**: Unified build interface replacing individual rebuild scripts
+- **.envrc**: Automatic direnv integration for development shell
 - **profiles/**: Profile-specific configurations and settings
 - **modules/**: Reusable NixOS and Home Manager modules
 - **themes/**: Theme definitions (currently using "pain" theme)
@@ -93,13 +86,22 @@ nix build .#homeConfigurations.<profile>.activationPackage
 - Hyprland config: `modules/home-manager/wm/hyprland/`
 - Theme definitions: `themes/pain.nix`
 
-## Common Operations
+## Development Workflow
 
-When modifying configurations:
-
-1. Edit the relevant module file in `modules/`
-2. For profile-specific changes, edit `profiles/<profile>/settings.nix`
-3. Run the appropriate rebuild script
+### Making Changes
+1. Edit the relevant module file in `modules/` or profile settings in `profiles/<profile>/settings.nix`
+2. Format and lint: `make format && make lint`
+3. Test changes: `make <profile>` (e.g., `make work`)
 4. Theme changes require editing `themes/pain.nix`
+
+### Development Environment
+- **direnv integration**: Automatically loads development tools when entering the directory
+- **Available tools**: treefmt, statix, nixfmt-tree for formatting and linting
+- **Profile separation**: `nixosProfiles` (laptop only) vs `homeProfiles` (laptop, work, devenv)
+
+### Key Configuration Points
+- **Neovim**: markview disabled by default, toggle with `<leader>mv`
+- **Waybar**: battery charging icon (󰂄), conceallevel = 0 for JSON files
+- **Treesitter**: includes json and markdown parsers
 
 The modular structure allows for easy addition of new profiles, applications, or themes while maintaining consistency across configurations.
