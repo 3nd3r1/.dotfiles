@@ -111,5 +111,15 @@
           value = mkHomeConfiguration profile;
         }) profiles
       );
+
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+          statix
+          nixfmt
+          nixfmt-tree
+        ];
+
+        shellHook = '''';
+      };
     };
 }
