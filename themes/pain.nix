@@ -36,7 +36,7 @@
 
   font = {
     name = "MesloLGLDZNerdFont";
-    package = (pkgs.nerd-fonts.meslo-lg);
+    package = pkgs.nerd-fonts.meslo-lg;
     size = 12;
   };
 

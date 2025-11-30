@@ -24,7 +24,7 @@ in
   ++ (map (browser: "${homeManagerModulesPath}/browsers/${browser}.nix") settings.browsers);
 
   home = {
-    username = settings.username;
+    inherit (settings) username;
     homeDirectory = "/home/${settings.username}";
     sessionVariables = {
       EDITOR = settings.preferredEditor;

@@ -28,7 +28,7 @@
     };
 
     decoration = {
-      rounding = themeDetails.rounding;
+      inherit (themeDetails) rounding;
       shadow = {
         enabled = themeDetails.shadow;
         ignore_window = false;

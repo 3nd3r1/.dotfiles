@@ -19,7 +19,7 @@
     enable = true;
     polarity = "dark"; # I WILL NOT ALLOW CHANGING THIS
     image = settings.wallpaper;
-    base16Scheme = themeDetails.base16Scheme;
+    inherit (themeDetails) base16Scheme;
     override = lib.mkIf (themeDetails.override != null) themeDetails.override;
     opacity = {
       terminal = themeDetails.opacity;
@@ -28,12 +28,12 @@
       popups = themeDetails.opacity;
     };
 
-    cursor = themeDetails.cursor;
+    inherit (themeDetails) cursor;
 
     fonts = {
       sansSerif = {
-        name = themeDetails.font.name;
-        package = themeDetails.font.package;
+        inherit (themeDetails.font) name;
+        inherit (themeDetails.font) package;
       };
       serif = config.stylix.fonts.sansSerif;
       monospace = config.stylix.fonts.sansSerif;

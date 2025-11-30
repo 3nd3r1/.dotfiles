@@ -12,7 +12,7 @@ let
 in
 {
   nixGL = {
-    packages = nixGL.packages;
+    inherit (nixGL) packages;
     defaultWrapper = "mesa";
   };
 

@@ -55,7 +55,7 @@ in
       "7, on-created-empty:${settings.preferredBrowser} --new-window https://notion.so/"
     ]
     ++ currentProfileRules.workspace;
-    windowrulev2 = [ ] ++ currentProfileRules.windowrulev2;
-    exec-once = [ ] ++ currentProfileRules.exec-once;
+    inherit (currentProfileRules) windowrulev2;
+    inherit (currentProfileRules) exec-once;
   };
 }
