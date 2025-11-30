@@ -1,7 +1,9 @@
-{ pkgs, ... }: let
+{ pkgs, ... }:
+let
   ssoStartUrl = "https://d-9367077c28.awsapps.com/start";
   ssoRegion = "eu-west-1";
-in {
+in
+{
   programs.nixvim.withNodeJs = true;
 
   # Add Amazon Q as an external vim plugin
