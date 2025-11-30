@@ -10,6 +10,7 @@
       expandtab = true;
       undofile = true;
       signcolumn = "yes";
+      conceallevel = 0;
     };
   };
 }
