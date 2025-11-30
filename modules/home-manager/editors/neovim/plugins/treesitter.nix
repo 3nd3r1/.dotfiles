@@ -20,6 +20,8 @@
         "yaml"
         "go"
         "nix"
+        "json"
+        "markdown"
       ];
 
       auto_install = true;
