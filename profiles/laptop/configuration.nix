@@ -27,10 +27,10 @@ in
     };
     kernelParams = [
       "quiet"
-      "loglevel=1"
-      "systemd.show_status=auto"
       "acpi_osi=Linux"
       "acpi_backlight=vendor"
+      "acpi_enforce_resources=lax"
+      "acpi_mask_gpe=0x06"
       "pci=noaer"
     ];
   };
