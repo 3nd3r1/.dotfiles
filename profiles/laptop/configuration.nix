@@ -27,11 +27,7 @@ in
     };
     kernelParams = [
       "quiet"
-      "acpi_osi=Linux"
-      "acpi_backlight=vendor"
-      "acpi_enforce_resources=lax"
-      "acpi_mask_gpe=0x06"
-      "pci=noaer"
+      "thermal.blacklist=SEN4"
     ];
   };
 
