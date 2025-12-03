@@ -26,7 +26,8 @@ in
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [
-      "acpi=noirq"
+      "quiet"
+      "loglevel=1"
     ];
   };
 
