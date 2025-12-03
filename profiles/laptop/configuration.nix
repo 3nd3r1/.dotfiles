@@ -26,8 +26,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [
-      "quiet"
-      "thermal.blacklist=SEN4"
+      "acpi=noirq"
     ];
   };
 
