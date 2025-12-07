@@ -51,6 +51,7 @@ in
     remmina
     protonvpn-gui
     qbittorrent
+    vlc
   ];
 
   services.blueman-applet.enable = true;
