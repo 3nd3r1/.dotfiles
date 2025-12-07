@@ -49,6 +49,8 @@ in
     claude-code
     eduvpn-client
     remmina
+    protonvpn-gui
+    qbittorrent
   ];
 
   services.blueman-applet.enable = true;
