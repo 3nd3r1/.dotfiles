@@ -52,6 +52,7 @@ in
     protonvpn-gui
     qbittorrent
     vlc
+    obs-studio
   ];
 
   services.blueman-applet.enable = true;
