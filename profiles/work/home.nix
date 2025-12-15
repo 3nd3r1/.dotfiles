@@ -33,7 +33,6 @@ in
   };
   home.packages = with pkgs; [
     neofetch
-    docker
     arandr
     blueman
     gnumake
