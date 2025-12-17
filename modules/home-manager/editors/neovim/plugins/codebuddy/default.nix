@@ -1,9 +1,9 @@
 { settings, ... }:
 let
   profileImports = {
-    work = [ ./windsurf-vim.nix ];
+    work = [ ./tabnine.nix ];
     laptop = [ ./copilot.nix ];
-    devenv = [ ./windsurf-vim.nix ];
+    devenv = [ ./tabnine.nix ];
   };
 in
 {
