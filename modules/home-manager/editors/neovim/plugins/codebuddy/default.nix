@@ -1,9 +1,9 @@
 { settings, ... }:
 let
   profileImports = {
-    work = [ ./tabnine.nix ];
+    work = [ ];
     laptop = [ ./copilot.nix ];
-    devenv = [ ./tabnine.nix ];
+    devenv = [ ];
   };
 in
 {
