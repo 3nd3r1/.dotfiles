@@ -41,6 +41,7 @@ in
   imports = [
     ../lib/tmux
     ../lib/zoxide.nix
+    ../lib/fd.nix
     ../lib/fzf.nix
     ../lib/direnv.nix
   ]
