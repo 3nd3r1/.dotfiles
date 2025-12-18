@@ -5,13 +5,15 @@ in
 {
   programs.nixvim.extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
-      name = "tabnine";
+      name = "tabnine-nvim";
       src = pkgs.fetchFromGitHub {
         owner = "codota";
         repo = "tabnine-nvim";
         rev = "master";
-        sha256 = "sha256-EoykpuPlck3JCY1dkkt0SBb7vj9miHVVIGi5UboB7lU=";
+        sha256 = "sha256-ZftLbx+egD0sJmJl6/N/WjoR60sixVY/nUMIcQUjdu0=";
+        fetchSubmodules = true;
       };
+      doCheck = false;
     })
   ];
 
