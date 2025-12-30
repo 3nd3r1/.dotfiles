@@ -5,4 +5,3 @@
     package = pkgs.jdt-language-server;
   };
 }
-
