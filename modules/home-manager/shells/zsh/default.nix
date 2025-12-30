@@ -57,6 +57,10 @@ in
 
   programs.tmux.shell = "${pkgs.zsh}/bin/zsh";
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
