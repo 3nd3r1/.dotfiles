@@ -53,6 +53,7 @@ in
     qbittorrent
     vlc
     obs-studio
+    tor-browser
   ];
 
   services.blueman-applet.enable = true;
