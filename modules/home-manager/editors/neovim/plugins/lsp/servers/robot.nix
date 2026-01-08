@@ -1,5 +1,4 @@
-_:
-{
+_: {
   programs.nixvim.plugins.lsp.servers.robotframework_ls = {
     enable = true;
     package = null;

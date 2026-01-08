@@ -38,9 +38,16 @@ in
   ];
 
   # Networking
-  networking.hostName = settings.hostname;
-  networking.networkmanager.enable = true;
-  networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];
+  networking = {
+    hostName = settings.hostname;
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [ networkmanager-openvpn ];
+    };
+    firewall = {
+      enable = true;
+    };
+  };
 
   # Docker
   virtualisation.docker.enable = true;
@@ -69,11 +76,22 @@ in
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Sound
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+  # Services
+  services = {
+    # Sound
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
+
+    # USB support
+    udisks2.enable = true;
+    gvfs.enable = true;
+    devmon.enable = true;
+
+    # OpenSSH
+    openssh.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -104,22 +122,6 @@ in
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-  # For usb
-  services.udisks2.enable = true;
-  services.gvfs.enable = true;
-  services.devmon.enable = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  networking = {
-    firewall = {
-      enable = true;
-    };
-  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
