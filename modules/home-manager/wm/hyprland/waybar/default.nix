@@ -34,6 +34,8 @@ in
           "clock"
           "custom/left-arrow-6"
           "tray"
+          "custom/left-arrow-7"
+          "custom/notification"
         ];
       }
     ];

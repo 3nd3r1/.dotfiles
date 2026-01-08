@@ -54,8 +54,63 @@ window#waybar {
 }
 #custom-left-arrow-6 {
   background: @purple5;
-  color: @black1;
+  color: @purple6;
 }
+#tray {
+  background: @purple6;
+}
+#custom-left-arrow-7 {
+  background: @purple6;
+  color: @purple1;
+}
+
+#custom-notification {
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+/* Notification states */
+#custom-notification.none {
+  background: @purple1;
+  color: @white1;
+}
+#custom-notification.notification {
+  background: @orange2;
+  color: @white1;
+}
+#custom-notification.dnd-notification {
+  background: @orange1;
+  color: @white1;
+}
+#custom-notification.dnd-none {
+  background: @purple4;
+  color: @white1;
+}
+#custom-notification.inhibited-notification {
+  background: @orange2;
+  color: @white1;
+}
+#custom-notification.inhibited-none {
+  background: @purple1;
+  color: @white1;
+}
+#custom-notification.dnd-inhibited-notification {
+  background: @orange1;
+  color: @white1;
+}
+#custom-notification.dnd-inhibited-none {
+  background: @purple4;
+  color: @white1;
+}
+
+/* Hover and active states */
+#custom-notification:hover {
+  background: @purple2;
+}
+#custom-notification:active {
+  background: @purple3;
+}
+
 
 #clock,
 #battery,
@@ -88,7 +143,8 @@ window#waybar {
 #pulseaudio,
 #cpu,
 #network,
-#battery {
+#battery,
+#tray {
   padding: 0 15px;
 }
 
