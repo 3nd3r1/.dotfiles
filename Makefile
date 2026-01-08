@@ -32,5 +32,5 @@ format:
 	statix fix .
 
 lint:
-	nix flake check
+	nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
 	statix check .
