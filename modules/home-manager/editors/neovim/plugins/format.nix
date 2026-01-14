@@ -16,6 +16,7 @@ in
     nixfmt
     deno
     ruff
+    rustfmt
   ];
 
   programs.nixvim.plugins.conform-nvim = {
@@ -46,6 +47,7 @@ in
         bash = [ "beautysh" ];
         sh = [ "beautysh" ];
         nix = [ "nixfmt" ];
+        rust = [ "rustfmt" ];
       };
 
       formatters = {
