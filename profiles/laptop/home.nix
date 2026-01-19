@@ -54,6 +54,7 @@ in
     vlc
     obs-studio
     tor-browser
+    loupe
   ];
 
   services.blueman-applet.enable = true;
