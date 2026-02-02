@@ -3,9 +3,11 @@
 {
   programs.git = {
     enable = true;
-    userName = settings.name;
-    userEmail = settings.email;
-    extraConfig.core.editor = "nvim";
+    settings = {
+      user.name = settings.name;
+      user.email = settings.email;
+      core.editor = "nvim";
+    };
   };
 
   programs.lazygit = {

@@ -50,7 +50,7 @@
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
-        inherit system;
+        system = "x86_64-linux";
         overlays = [ (import ./overlays { inherit inputs; }) ];
       };
 
