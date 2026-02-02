@@ -10,7 +10,7 @@ in
   home.packages = with pkgs; [
     stylua
     prettier
-    robotframework-tidy
+    # robotframework-tidy  # Commented out due to test failures
     go
     beautysh
     nixfmt
