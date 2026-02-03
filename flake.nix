@@ -32,7 +32,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       nixGL,
@@ -118,11 +117,12 @@
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           statix
+          deadnix
           nixfmt
           nixfmt-tree
         ];
 
-        shellHook = '''';
+        shellHook = "";
       };
     };
 }

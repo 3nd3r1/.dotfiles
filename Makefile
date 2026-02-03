@@ -30,7 +30,9 @@ devenv:
 format:
 	treefmt .
 	statix fix .
+	deadnix --edit .
 
 lint:
 	nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
 	statix check .
+	deadnix --fail .
