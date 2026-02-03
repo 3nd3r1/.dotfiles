@@ -67,6 +67,8 @@ window#waybar {
 #custom-notification {
   padding: 0 15px;
   transition: all 0.3s ease;
+  background: @purple1;
+  color: @white1;
 }
 
 /* Notification states */
