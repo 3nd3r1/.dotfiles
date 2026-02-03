@@ -9,9 +9,9 @@ let
   homeManagerModulesPath = "${inputs.self}/modules/home-manager";
   hyprlandPkg =
     if settings.nixgl then
-      config.lib.nixGL.wrap inputs.hyprland.packages.${pkgs.system}.hyprland
+      config.lib.nixGL.wrap inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
     else
-      inputs.hyprland.packages.${pkgs.system}.hyprland;
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 in
 {
   imports = [
@@ -38,7 +38,7 @@ in
       variables = [ "--all" ];
     };
     package = hyprlandPkg;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {
