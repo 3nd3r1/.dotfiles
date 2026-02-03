@@ -14,9 +14,11 @@
         "${settings.wallpaper}"
       ];
 
-      wallpaper = [
-        ",${settings.wallpaper}"
-      ];
+      wallpaper = {
+        monitor = "";
+        path = "${settings.wallpaper}";
+        fit_mode = "cover";
+      };
     };
   };
 }
