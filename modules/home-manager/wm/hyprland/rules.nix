@@ -6,7 +6,7 @@ let
         "6, on-created-empty:teams-for-linux"
         "6, on-created-empty:Evolution"
       ];
-      windowrulev2 = [
+      windowrule = [
         "workspace 6 silent, class:^(teams-for-linux)$"
         "workspace 6 silent, title:^(Microsoft Teams)(.*)$"
         "workspace 6 silent, class:^(Evolution)$"
@@ -21,7 +21,7 @@ let
       workspace = [
         "6, on-created-empty:vesktop"
       ];
-      windowrulev2 = [
+      windowrule = [
         "workspace 6 silent, class:^(vesktop)$"
       ];
       exec-once = [ "vesktop" ];
@@ -31,16 +31,15 @@ let
   currentProfileRules =
     profileRules.${settings.profile} or {
       workspace = [ ];
-      windowrulev2 = [ ];
+      windowrule = [ ];
       exec-once = [ ];
     };
 in
 {
   wayland.windowManager.hyprland.settings = {
     windowrule = [
-      "suppressevent maximize, class:.*"
       "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-    ];
+    ] ++ currentProfileRules.windowrule;
 
     workspace = [
       "1, persistent:true"
@@ -53,9 +52,8 @@ in
       "8, persistent:true"
       "9, persistent:true"
       "7, on-created-empty:${settings.preferredBrowser} --new-window https://notion.so/"
-    ]
-    ++ currentProfileRules.workspace;
-    inherit (currentProfileRules) windowrulev2;
+    ] ++ currentProfileRules.workspace;
+
     inherit (currentProfileRules) exec-once;
   };
 }
