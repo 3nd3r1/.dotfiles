@@ -7,9 +7,9 @@ let
         "6, on-created-empty:Evolution"
       ];
       windowrule = [
-        "workspace 6 silent, class:^(teams-for-linux)$"
-        "workspace 6 silent, title:^(Microsoft Teams)(.*)$"
-        "workspace 6 silent, class:^(Evolution)$"
+        "workspace 6 silent, match:class ^(teams-for-linux)$"
+        "workspace 6 silent, match:title ^(Microsoft Teams)(.*)$"
+        "workspace 6 silent, match:class ^(Evolution)$"
       ];
       exec-once = [
         "teams-for-linux"
@@ -22,7 +22,7 @@ let
         "6, on-created-empty:vesktop"
       ];
       windowrule = [
-        "workspace 6 silent, class:^(vesktop)$"
+        "workspace 6 silent, match:class ^(vesktop)$"
       ];
       exec-once = [ "vesktop" ];
     };
@@ -38,7 +38,7 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     windowrule = [
-      "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+      "no_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
     ]
     ++ currentProfileRules.windowrule;
 
