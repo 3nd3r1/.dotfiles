@@ -191,7 +191,7 @@
   },
   "custom/notification": {
     "tooltip": "Notifications: Click to toggle, Right-click to clear",
-    "format": "{icon} {}",
+    "format": "{icon} {0}",
     "format-icons": {
       "notification": "",
       "none": "",
