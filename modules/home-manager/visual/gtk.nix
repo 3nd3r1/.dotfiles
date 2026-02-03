@@ -1,7 +1,5 @@
 {
-  inputs,
   themeDetails,
-  pkgs,
   lib,
   ...
 }:

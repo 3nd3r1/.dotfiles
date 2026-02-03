@@ -2,8 +2,6 @@
   settings,
   themeDetails,
   lib,
-  inputs,
-  pkgs,
   ...
 }:
 {

@@ -1,4 +1,4 @@
-{ pkgs, settings, ... }:
+{ settings, ... }:
 let
   profileBlocks = {
     laptop = {

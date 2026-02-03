@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   power-menu = pkgs.writeShellScriptBin "power-menu" ''
     # Power menu options

@@ -1,4 +1,4 @@
-{ pkgs, settings, ... }:
+{ pkgs, ... }:
 let
   theme = import ./themes/pain.nix { inherit pkgs; };
 in

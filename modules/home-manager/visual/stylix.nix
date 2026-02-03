@@ -1,5 +1,4 @@
 {
-  inputs,
   settings,
   themeDetails,
   pkgs,

@@ -1,8 +1,5 @@
 {
   settings,
-  themeDetails,
-  lib,
-  inputs,
   pkgs,
   config,
   ...

@@ -39,7 +39,8 @@ in
   wayland.windowManager.hyprland.settings = {
     windowrule = [
       "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-    ] ++ currentProfileRules.windowrule;
+    ]
+    ++ currentProfileRules.windowrule;
 
     workspace = [
       "1, persistent:true"
@@ -52,7 +53,8 @@ in
       "8, persistent:true"
       "9, persistent:true"
       "7, on-created-empty:${settings.preferredBrowser} --new-window https://notion.so/"
-    ] ++ currentProfileRules.workspace;
+    ]
+    ++ currentProfileRules.workspace;
 
     inherit (currentProfileRules) exec-once;
   };

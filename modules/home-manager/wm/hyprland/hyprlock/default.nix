@@ -1,7 +1,6 @@
 {
   settings,
   pkgs,
-  themeDetails,
   ...
 }:
 {
@@ -60,7 +59,7 @@
         }
         # USER
         {
-          text = ''   $USER'';
+          text = "   $USER";
           color = "rgba(216, 222, 233, 0.80)";
           outline_thickness = 2;
           dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
