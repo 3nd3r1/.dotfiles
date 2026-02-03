@@ -25,10 +25,6 @@ in
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelParams = [
-      "quiet"
-      "loglevel=1"
-    ];
   };
 
   # Nix thing
