@@ -17,7 +17,7 @@ in
     "${nixosModulesPath}/apps/kdeconnect.nix"
     "${nixosModulesPath}/apps/nixld.nix"
   ]
-  ++ (map (wm: "${nixosModulesPath}/wm/${wm}.nix") settings.wms);
+  ++ (map (wm: "${nixosModulesPath}/wm/${wm}") settings.wms);
 
   # Use the systemd-boot EFI boot loader.
   boot = {
