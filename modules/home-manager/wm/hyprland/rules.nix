@@ -2,10 +2,7 @@
 let
   profileRules = {
     work = {
-      workspace = [
-        "6, on-created-empty:teams-for-linux"
-        "6, on-created-empty:Evolution"
-      ];
+      workspace = [ ];
       windowrule = [
         "workspace 6 silent, match:class ^(teams-for-linux)$"
         "workspace 6 silent, match:title ^(Microsoft Teams)(.*)$"
@@ -18,13 +15,13 @@ let
     };
 
     laptop = {
-      workspace = [
-        "6, on-created-empty:vesktop"
-      ];
+      workspace = [ ];
       windowrule = [
         "workspace 6 silent, match:class ^(vesktop)$"
       ];
-      exec-once = [ "vesktop" ];
+      exec-once = [
+        "vesktop"
+      ];
     };
   };
 
@@ -39,6 +36,8 @@ in
   wayland.windowManager.hyprland.settings = {
     windowrule = [
       "no_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+
+      "workspace 7 silent, match:class ^(brave-notion.so__-Default)$"
     ]
     ++ currentProfileRules.windowrule;
 
@@ -52,10 +51,12 @@ in
       "7, persistent:true"
       "8, persistent:true"
       "9, persistent:true"
-      "7, on-created-empty:${settings.preferredBrowser} --new-window https://notion.so/"
     ]
     ++ currentProfileRules.workspace;
 
-    inherit (currentProfileRules) exec-once;
+    exec-once = [
+      "brave --new-window --app=https://notion.so/"
+    ]
+    ++ currentProfileRules.exec-once;
   };
 }
