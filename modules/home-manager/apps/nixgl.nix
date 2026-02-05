@@ -11,7 +11,7 @@ let
   '';
 in
 {
-  nixGL = {
+  targets.genericLinux.nixGL = {
     inherit (nixGL) packages;
     defaultWrapper = "mesa";
   };
