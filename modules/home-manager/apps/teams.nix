@@ -7,8 +7,12 @@
 
   xdg.configFile."teams-for-linux/config.json".text = ''
     {
-      "ssoInTuneEnabled": true,
-      "ssoInTuneAuthUser": "viljami.ranta@ericsson.com",
+      "auth": {
+        "intune": {
+          "enabled": true,
+          "user": "viljami.ranta@ericsson.com"
+        }
+      },
       "notificationMethod": "electron"
     }
   '';
