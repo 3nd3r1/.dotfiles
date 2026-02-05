@@ -1,4 +1,4 @@
-.PHONY: laptop work devenv format lint check help
+.PHONY: laptop work devenv format lint check help update
 
 # Profile deployments
 laptop:
@@ -36,3 +36,7 @@ lint:
 	nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
 	statix check .
 	deadnix --fail .
+
+# Misc
+update:
+	nix flake update --extra-experimental-features nix-command --extra-experimental-features flakes
