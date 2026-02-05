@@ -1,17 +1,11 @@
 {
   inputs,
-  config,
-  settings,
   pkgs,
   ...
 }:
 let
   homeManagerModulesPath = "${inputs.self}/modules/home-manager";
-  hyprlandPkg =
-    if settings.nixgl then
-      config.lib.nixGL.wrap inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
-    else
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  hyprlandPkg = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 in
 {
   imports = [
