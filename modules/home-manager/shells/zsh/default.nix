@@ -86,7 +86,6 @@ in
         "fzf"
         "golang"
         "gcloud"
-        "poetry-env"
         "poetry"
         "virtualenv"
         "rust"
