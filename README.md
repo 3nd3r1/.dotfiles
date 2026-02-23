@@ -19,10 +19,10 @@ git clone https://github.com/3nd3r1/.dotfiles ~/dotfiles
 cd ~/dotfiles
 
 # laptop setup
-./rebuild-laptop.sh
+make laptop
 
 # work setup  
-./rebuild-work.sh
+make work
 ```
 
 ## profiles
