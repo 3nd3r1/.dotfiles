@@ -42,6 +42,7 @@ in
     pavucontrol
     keymapp
     amazon-q-cli
+    kiro-cli
     python3
     claude-code
     libreoffice
