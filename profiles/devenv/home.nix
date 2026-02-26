@@ -39,6 +39,7 @@ in
     pulsemixer
     pavucontrol
     amazon-q-cli
+    kiro-cli
   ];
 
   nixpkgs.config.allowUnfree = true;
