@@ -11,6 +11,7 @@
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
+      ref = "refs/tags/v0.54.0";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
