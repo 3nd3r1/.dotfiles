@@ -11,6 +11,7 @@
       undofile = true;
       signcolumn = "yes";
       conceallevel = 0;
+      termguicolors = true;
     };
   };
 }
