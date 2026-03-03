@@ -85,7 +85,7 @@ window#waybar {
   color: @white1;
 }
 #custom-notification.dnd-none {
-  background: @purple4;
+  background: @purple1;
   color: @white1;
 }
 #custom-notification.inhibited-notification {
@@ -101,7 +101,7 @@ window#waybar {
   color: @white1;
 }
 #custom-notification.dnd-inhibited-none {
-  background: @purple4;
+  background: @purple1;
   color: @white1;
 }
 
