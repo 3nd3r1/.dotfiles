@@ -6,6 +6,7 @@
       "Write",
       "Glob",
       "Grep",
+      "WebSearch",
       "Bash(make *)",
       "Bash(nix *)",
       "Bash(home-manager *)",
@@ -19,10 +20,7 @@
       "Bash(tree *)",
       "Bash(direnv *)"
     ],
-    "deny": [
-      "Bash(sudo *)",
-      "Bash(curl *)",
-      "Bash(wget *)"
-    ]
+    "deny": ["Bash(sudo *)", "Bash(curl *)", "Bash(wget *)"],
+    "ask": ["Bash(make laptop)", "Bash(make work)", "Bash(make devenv)"]
   }
 }
