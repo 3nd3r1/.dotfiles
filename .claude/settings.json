@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Bash(make *)",
+      "Bash(nix *)",
+      "Bash(home-manager *)",
+      "Bash(git *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(mkdir *)",
+      "Bash(rm *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(tree *)",
+      "Bash(direnv *)"
+    ],
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(curl *)",
+      "Bash(wget *)"
+    ]
+  }
+}
