@@ -38,7 +38,7 @@
 
           # Start waypipe server
           ssh -q -f -R /tmp/waypipe-server.sock:/tmp/waypipe-client.sock devenv \
-              "waypipe --compress none --socket /tmp/waypipe-server.sock --display wayland-devenv server sleep infinity 2>/dev/null"
+              "~/.nix-profile/bin/waypipe --compress none --socket /tmp/waypipe-server.sock --display wayland-devenv server sleep infinity 2>/dev/null"
           
           # Wait for remote wayland socket
           for i in {1..20}; do
