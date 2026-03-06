@@ -40,6 +40,7 @@ in
     pavucontrol
     amazon-q-cli
     kiro-cli
+    waypipe
   ];
 
   nixpkgs.config.allowUnfree = true;
