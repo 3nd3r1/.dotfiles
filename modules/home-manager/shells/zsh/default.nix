@@ -34,6 +34,7 @@ let
     vim = "nvim";
     oldvim = "vim";
     wssh = "waypipe ssh";
+    neofetch = "fastfetch";
   }
   // (profileAliases.${settings.profile} or { });
 in
