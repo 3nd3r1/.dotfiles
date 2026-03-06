@@ -32,7 +32,7 @@ in
     };
   };
   home.packages = with pkgs; [
-    neofetch
+    fastfetch
     arandr
     blueman
     gnumake

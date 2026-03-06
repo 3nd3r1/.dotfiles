@@ -31,7 +31,7 @@ in
   };
 
   home.packages = with pkgs; [
-    neofetch
+    fastfetch
     docker
     arandr
     gnumake
