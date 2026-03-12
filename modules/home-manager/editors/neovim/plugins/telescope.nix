@@ -29,6 +29,10 @@
         action = "buffers";
         options.desc = "+buffer";
       };
+      "<leader>pt" = {
+        action = "lsp_document_symbols";
+        options.desc = "Document symbols";
+      };
     };
   };
 }
