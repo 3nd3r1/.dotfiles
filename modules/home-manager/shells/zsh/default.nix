@@ -45,6 +45,7 @@ in
     ../lib/fd.nix
     ../lib/fzf.nix
     ../lib/direnv.nix
+    ../lib/yazi.nix
   ]
   ++ (profileModules.${settings.profile} or [ ]);
 
