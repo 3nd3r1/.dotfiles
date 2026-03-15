@@ -48,6 +48,8 @@ in
         sh = [ "beautysh" ];
         nix = [ "nixfmt" ];
         rust = [ "rustfmt" ];
+        c = [ "clang-format" ];
+        cpp = [ "clang-format" ];
       };
 
       formatters = {
