@@ -1,6 +1,14 @@
 _:
 
 {
-  programs.yazi.enable = true;
-  programs.yazi.shellWrapperName = "y";
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    shellWrapperName = "y";
+    settings = {
+      mgr = {
+        show_hidden = true;
+      };
+    };
+  };
 }
