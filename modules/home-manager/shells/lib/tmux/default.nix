@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, settings, ... }:
 let
   theme = import ./themes/pain.nix { inherit pkgs; };
+
+  profileExtraConfig = {
+    devenv = ''
+      set-environment -g WAYLAND_DISPLAY wayland-devenv
+    '';
+  };
 in
 {
   programs.tmux = {
@@ -43,7 +49,7 @@ in
         #tmux-window-name
       ]
       ++ theme;
-    extraConfig = ''
+    extraConfig = (profileExtraConfig.${settings.profile} or "") + ''
       # ==========================
       # ===  General settings  ===
       # ==========================
