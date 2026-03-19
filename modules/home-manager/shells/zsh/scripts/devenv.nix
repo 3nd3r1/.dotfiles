@@ -19,7 +19,7 @@
           ssh devenv "rm -f /tmp/waypipe-server.sock /run/user/\$(id -u)/wayland-devenv" 2>/dev/null || true
           
           # Start local client in background with no compression to avoid version mismatches
-          ${pkgs.waypipe}/bin/waypipe --compress none --socket "/tmp/waypipe-client.sock" client &
+          ${pkgs.waypipe}/bin/waypipe --no-gpu --compress none --socket "/tmp/waypipe-client.sock" client &
           
           # Wait for client socket
           for i in {1..20}; do
@@ -38,7 +38,7 @@
 
           # Start waypipe server
           ssh -q -f -R /tmp/waypipe-server.sock:/tmp/waypipe-client.sock devenv \
-              "~/.nix-profile/bin/waypipe --compress none --socket /tmp/waypipe-server.sock --display wayland-devenv server sleep infinity 2>/dev/null"
+              "~/.nix-profile/bin/waypipe --no-gpu --compress none --socket /tmp/waypipe-server.sock --display wayland-devenv server sleep infinity 2>/dev/null"
           
           # Wait for remote wayland socket
           for i in {1..20}; do
@@ -112,7 +112,7 @@
       connect_ssh() {
         start_waypipe
         echo "Connecting to devenv..."
-        ssh -t devenv 'export WAYLAND_DISPLAY=wayland-devenv; exec $SHELL'
+        ssh -t devenv 'exec $SHELL'
       }
 
       case "''${1:-connect}" in
