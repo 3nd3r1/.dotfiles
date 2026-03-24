@@ -46,6 +46,7 @@ in
     python3
     claude-code
     libreoffice
+    ncdu
   ];
 
   # Fix gdm overwriting path
