@@ -1,6 +1,6 @@
 { nixGL, pkgs, ... }:
 let
-  nixGLIntel = nixGL.packages.${pkgs.stdenv.hostPlatform.system}.nixGLIntel;
+  inherit (nixGL.packages.${pkgs.stdenv.hostPlatform.system}) nixGLIntel;
 
   # Wrapper for start-hyprland which expects 'nixGL' binary
   nixGLWrapper = pkgs.writeShellScriptBin "nixGL" ''
