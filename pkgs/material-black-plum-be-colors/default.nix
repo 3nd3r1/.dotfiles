@@ -12,12 +12,12 @@ stdenv.mkDerivation rec {
     owner = "rtlewis1";
     repo = "GTK";
     rev = "Material-Black-Colors-Desktop";
-    sha256 = "sha256-8AiMTAsmBdQJD9C4d/Y3eO+S7Fqz4rzYPLvxtCznYtE=";
+    sha256 = "sha256-BBrvYO6xoEHErwO4vzpz11FcJSknKnAx9/B5cYM0FBY=";
   };
 
   installPhase = ''
     mkdir -p $out/share/themes
-    cp -r Material-Black-Plum-BE/ $out/share/themes/
+    cp -r Material-Black-Plum/ $out/share/themes/
   '';
 
   meta = with lib; {

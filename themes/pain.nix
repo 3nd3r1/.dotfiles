@@ -46,7 +46,7 @@
   };
 
   theme = {
-    name = "Material-Black-Plum-BE";
+    name = "Material-Black-Plum";
     package = pkgs.material-black-plum-be-colors;
   };
 

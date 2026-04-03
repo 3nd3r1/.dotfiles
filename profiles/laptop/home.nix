@@ -49,7 +49,7 @@ in
     claude-code
     eduvpn-client
     remmina
-    protonvpn-gui
+    proton-vpn
     qbittorrent
     vlc
     obs-studio
