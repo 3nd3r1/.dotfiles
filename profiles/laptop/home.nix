@@ -55,6 +55,7 @@ in
     obs-studio
     tor-browser
     loupe
+    usbutils
   ];
 
   services.blueman-applet.enable = true;
