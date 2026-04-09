@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     owner = "rtlewis1";
     repo = "GTK";
     rev = "Material-Black-Colors-Desktop";
-    sha256 = "sha256-BBrvYO6xoEHErwO4vzpz11FcJSknKnAx9/B5cYM0FBY=";
+    sha256 = "sha256-BnXozOQs5rHB29z7pcYor7M5/34YoLslZiNj+qNqMME=";
   };
 
   installPhase = ''
