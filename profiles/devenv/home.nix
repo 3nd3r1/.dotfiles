@@ -40,6 +40,10 @@ in
     pavucontrol
     kiro-cli
     waypipe
+    prettier
+    markdownlint-cli
+    pandoc
+    jira-cli-go
   ];
 
   nixpkgs.config.allowUnfree = true;
