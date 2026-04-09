@@ -38,7 +38,6 @@ in
     gh
     pulsemixer
     pavucontrol
-    amazon-q-cli
     kiro-cli
     waypipe
   ];
