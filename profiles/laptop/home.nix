@@ -56,6 +56,7 @@ in
     tor-browser
     loupe
     usbutils
+    prismlauncher
   ];
 
   services.blueman-applet.enable = true;
