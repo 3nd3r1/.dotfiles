@@ -26,6 +26,11 @@ let
         port = 443;
         identityFile = "~/.ssh/id_3nd3r1";
       };
+      "gitlab.rnd.gic.ericsson.se" = {
+        hostname = "gitlab.rnd.gic.ericsson.se";
+        user = "git";
+        identityFile = "~/.ssh/id_eavinrl_gitlab";
+      };
     };
   };
   blocks = {
