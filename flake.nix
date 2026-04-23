@@ -121,6 +121,7 @@
           deadnix
           nixfmt
           nixfmt-tree
+          nodejs
         ];
 
         shellHook = "";
