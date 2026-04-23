@@ -35,4 +35,35 @@
       };
     };
   };
+
+  programs.nixvim.keymaps = [
+    {
+      mode = "n";
+      key = "<leader>pd";
+      action.__raw = ''
+        function()
+          require("telescope.builtin").find_files({
+            find_command = { "find", ".", "-type", "d" },
+            prompt_title = "Find Directory",
+            attach_mappings = function(_, map)
+              map("i", "<CR>", function(prompt_bufnr)
+                local entry = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+                require("telescope.actions").close(prompt_bufnr)
+                require("oil").open(entry.value)
+              end)
+              map("n", "<CR>", function(prompt_bufnr)
+                local entry = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+                require("telescope.actions").close(prompt_bufnr)
+                require("oil").open(entry.value)
+              end)
+              return true
+            end,
+          })
+        end
+      '';
+      options = {
+        desc = "Find directory (Oil)";
+      };
+    }
+  ];
 }
