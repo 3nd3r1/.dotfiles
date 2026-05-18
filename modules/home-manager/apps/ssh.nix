@@ -1,4 +1,8 @@
-{ settings, ... }:
+{
+  settings,
+  pkgs,
+  ...
+}:
 let
   profileBlocks = {
     laptop = {
@@ -9,16 +13,6 @@ let
       };
     };
     work = {
-      "devenv" = {
-        hostname = "node-100-77-161-117.rnd.gic.ericsson.se";
-        user = "eavinrl";
-        identityFile = "~/.ssh/id_eavinrl";
-      };
-      "devenvold" = {
-        hostname = "node-100-77-161-117.rnd.gic.ericsson.se";
-        user = "eavinrl";
-        identityFile = "~/.ssh/id_eavinrl";
-      };
     };
     devenv = {
       "github.com" = {
@@ -41,7 +35,7 @@ let
   // (profileBlocks.${settings.profile} or { });
 in
 {
-  services.ssh-agent.enable = true;
+  services.ssh-agent.enable = pkgs.stdenv.isLinux;
 
   programs.ssh = {
     enable = true;
