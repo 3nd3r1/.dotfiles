@@ -69,7 +69,8 @@ in
     enableCompletion = true;
     shellAliases = aliases;
     initContent = ''
-      bindkey '^ ' autosuggest-accept
+      bindkey -M viins '^ ' autosuggest-accept
+      bindkey -M viins '^C' send-break
     '';
     oh-my-zsh = {
       enable = true;
