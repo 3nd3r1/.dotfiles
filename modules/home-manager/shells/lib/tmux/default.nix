@@ -36,7 +36,6 @@ in
             set -g @continuum-restore 'on'
           '';
         }
-        sensible
         prefix-highlight
         yank
         {

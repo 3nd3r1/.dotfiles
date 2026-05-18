@@ -72,7 +72,7 @@ in
       if pkgs.stdenv.isLinux then ''
         bindkey '^ ' autosuggest-accept
       '' else ''
-        bindkey '\e ' autosuggest-accept
+        bindkey '\C-f' autosuggest-accept
       '';
     oh-my-zsh = {
       enable = true;
