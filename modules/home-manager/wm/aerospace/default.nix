@@ -22,7 +22,6 @@ _: {
 
     alt-q = 'close'
     alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
-    alt-p = 'exec-and-forget open -a Raycast'
 
     alt-h = 'focus left'
     alt-j = 'focus down'
