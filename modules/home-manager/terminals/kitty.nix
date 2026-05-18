@@ -5,7 +5,13 @@
   ...
 }:
 let
-  kittyPkg = if settings.nixgl then (config.lib.nixGL.wrap pkgs.kitty) else pkgs.kitty;
+  kittyPkg =
+    if pkgs.stdenv.isDarwin then
+      pkgs.emptyDirectory
+    else if settings.nixgl then
+      (config.lib.nixGL.wrap pkgs.kitty)
+    else
+      pkgs.kitty;
 in
 {
   programs.kitty = {

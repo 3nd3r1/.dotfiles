@@ -22,7 +22,7 @@ rec {
   wms = [ "aerospace" ];
   editors = [ "neovim" ];
   browsers = [ ];
-  terminals = [ ];
+  terminals = [ "kitty" ];
 
   preferredEditor = "nvim";
   preferredBrowser = "";
