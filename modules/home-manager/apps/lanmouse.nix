@@ -1,4 +1,5 @@
-_: {
+{ pkgs, lib, ... }:
+lib.mkIf pkgs.stdenv.isLinux {
   programs.lan-mouse = {
     enable = true;
     settings = {

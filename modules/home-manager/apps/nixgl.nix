@@ -1,8 +1,7 @@
-{ nixGL, pkgs, ... }:
+{ nixGL, pkgs, lib, ... }:
 let
   inherit (nixGL.packages.${pkgs.stdenv.hostPlatform.system}) nixGLIntel;
 
-  # Wrapper for start-hyprland which expects 'nixGL' binary
   nixGLWrapper = pkgs.writeShellScriptBin "nixGL" ''
     exec ${nixGLIntel}/bin/nixGLIntel "$@"
   '';
@@ -17,7 +16,7 @@ let
       "$@"
   '';
 in
-{
+lib.mkIf pkgs.stdenv.isLinux {
   targets.genericLinux.nixGL = {
     inherit (nixGL) packages;
     defaultWrapper = "mesa";

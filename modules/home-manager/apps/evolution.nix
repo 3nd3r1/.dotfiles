@@ -1,11 +1,8 @@
-{ pkgs, ... }:
-let
-  evolution-wrapped = pkgs.writeShellScriptBin "evolution" ''
-    GDK_BACKEND=x11 exec nonixgl /usr/bin/evolution "$@"
-  '';
-in
-{
+{ pkgs, lib, ... }:
+lib.mkIf pkgs.stdenv.isLinux {
   home.packages = [
-    evolution-wrapped
+    (pkgs.writeShellScriptBin "evolution" ''
+      GDK_BACKEND=x11 exec nonixgl /usr/bin/evolution "$@"
+    '')
   ];
 }

@@ -2,6 +2,7 @@
   settings,
   config,
   pkgs,
+  lib,
   inputs,
   ...
 }:
@@ -31,9 +32,9 @@ let
     vi = "nvim";
     vim = "nvim";
     oldvim = "vim";
-    wssh = "waypipe ssh";
     neofetch = "fastfetch";
   }
+  // lib.optionalAttrs pkgs.stdenv.isLinux { wssh = "waypipe ssh"; }
   // (profileAliases.${settings.profile} or { });
 in
 {

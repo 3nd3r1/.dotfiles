@@ -1,8 +1,9 @@
 {
   pkgs,
+  lib,
   ...
 }:
-{
+lib.mkIf pkgs.stdenv.isLinux {
   home.packages = with pkgs; [ teams-for-linux ];
 
   xdg.configFile."teams-for-linux/config.json".text = ''
