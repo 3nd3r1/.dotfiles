@@ -50,6 +50,9 @@ in
       ]
       ++ theme;
     extraConfig = (profileExtraConfig.${settings.profile} or "") + ''
+      # clear reattach-to-user-namespace set by sensible on macOS
+      set-option -g default-command ""
+
       # ==========================
       # ===  General settings  ===
       # ==========================
