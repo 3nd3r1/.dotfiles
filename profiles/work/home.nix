@@ -11,9 +11,6 @@ in
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
-    "${homeManagerModulesPath}/apps/nixgl.nix"
-    "${homeManagerModulesPath}/apps/lanmouse.nix"
-    "${homeManagerModulesPath}/apps/evolution.nix"
     "${homeManagerModulesPath}/apps/teams.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
     "${homeManagerModulesPath}/visual"
@@ -25,7 +22,7 @@ in
 
   home = {
     inherit (settings) username;
-    homeDirectory = "/home/${settings.username}";
+    homeDirectory = "/Users/${settings.username}";
     sessionVariables = {
       EDITOR = settings.preferredEditor;
       BROWSER = settings.preferredBrowser;
@@ -33,36 +30,15 @@ in
   };
   home.packages = with pkgs; [
     fastfetch
-    arandr
-    blueman
     gnumake
     gh
-    speedcrunch
-    pulsemixer
-    pavucontrol
-    keymapp
-    amazon-q-cli
-    kiro-cli
     python3
     claude-code
-    libreoffice
     ncdu
   ];
 
-  # Fix gdm overwriting path
-  xdg.configFile."environment.d/envvars.conf".text = ''
-    PATH="$HOME/.nix-profile/bin:$PATH"
-  '';
-
-  # Fix gtk
-  targets.genericLinux.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
-  # Services
-  services.blueman-applet.enable = true;
-
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05";
 }

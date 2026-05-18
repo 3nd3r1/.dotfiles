@@ -1,14 +1,15 @@
 { pkgs, inputs, ... }:
 rec {
   profile = "work";
+  system = "aarch64-darwin";
 
-  hostname = "elx-5cg2183zp2"; # Hostname
-  username = "eavinrl"; # Username
-  timezone = "Europe/Helsinki"; # Select timezone
-  locale = "en_US.UTF-8"; # Select locale
-  name = "3nd3r1"; # Name (git config)
-  email = "ender.spam.guru@gmail.com"; # Email (git config)
-  dotfilesDir = "/home/${username}/dotfiles"; # Absolute path of the repo;
+  hostname = "elx-5cg2183zp2";
+  username = "eavinrl";
+  timezone = "Europe/Helsinki";
+  locale = "en_US.UTF-8";
+  name = "3nd3r1";
+  email = "ender.spam.guru@gmail.com";
+  dotfilesDir = "/Users/${username}/dotfiles";
 
   theme = "pain";
   wallpaper = "${inputs.self}/assets/wallpapers/no-pain.png";
@@ -16,9 +17,9 @@ rec {
   shell = "zsh";
   shellPkg = pkgs.zsh;
 
-  nixgl = true; # Enable nixGL
+  nixgl = false;
 
-  wms = [ "hyprland" ];
+  wms = [ ];
   editors = [ "neovim" ];
   browsers = [ "brave" ];
   terminals = [ "kitty" ];
@@ -26,5 +27,5 @@ rec {
   preferredEditor = "nvim";
   preferredBrowser = "brave";
   preferredTerminal = "kitty";
-  preferredFileManager = "nautilus";
+  preferredFileManager = "finder";
 }

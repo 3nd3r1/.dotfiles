@@ -75,15 +75,30 @@
       mkHomeConfiguration =
         profile:
         let
-          settings = import (./. + "/profiles/${profile}/settings.nix") {
+          preSettings = import (./. + "/profiles/${profile}/settings.nix") {
             inherit pkgs inputs;
           };
+          profileSystem = preSettings.system or system;
+          profilePkgs =
+            if profileSystem == system then
+              pkgs
+            else
+              import nixpkgs {
+                system = profileSystem;
+                overlays = [ (import ./overlays { inherit inputs; }) ];
+                config.allowUnfree = true;
+              };
+          settings = import (./. + "/profiles/${profile}/settings.nix") {
+            pkgs = profilePkgs;
+            inherit inputs;
+          };
           themeDetails = import (./. + "/themes/${settings.theme}.nix") {
-            inherit pkgs inputs;
+            pkgs = profilePkgs;
+            inherit inputs;
           };
         in
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = profilePkgs;
           modules = [
             (./. + "/profiles/${profile}/home.nix")
             inputs.stylix.homeModules.stylix
