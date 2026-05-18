@@ -40,6 +40,7 @@ in
       window_margin_width = 0;
       window_padding_width = 0;
       enable_audio_bell = "no";
+      dynamic_background_opacity = "yes";
     };
     keybindings = {
       "ctrl+shift+v" = "paste_from_clipboard";

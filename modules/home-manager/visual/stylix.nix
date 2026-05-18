@@ -6,6 +6,9 @@
   config,
   ...
 }:
+let
+  isLinux = pkgs.stdenv.isLinux;
+in
 {
 
   # This will ensure the font is loaded
@@ -27,7 +30,7 @@
       popups = themeDetails.opacity;
     };
 
-    inherit (themeDetails) cursor;
+    cursor = lib.mkIf isLinux themeDetails.cursor;
 
     fonts = {
       sansSerif = {

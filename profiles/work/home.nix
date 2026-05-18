@@ -11,6 +11,7 @@ in
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
+    "${homeManagerModulesPath}/visual"
   ]
   ++ (map (terminal: "${homeManagerModulesPath}/terminals/${terminal}.nix") settings.terminals)
   ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
