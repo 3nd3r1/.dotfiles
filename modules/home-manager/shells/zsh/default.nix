@@ -8,8 +8,6 @@
 let
   profileModules = {
     work = [
-      ./scripts/devenv.nix
-      ../lib/krew.nix
     ];
     devenv = [
       ./scripts/bob.nix
