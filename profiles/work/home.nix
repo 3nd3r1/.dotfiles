@@ -1,6 +1,5 @@
 {
   settings,
-  pkgs,
   inputs,
   ...
 }:
@@ -11,9 +10,7 @@ in
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
-    "${homeManagerModulesPath}/apps/teams.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
-    "${homeManagerModulesPath}/visual"
   ]
   ++ (map (terminal: "${homeManagerModulesPath}/terminals/${terminal}.nix") settings.terminals)
   ++ (map (editor: "${homeManagerModulesPath}/editors/${editor}") settings.editors)
@@ -25,17 +22,8 @@ in
     homeDirectory = "/Users/${settings.username}";
     sessionVariables = {
       EDITOR = settings.preferredEditor;
-      BROWSER = settings.preferredBrowser;
     };
   };
-  home.packages = with pkgs; [
-    fastfetch
-    gnumake
-    gh
-    python3
-    claude-code
-    ncdu
-  ];
 
   nixpkgs.config.allowUnfree = true;
 

@@ -21,11 +21,11 @@ rec {
 
   wms = [ ];
   editors = [ "neovim" ];
-  browsers = [ "brave" ];
-  terminals = [ "kitty" ];
+  browsers = [ ];
+  terminals = [ ];
 
   preferredEditor = "nvim";
-  preferredBrowser = "brave";
-  preferredTerminal = "kitty";
+  preferredBrowser = "";
+  preferredTerminal = "";
   preferredFileManager = "finder";
 }
