@@ -1,11 +1,11 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 rec {
   profile = "work";
   system = "aarch64-darwin";
 
-  hostname = "elx-5cg2183zp2";
-  username = "eavinrl";
-  timezone = "Europe/Helsinki";
+  hostname = "vranta179-mac";
+  username = "vranta";
+  timezone = "Europe/London";
   locale = "en_US.UTF-8";
   name = "3nd3r1";
   email = "ender.spam.guru@gmail.com";
@@ -15,7 +15,7 @@ rec {
   wallpaper = "${inputs.self}/assets/wallpapers/no-pain.png";
 
   shell = "zsh";
-  shellPkg = pkgs.zsh;
+  shellPkg = null;
 
   nixgl = false;
 
