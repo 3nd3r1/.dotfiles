@@ -19,7 +19,7 @@ rec {
 
   nixgl = false;
 
-  wms = [ ];
+  wms = [ "aerospace" ];
   editors = [ "neovim" ];
   browsers = [ ];
   terminals = [ ];
