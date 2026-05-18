@@ -68,9 +68,12 @@ in
     autosuggestion.enable = true;
     enableCompletion = true;
     shellAliases = aliases;
-    initContent = ''
-      bindkey '^ ' autosuggest-accept
-    '';
+    initContent =
+      if pkgs.stdenv.isLinux then ''
+        bindkey '^ ' autosuggest-accept
+      '' else ''
+        bindkey '\e ' autosuggest-accept
+      '';
     oh-my-zsh = {
       enable = true;
       theme = "pain";
