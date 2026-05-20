@@ -16,17 +16,17 @@ _: {
     outer.right = 8
 
     [mode.main.binding]
-    alt-slash = 'layout tiles horizontal vertical'
-    alt-comma = 'layout accordion horizontal vertical'
-    alt-f = 'fullscreen'
+    ctrl-alt-shift-cmd-slash = 'layout tiles horizontal vertical'
+    ctrl-alt-shift-cmd-comma = 'layout accordion horizontal vertical'
+    ctrl-alt-shift-cmd-f = 'fullscreen'
 
-    alt-q = 'close'
-    alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
+    ctrl-alt-shift-cmd-q = 'close'
+    ctrl-alt-shift-cmd-enter = 'exec-and-forget open -n /Applications/kitty.app'
 
-    alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
-    alt-l = 'focus right'
+    ctrl-alt-shift-cmd-h = 'focus left'
+    ctrl-alt-shift-cmd-j = 'focus down'
+    ctrl-alt-shift-cmd-k = 'focus up'
+    ctrl-alt-shift-cmd-l = 'focus right'
 
     alt-shift-h = 'move left'
     alt-shift-j = 'move down'
