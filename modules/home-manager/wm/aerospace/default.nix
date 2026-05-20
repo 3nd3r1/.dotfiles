@@ -36,11 +36,11 @@ _: {
     alt-shift-minus = 'resize smart -50'
     alt-shift-equal = 'resize smart +50'
 
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
+    ctrl-alt-shift-cmd-1 = 'workspace 1'
+    ctrl-alt-shift-cmd-2 = 'workspace 2'
+    ctrl-alt-shift-cmd-3 = 'workspace 3'
+    ctrl-alt-shift-cmd-4 = 'workspace 4'
+    ctrl-alt-shift-cmd-5 = 'workspace 5'
 
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
