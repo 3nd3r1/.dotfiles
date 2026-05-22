@@ -7,8 +7,8 @@ rec {
   username = "vranta";
   timezone = "Europe/London";
   locale = "en_US.UTF-8";
-  name = "3nd3r1";
-  email = "ender.spam.guru@gmail.com";
+  name = "Viljami Ranta";
+  email = "vranta@palantir.com";
   dotfilesDir = "/Users/${username}/dotfiles";
 
   theme = "pain";
