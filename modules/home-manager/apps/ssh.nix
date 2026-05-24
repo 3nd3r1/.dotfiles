@@ -17,6 +17,10 @@ let
         hostname = "github.palantir.build";
         identityFile = "~/.ssh/id_vranta";
       };
+      "lfs.palantir.build" = {
+        hostname = "lfs.palantir.build";
+        identityFile = "~/.ssh/id_vranta";
+      };
     };
     devenv = {
       "github.com" = {
