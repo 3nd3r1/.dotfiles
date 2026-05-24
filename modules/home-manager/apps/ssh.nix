@@ -13,6 +13,10 @@ let
       };
     };
     work = {
+      "github.palantir.build" = {
+        hostname = "github.palantir.build";
+        identityFile = "~/.ssh/id_vranta";
+      };
     };
     devenv = {
       "github.com" = {
