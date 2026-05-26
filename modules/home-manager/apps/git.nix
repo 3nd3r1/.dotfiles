@@ -8,7 +8,7 @@ in
     enable = true;
     lfs.enable = isWork;
     signing = lib.mkIf isWork {
-      key = "F964ED111357DE83";
+      key = "C6B031CAF50F5674";
       signByDefault = true;
     };
     settings = {
