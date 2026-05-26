@@ -43,6 +43,8 @@ in
       dynamic_background_opacity = "yes";
     };
     keybindings = {
+      "ctrl+space" = "send_text all \\x00";
+
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+shift+s" = "paste_from_selection";
       "ctrl+shift+c" = "copy_to_clipboard";
