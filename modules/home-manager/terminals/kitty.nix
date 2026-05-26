@@ -19,6 +19,7 @@ in
     shellIntegration.enableZshIntegration = true;
     package = kittyPkg;
     settings = {
+      font_size = 18;
       bold_font = "auto";
       active_tab_font_style = "bold";
       bold_italic_font = "auto";
