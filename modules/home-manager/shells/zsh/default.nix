@@ -9,6 +9,7 @@
 let
   profileModules = {
     work = [
+      ../lib/apollo-cli.nix
     ];
     devenv = [
       ./scripts/bob.nix
