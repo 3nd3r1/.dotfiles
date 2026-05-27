@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [ krew ];
 
-  home.sessionPath = [
-    "$HOME/.krew/bin"
-  ];
+  programs.zsh.initContent = ''
+    export PATH="$HOME/.krew/bin:$PATH"
+  '';
 }
