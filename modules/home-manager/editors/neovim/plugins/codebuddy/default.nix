@@ -1,7 +1,7 @@
 { settings, ... }:
 let
   profileImports = {
-    work = [ ./copilot.nix ];
+    work = [ ];
     laptop = [ ./copilot.nix ];
     devenv = [ ];
   };

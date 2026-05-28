@@ -1,13 +1,12 @@
 {
-
   programs.nixvim.plugins.windsurf-vim = {
     enable = true;
     settings = {
       disable_bindings = true;
       no_map_tab = true;
       server_config = {
-        portal_url = "https://codingbuddy.onprem.gic.ericsson.se";
-        api_url = "https://codingbuddy.onprem.gic.ericsson.se/_route/api_server";
+        portal_url = "https://windsurf.fedstart.com";
+        api_url = "https://windsurf.fedstart.com/_route/api_server";
       };
     };
   };
