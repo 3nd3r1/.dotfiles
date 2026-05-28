@@ -7,6 +7,9 @@ let
     aerospace workspace "$target"
     aerospace move-workspace-to-monitor "$mon"
   '';
+  lockScreen = pkgs.writeShellScript "aerospace-lock-screen" ''
+    osascript -e 'tell application "System Events" to keystroke "q" using {control down, command down}'
+  '';
 in
 {
   xdg.configFile."aerospace/aerospace.toml".text = ''
@@ -26,10 +29,13 @@ in
     outer.right = 8
 
     [mode.main.binding]
+    cmd-ctrl-alt-b = 'exec-and-forget open -a Island'
+    cmd-l = 'exec-and-forget ${lockScreen}'
+
     cmd-ctrl-alt-slash = 'layout tiles horizontal vertical'
     cmd-ctrl-alt-f = 'fullscreen'
 
-    cmd-ctrl-alt-q = 'close'
+    cmd-ctrl-alt-shift-q = 'close'
     cmd-ctrl-alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
 
     cmd-ctrl-alt-h = 'focus left'
