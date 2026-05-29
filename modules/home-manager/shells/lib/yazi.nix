@@ -1,9 +1,9 @@
-{ pkgs, settings, ... }:
+{ pkgs, settings, mkBrewBin, ... }:
 
 {
   programs.yazi = {
     enable = true;
-    package = if settings.profile == "work" then pkgs.emptyDirectory else pkgs.yazi;
+    package = if settings.profile == "work" then mkBrewBin "yazi" else pkgs.yazi;
     enableZshIntegration = true;
     shellWrapperName = "y";
     settings = {

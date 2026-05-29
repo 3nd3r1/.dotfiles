@@ -1,4 +1,4 @@
-{ pkgs, settings, lib, ... }:
+{ pkgs, settings, lib, mkBrewBin, ... }:
 
 let
   isWork = settings.profile == "work";
@@ -20,6 +20,6 @@ in
 
   programs.lazygit = {
     enable = true;
-    package = if isWork then pkgs.emptyDirectory else pkgs.lazygit;
+    package = if isWork then mkBrewBin "lazygit" else pkgs.lazygit;
   };
 }
