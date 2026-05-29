@@ -112,6 +112,7 @@
               themeDetails
               nixGL
               ;
+            mkBrewBin = import ./lib/mkBrewBin.nix profilePkgs;
           };
         };
     in
