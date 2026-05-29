@@ -1,5 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, lib, settings, ... }:
 
 {
-  home.packages = with pkgs; [ fzf ];
+  home.packages = lib.optionals (settings.profile != "work") (with pkgs; [ fzf ]);
 }

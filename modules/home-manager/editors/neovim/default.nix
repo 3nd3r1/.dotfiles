@@ -22,12 +22,12 @@
     ./colorscheme/${settings.theme}.nix
   ];
 
-  home.packages = with pkgs; [
-    ripgrep
-  ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
-    xclip
-    wl-clipboard
-  ];
+  home.packages =
+    pkgs.lib.optionals (settings.profile != "work") (with pkgs; [ ripgrep ])
+    ++ pkgs.lib.optionals pkgs.stdenv.isLinux (with pkgs; [
+      xclip
+      wl-clipboard
+    ]);
 
   programs.nixvim = {
     enable = true;
