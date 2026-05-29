@@ -15,6 +15,8 @@ in
       user.name = settings.name;
       user.email = settings.email;
       core.editor = "nvim";
+    } // lib.optionalAttrs isWork {
+      url."git@github.palantir.build:".insteadOf = "https://github.palantir.build/";
     };
   };
 
