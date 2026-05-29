@@ -31,8 +31,6 @@
 
   programs.nixvim = {
     enable = true;
-    package = if settings.profile == "work" then pkgs.emptyDirectory else pkgs.neovim-unwrapped;
-    wrapRc = settings.profile != "work";
     viAlias = true;
     vimAlias = true;
     nixpkgs.config = {
