@@ -11,6 +11,7 @@ in
 {
   programs.tmux = {
     enable = true;
+    package = if settings.profile == "work" then pkgs.emptyDirectory else pkgs.tmux;
     prefix = "C-a";
     terminal = "tmux-256color";
     escapeTime = 0;
