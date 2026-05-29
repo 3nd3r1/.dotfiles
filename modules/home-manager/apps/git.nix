@@ -1,4 +1,4 @@
-{ settings, lib, ... }:
+{ pkgs, settings, lib, ... }:
 
 let
   isWork = settings.profile == "work";
@@ -20,5 +20,6 @@ in
 
   programs.lazygit = {
     enable = true;
+    package = if isWork then pkgs.emptyDirectory else pkgs.lazygit;
   };
 }
