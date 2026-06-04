@@ -17,6 +17,15 @@
           silent = true;
         };
       }
+      {
+        mode = "n";
+        key = "<leader>mc";
+        action = "<cmd>Markview splitToggle<cr>";
+        options = {
+          desc = "Toggle Markview split (side-by-side)";
+          silent = true;
+        };
+      }
     ];
   };
 }
