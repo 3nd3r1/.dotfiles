@@ -20,7 +20,7 @@
       "Bash(tree *)",
       "Bash(direnv *)"
     ],
-    "deny": ["Bash(sudo *)", "Bash(curl *)", "Bash(wget *)"],
+    "deny": ["Bash(sudo *)"],
     "ask": ["Bash(make laptop)", "Bash(make work)", "Bash(make devenv)"]
   }
 }
