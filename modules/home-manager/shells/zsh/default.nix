@@ -73,6 +73,8 @@ in
     initContent = ''
       bindkey -M viins '^ ' autosuggest-accept
       bindkey -M viins '^C' send-break
+
+      [ -f "$HOME/.env" ] && source "$HOME/.env"
     '';
     oh-my-zsh = {
       enable = true;
