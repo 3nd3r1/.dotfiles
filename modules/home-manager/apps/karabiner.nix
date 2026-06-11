@@ -11,7 +11,7 @@ let
   ];
 
   capsToHyper = {
-    description = "Caps Lock -> Hyper (⌃⌥⇧⌘), Escape when tapped alone";
+    description = "Caps Lock -> Hyper (⌃⌥⇧⌘), always (hold and tap)";
     manipulators = [
       {
         type = "basic";
@@ -25,7 +25,6 @@ let
             modifiers = hyper;
           }
         ];
-        to_if_alone = [ { key_code = "escape"; } ];
       }
     ];
   };
