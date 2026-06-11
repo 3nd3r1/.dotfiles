@@ -33,6 +33,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    nixpkgs.source = pkgs.path;
     nixpkgs.config = {
       allowUnfree = true;
     };

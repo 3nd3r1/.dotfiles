@@ -7,37 +7,37 @@ let
   profileBlocks = {
     laptop = {
       "melkki" = {
-        hostname = "melkki.cs.helsinki.fi";
-        user = "rviljami";
-        identityFile = "~/.ssh/id_rviljami";
+        HostName = "melkki.cs.helsinki.fi";
+        User = "rviljami";
+        IdentityFile = "~/.ssh/id_rviljami";
       };
     };
     work = {
       "github.palantir.build" = {
-        hostname = "github.palantir.build";
-        identityFile = "~/.ssh/id_vranta";
+        HostName = "github.palantir.build";
+        IdentityFile = "~/.ssh/id_vranta";
       };
       "lfs.palantir.build" = {
-        hostname = "lfs.palantir.build";
-        identityFile = "~/.ssh/id_vranta";
+        HostName = "lfs.palantir.build";
+        IdentityFile = "~/.ssh/id_vranta";
       };
     };
     devenv = {
       "github.com" = {
-        hostname = "ssh.github.com";
-        port = 443;
-        identityFile = "~/.ssh/id_3nd3r1";
+        HostName = "ssh.github.com";
+        Port = 443;
+        IdentityFile = "~/.ssh/id_3nd3r1";
       };
       "gitlab.rnd.gic.ericsson.se" = {
-        hostname = "gitlab.rnd.gic.ericsson.se";
-        user = "git";
-        identityFile = "~/.ssh/id_eavinrl_gitlab";
+        HostName = "gitlab.rnd.gic.ericsson.se";
+        User = "git";
+        IdentityFile = "~/.ssh/id_eavinrl_gitlab";
       };
     };
   };
   blocks = {
     "github.com" = {
-      identityFile = "~/.ssh/id_3nd3r1";
+      IdentityFile = "~/.ssh/id_3nd3r1";
     };
   }
   // (profileBlocks.${settings.profile} or { });
@@ -48,6 +48,6 @@ in
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = blocks;
+    settings = blocks;
   };
 }
