@@ -4,14 +4,8 @@
 # `brew install --cask karabiner-elements`, and granted Input Monitoring.
 # Nix only owns ~/.config/karabiner/karabiner.json.
 let
-  hyper = [
-    "left_command"
-    "left_control"
-    "left_option"
-  ];
-
   capsToHyper = {
-    description = "Caps Lock -> Hyper (⌃⌥⇧⌘), always (hold and tap)";
+    description = "Caps Lock -> ⌃⌥⌘, always (hold and tap)";
     manipulators = [
       {
         type = "basic";
@@ -21,8 +15,11 @@ let
         };
         to = [
           {
-            key_code = "left_shift";
-            modifiers = hyper;
+            key_code = "left_command";
+            modifiers = [
+              "left_control"
+              "left_option"
+            ];
           }
         ];
       }
