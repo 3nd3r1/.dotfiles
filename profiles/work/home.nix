@@ -10,6 +10,7 @@ in
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
+    "${homeManagerModulesPath}/apps/karabiner.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
     "${homeManagerModulesPath}/visual"
   ]
