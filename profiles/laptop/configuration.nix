@@ -81,6 +81,7 @@ in
     description = "neko";
     initialPassword = "neko";
     extraGroups = [ "networkmanager" ];
+    packages = with pkgs; [ google-chrome ];
   };
 
   services.desktopManager.gnome.enable = true;
