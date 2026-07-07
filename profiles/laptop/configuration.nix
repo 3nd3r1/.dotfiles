@@ -76,6 +76,15 @@ in
     ];
   };
 
+  users.users.neko = {
+    isNormalUser = true;
+    description = "neko";
+    initialPassword = "neko";
+    extraGroups = [ "networkmanager" ];
+  };
+
+  services.xserver.desktopManager.gnome.enable = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
