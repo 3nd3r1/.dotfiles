@@ -90,9 +90,12 @@ in
       # new window and retain cwd
       bind c new-window -c "#{pane_current_path}"
 
-      # Rename session and window
-      bind r command-prompt -I "#{window_name}" "rename-window '%%'"
-      bind R command-prompt -I "#{session_name}" "rename-session '%%'"
+      # Reload config
+      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded"
+
+      # Rename window and session (tmux default keys)
+      bind , command-prompt -I "#{window_name}" "rename-window '%%'"
+      bind "$" command-prompt -I "#{session_name}" "rename-session '%%'"
 
       # Split panes
       bind | split-window -h -c "#{pane_current_path}"
