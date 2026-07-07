@@ -83,7 +83,13 @@ in
     extraGroups = [ "networkmanager" ];
   };
 
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  nixpkgs.overlays = [
+    (_: prev: {
+      cantarell-fonts = prev.runCommand "cantarell-fonts-stub" { } "mkdir $out";
+    })
+  ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

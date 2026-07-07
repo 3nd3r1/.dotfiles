@@ -13,7 +13,7 @@ tmuxPlugins.mkTmuxPlugin {
     owner = "jonmosco";
     repo = "kube-tmux";
     rev = "master";
-    sha256 = "sha256-Z71zsEj4nGptaosDPRVFEp8QwSsawPh1qFMSoRnF2nE=";
+    sha256 = "sha256-l1wjg2ReWKCI7h/K11vvX2ykYTs/mVD+tfz/mQsjn/E=";
   };
 
   rtpFilePath = "kube.tmux";
