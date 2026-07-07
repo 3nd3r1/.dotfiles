@@ -27,14 +27,8 @@ in
         {
           plugin = resurrect;
           extraConfig = ''
-            set -g @resurrect-save 'C-F1'
-            set -g @resurrect-restore 'C-F2'
-          '';
-        }
-        {
-          plugin = continuum;
-          extraConfig = ''
-            set -g @continuum-restore 'on'
+            set -g @resurrect-save 'C-s'
+            set -g @resurrect-restore 'C-r'
           '';
         }
         prefix-highlight
@@ -48,7 +42,17 @@ in
         kube-tmux
         #tmux-window-name
       ]
-      ++ theme;
+      ++ theme
+      ++ [
+        # continuum must load last: it appends a hook to status-right, and any
+        # later `set -g status-right` (the theme) wipes it, killing autosave/restore.
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+          '';
+        }
+      ];
     extraConfig = (profileExtraConfig.${settings.profile} or "") + ''
       # ==========================
       # ===  General settings  ===
