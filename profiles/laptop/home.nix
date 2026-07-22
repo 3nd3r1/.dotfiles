@@ -59,6 +59,14 @@ in
     prismlauncher
   ];
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = "thunar.desktop";
+      "application/x-directory" = "thunar.desktop";
+    };
+  };
+
   services.blueman-applet.enable = true;
 
   nixpkgs.config.allowUnfree = true;
