@@ -4,7 +4,7 @@ rec {
 
   hostname = "enderlaptop"; # Hostname
   username = "ender"; # Username
-  timezone = "Europe/London"; # Select timezone
+  timezone = "Europe/Helsinki"; # Select timezone
   locale = "en_US.UTF-8"; # Select locale
   name = "3nd3r1"; # Name (git config)
   email = "ender.spam.guru@gmail.com"; # Email (git config)
