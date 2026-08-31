@@ -16,6 +16,7 @@ in
     "${nixosModulesPath}/apps/expo.nix"
     "${nixosModulesPath}/apps/kdeconnect.nix"
     "${nixosModulesPath}/apps/nixld.nix"
+    "${nixosModulesPath}/apps/zsa.nix"
   ]
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}") settings.wms);
 
@@ -73,6 +74,7 @@ in
     extraGroups = [
       "wheel"
       "docker"
+      "plugdev"
     ];
   };
 
