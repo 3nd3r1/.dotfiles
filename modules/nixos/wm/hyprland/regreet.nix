@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  settings,
   lib,
   ...
 }:
@@ -36,10 +35,8 @@ in
       default_session = {
         command = "Hyprland";
       };
-      background = {
-        path = settings.wallpaper;
-        fit = "Cover";
-      };
+      # No background: regreet 0.5.0 loads it via glycin (sandboxed loaders +
+      # bwrap), which the greeter session lacks, so it hangs on a broken image.
       GTK = {
         application_prefer_dark_theme = true;
         cursor_theme_name = lib.mkForce "phinger-cursors-light";
