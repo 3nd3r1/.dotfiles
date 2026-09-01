@@ -36,7 +36,7 @@ let
     oldvim = "vim";
     neofetch = "fastfetch";
   }
-  // lib.optionalAttrs pkgs.stdenv.isLinux { wssh = "waypipe ssh"; }
+  // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { wssh = "waypipe ssh"; }
   // (profileAliases.${settings.profile} or { });
 in
 {
@@ -58,7 +58,7 @@ in
     recursive = true;
   };
 
-  programs.tmux.shell = if pkgs.stdenv.isLinux then "${pkgs.zsh}/bin/zsh" else "/bin/zsh";
+  programs.tmux.shell = if pkgs.stdenv.hostPlatform.isLinux then "${pkgs.zsh}/bin/zsh" else "/bin/zsh";
 
   home.sessionPath = [
     "$HOME/.local/bin"

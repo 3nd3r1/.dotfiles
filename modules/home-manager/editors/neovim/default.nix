@@ -24,7 +24,7 @@
 
   home.packages =
     pkgs.lib.optionals (settings.profile != "work") (with pkgs; [ ripgrep ])
-    ++ pkgs.lib.optionals pkgs.stdenv.isLinux (with pkgs; [
+    ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux (with pkgs; [
       xclip
       wl-clipboard
     ]);

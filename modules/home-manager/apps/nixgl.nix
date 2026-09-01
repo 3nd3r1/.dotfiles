@@ -16,7 +16,7 @@ let
       "$@"
   '';
 in
-lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   targets.genericLinux.nixGL = {
     inherit (nixGL) packages;
     defaultWrapper = "mesa";

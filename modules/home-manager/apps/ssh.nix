@@ -43,7 +43,7 @@ let
   // (profileBlocks.${settings.profile} or { });
 in
 {
-  services.ssh-agent.enable = pkgs.stdenv.isLinux;
+  services.ssh-agent.enable = pkgs.stdenv.hostPlatform.isLinux;
 
   programs.ssh = {
     enable = true;

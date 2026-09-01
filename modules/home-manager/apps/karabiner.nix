@@ -39,7 +39,7 @@ let
   };
 in
 {
-  xdg.configFile = lib.mkIf pkgs.stdenv.isDarwin {
+  xdg.configFile = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     "karabiner/karabiner.json".text = builtins.toJSON config;
   };
 }

@@ -3,7 +3,7 @@
   lib,
   ...
 }:
-lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   home.packages = with pkgs; [ teams-for-linux ];
 
   xdg.configFile."teams-for-linux/config.json".text = ''

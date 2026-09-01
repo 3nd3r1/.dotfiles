@@ -6,7 +6,7 @@
 }:
 let
   kittyPkg =
-    if pkgs.stdenv.isDarwin then
+    if pkgs.stdenv.hostPlatform.isDarwin then
       pkgs.emptyDirectory
     else if settings.nixgl then
       (config.lib.nixGL.wrap pkgs.kitty)
