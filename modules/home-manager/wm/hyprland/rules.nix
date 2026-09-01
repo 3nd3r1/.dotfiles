@@ -55,7 +55,11 @@ in
     ++ currentProfileRules.workspace;
 
     exec-once = [
-      "brave --new-window --app=https://notion.so/"
+      # Wait for the xdg-desktop-portal frontend before starting Brave.
+      # Brave probes portal availability once at startup and caches it; under
+      # ozone-platform=wayland there is no fallback dialog, so losing this race
+      # kills file picking for the whole (single-instance) Brave session.
+      "systemctl --user start --wait xdg-desktop-portal.service && brave --new-window --app=https://notion.so/"
     ]
     ++ currentProfileRules.exec-once;
   };
