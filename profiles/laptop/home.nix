@@ -57,6 +57,7 @@ in
     loupe
     usbutils
     prismlauncher
+    jq
   ];
 
   xdg.mimeApps = {

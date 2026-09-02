@@ -55,10 +55,7 @@ in
     ++ currentProfileRules.workspace;
 
     exec-once = [
-      # Wait for xdg-desktop-portal before Brave: it probes the portal once at
-      # startup and caches the result, and under ozone-platform=wayland there is
-      # no fallback dialog, so losing this race breaks file picking session-wide.
-      "gdbus wait --session --timeout 30 org.freedesktop.portal.Desktop && brave --new-window --app=https://notion.so/"
+      "brave --new-window --app=https://notion.so/"
     ]
     ++ currentProfileRules.exec-once;
   };
