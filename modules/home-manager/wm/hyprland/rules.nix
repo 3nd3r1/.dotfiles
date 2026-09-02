@@ -55,11 +55,10 @@ in
     ++ currentProfileRules.workspace;
 
     exec-once = [
-      # Wait for the xdg-desktop-portal frontend before starting Brave.
-      # Brave probes portal availability once at startup and caches it; under
-      # ozone-platform=wayland there is no fallback dialog, so losing this race
-      # kills file picking for the whole (single-instance) Brave session.
-      "systemctl --user start --wait xdg-desktop-portal.service && brave --new-window --app=https://notion.so/"
+      # Wait for xdg-desktop-portal before Brave: it probes the portal once at
+      # startup and caches the result, and under ozone-platform=wayland there is
+      # no fallback dialog, so losing this race breaks file picking session-wide.
+      "gdbus wait --session --timeout 30 org.freedesktop.portal.Desktop && brave --new-window --app=https://notion.so/"
     ]
     ++ currentProfileRules.exec-once;
   };
