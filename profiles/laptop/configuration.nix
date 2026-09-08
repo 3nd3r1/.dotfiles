@@ -98,6 +98,20 @@ in
     (_: prev: {
       cantarell-fonts = prev.runCommand "cantarell-fonts-stub" { } "mkdir $out";
     })
+    # xdg-desktop-portal >=1.20 denies EVERY portal request (file chooser, save
+    # dialog, Secret, ...) from non-sandboxed apps when it cannot read the
+    # caller's /proc/<pid>/root - which is the case for Chromium/Electron (they
+    # make their processes non-dumpable) under this unprivileged user service.
+    # Patch the flatpak AND linyaps detectors to fall through to "host app".
+    # https://github.com/flatpak/xdg-desktop-portal/issues/1953
+    (_: prev: {
+      xdg-desktop-portal = prev.xdg-desktop-portal.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [
+          ../../pkgs/xdg-desktop-portal-host-fallback.patch
+        ];
+        doCheck = false;
+      });
+    })
   ];
 
   # Enable CUPS to print documents.

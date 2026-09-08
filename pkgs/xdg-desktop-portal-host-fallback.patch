@@ -1,0 +1,40 @@
+--- a/src/xdp-app-info-flatpak.c	2026-09-08 14:08:50.714245392 +0300
++++ b/src/xdp-app-info-flatpak.c	2026-09-08 14:08:50.733246158 +0300
+@@ -671,11 +671,12 @@
+             }
+         }
+ 
+-      /* Otherwise, we should be able to open the root dir. Probably the app died and
+-         we're failing due to /proc/$pid not existing. In that case fail instead
+-         of treating this as privileged. */
+-      g_set_error (error, G_IO_ERROR, G_IO_ERROR_FAILED,
+-                   "Unable to open %s", root_path);
++      /* Downstream (dotfiles) patch, see xdp-app-info-linyaps.c for rationale:
++         treat an unreadable /proc/<pid>/root as "not this app kind" so the
++         lookup falls through to the host app instead of denying every portal
++         request. https://github.com/flatpak/xdg-desktop-portal/issues/1953 */
++      g_set_error (error, XDP_APP_INFO_ERROR, XDP_APP_INFO_ERROR_WRONG_APP_KIND,
++                   "Unable to open %s, assuming host app", root_path);
+       return -1;
+     }
+ 
+--- a/src/xdp-app-info-linyaps.c	2026-09-08 14:08:50.715245433 +0300
++++ b/src/xdp-app-info-linyaps.c	2026-09-08 14:08:50.733246158 +0300
+@@ -135,8 +135,15 @@
+           }
+         }
+ 
+-      g_set_error (error, G_IO_ERROR, G_IO_ERROR_FAILED, "Unable to open %s",
+-                   root_path);
++      /* Downstream (dotfiles) patch: xdg-desktop-portal >=1.20 denies EVERY
++         portal request from a non-sandboxed app when it cannot read that app's
++         /proc/<pid>/root - which fails with EACCES for Chromium/Electron (they
++         set their processes non-dumpable) under this unprivileged user service,
++         and races to ENOENT for short-lived callers. Emit WRONG_APP_KIND so the
++         caller is treated as a host app, restoring pre-1.20 behaviour.
++         https://github.com/flatpak/xdg-desktop-portal/issues/1953 */
++      g_set_error (error, XDP_APP_INFO_ERROR, XDP_APP_INFO_ERROR_WRONG_APP_KIND,
++                   "Unable to open %s, assuming host app", root_path);
+       return -1;
+   }
+ 
