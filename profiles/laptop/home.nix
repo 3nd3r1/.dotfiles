@@ -58,6 +58,7 @@ in
     usbutils
     prismlauncher
     jq
+    zotero
   ];
 
   xdg.mimeApps = {
