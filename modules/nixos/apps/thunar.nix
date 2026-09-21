@@ -6,4 +6,6 @@
       thunar-archive-plugin
     ];
   };
+
+  services.tumbler.enable = true;
 }
