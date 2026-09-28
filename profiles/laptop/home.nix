@@ -12,6 +12,7 @@ in
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
     "${homeManagerModulesPath}/apps/lanmouse.nix"
+    "${homeManagerModulesPath}/apps/obsidian.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
     "${homeManagerModulesPath}/visual"
   ]
