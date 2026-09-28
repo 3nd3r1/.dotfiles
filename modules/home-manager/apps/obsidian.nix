@@ -38,6 +38,7 @@
         "tag-pane"
         "templates"
         "word-count"
+        "bases"
       ];
     };
   };
