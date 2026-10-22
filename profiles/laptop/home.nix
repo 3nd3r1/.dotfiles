@@ -60,7 +60,6 @@ in
     prismlauncher
     jq
     zotero
-    gephi
   ];
 
   xdg.mimeApps = {
