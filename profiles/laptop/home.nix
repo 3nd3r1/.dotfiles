@@ -85,7 +85,10 @@ in
   services.blueman-applet.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "pnpm-10.29.2" ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.29.2"
+    "firefox-esr-140-bin-unwrapped-140.17.0esr" # Zotero
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
