@@ -1,11 +1,10 @@
 {
-  inputs,
   pkgs,
   lib,
   ...
 }:
 let
-  hyprlandPkg = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  hyprlandPkg = pkgs.hyprland;
   greeterConfig = pkgs.writeText "hyprland-greeter.conf" ''
     monitor=eDP-1,preferred,0x0,1
     monitor=DP-1,preferred,0x0,1,mirror,eDP-1

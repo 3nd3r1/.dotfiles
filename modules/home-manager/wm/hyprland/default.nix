@@ -5,7 +5,7 @@
 }:
 let
   homeManagerModulesPath = "${inputs.self}/modules/home-manager";
-  hyprlandPkg = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  hyprlandPkg = pkgs.hyprland;
 in
 {
   imports = [
@@ -33,8 +33,7 @@ in
       variables = [ "--all" ];
     };
     package = hyprlandPkg;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {
