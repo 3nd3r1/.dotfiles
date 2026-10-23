@@ -28,6 +28,10 @@ with pkgs.tmuxPlugins;
 
       set -g mode-style "fg=default,bg=$color_main"
 
+      # popups (tmux >= 3.8 defaults these to theme greys)
+      set -g popup-style "default"
+      set -g popup-border-style "default"
+
       # command line style
       set -g message-style "fg=$color_main,bg=$color_dark"
 
