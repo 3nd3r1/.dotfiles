@@ -58,7 +58,8 @@ in
     recursive = true;
   };
 
-  programs.tmux.shell = if pkgs.stdenv.hostPlatform.isLinux then "${pkgs.zsh}/bin/zsh" else "/bin/zsh";
+  programs.tmux.shell =
+    if pkgs.stdenv.hostPlatform.isLinux then "${pkgs.zsh}/bin/zsh" else "/bin/zsh";
 
   home.sessionPath = [
     "$HOME/.local/bin"

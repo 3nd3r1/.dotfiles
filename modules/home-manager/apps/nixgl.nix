@@ -1,4 +1,9 @@
-{ nixGL, pkgs, lib, ... }:
+{
+  nixGL,
+  pkgs,
+  lib,
+  ...
+}:
 let
   inherit (nixGL.packages.${pkgs.stdenv.hostPlatform.system}) nixGLIntel;
 

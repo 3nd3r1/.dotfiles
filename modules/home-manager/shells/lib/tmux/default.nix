@@ -1,4 +1,9 @@
-{ pkgs, settings, mkBrewBin, ... }:
+{
+  pkgs,
+  settings,
+  mkBrewBin,
+  ...
+}:
 let
   theme = import ./themes/pain.nix { inherit pkgs; };
 

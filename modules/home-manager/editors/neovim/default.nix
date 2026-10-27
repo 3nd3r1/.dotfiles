@@ -24,10 +24,13 @@
 
   home.packages =
     pkgs.lib.optionals (settings.profile != "work") (with pkgs; [ ripgrep ])
-    ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux (with pkgs; [
-      xclip
-      wl-clipboard
-    ]);
+    ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux (
+      with pkgs;
+      [
+        xclip
+        wl-clipboard
+      ]
+    );
 
   programs.nixvim = {
     enable = true;

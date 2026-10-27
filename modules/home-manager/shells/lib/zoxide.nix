@@ -1,4 +1,9 @@
-{ pkgs, settings, mkBrewBin, ... }:
+{
+  pkgs,
+  settings,
+  mkBrewBin,
+  ...
+}:
 
 {
   programs.zoxide = {

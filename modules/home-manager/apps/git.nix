@@ -1,4 +1,10 @@
-{ pkgs, settings, lib, mkBrewBin, ... }:
+{
+  pkgs,
+  settings,
+  lib,
+  mkBrewBin,
+  ...
+}:
 
 let
   isWork = settings.profile == "work";
@@ -15,7 +21,8 @@ in
       user.name = settings.name;
       user.email = settings.email;
       core.editor = "nvim";
-    } // lib.optionalAttrs isWork {
+    }
+    // lib.optionalAttrs isWork {
       url."git@github.palantir.build:".insteadOf = "https://github.palantir.build/";
     };
   };
