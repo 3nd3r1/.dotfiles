@@ -1,12 +1,18 @@
-{ settings, ... }:
+{ lib, settings, ... }:
 let
+  inherit (lib.generators) mkLuaInline;
+
+  workspaceOn = ws: match: {
+    inherit match;
+    workspace = "${toString ws} silent";
+  };
+
   profileRules = {
     work = {
-      workspace = [ ];
-      windowrule = [
-        "workspace 6 silent, match:class ^(teams-for-linux)$"
-        "workspace 6 silent, match:title ^(Microsoft Teams)(.*)$"
-        "workspace 6 silent, match:class ^(Evolution)$"
+      window_rule = [
+        (workspaceOn 6 { class = "^(teams-for-linux)$"; })
+        (workspaceOn 6 { title = "^(Microsoft Teams)(.*)$"; })
+        (workspaceOn 6 { class = "^(Evolution)$"; })
       ];
       exec-once = [
         "teams-for-linux"
@@ -15,9 +21,8 @@ let
     };
 
     laptop = {
-      workspace = [ ];
-      windowrule = [
-        "workspace 6 silent, match:class ^(vesktop)$"
+      window_rule = [
+        (workspaceOn 6 { class = "^(vesktop)$"; })
       ];
       exec-once = [
         "vesktop"
@@ -27,36 +32,47 @@ let
 
   currentProfileRules =
     profileRules.${settings.profile} or {
-      workspace = [ ];
-      windowrule = [ ];
+      window_rule = [ ];
       exec-once = [ ];
     };
+
+  execOnce = [
+    "brave --new-window --app=https://notion.so/"
+  ]
+  ++ currentProfileRules.exec-once;
 in
 {
   wayland.windowManager.hyprland.settings = {
-    windowrule = [
-      "no_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+    window_rule = [
+      {
+        name = "fix-xwayland-drags";
+        match = {
+          class = "^$";
+          title = "^$";
+          xwayland = true;
+          float = true;
+          fullscreen = false;
+          pin = false;
+        };
+        no_focus = true;
+      }
 
-      "workspace 7 silent, match:class ^(brave-notion.so__-Default)$"
+      (workspaceOn 7 { class = "^(brave-notion.so__-Default)$"; })
     ]
-    ++ currentProfileRules.windowrule;
+    ++ currentProfileRules.window_rule;
 
-    workspace = [
-      "1, persistent:true"
-      "2, persistent:true"
-      "3, persistent:true"
-      "4, persistent:true"
-      "5, persistent:true"
-      "6, persistent:true"
-      "7, persistent:true"
-      "8, persistent:true"
-      "9, persistent:true"
-    ]
-    ++ currentProfileRules.workspace;
+    workspace_rule = map (ws: {
+      workspace = toString ws;
+      persistent = true;
+    }) (lib.range 1 9);
 
-    exec-once = [
-      "brave --new-window --app=https://notion.so/"
-    ]
-    ++ currentProfileRules.exec-once;
+    on = {
+      _args = [
+        "hyprland.start"
+        (mkLuaInline ''
+          function()
+          ${lib.concatMapStrings (cmd: "  hl.exec_cmd(${lib.generators.toLua { } cmd})\n") execOnce}end'')
+      ];
+    };
   };
 }
