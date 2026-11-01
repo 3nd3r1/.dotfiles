@@ -5,24 +5,28 @@
 }:
 let
   hyprlandPkg = pkgs.hyprland;
-  greeterConfig = pkgs.writeText "hyprland-greeter.conf" ''
-    monitor=eDP-1,preferred,0x0,1
-    monitor=DP-1,preferred,0x0,1,mirror,eDP-1
-    monitor=HDMI-A-1,preferred,0x0,1,mirror,eDP-1
+  # Hyprland picks the Lua config provider from the .lua extension.
+  greeterConfig = pkgs.writeText "hyprland-greeter.lua" ''
+    hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1 })
+    hl.monitor({ output = "DP-1", mode = "preferred", position = "0x0", scale = 1, mirror = "eDP-1" })
+    hl.monitor({ output = "HDMI-A-1", mode = "preferred", position = "0x0", scale = 1, mirror = "eDP-1" })
 
-    env = XCURSOR_THEME,phinger-cursors-light
-    env = XCURSOR_SIZE,32
+    hl.env("XCURSOR_THEME", "phinger-cursors-light")
+    hl.env("XCURSOR_SIZE", "32")
 
-    exec-once = ${pkgs.regreet}/bin/regreet; ${hyprlandPkg}/bin/hyprctl dispatch exit
+    hl.on("hyprland.start", function()
+      hl.exec_cmd("${pkgs.regreet}/bin/regreet; ${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.exit()'")
+    end)
 
-    cursor {
-      no_hardware_cursors = true
-    }
-
-    misc {
-      disable_hyprland_logo = true
-      disable_splash_rendering = true
-    }
+    hl.config({
+      cursor = {
+        no_hardware_cursors = 1,
+      },
+      misc = {
+        disable_hyprland_logo = true,
+        disable_splash_rendering = true,
+      },
+    })
   '';
 in
 {
