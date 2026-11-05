@@ -1,5 +1,4 @@
-_:
-{
+_: {
   users.groups.plugdev = { };
 
   services.udev.extraRules = ''
