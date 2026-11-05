@@ -26,6 +26,8 @@ config/                 non-Nix config files linked into place
 
 Machines and profiles are named after Ender's Game, listed in README.md. The hostname matches the profile name except on graff, a work Mac that keeps its IT hostname.
 
+One profile per machine that exists. A new machine gets a new name and profile, even when it replaces an old one. Once it works, tag the old profile's last commit `archive/<name>`, then delete the profile and any modules only it used.
+
 The flake only sees files tracked by git. `git add` a new module before building.
 
 ## Commands
