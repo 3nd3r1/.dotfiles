@@ -40,7 +40,6 @@ in
     "flakes"
   ];
 
-  # Nix helper (replaces nix.gc)
   programs.nh = {
     enable = true;
     flake = settings.dotfilesDir;

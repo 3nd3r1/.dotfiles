@@ -47,12 +47,9 @@
       ];
       forDevSystems = nixpkgs.lib.genAttrs devSystems;
 
-      # Allowed `<scope>:` prefixes for commit messages (see CLAUDE.md)
       commitScopes = [
-        # profiles
         "bean"
         "graff"
-        # modules
         "hyprland"
         "aerospace"
         "neovim"
@@ -69,7 +66,6 @@
         "thunar"
         "nh"
         "visual"
-        # repo
         "themes"
         "pkgs"
         "flake"
@@ -220,7 +216,6 @@
                 nodejs
               ]);
 
-            # Installs the git hooks into .git/hooks
             inherit (preCommit) shellHook;
           };
         }
