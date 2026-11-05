@@ -2,8 +2,6 @@
 {
   imports = [ ./regreet.nix ];
 
-  boot.kernel.sysctl."kernel.yama.ptrace_scope" = 0;
-
   environment.systemPackages = with pkgs; [
     wayland
     wl-clipboard
