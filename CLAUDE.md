@@ -39,6 +39,7 @@ Format: `<scope>: <lowercase summary>`, e.g. `hyprland: use cached package`.
 - Workarounds (pins, patches, overlays) get a body: what it fixes, why, and when to revert.
 - Pre-commit hooks run treefmt, statix and deadnix, so no separate "run format" commits.
 - Hooks install automatically via the devShell (`direnv` / `nix develop`).
+- Never add co-author trailers (`Co-Authored-By:` or similar) or any AI attribution to commits.
 
 ## How It Works
 
