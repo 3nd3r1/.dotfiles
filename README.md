@@ -28,13 +28,6 @@ make graff
 make devenv
 ```
 
-`make` deploys with nh, which isn't installed on a fresh machine. Do the first switch without it:
-
-```bash
-sudo nixos-rebuild switch --flake .#bean                 # bean only
-nix run nixpkgs#nh -- home switch . -c graff -b backup   # or -c bean / -c devenv
-```
-
 ## profiles
 
 - `bean` - personal laptop

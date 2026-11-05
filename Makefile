@@ -1,18 +1,20 @@
 .PHONY: bean graff devenv format lint check help update
 
-# nh shells out to nix, so pass the features through the environment
 bean graff devenv: export NIX_CONFIG := extra-experimental-features = nix-command flakes pipe-operators
+
+NH_RUN := nix run --inputs-from . nixpkgs\#nh --
+NH := $(if $(shell command -v nh),nh,$(NH_RUN))
 
 # Profile deployments
 bean:
-	nh os switch . -H bean
-	nh home switch . -c bean -b backup
+	$(NH) os switch . -H bean
+	$(NH) home switch . -c bean -b backup
 
 graff:
-	nh home switch . -c graff -b backup
+	$(NH) home switch . -c graff -b backup
 
 devenv:
-	nh home switch . -c devenv -b backup
+	$(NH) home switch . -c devenv -b backup
 
 # Development tasks
 format:
