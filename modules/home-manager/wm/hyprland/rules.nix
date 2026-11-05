@@ -8,18 +8,6 @@ let
   };
 
   profileRules = {
-    work = {
-      window_rule = [
-        (workspaceOn 6 { class = "^(teams-for-linux)$"; })
-        (workspaceOn 6 { title = "^(Microsoft Teams)(.*)$"; })
-        (workspaceOn 6 { class = "^(Evolution)$"; })
-      ];
-      exec-once = [
-        "teams-for-linux"
-        "evolution"
-      ];
-    };
-
     bean = {
       window_rule = [
         (workspaceOn 6 { class = "^(vesktop)$"; })
