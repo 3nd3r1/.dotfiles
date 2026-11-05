@@ -113,56 +113,62 @@
           };
         };
 
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        overlays = [ (import ./overlays { inherit inputs; }) ];
-      };
+      pkgsFor = forDevSystems (
+        sys:
+        import nixpkgs {
+          system = sys;
+          overlays = [ (import ./overlays { inherit inputs; }) ];
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [
+              "pnpm-10.29.2"
+              "firefox-esr-140-bin-unwrapped-140.17.0esr" # Zotero
+            ];
+          };
+        }
+      );
+
+      mkSettings =
+        profile:
+        let
+          settings = import (./. + "/profiles/${profile}/settings.nix") {
+            pkgs = pkgsFor.${settings.system or system};
+            inherit inputs;
+          };
+        in
+        settings;
+
+      mkThemeDetails =
+        settings:
+        import (./. + "/themes/${settings.theme}.nix") {
+          pkgs = pkgsFor.${settings.system or system};
+          inherit inputs;
+        };
 
       mkNixosConfiguration =
         profile:
         let
-          settings = import (./. + "/profiles/${profile}/settings.nix") {
-            inherit pkgs inputs;
-          };
-          themeDetails = import (./. + "/themes/${settings.theme}.nix") {
-            inherit pkgs inputs;
-          };
+          settings = mkSettings profile;
+          themeDetails = mkThemeDetails settings;
         in
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs settings themeDetails; };
           modules = [
             (./. + "/profiles/${profile}/configuration.nix")
             inputs.stylix.nixosModules.stylix
+            { nixpkgs.overlays = [ (import ./overlays { inherit inputs; }) ]; }
           ];
         };
 
       mkHomeConfiguration =
         profile:
         let
-          preSettings = import (./. + "/profiles/${profile}/settings.nix") {
-            inherit pkgs inputs;
-          };
-          profileSystem = preSettings.system or system;
-          profilePkgs =
-            if profileSystem == system then
-              pkgs
-            else
-              import nixpkgs {
-                system = profileSystem;
-                overlays = [ (import ./overlays { inherit inputs; }) ];
-                config.allowUnfree = true;
-              };
-          settings = import (./. + "/profiles/${profile}/settings.nix") {
-            pkgs = profilePkgs;
-            inherit inputs;
-          };
-          themeDetails = import (./. + "/themes/${settings.theme}.nix") {
-            pkgs = profilePkgs;
-            inherit inputs;
-          };
+          settings = mkSettings profile;
+          themeDetails = mkThemeDetails settings;
+          pkgs = pkgsFor.${settings.system or system};
         in
         home-manager.lib.homeManagerConfiguration {
-          pkgs = profilePkgs;
+          inherit pkgs;
           modules = [
             (./. + "/profiles/${profile}/home.nix")
             inputs.stylix.homeModules.stylix
@@ -171,7 +177,7 @@
           ];
           extraSpecialArgs = {
             inherit inputs settings themeDetails;
-            mkBrewBin = import ./lib/mkBrewBin.nix profilePkgs;
+            mkBrewBin = import ./lib/mkBrewBin.nix pkgs;
           };
         };
     in
@@ -189,6 +195,8 @@
           value = mkHomeConfiguration profile;
         }) homeProfiles
       );
+
+      formatter = forDevSystems (sys: nixpkgs.legacyPackages.${sys}.nixfmt-tree);
 
       checks = forDevSystems (sys: {
         pre-commit = mkPreCommit sys;
