@@ -23,16 +23,12 @@ make bean
 
 # work setup  
 make graff
-
-# dev server setup
-make devenv
 ```
 
 ## profiles
 
 - `bean` - personal laptop
 - `graff` - work mac, home manager only
-- `devenv` - dev server, home manager only, shell and neovim
 
 ## machine names
 

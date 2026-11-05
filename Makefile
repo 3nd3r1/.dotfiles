@@ -1,6 +1,6 @@
-.PHONY: bean graff devenv format lint check help update
+.PHONY: bean graff format lint check help update
 
-bean graff devenv: export NIX_CONFIG := extra-experimental-features = nix-command flakes pipe-operators
+bean graff: export NIX_CONFIG := extra-experimental-features = nix-command flakes pipe-operators
 
 NH_RUN := nix run --inputs-from . nixpkgs\#nh --
 NH := $(if $(shell command -v nh),nh,$(NH_RUN))
@@ -12,9 +12,6 @@ bean:
 
 graff:
 	$(NH) home switch . -c graff -b backup
-
-devenv:
-	$(NH) home switch . -c devenv -b backup
 
 # Development tasks
 format:

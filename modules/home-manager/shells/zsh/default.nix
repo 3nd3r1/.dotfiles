@@ -12,22 +12,6 @@ let
       ../lib/apollo-cli.nix
       ../lib/krew.nix
     ];
-    devenv = [
-      ./scripts/bob.nix
-      ../lib/krew.nix
-    ];
-  };
-
-  profileAliases = {
-    devenv = {
-      setcurl014config = "kubectl config set-cluster curl014; export KUBERNETES_CLUSTER=curl014; export KUBERNETES_LOADBALANCER_IP=10.120.57.132";
-      setcurl020config = "kubectl config set-cluster curl020; export KUBERNETES_CLUSTER=curl020; export KUBERNETES_LOADBALANCER_IP=10.120.57.236";
-      setcurl022config = "kubectl config set-cluster curl022; export KUBERNETES_CLUSTER=curl022; export KUBERNETES_LOADBALANCER_IP=10.63.142.233";
-      setkarle002config = "kubectl config set-cluster karle002; export KUBERNETES_CLUSTER=karle002; export KUBERNETES_LOADBALANCER_IP=10.120.56.237";
-      kc = "kubectl-ctx";
-      kctx = "kubectl-ctx";
-      kubectx = "kubectl-ctx";
-    };
   };
 
   aliases = {
@@ -36,8 +20,7 @@ let
     oldvim = "vim";
     neofetch = "fastfetch";
   }
-  // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { wssh = "waypipe ssh"; }
-  // (profileAliases.${settings.profile} or { });
+  // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { wssh = "waypipe ssh"; };
 in
 {
   imports = [

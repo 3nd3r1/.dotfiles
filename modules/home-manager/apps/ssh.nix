@@ -22,18 +22,6 @@ let
         IdentityFile = "~/.ssh/id_vranta";
       };
     };
-    devenv = {
-      "github.com" = {
-        HostName = "ssh.github.com";
-        Port = 443;
-        IdentityFile = "~/.ssh/id_3nd3r1";
-      };
-      "gitlab.rnd.gic.ericsson.se" = {
-        HostName = "gitlab.rnd.gic.ericsson.se";
-        User = "git";
-        IdentityFile = "~/.ssh/id_eavinrl_gitlab";
-      };
-    };
   };
   blocks = {
     "github.com" = {

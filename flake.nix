@@ -44,7 +44,6 @@
       homeProfiles = [
         "bean"
         "graff"
-        "devenv"
       ];
       system = "x86_64-linux";
       devSystems = [
@@ -58,7 +57,6 @@
         # profiles
         "bean"
         "graff"
-        "devenv"
         # modules
         "hyprland"
         "aerospace"

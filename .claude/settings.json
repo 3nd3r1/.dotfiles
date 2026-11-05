@@ -21,6 +21,6 @@
       "Bash(direnv *)"
     ],
     "deny": ["Bash(sudo *)"],
-    "ask": ["Bash(make bean)", "Bash(make graff)", "Bash(make devenv)"]
+    "ask": ["Bash(make bean)", "Bash(make graff)"]
   }
 }

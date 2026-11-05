@@ -10,7 +10,6 @@ NixOS and Home Manager dotfiles in one flake, split into profiles:
 
 - `bean`: personal laptop, NixOS plus Home Manager, x86_64-linux, Hyprland
 - `graff`: work Mac, Home Manager only, aarch64-darwin, AeroSpace
-- `devenv`: Home Manager only, Linux dev server, no WM or Stylix
 
 ```
 flake.nix               entry point, builds every profile, devShell and git hooks
@@ -33,7 +32,7 @@ The flake only sees files tracked by git. `git add` a new module before building
 ## Commands
 
 ```bash
-make <profile>   # deploy with nh (bean, graff, devenv)
+make <profile>   # deploy with nh (bean, graff)
 make update      # nix flake update
 make format      # treefmt, statix fix, deadnix --edit
 make lint        # nix flake check (runs the hooks too), statix, deadnix

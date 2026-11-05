@@ -3,7 +3,6 @@ let
   profileImports = {
     graff = [ ];
     bean = [ ./copilot.nix ];
-    devenv = [ ];
   };
 in
 {
