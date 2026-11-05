@@ -17,6 +17,7 @@ in
     "${nixosModulesPath}/apps/kdeconnect.nix"
     "${nixosModulesPath}/apps/nixld.nix"
     "${nixosModulesPath}/apps/zsa.nix"
+    "${nixosModulesPath}/apps/beszel.nix"
   ]
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}") settings.wms);
 

@@ -63,6 +63,7 @@
         "obsidian"
         "karabiner"
         "lanmouse"
+        "beszel"
         "thunar"
         "nh"
         "visual"
