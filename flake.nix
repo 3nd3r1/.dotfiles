@@ -23,10 +23,15 @@
       url = "github:feschber/lan-mouse";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
+      self,
       nixpkgs,
       home-manager,
       nixGL,
@@ -42,6 +47,78 @@
         "devenv"
       ];
       system = "x86_64-linux";
+      devSystems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+      forDevSystems = nixpkgs.lib.genAttrs devSystems;
+
+      # Allowed `<scope>:` prefixes for commit messages (see CLAUDE.md)
+      commitScopes = [
+        # profiles
+        "laptop"
+        "work"
+        "devenv"
+        # modules
+        "hyprland"
+        "aerospace"
+        "neovim"
+        "zsh"
+        "tmux"
+        "kitty"
+        "brave"
+        "git"
+        "ssh"
+        "rofi"
+        "obsidian"
+        "karabiner"
+        "lanmouse"
+        "thunar"
+        "nh"
+        "visual"
+        # repo
+        "themes"
+        "pkgs"
+        "flake"
+        "docs"
+        "chore"
+      ];
+
+      mkPreCommit =
+        sys:
+        let
+          devPkgs = nixpkgs.legacyPackages.${sys};
+          scopes = nixpkgs.lib.concatStringsSep "|" commitScopes;
+        in
+        inputs.git-hooks.lib.${sys}.run {
+          src = ./.;
+          hooks = {
+            nixfmt-tree = {
+              enable = true;
+              name = "treefmt";
+              entry = nixpkgs.lib.getExe devPkgs.nixfmt-tree;
+              files = "\\.nix$";
+            };
+            statix.enable = true;
+            deadnix.enable = true;
+
+            commit-scope = {
+              enable = true;
+              name = "commit-scope";
+              stages = [ "commit-msg" ];
+              entry = toString (
+                devPkgs.writeShellScript "commit-scope" ''
+                  msg=$(head -n1 "$1")
+                  if ! printf '%s\n' "$msg" | grep -qE '^((fixup|squash|amend)! |Revert |Merge )|^(${scopes}): [a-z0-9]'; then
+                    echo "commit-scope: expected '<scope>: <lowercase summary>', got: $msg" >&2
+                    echo "allowed scopes: ${scopes}" >&2
+                    exit 1
+                  fi
+                ''
+              );
+            };
+          };
+        };
 
       pkgs = import nixpkgs {
         system = "x86_64-linux";
@@ -125,16 +202,32 @@
         }) homeProfiles
       );
 
-      devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          statix
-          deadnix
-          nixfmt
-          nixfmt-tree
-          nodejs
-        ];
+      checks = forDevSystems (sys: {
+        pre-commit = mkPreCommit sys;
+      });
 
-        shellHook = "";
-      };
+      devShells = forDevSystems (
+        sys:
+        let
+          devPkgs = nixpkgs.legacyPackages.${sys};
+          preCommit = self.checks.${sys}.pre-commit;
+        in
+        {
+          default = devPkgs.mkShell {
+            packages =
+              preCommit.enabledPackages
+              ++ (with devPkgs; [
+                statix
+                deadnix
+                nixfmt
+                nixfmt-tree
+                nodejs
+              ]);
+
+            # Installs the git hooks into .git/hooks
+            inherit (preCommit) shellHook;
+          };
+        }
+      );
     };
 }

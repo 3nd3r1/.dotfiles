@@ -29,6 +29,17 @@ make format      # Format with treefmt + statix fix
 make lint        # nix flake check + statix check
 ```
 
+## Commits
+
+Format: `<scope>: <lowercase summary>`, e.g. `hyprland: use cached package`.
+
+- Scope = the module or profile touched (`hyprland`, `neovim`, `laptop`, ...). The allowed list is `commitScopes` in `flake.nix`; a commit-msg hook rejects anything else. Add a scope there when adding a new module.
+- Repo-wide stuff: `flake` (flake.nix/inputs), `docs`, `chore` (Makefile, tooling, lock bumps).
+- One logical change per commit. Squash debugging attempts before pushing (`git commit --fixup` + autosquash); `fixup!`/`squash!` messages pass the hook.
+- Workarounds (pins, patches, overlays) get a body: what it fixes, why, and when to revert.
+- Pre-commit hooks run treefmt, statix and deadnix, so no separate "run format" commits.
+- Hooks install automatically via the devShell (`direnv` / `nix develop`).
+
 ## How It Works
 
 1. Each profile has `settings.nix` defining enabled components (WM, editor, browser, etc.)
