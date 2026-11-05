@@ -24,6 +24,8 @@ config/                 non-Nix config files linked into place
 
 `settings.nix` lists the profile's WMs, editors, terminals and browsers, and `home.nix` imports the matching module directories from those lists. `themes/pain.nix` feeds Stylix, but most Stylix targets are off and tmux, waybar, rofi and neovim have their own pain theme files.
 
+Hostnames (`hostname` in `settings.nix`) follow the Ender's Game names in README.md.
+
 The flake only sees files tracked by git. `git add` a new module before building.
 
 ## Commands

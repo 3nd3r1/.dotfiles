@@ -41,6 +41,15 @@ nix run nixpkgs#nh -- home switch . -c work -b backup    # or -c laptop / -c dev
 - `work` - work mac, home manager only
 - `devenv` - dev server, home manager only, shell and neovim
 
+## machine names
+
+machines are named after ender's game:
+
+- `bean` - laptop
+- `dragon` - desktop
+
+not applied yet, the laptop is still `enderlaptop` and the desktop `ENDER-PC`. new machines get a new name from the book. work and devenv keep the hostnames they were given. never use `ender`, that's the username.
+
 ## theme
 
 everything uses the "pain" colorscheme:
