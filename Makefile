@@ -27,4 +27,5 @@ lint:
 # Misc
 update:
 	NIX_CONFIG="access-tokens = github.com=$$(gh auth token -h github.com)" \
-		nix flake update --extra-experimental-features nix-command --extra-experimental-features flakes
+		nix flake update --extra-experimental-features nix-command --extra-experimental-features flakes \
+		--commit-lock-file --option commit-lock-file-summary "chore: update flake"
