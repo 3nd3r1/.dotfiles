@@ -43,7 +43,7 @@ machines are named after ender's game:
 - `dragon` - desktop
 - `jane` - phone
 
-profiles use the same names. graff keeps its it-assigned hostname `vranta179-mac`, only the profile is renamed. devenv keeps its old name and hostname. the desktop is still `ENDER-PC`. new machines get a new name from the book. never use `ender`, that's the username.
+profiles use the same names. graff keeps its it-assigned hostname `vranta179-mac`, only the profile is renamed. devenv keeps its old name and hostname. new machines get a new name from the book. never use `ender`, that's the username.
 
 ## theme
 
