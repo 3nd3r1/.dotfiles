@@ -136,7 +136,14 @@ in
     devmon.enable = true;
 
     # OpenSSH
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
