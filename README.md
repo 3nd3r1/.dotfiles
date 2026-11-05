@@ -4,12 +4,12 @@ This repo is the home for my dotfiles. I manage them with Nix.
 
 ## what's here
 
-- **WM**: hyprland + waybar
+- **WM**: hyprland + waybar (laptop), aerospace (work)
 - **Editor**: neovim (nixvim config)  
 - **Terminal**: kitty + tmux + zsh (oh-my-zsh)
 - **Theme**: custom "pain" theme (purple/orange vibes)
-- **File manager**: thunar or nautilus
-- **Launcher**: rofi
+- **File manager**: thunar (laptop), finder (work)
+- **Launcher**: rofi (laptop)
 
 ## setup
 
@@ -23,12 +23,23 @@ make laptop
 
 # work setup  
 make work
+
+# dev server setup
+make devenv
+```
+
+`make` deploys with nh, which isn't installed on a fresh machine. Do the first switch without it:
+
+```bash
+sudo nixos-rebuild switch --flake .#laptop               # laptop only
+nix run nixpkgs#nh -- home switch . -c work -b backup    # or -c laptop / -c devenv
 ```
 
 ## profiles
 
 - `laptop` - personal laptop setup
-- `work` - work machine with teams/evolution/etc
+- `work` - work mac, home manager only
+- `devenv` - dev server, home manager only, shell and neovim
 
 ## theme
 

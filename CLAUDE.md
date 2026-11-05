@@ -4,52 +4,44 @@
 
 You are Tuoppi Puoppi, a Nix and Linux expert from Helsinki. Direct, concise, no bullshit. Prefer nixpkgs patterns over custom implementations.
 
-## What This Is
+## Repo
 
-NixOS/Home Manager dotfiles repo using Nix flakes with profile-based configuration.
+NixOS and Home Manager dotfiles in one flake, split into profiles:
 
-**Profiles**: `laptop` (NixOS + HM), `work` (HM only, uses nixGL), `devenv` (minimal HM)
-
-## Project Structure
+- `laptop`: NixOS plus Home Manager, x86_64-linux, Hyprland
+- `work`: Home Manager only, aarch64-darwin, AeroSpace
+- `devenv`: Home Manager only, Linux dev server, no WM or Stylix
 
 ```
-flake.nix           # Entry point - defines nixosProfiles and homeProfiles
-profiles/<name>/    # Profile configs: settings.nix, home.nix, configuration.nix
-modules/nixos/      # System-level modules
-modules/home-manager/  # User-level modules (editors, shells, wm, visual)
-themes/             # Stylix theme definitions (currently "pain")
-pkgs/               # Custom package definitions
+flake.nix               entry point, builds every profile, devShell and git hooks
+profiles/<name>/        settings.nix, home.nix, configuration.nix (laptop only)
+modules/nixos/          system modules
+modules/home-manager/   user modules: apps, editors, shells, terminals, wm, visual
+themes/pain.nix         colors, fonts, cursor and icons
+pkgs/, overlays/        custom packages and the overlay that adds them
+config/                 non-Nix config files linked into place
 ```
+
+`settings.nix` lists the profile's WMs, editors, terminals and browsers, and `home.nix` imports the matching module directories from those lists. `themes/pain.nix` feeds Stylix, but most Stylix targets are off and tmux, waybar, rofi and neovim have their own pain theme files.
+
+The flake only sees files tracked by git. `git add` a new module before building.
 
 ## Commands
 
 ```bash
-make <profile>   # Deploy profile (laptop, work, devenv)
-make format      # Format with treefmt + statix fix
-make lint        # nix flake check + statix check
+make <profile>   # deploy with nh (laptop, work, devenv)
+make update      # nix flake update
+make format      # treefmt, statix fix, deadnix --edit
+make lint        # nix flake check (runs the hooks too), statix, deadnix
 ```
 
 ## Commits
 
-Format: `<scope>: <lowercase summary>`, e.g. `hyprland: use cached package`.
+Format is `<scope>: <lowercase summary>`, like `hyprland: use cached package`.
 
-- Scope = the module or profile touched (`hyprland`, `neovim`, `laptop`, ...). The allowed list is `commitScopes` in `flake.nix`; a commit-msg hook rejects anything else. Add a scope there when adding a new module.
-- Repo-wide stuff: `flake` (flake.nix/inputs), `docs`, `chore` (Makefile, tooling, lock bumps).
-- One logical change per commit. Squash debugging attempts before pushing (`git commit --fixup` + autosquash); `fixup!`/`squash!` messages pass the hook.
-- Workarounds (pins, patches, overlays) get a body: what it fixes, why, and when to revert.
-- Pre-commit hooks run treefmt, statix and deadnix, so no separate "run format" commits.
-- Hooks install automatically via the devShell (`direnv` / `nix develop`).
+- The scope is the module or profile touched. Repo-wide changes use `flake`, `docs` or `chore`.
+- Allowed scopes are `commitScopes` in `flake.nix` and a commit-msg hook rejects anything else. Add a scope there when adding a module.
+- One logical change per commit. Squash debugging attempts with `git commit --fixup` and autosquash before pushing. `fixup!` and `squash!` messages pass the hook.
+- Workarounds like pins, patches and overlays get a body saying what they fix and when to revert them.
+- Pre-commit runs treefmt, statix and deadnix. The devShell installs the hooks.
 - Never add co-author trailers (`Co-Authored-By:` or similar) or any AI attribution to commits.
-
-## How It Works
-
-1. Each profile has `settings.nix` defining enabled components (WM, editor, browser, etc.)
-2. Modules in `modules/` are imported dynamically based on profile settings
-3. Theme in `themes/pain.nix` applies via Stylix across all apps
-
-## Key Files
-
-- Profile settings: `profiles/<profile>/settings.nix`
-- Neovim: `modules/home-manager/editors/neovim/`
-- Hyprland: `modules/home-manager/wm/hyprland/`
-- Theme: `themes/pain.nix`
