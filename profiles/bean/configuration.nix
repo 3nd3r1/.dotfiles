@@ -84,7 +84,6 @@ in
     extraGroups = [
       "wheel"
       "docker"
-      "plugdev"
     ];
   };
 
