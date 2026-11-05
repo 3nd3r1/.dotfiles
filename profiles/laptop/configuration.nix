@@ -35,15 +35,19 @@ in
   };
 
   # Nix thing
-  nix = {
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    gc = {
-      automatic = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  # Nix helper (replaces nix.gc)
+  programs.nh = {
+    enable = true;
+    flake = settings.dotfilesDir;
+    clean = {
+      enable = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      extraArgs = "--keep 5 --keep-since 30d";
     };
   };
 

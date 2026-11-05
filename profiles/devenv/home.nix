@@ -11,6 +11,7 @@ in
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
+    "${homeManagerModulesPath}/apps/nh.nix"
 
     "${homeManagerModulesPath}/shells/${settings.shell}"
 

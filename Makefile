@@ -1,30 +1,18 @@
 .PHONY: laptop work devenv format lint check help update
 
+# nh shells out to nix, so pass the features through the environment
+laptop work devenv: export NIX_CONFIG := extra-experimental-features = nix-command flakes pipe-operators
+
 # Profile deployments
 laptop:
-	sudo nixos-rebuild switch --flake ~/dotfiles#laptop
-	home-manager switch \
-		--flake .#laptop \
-		--extra-experimental-features nix-command \
-		--extra-experimental-features flakes \
-		--extra-experimental-features pipe-operators \
-		-b backup
+	nh os switch . -H laptop
+	nh home switch . -c laptop -b backup
 
 work:
-	home-manager switch \
-		--flake .#work \
-		--extra-experimental-features nix-command \
-		--extra-experimental-features flakes \
-		--extra-experimental-features pipe-operators \
-		-b backup
+	nh home switch . -c work -b backup
 
 devenv:
-	home-manager switch \
-		--flake .#devenv \
-		--extra-experimental-features nix-command \
-		--extra-experimental-features flakes \
-		--extra-experimental-features pipe-operators \
-		-b backup
+	nh home switch . -c devenv -b backup
 
 # Development tasks
 format:
