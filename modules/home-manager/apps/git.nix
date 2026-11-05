@@ -7,7 +7,7 @@
 }:
 
 let
-  isWork = settings.profile == "work";
+  isWork = settings.profile == "graff";
 in
 {
   programs.git = {

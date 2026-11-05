@@ -8,13 +8,13 @@ You are Tuoppi Puoppi, a Nix and Linux expert from Helsinki. Direct, concise, no
 
 NixOS and Home Manager dotfiles in one flake, split into profiles:
 
-- `laptop`: NixOS plus Home Manager, x86_64-linux, Hyprland
-- `work`: Home Manager only, aarch64-darwin, AeroSpace
+- `bean`: personal laptop, NixOS plus Home Manager, x86_64-linux, Hyprland
+- `graff`: work Mac, Home Manager only, aarch64-darwin, AeroSpace
 - `devenv`: Home Manager only, Linux dev server, no WM or Stylix
 
 ```
 flake.nix               entry point, builds every profile, devShell and git hooks
-profiles/<name>/        settings.nix, home.nix, configuration.nix (laptop only)
+profiles/<name>/        settings.nix, home.nix, configuration.nix (bean only)
 modules/nixos/          system modules
 modules/home-manager/   user modules: apps, editors, shells, terminals, wm, visual
 themes/pain.nix         colors, fonts, cursor and icons
@@ -24,14 +24,14 @@ config/                 non-Nix config files linked into place
 
 `settings.nix` lists the profile's WMs, editors, terminals and browsers, and `home.nix` imports the matching module directories from those lists. `themes/pain.nix` feeds Stylix, but most Stylix targets are off and tmux, waybar, rofi and neovim have their own pain theme files.
 
-Hostnames (`hostname` in `settings.nix`) follow the Ender's Game names in README.md.
+Machines and profiles are named after Ender's Game, listed in README.md. The hostname matches the profile name except on graff, a work Mac that keeps its IT hostname.
 
 The flake only sees files tracked by git. `git add` a new module before building.
 
 ## Commands
 
 ```bash
-make <profile>   # deploy with nh (laptop, work, devenv)
+make <profile>   # deploy with nh (bean, graff, devenv)
 make update      # nix flake update
 make format      # treefmt, statix fix, deadnix --edit
 make lint        # nix flake check (runs the hooks too), statix, deadnix

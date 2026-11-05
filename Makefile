@@ -1,15 +1,15 @@
-.PHONY: laptop work devenv format lint check help update
+.PHONY: bean graff devenv format lint check help update
 
 # nh shells out to nix, so pass the features through the environment
-laptop work devenv: export NIX_CONFIG := extra-experimental-features = nix-command flakes pipe-operators
+bean graff devenv: export NIX_CONFIG := extra-experimental-features = nix-command flakes pipe-operators
 
 # Profile deployments
-laptop:
-	nh os switch . -H laptop
-	nh home switch . -c laptop -b backup
+bean:
+	nh os switch . -H bean
+	nh home switch . -c bean -b backup
 
-work:
-	nh home switch . -c work -b backup
+graff:
+	nh home switch . -c graff -b backup
 
 devenv:
 	nh home switch . -c devenv -b backup

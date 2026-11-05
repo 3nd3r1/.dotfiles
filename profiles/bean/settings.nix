@@ -1,8 +1,8 @@
 { pkgs, inputs, ... }:
 rec {
-  profile = "laptop";
+  profile = "bean";
 
-  hostname = "enderlaptop"; # Hostname
+  hostname = "bean"; # Hostname
   username = "ender"; # Username
   timezone = "Europe/Helsinki"; # Select timezone
   locale = "en_US.UTF-8"; # Select locale

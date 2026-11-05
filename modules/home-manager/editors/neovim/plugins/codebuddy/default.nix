@@ -1,8 +1,8 @@
 { settings, ... }:
 let
   profileImports = {
-    work = [ ];
-    laptop = [ ./copilot.nix ];
+    graff = [ ];
+    bean = [ ./copilot.nix ];
     devenv = [ ];
   };
 in

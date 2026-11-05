@@ -20,7 +20,7 @@ let
       ];
     };
 
-    laptop = {
+    bean = {
       window_rule = [
         (workspaceOn 6 { class = "^(vesktop)$"; })
       ];

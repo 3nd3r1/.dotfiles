@@ -8,7 +8,7 @@
 {
   programs.yazi = {
     enable = true;
-    package = if settings.profile == "work" then mkBrewBin "yazi" else pkgs.yazi;
+    package = if settings.profile == "graff" then mkBrewBin "yazi" else pkgs.yazi;
     enableZshIntegration = true;
     shellWrapperName = "y";
     settings = {

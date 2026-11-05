@@ -8,7 +8,7 @@
 }:
 let
   profileModules = {
-    work = [
+    graff = [
       ../lib/apollo-cli.nix
       ../lib/krew.nix
     ];

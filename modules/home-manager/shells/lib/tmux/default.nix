@@ -16,7 +16,7 @@ in
 {
   programs.tmux = {
     enable = true;
-    package = if settings.profile == "work" then mkBrewBin "tmux" else pkgs.tmux;
+    package = if settings.profile == "graff" then mkBrewBin "tmux" else pkgs.tmux;
     prefix = "C-a";
     terminal = "tmux-256color";
     escapeTime = 0;

@@ -5,14 +5,14 @@
 }:
 let
   profileBlocks = {
-    laptop = {
+    bean = {
       "melkki" = {
         HostName = "melkki.cs.helsinki.fi";
         User = "rviljami";
         IdentityFile = "~/.ssh/id_rviljami";
       };
     };
-    work = {
+    graff = {
       "github.palantir.build" = {
         HostName = "github.palantir.build";
         IdentityFile = "~/.ssh/id_vranta";

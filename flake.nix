@@ -39,11 +39,11 @@
     }@inputs:
     let
       nixosProfiles = [
-        "laptop"
+        "bean"
       ];
       homeProfiles = [
-        "laptop"
-        "work"
+        "bean"
+        "graff"
         "devenv"
       ];
       system = "x86_64-linux";
@@ -56,8 +56,8 @@
       # Allowed `<scope>:` prefixes for commit messages (see CLAUDE.md)
       commitScopes = [
         # profiles
-        "laptop"
-        "work"
+        "bean"
+        "graff"
         "devenv"
         # modules
         "hyprland"

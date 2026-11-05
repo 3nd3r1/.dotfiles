@@ -1,6 +1,6 @@
 { inputs, ... }:
 rec {
-  profile = "work";
+  profile = "graff";
   system = "aarch64-darwin";
 
   hostname = "vranta179-mac";

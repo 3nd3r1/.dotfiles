@@ -19,10 +19,10 @@ git clone https://github.com/3nd3r1/.dotfiles ~/dotfiles
 cd ~/dotfiles
 
 # laptop setup
-make laptop
+make bean
 
 # work setup  
-make work
+make graff
 
 # dev server setup
 make devenv
@@ -31,14 +31,14 @@ make devenv
 `make` deploys with nh, which isn't installed on a fresh machine. Do the first switch without it:
 
 ```bash
-sudo nixos-rebuild switch --flake .#laptop               # laptop only
-nix run nixpkgs#nh -- home switch . -c work -b backup    # or -c laptop / -c devenv
+sudo nixos-rebuild switch --flake .#bean                 # bean only
+nix run nixpkgs#nh -- home switch . -c graff -b backup   # or -c bean / -c devenv
 ```
 
 ## profiles
 
-- `laptop` - personal laptop setup
-- `work` - work mac, home manager only
+- `bean` - personal laptop
+- `graff` - work mac, home manager only
 - `devenv` - dev server, home manager only, shell and neovim
 
 ## machine names
@@ -46,9 +46,10 @@ nix run nixpkgs#nh -- home switch . -c work -b backup    # or -c laptop / -c dev
 machines are named after ender's game:
 
 - `bean` - laptop
+- `graff` - work mac
 - `dragon` - desktop
 
-not applied yet, the laptop is still `enderlaptop` and the desktop `ENDER-PC`. new machines get a new name from the book. work and devenv keep the hostnames they were given. never use `ender`, that's the username.
+profiles use the same names. graff keeps its it-assigned hostname `vranta179-mac`, only the profile is renamed. devenv keeps its old name and hostname. the desktop is still `ENDER-PC`. new machines get a new name from the book. never use `ender`, that's the username.
 
 ## theme
 

@@ -6,5 +6,5 @@
 }:
 
 {
-  home.packages = lib.optionals (settings.profile != "work") (with pkgs; [ fd ]);
+  home.packages = lib.optionals (settings.profile != "graff") (with pkgs; [ fd ]);
 }

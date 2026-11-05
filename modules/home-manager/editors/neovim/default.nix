@@ -23,7 +23,7 @@
   ];
 
   home.packages =
-    pkgs.lib.optionals (settings.profile != "work") (with pkgs; [ ripgrep ])
+    pkgs.lib.optionals (settings.profile != "graff") (with pkgs; [ ripgrep ])
     ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux (
       with pkgs;
       [
