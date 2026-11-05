@@ -1,17 +1,10 @@
 {
   settings,
   pkgs,
-  config,
   ...
 }:
 let
-  kittyPkg =
-    if pkgs.stdenv.hostPlatform.isDarwin then
-      pkgs.emptyDirectory
-    else if settings.nixgl then
-      (config.lib.nixGL.wrap pkgs.kitty)
-    else
-      pkgs.kitty;
+  kittyPkg = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.emptyDirectory else pkgs.kitty;
 in
 {
   programs.kitty = {

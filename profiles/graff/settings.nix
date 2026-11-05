@@ -17,8 +17,6 @@ rec {
   shell = "zsh";
   shellPkg = null;
 
-  nixgl = false;
-
   wms = [ "aerospace" ];
   editors = [ "neovim" ];
   browsers = [ ];

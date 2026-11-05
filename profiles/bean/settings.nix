@@ -16,8 +16,6 @@ rec {
   shell = "zsh";
   shellPkg = pkgs.zsh;
 
-  nixgl = false;
-
   wms = [ "hyprland" ];
   editors = [ "neovim" ];
   browsers = [ "brave" ];

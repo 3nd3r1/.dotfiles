@@ -11,10 +11,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixGL = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +30,6 @@
       self,
       nixpkgs,
       home-manager,
-      nixGL,
       ...
     }@inputs:
     let
@@ -175,12 +170,7 @@
             inputs.lan-mouse.homeManagerModules.default
           ];
           extraSpecialArgs = {
-            inherit
-              inputs
-              settings
-              themeDetails
-              nixGL
-              ;
+            inherit inputs settings themeDetails;
             mkBrewBin = import ./lib/mkBrewBin.nix profilePkgs;
           };
         };
