@@ -64,6 +64,7 @@
         "karabiner"
         "lanmouse"
         "beszel"
+        "tailscale"
         "thunar"
         "nh"
         "visual"

@@ -18,6 +18,7 @@ in
     "${nixosModulesPath}/apps/nixld.nix"
     "${nixosModulesPath}/apps/zsa.nix"
     "${nixosModulesPath}/apps/beszel.nix"
+    "${nixosModulesPath}/apps/tailscale.nix"
   ]
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}") settings.wms);
 
