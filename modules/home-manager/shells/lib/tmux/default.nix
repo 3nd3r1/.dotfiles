@@ -107,7 +107,7 @@ in
       bind -r l select-pane -R
       bind -r C-o swap-pane -D
 
-      bind -n C-l send-keys C-l
+      bind C-l send-keys C-l
 
       # Copy mode
       bind q copy-mode
