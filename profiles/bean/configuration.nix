@@ -23,17 +23,9 @@ in
   ++ (map (wm: "${nixosModulesPath}/wm/${wm}") settings.wms);
 
   # Use the systemd-boot EFI boot loader.
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    # Kernel 6.17+ made O_NOFOLLOW on /proc/<pid>/root return ELOOP, which breaks
-    # xdg-desktop-portal <=1.22 caller identification -> every portal request from
-    # non-Flatpak apps (file chooser, save dialog, Secret) is denied.
-    # See https://github.com/flatpak/xdg-desktop-portal/issues/1953
-    # Revert to the default kernel once nixpkgs ships a patched xdg-desktop-portal.
-    kernelPackages = pkgs.linuxPackages_6_12;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
   # Nix thing
