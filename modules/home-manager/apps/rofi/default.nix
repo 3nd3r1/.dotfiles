@@ -8,13 +8,13 @@
   programs.rofi = {
     enable = true;
     theme = lib.mkForce ./themes/${settings.theme}.rasi;
-    font = "${themeDetails.font.name} ${toString themeDetails.font.size}";
-    modes = [
-      "drun"
-      "run"
-      "window"
-    ];
-    extraConfig = {
+    settings = {
+      font = "${themeDetails.font.name} ${toString themeDetails.font.size}";
+      modes = [
+        "drun"
+        "run"
+        "window"
+      ];
       width = 1000;
       sidebar-mode = true;
       lines = 10;
