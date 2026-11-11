@@ -256,6 +256,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-brave": {
+      "locked": {
+        "lastModified": 1793726008,
+        "narHash": "sha256-jQp1wKvbwWdLBASTXkSi/VYmDJ5AbBi1WvcMt9HWJC8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -309,6 +325,7 @@
         "home-manager": "home-manager",
         "lan-mouse": "lan-mouse",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-brave": "nixpkgs-brave",
         "nixvim": "nixvim",
         "stylix": "stylix"
       }
