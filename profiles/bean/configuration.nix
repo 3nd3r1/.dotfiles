@@ -127,6 +127,14 @@ in
     gvfs.enable = true;
     devmon.enable = true;
 
+    # Keep running with the lid closed so Claude and the network stay up.
+    # TODO: remove after the hackathon.
+    logind.settings.Login = {
+      HandleLidSwitch = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
+      HandleLidSwitchDocked = "ignore";
+    };
+
     # OpenSSH
     openssh = {
       enable = true;
