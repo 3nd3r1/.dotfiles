@@ -48,6 +48,7 @@ in
     keymapp
     python3
     claude-code
+    codex
     eduvpn-client
     remmina
     proton-vpn
