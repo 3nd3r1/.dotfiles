@@ -2,9 +2,7 @@
 lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   programs.lan-mouse = {
     enable = true;
-    package = pkgs.lan-mouse.overrideAttrs (old: {
-      buildInputs = old.buildInputs ++ [ pkgs.libgit2 ];
-    });
+    package = pkgs.lan-mouse;
     settings = {
       port = 4242;
       authorized_fingerprints = {
