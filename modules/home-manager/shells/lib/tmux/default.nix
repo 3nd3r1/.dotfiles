@@ -22,7 +22,6 @@ in
     plugins =
       with pkgs.tmuxPlugins;
       [
-        vim-tmux-navigator
         {
           plugin = resurrect;
           extraConfig = ''
@@ -106,8 +105,6 @@ in
       bind -r h select-pane -L
       bind -r l select-pane -R
       bind -r C-o swap-pane -D
-
-      bind C-l send-keys C-l
 
       # Copy mode
       bind q copy-mode
