@@ -11,6 +11,7 @@ in
   imports = [
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
+    "${homeManagerModulesPath}/apps/codex.nix"
     "${homeManagerModulesPath}/apps/lanmouse.nix"
     "${homeManagerModulesPath}/apps/obsidian.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
@@ -48,7 +49,6 @@ in
     keymapp
     python3
     claude-code
-    codex
     eduvpn-client
     remmina
     proton-vpn

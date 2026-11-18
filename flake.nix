@@ -59,6 +59,7 @@
         "brave"
         "git"
         "ssh"
+        "codex"
         "rofi"
         "obsidian"
         "karabiner"
