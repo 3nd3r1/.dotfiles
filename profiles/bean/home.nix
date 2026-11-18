@@ -61,6 +61,7 @@ in
     prismlauncher
     jq
     zotero
+    opencode
   ];
 
   xdg.mimeApps = {
