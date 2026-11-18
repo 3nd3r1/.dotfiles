@@ -12,6 +12,7 @@ in
     "${homeManagerModulesPath}/apps/ssh.nix"
     "${homeManagerModulesPath}/apps/git.nix"
     "${homeManagerModulesPath}/apps/codex.nix"
+    "${homeManagerModulesPath}/apps/claude-code.nix"
     "${homeManagerModulesPath}/apps/lanmouse.nix"
     "${homeManagerModulesPath}/apps/obsidian.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
@@ -48,7 +49,6 @@ in
     unzip
     keymapp
     python3
-    claude-code
     eduvpn-client
     remmina
     proton-vpn

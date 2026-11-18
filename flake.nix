@@ -60,6 +60,7 @@
         "git"
         "ssh"
         "codex"
+        "claude-code"
         "rofi"
         "obsidian"
         "karabiner"
