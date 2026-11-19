@@ -9,6 +9,7 @@
       attribution = {
         commit = "";
         pr = "";
+        sessionUrl = false;
       };
       permissions.defaultMode = "auto";
       model = "opus";
