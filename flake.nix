@@ -61,6 +61,7 @@
         "ssh"
         "codex"
         "claude-code"
+        "opencode"
         "rofi"
         "obsidian"
         "karabiner"

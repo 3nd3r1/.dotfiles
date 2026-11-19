@@ -13,6 +13,7 @@ in
     "${homeManagerModulesPath}/apps/git.nix"
     "${homeManagerModulesPath}/apps/codex.nix"
     "${homeManagerModulesPath}/apps/claude-code.nix"
+    "${homeManagerModulesPath}/apps/opencode.nix"
     "${homeManagerModulesPath}/apps/lanmouse.nix"
     "${homeManagerModulesPath}/apps/obsidian.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
@@ -61,7 +62,6 @@ in
     prismlauncher
     jq
     zotero
-    opencode
   ];
 
   xdg.mimeApps = {
