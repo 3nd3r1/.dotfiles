@@ -10,7 +10,6 @@ let
   profileModules = {
     graff = [
       ../lib/apollo-cli.nix
-      ../lib/krew.nix
     ];
   };
 
