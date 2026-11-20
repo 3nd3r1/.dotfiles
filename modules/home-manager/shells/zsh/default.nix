@@ -28,6 +28,7 @@ in
     ../lib/zoxide.nix
     ../lib/fd.nix
     ../lib/fzf.nix
+    ../lib/kubectl.nix
     ../lib/direnv.nix
     ../lib/yazi.nix
   ]
