@@ -1,9 +1,8 @@
-{ inputs, ... }:
 {
   programs.codex = {
     enable = true;
     mutableSettings = true;
-    context = "${inputs.self}/config/agents/AGENTS.md";
+    context = ../../../config/agents/AGENTS.md;
     settings = {
       model = "gpt-6-luna";
       model_reasoning_effort = "high";
