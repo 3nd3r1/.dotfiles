@@ -115,17 +115,19 @@
           };
         };
 
+      nixpkgsConfig = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "firefox-esr-140-bin-unwrapped-140.17.0esr" # Zotero
+        ];
+      };
+
       pkgsFor = forDevSystems (
         sys:
         import nixpkgs {
           system = sys;
           overlays = [ (import ./overlays { inherit inputs; }) ];
-          config = {
-            allowUnfree = true;
-            permittedInsecurePackages = [
-              "firefox-esr-140-bin-unwrapped-140.17.0esr" # Zotero
-            ];
-          };
+          config = nixpkgsConfig;
         }
       );
 
@@ -157,7 +159,12 @@
           modules = [
             (./. + "/profiles/${profile}/configuration.nix")
             inputs.stylix.nixosModules.stylix
-            { nixpkgs.overlays = [ (import ./overlays { inherit inputs; }) ]; }
+            {
+              nixpkgs = {
+                config = nixpkgsConfig;
+                overlays = [ (import ./overlays { inherit inputs; }) ];
+              };
+            }
           ];
         };
 

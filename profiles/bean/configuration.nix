@@ -143,7 +143,7 @@ in
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.sessionVariables = rec {
+  environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
 
@@ -156,8 +156,6 @@ in
     kitty
     git
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
