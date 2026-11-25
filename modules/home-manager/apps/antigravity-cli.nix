@@ -6,6 +6,7 @@
     skills = ../../../config/claude/skills;
     settings = {
       agentMode = "auto";
+      enableTerminalSandbox = false;
     };
   };
 }
