@@ -32,7 +32,7 @@ in
 {
   environment.systemPackages = [ pkgs.phinger-cursors ];
 
-  programs.regreet = {
+  services.displayManager.regreet = {
     enable = true;
     settings = {
       default_session = {
