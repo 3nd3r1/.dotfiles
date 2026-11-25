@@ -14,6 +14,7 @@ in
     "${homeManagerModulesPath}/apps/codex.nix"
     "${homeManagerModulesPath}/apps/claude-code.nix"
     "${homeManagerModulesPath}/apps/opencode.nix"
+    "${homeManagerModulesPath}/apps/gemini-cli.nix"
     "${homeManagerModulesPath}/apps/lanmouse.nix"
     "${homeManagerModulesPath}/apps/obsidian.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"

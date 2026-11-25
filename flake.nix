@@ -62,6 +62,7 @@
         "codex"
         "claude-code"
         "opencode"
+        "gemini-cli"
         "rofi"
         "obsidian"
         "karabiner"
