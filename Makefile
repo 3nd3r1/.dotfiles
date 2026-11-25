@@ -1,4 +1,4 @@
-.PHONY: bean graff format lint check help update
+.PHONY: bean graff format lint update
 
 bean graff: export NIX_CONFIG := extra-experimental-features = nix-command flakes pipe-operators
 
