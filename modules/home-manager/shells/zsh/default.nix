@@ -67,7 +67,6 @@ in
       plugins = [
         "git"
         "nvm"
-        "zoxide"
         "tmux"
         "vi-mode"
         "helm"
@@ -84,6 +83,7 @@ in
       extraConfig = ''
         autoload -U colors && colors
 
+        zstyle ':omz:plugins:nvm' lazy yes
         zstyle ':completion:*' menu select
         zmodload zsh/complist
         bindkey -M menuselect 'h' vi-backward-char
