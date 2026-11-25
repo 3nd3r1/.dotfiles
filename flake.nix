@@ -123,7 +123,6 @@
           config = {
             allowUnfree = true;
             permittedInsecurePackages = [
-              "pnpm-10.29.2"
               "firefox-esr-140-bin-unwrapped-140.17.0esr" # Zotero
             ];
           };
