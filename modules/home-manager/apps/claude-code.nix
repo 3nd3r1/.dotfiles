@@ -1,10 +1,9 @@
-{ inputs, ... }:
 {
   programs.claude-code = {
     enable = true;
     mutableSettings = true;
-    context = "${inputs.self}/config/agents/AGENTS.md";
-    skills = "${inputs.self}/config/claude/skills";
+    context = ../../../config/agents/AGENTS.md;
+    skills = ../../../config/claude/skills;
     settings = {
       attribution = {
         commit = "";
