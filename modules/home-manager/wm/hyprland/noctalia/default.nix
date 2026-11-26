@@ -32,6 +32,9 @@
         panel = {
           inherit (themeDetails) shadow;
         };
+        greeter_sync = {
+          auto_sync = true;
+        };
       };
 
       bar = {
@@ -49,7 +52,11 @@
           radius_bottom_right = themeDetails.rounding;
           concave_edge_corners = false;
           inherit (themeDetails) shadow;
+          background_opacity = themeDetails.opacity;
+          compositor_blur = true;
+          border = "outline";
           border_width = 1.0;
+          capsule = true;
           start = [ "workspaces" ];
           center = [ ];
           end = [

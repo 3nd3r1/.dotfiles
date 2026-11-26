@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./regreet.nix ];
+  imports = [ ./noctalia-greeter.nix ];
 
   environment.systemPackages = with pkgs; [
     wayland
