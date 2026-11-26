@@ -12,12 +12,6 @@ in
     ./rules.nix
 
     ./noctalia
-    ./hyprlock
-    ./hypridle
-  ];
-
-  home.packages = with pkgs; [
-    brightnessctl
   ];
 
   wayland.windowManager.hyprland = {

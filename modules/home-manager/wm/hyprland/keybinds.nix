@@ -55,8 +55,8 @@ in
     (repeatExec "XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
     (repeatExec "XF86AudioMute" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
     (repeatExec "XF86AudioMicMute" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
-    (repeatExec "XF86MonBrightnessUp" "brightnessctl -e4 -n2 set 5%+")
-    (repeatExec "XF86MonBrightnessDown" "brightnessctl -e4 -n2 set 5%-")
+    (repeatExec "XF86MonBrightnessUp" "noctalia msg brightness-up")
+    (repeatExec "XF86MonBrightnessDown" "noctalia msg brightness-down")
 
     (bind "${mod} + SHIFT + Q" "hl.dsp.window.close()")
     (bind "${mod} + SUPER + Q" "hl.dsp.exit()")
@@ -64,7 +64,7 @@ in
     (bind "${mod} + TAB" "hl.dsp.window.fullscreen()")
 
     # Lock screen
-    (exec "SUPER + L" "hyprlock")
+    (exec "SUPER + L" "noctalia msg session lock")
 
     # Application shortcuts.
     (exec "${mod} + Return" settings.preferredTerminal)
