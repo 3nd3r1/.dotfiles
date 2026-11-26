@@ -151,16 +151,7 @@
             '';
           }
         ];
-        lualine_y = [
-          {
-            __unkeyed-1.__raw = ''
-              function()
-                return require("dap").status()
-              end
-            '';
-          }
-        ]
-        ++ lib.optionals config.programs.nixvim.plugins.copilot-vim.enable [
+        lualine_y = lib.optionals config.programs.nixvim.plugins.copilot-vim.enable [
           {
             __unkeyed-1.__raw = ''
               function()
@@ -169,28 +160,6 @@
                 else
                   return "" .. " ON"
                 end
-              end
-            '';
-          }
-        ]
-        ++ lib.optionals config.programs.nixvim.plugins.windsurf-vim.enable [
-          {
-            __unkeyed-1.__raw = ''
-              function()
-                return "{…}" .. vim.api.nvim_call_function("codeium#GetStatusString", {})
-              end
-            '';
-          }
-        ]
-        ++ lib.optionals (config.programs.nixvim.globals.amazonq_enabled or false) [
-          {
-            __unkeyed-1.__raw = ''
-              function()
-                if vim.g.amazonq_inline_suggest ~= true then
-                    return "  ON"
-                  else
-                    return "  OFF"
-                 end
               end
             '';
           }
