@@ -71,7 +71,7 @@ with pkgs.tmuxPlugins;
 
       set -g status-right-length 120
       set -g status-left "$wg_session"
-      set -g status-right "#{prefix_highlight} $wg_is_keys_off $wg_is_zoomed #{sysstat_cpu}  #{sysstat_mem}   $wg_kube_context  $wg_host"
+      set -g status-right "#{prefix_highlight} $wg_is_keys_off $wg_is_zoomed #{sysstat_cpu}  #{sysstat_mem}   $wg_kube_context#[fg=$color_status_text]  $wg_host"
 
       # Configure view templates for tmux-plugin-sysstat "MEM" and "CPU" widget
       set -g @sysstat_mem_view_tmpl 'MEM:#[fg=#{mem.color}]#{mem.pused}#[default] #{mem.used}'
