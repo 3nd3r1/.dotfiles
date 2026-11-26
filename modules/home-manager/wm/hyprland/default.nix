@@ -13,11 +13,10 @@ in
     ./keybinds.nix
     ./rules.nix
 
-    ./waybar
+    ./noctalia
     ./hyprpaper
     ./hyprlock
     ./hypridle
-    ./swaync
 
     ./scripts/power-menu.nix
 

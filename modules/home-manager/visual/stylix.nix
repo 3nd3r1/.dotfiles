@@ -54,6 +54,7 @@ in
       gnome.enable = false;
       gtk.enable = false;
       rofi.enable = false;
+      noctalia.enable = false;
     };
   };
 }
