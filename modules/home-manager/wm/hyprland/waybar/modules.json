@@ -81,16 +81,12 @@
       "on-scroll-down": "shift_down"
     }
   },
-  "pulseaudio": {
+  "wireplumber": {
     "format": "{icon} {volume:2}%",
-    "format-bluetooth": "{icon}  {volume}%",
     "format-muted": "MUTE",
-    "format-icons": {
-      "headphones": "",
-      "default": ["", ""]
-    },
+    "format-icons": ["", ""],
     "scroll-step": 5,
-    "on-click": "pulsemixer",
+    "on-click": "kitty pulsemixer",
     "on-click-right": "pavucontrol"
   },
   "memory": {

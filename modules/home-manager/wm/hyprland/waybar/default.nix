@@ -27,7 +27,7 @@ in
           "custom/left-arrow-2"
           "network"
           "custom/left-arrow-3"
-          "pulseaudio"
+          "wireplumber"
           "custom/left-arrow-4"
           "battery"
           "custom/left-arrow-5"

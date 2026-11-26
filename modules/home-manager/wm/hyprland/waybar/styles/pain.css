@@ -35,7 +35,7 @@ window#waybar {
   background: @purple2;
   color: @purple3;
 }
-#pulseaudio {
+#wireplumber {
   background: @purple3;
 }
 #custom-left-arrow-4 {
@@ -117,7 +117,7 @@ window#waybar {
 #clock,
 #battery,
 #power,
-#pulseaudio,
+#wireplumber,
 #network,
 #cpu {
   color: @white1;
@@ -142,7 +142,7 @@ window#waybar {
 }
 
 #clock,
-#pulseaudio,
+#wireplumber,
 #cpu,
 #network,
 #battery,

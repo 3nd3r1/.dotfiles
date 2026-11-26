@@ -73,6 +73,7 @@ in
 
     # Launcher
     (exec "${mod} + P" "rofi -show drun")
+    (exec "${mod} + V" "cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy")
     (exec "${mod} + SHIFT + S" "power-menu")
 
     # Screenshot
