@@ -91,9 +91,10 @@
         style = "regular";
         show_labels = true;
         capsule_radius = themeDetails.rounding;
+        monitors = [ "*" ];
         focused_output_only = false;
         hide_when_empty = false;
-        pill_scale = 1.2;
+        pill_scale = 1.0;
       };
       wallpaper = {
         enabled = true;
