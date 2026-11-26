@@ -29,10 +29,18 @@ in
   };
 
   # Nix thing
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
+    ];
+    auto-optimise-store = true;
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
+  };
 
   programs.nh = {
     enable = true;
@@ -127,6 +135,11 @@ in
     gvfs.enable = true;
     devmon.enable = true;
 
+    # Laptop power, thermals, SSD & firmware
+    thermald.enable = true;
+    fstrim.enable = true;
+    fwupd.enable = true;
+
     # OpenSSH
     openssh = {
       enable = true;
@@ -147,7 +160,15 @@ in
     NIXOS_OZONE_WL = "1";
   };
 
-  hardware.bluetooth.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [ intel-media-driver ];
+    };
+  };
+
+  zramSwap.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim

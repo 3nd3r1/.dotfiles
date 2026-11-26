@@ -46,7 +46,7 @@ in
     vesktop
     pulsemixer
     pavucontrol
-    postman
+    bruno
     uv
     unzip
     keymapp
@@ -55,7 +55,6 @@ in
     remmina
     proton-vpn
     qbittorrent
-    vlc
     obs-studio
     tor-browser
     loupe
@@ -81,6 +80,15 @@ in
       "image/avif" = "org.gnome.Loupe.desktop";
       "image/heic" = "org.gnome.Loupe.desktop";
       "image/x-icon" = "org.gnome.Loupe.desktop";
+    };
+  };
+
+  programs.mpv = {
+    enable = true;
+    config = {
+      hwdec = "auto-safe";
+      vo = "gpu-next";
+      gpu-context = "wayland";
     };
   };
 
