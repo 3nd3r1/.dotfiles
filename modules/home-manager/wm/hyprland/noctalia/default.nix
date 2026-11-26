@@ -82,6 +82,7 @@
       dock.enabled = false;
       wallpaper = {
         enabled = true;
+        directory = "${settings.dotfilesDir}/assets/wallpapers";
         default.path = settings.wallpaper;
       };
       location = {
