@@ -14,7 +14,7 @@ in
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "[\[](bold #800080)$username[@](bold #ee82ee)$hostname $directory[\]](bold #800080)$character";
+      format = "[\\[](bold #800080)$username[@](bold #ee82ee)$hostname $directory[\\]](bold #800080)$character";
       right_format = "$nix_shell$python$git_branch$git_status$cmd_duration";
 
       username = {
@@ -38,8 +38,8 @@ in
       };
 
       character = {
-        success_symbol = "[$](bold white) ";
-        error_symbol = "[$](bold #ff5200) ";
+        success_symbol = "[\\$](bold white) ";
+        error_symbol = "[\\$](bold #ff5200) ";
         vimcmd_symbol = "[V](bold #ff8000) ";
       };
 
