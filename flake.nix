@@ -23,6 +23,10 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -182,6 +186,7 @@
             inputs.stylix.homeModules.stylix
             inputs.nixvim.homeModules.nixvim
             inputs.lan-mouse.homeManagerModules.default
+            inputs.nix-index-database.homeModules.default
           ];
           extraSpecialArgs = {
             inherit inputs settings themeDetails;
@@ -206,9 +211,19 @@
 
       formatter = forDevSystems (sys: nixpkgs.legacyPackages.${sys}.nixfmt-tree);
 
-      checks = forDevSystems (sys: {
-        pre-commit = mkPreCommit sys;
-      });
+      checks = forDevSystems (
+        sys:
+        {
+          pre-commit = mkPreCommit sys;
+        }
+        // nixpkgs.lib.optionalAttrs (sys == "x86_64-linux") {
+          bean-nixos = self.nixosConfigurations.bean.config.system.build.toplevel;
+          bean-home = self.homeConfigurations.bean.activationPackage;
+        }
+        // nixpkgs.lib.optionalAttrs (sys == "aarch64-darwin") {
+          graff-home = self.homeConfigurations.graff.activationPackage;
+        }
+      );
 
       devShells = forDevSystems (
         sys:
