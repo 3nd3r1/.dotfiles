@@ -16,6 +16,7 @@ in
     "${homeManagerModulesPath}/apps/opencode.nix"
     "${homeManagerModulesPath}/apps/antigravity-cli.nix"
     "${homeManagerModulesPath}/apps/agent-deck.nix"
+    "${homeManagerModulesPath}/apps/genmedia.nix"
     "${homeManagerModulesPath}/apps/lanmouse.nix"
     "${homeManagerModulesPath}/apps/obsidian.nix"
     "${homeManagerModulesPath}/shells/${settings.shell}"
