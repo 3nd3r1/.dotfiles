@@ -13,6 +13,9 @@
     settings = {
       cursor.size = themeDetails.cursor.size;
       keyboard.layout = "fi";
+      session.default = "Hyprland";
+      user.default = settings.username;
+      output.name = "HDMI-A-1";
     };
   };
 }
