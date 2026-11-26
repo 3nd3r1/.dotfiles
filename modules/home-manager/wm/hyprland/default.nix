@@ -30,8 +30,6 @@ in
 
   services = {
     hyprpolkitagent.enable = true;
-    cliphist.enable = true;
-    wl-clip-persist.enable = true;
     hyprsunset = {
       enable = true;
       settings = {

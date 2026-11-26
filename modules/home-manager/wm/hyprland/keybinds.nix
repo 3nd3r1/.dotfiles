@@ -73,7 +73,7 @@ in
 
     # Launcher
     (exec "${mod} + P" "rofi -show drun")
-    (exec "${mod} + V" "cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy")
+    (exec "${mod} + V" "noctalia msg panel toggle clipboard")
     (exec "${mod} + SHIFT + S" "power-menu")
 
     # Screenshot

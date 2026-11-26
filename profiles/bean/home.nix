@@ -39,14 +39,12 @@ in
     fastfetch
     docker
     nwg-displays
-    blueman
     telegram-desktop
     speedcrunch
     gnumake
     gh
     vesktop
     pulsemixer
-    pavucontrol
     bruno
     uv
     unzip
@@ -92,8 +90,6 @@ in
       gpu-context = "wayland";
     };
   };
-
-  services.blueman-applet.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
