@@ -14,63 +14,63 @@ in
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "[\\[](bold #800080)$username[@](bold #ee82ee)$hostname $directory[\\]](bold #800080)$character";
+      format = "[\\[](bold red)$username[@](bold green)$hostname $directory[\\]](bold red)$character";
       right_format = "$nix_shell$python$git_branch$git_status$cmd_duration";
 
       username = {
         show_always = true;
-        style_user = "bold #ff8000";
-        style_root = "bold #ff5200";
+        style_user = "bold yellow";
+        style_root = "bold red";
         format = "[$user]($style)";
       };
 
       hostname = {
         ssh_only = false;
-        style = "bold #ff8000";
+        style = "bold blue";
         format = "[$hostname]($style)";
       };
 
       directory = {
-        style = "bold #ee82ee";
+        style = "bold purple";
         truncation_length = 3;
         truncate_to_repo = false;
         format = "[$path]($style)";
       };
 
       character = {
-        success_symbol = "[\\$](bold white) ";
-        error_symbol = "[\\$](bold #ff5200) ";
-        vimcmd_symbol = "[V](bold #ff8000) ";
+        success_symbol = "\\$ ";
+        error_symbol = "[\\$](bold red) ";
+        vimcmd_symbol = "[V](bold blue) ";
       };
 
       git_branch = {
         symbol = " ";
-        style = "bold #ff8000";
-        format = "[$symbol$branch]($style) ";
+        style = "blue";
+        format = "[$symbol](white)[git:](green)[$branch]($style) ";
       };
 
       git_status = {
-        style = "bold #ff5200";
+        style = "red";
         format = "([$all_status$ahead_behind]($style) )";
       };
 
       python = {
         symbol = " ";
-        style = "bold #ee82ee";
-        format = "[$symbol($virtualenv)]($style) ";
+        style = "blue";
+        format = "[$symbol](white)[venv:](green)[($virtualenv)]($style) ";
         detect_files = [ ];
         detect_extensions = [ ];
       };
 
       nix_shell = {
         symbol = " ";
-        style = "bold #800080";
-        format = "[$symbol$state]($style) ";
+        style = "purple";
+        format = "[$symbol](white)[$state]($style) ";
       };
 
       cmd_duration = {
         min_time = 2000;
-        style = "bold #ff5200";
+        style = "yellow";
         format = "[$duration]($style)";
       };
     };
