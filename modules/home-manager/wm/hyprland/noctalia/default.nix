@@ -60,7 +60,7 @@
           inherit (themeDetails) shadow;
           background_opacity = themeDetails.opacity;
           compositor_blur = true;
-          border = "outline";
+          border = "outline_variant";
           border_width = 1.0;
           capsule = true;
           start = [ "workspaces" ];
@@ -86,10 +86,16 @@
         default.path = settings.wallpaper;
       };
       location = {
+        address = "Finnoo, Espoo";
         custom_schedule = true;
         sunrise = "07:30";
         sunset = "21:00";
       };
+      weather = {
+        enabled = true;
+        unit = "metric";
+      };
+      calendar.enabled = true;
       nightlight = {
         enabled = true;
         temperature_day = 6500;

@@ -15,7 +15,7 @@ let
     surface_variant = "#2e0d3d";
     on_surface_variant = "#EE82EE";
     outline = "#800080";
-    outline_variant = "#500859";
+    outline_variant = "#800080";
     hover = "#6a046e";
     on_hover = "#FFFFFF";
     shadow = "#000000";
