@@ -71,13 +71,13 @@ in
     (exec "${mod} + B" settings.preferredBrowser)
     (exec "${mod} + E" settings.preferredFileManager)
 
-    # Launcher
-    (exec "${mod} + P" "rofi -show drun")
+    # Launcher, clipboard, power menu
+    (exec "${mod} + P" "noctalia msg panel toggle launcher")
     (exec "${mod} + V" "noctalia msg panel toggle clipboard")
-    (exec "${mod} + SHIFT + S" "power-menu")
+    (exec "${mod} + SHIFT + S" "noctalia msg panel toggle session")
 
     # Screenshot
-    (exec "Print" ''grim -g "$(slurp -d)" - | satty --filename - --fullscreen --output-filename "$HOME/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')" --copy-command wl-copy --early-exit'')
+    (exec "Print" "noctalia msg screenshot-annotate")
 
     (bind "${mod} + SHIFT + c" "hl.dsp.window.center()")
 

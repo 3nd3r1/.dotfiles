@@ -1,10 +1,8 @@
 {
-  inputs,
   pkgs,
   ...
 }:
 let
-  homeManagerModulesPath = "${inputs.self}/modules/home-manager";
   hyprlandPkg = pkgs.hyprland;
 in
 {
@@ -17,11 +15,6 @@ in
     ./hyprpaper
     ./hyprlock
     ./hypridle
-
-    ./scripts/power-menu.nix
-
-    "${homeManagerModulesPath}/apps/rofi"
-    "${homeManagerModulesPath}/apps/grimshot.nix"
   ];
 
   home.packages = with pkgs; [

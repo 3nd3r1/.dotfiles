@@ -35,6 +35,12 @@
         greeter_sync = {
           auto_sync = true;
         };
+        screenshot = {
+          directory = "/home/${settings.username}/Pictures/Screenshots";
+          copy_to_clipboard = true;
+          save_to_file = true;
+          freeze_screen = true;
+        };
       };
 
       bar = {
