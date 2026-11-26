@@ -12,7 +12,7 @@
 
     settings = {
       accessibility = {
-        font_scale = 1.15;
+        font_scale = 1.2;
       };
 
       theme = {
@@ -28,6 +28,7 @@
       };
 
       shell = {
+        font_family = themeDetails.font.name;
         corner_radius_scale = if themeDetails.rounding == 0 then 0.0 else 1.0;
         circular_avatar = false;
         polkit_agent = true;
@@ -53,7 +54,6 @@
           enabled = true;
           position = "top";
           thickness = 38;
-          font_scale = 1.2;
           margin_edge = 0;
           margin_ends = 0;
           radius = themeDetails.rounding;
@@ -91,6 +91,9 @@
         style = "regular";
         show_labels = true;
         capsule_radius = themeDetails.rounding;
+        focused_output_only = false;
+        hide_when_empty = false;
+        pill_scale = 1.2;
       };
       wallpaper = {
         enabled = true;
