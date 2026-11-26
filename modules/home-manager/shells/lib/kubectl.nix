@@ -25,8 +25,24 @@ in
       package = if isWork then mkBrewBin "k9s" else pkgs.k9s;
     };
 
-    zsh.initContent = ''
-      export PATH="$HOME/.krew/bin:$PATH"
-    '';
+    zsh = {
+      shellAliases = {
+        k = "kubectl";
+        kgp = "kubectl get pods";
+        kgpa = "kubectl get pods --all-namespaces";
+        kgs = "kubectl get svc";
+        kgn = "kubectl get nodes";
+        kd = "kubectl describe";
+        kdp = "kubectl describe pod";
+        kl = "kubectl logs";
+        klf = "kubectl logs -f";
+        kex = "kubectl exec -it";
+        kctx = "kubectx";
+        kns = "kubens";
+      };
+      initContent = ''
+        export PATH="$HOME/.krew/bin:$PATH"
+      '';
+    };
   };
 }
