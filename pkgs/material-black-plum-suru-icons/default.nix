@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "rtlewis88";
     repo = "rtl88-Themes";
-    rev = "material-black-COLORS";
+    rev = "3864d851aac7f4e76cf23717aee104de234aef74";
     sha256 = "sha256-BUJMd6Ltq16/HqqDbB5VDGIRSzLivXxNYZPT9sd6oTI=";
   };
 

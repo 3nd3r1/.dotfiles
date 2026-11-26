@@ -12,7 +12,7 @@ tmuxPlugins.mkTmuxPlugin {
   src = fetchFromGitHub {
     owner = "jonmosco";
     repo = "kube-tmux";
-    rev = "master";
+    rev = "8b7e1d127c16b6dc87ff5743f4d775b245198b69";
     sha256 = "sha256-l1wjg2ReWKCI7h/K11vvX2ykYTs/mVD+tfz/mQsjn/E=";
   };
 
@@ -21,8 +21,8 @@ tmuxPlugins.mkTmuxPlugin {
   postInstall = ''
     # Substitute kubectl path in the actual script
     substituteInPlace $target/scripts/kube-tmux.sh \
-      --replace 'KUBE_TMUX_BINARY="''${KUBE_TMUX_BINARY:-kubectl}"' \
-                'KUBE_TMUX_BINARY="''${KUBE_TMUX_BINARY:-${kubectl}/bin/kubectl}"'
+      --replace-fail 'KUBE_TMUX_BINARY="''${KUBE_TMUX_BINARY:-kubectl}"' \
+                     'KUBE_TMUX_BINARY="''${KUBE_TMUX_BINARY:-${kubectl}/bin/kubectl}"'
   '';
 
   meta = with lib; {

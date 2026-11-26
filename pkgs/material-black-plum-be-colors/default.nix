@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "rtlewis1";
     repo = "GTK";
-    rev = "Material-Black-Colors-Desktop";
+    rev = "7346c3127d8ee42465fad6a52335c4a17aa5572b";
     sha256 = "sha256-BnXozOQs5rHB29z7pcYor7M5/34YoLslZiNj+qNqMME=";
   };
 
