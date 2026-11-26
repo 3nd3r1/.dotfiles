@@ -51,6 +51,14 @@ in
     enableCompletion = true;
     shellAliases = aliases;
 
+    plugins = [
+      {
+        name = "zsh-system-clipboard";
+        src = pkgs.zsh-system-clipboard;
+        file = "share/zsh/zsh-system-clipboard/zsh-system-clipboard.zsh";
+      }
+    ];
+
     history = {
       size = 50000;
       save = 50000;
@@ -61,6 +69,7 @@ in
     initContent = lib.mkMerge [
       (lib.mkOrder 550 ''
         fpath=("${config.xdg.configHome}/zsh/completions" $fpath)
+        [[ -n "$WAYLAND_DISPLAY" ]] && ZSH_SYSTEM_CLIPBOARD_USE_WL_CLIPBOARD=1
       '')
       ''
         zstyle ':completion:*' menu select
