@@ -77,7 +77,7 @@ in
     (exec "${mod} + SHIFT + S" "power-menu")
 
     # Screenshot
-    (exec "Print" "wl-copy < $(grimshot --notify save area $HOME/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png'))")
+    (exec "Print" ''grim -g "$(slurp -d)" - | satty --filename - --fullscreen --output-filename "$HOME/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')" --copy-command wl-copy --early-exit'')
 
     (bind "${mod} + SHIFT + c" "hl.dsp.window.center()")
 

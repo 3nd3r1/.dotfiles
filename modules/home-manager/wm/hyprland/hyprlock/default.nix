@@ -30,9 +30,6 @@
       auth = {
         "pam:enabled" = true;
         "pam:module" = "hyprlock";
-        "fingerprint:enabled" = true;
-        "fingerprint:ready_message" = "   Touch fingerprint sensor";
-        "fingerprint:present_message" = "   Scanning fingerprint...";
       };
 
       # Time
@@ -68,26 +65,6 @@
           font_size = 24;
           font_family = "SF Pro Display Bold";
           position = "0, -180";
-          halign = "center";
-          valign = "center";
-        }
-        # Fingerprint Prompt (dynamically shows status)
-        {
-          text = "$FPRINTPROMPT";
-          color = "rgba(216, 222, 233, .7)"; # Orange from your pain theme
-          font_size = 16;
-          font_family = "SF Pro Display Bold";
-          position = "0, -320";
-          halign = "center";
-          valign = "center";
-        }
-        # Authentication Failure Messages
-        {
-          text = "$FPRINTFAIL";
-          color = "rgba(255, 82, 0, 0.8)"; # Red-orange for errors
-          font_size = 16;
-          font_family = "SF Pro Display Bold";
-          position = "0, -370";
           halign = "center";
           valign = "center";
         }
