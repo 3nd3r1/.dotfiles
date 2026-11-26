@@ -12,7 +12,6 @@ in
     ./rules.nix
 
     ./noctalia
-    ./hyprpaper
     ./hyprlock
     ./hypridle
   ];
@@ -20,26 +19,6 @@ in
   home.packages = with pkgs; [
     brightnessctl
   ];
-
-  services = {
-    hyprpolkitagent.enable = true;
-    hyprsunset = {
-      enable = true;
-      settings = {
-        max-gamma = 150;
-        profile = [
-          {
-            time = "7:30";
-            identity = true;
-          }
-          {
-            time = "21:00";
-            temperature = 4500;
-          }
-        ];
-      };
-    };
-  };
 
   wayland.windowManager.hyprland = {
     enable = true;

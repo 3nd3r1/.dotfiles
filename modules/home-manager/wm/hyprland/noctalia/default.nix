@@ -26,7 +26,7 @@
       shell = {
         corner_radius_scale = if themeDetails.rounding == 0 then 0.0 else 1.0;
         circular_avatar = false;
-        polkit_agent = false;
+        polkit_agent = true;
         popup_shadows = themeDetails.shadow;
         setup_wizard_enabled = false;
         panel = {
@@ -80,7 +80,20 @@
       };
 
       dock.enabled = false;
-      wallpaper.enabled = false;
+      wallpaper = {
+        enabled = true;
+        default.path = settings.wallpaper;
+      };
+      location = {
+        custom_schedule = true;
+        sunrise = "07:30";
+        sunset = "21:00";
+      };
+      nightlight = {
+        enabled = true;
+        temperature_day = 6500;
+        temperature_night = 4500;
+      };
       notification.enable_daemon = true;
       osd.enabled = true;
     };
