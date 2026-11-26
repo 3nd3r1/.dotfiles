@@ -72,9 +72,9 @@ in
     (exec "${mod} + E" settings.preferredFileManager)
 
     # Launcher, clipboard, power menu
-    (exec "${mod} + P" "noctalia msg panel toggle launcher")
-    (exec "${mod} + V" "noctalia msg panel toggle clipboard")
-    (exec "${mod} + SHIFT + S" "noctalia msg panel toggle session")
+    (exec "${mod} + P" "noctalia msg panel-toggle launcher")
+    (exec "${mod} + V" "noctalia msg panel-toggle clipboard")
+    (exec "${mod} + SHIFT + S" "noctalia msg panel-toggle session")
 
     # Screenshot
     (exec "Print" "noctalia msg screenshot-annotate")
