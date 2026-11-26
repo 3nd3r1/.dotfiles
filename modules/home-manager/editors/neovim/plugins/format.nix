@@ -12,7 +12,7 @@ in
     prettier
     # robotframework-tidy  # Commented out due to test failures
     go
-    beautysh
+    shfmt
     nixfmt
     deno
     ruff
@@ -44,8 +44,8 @@ in
         ];
         markdown = prettierFormat;
         json = prettierFormat;
-        bash = [ "beautysh" ];
-        sh = [ "beautysh" ];
+        bash = [ "shfmt" ];
+        sh = [ "shfmt" ];
         nix = [ "nixfmt" ];
         rust = [ "rustfmt" ];
         c = [ "clang-format" ];

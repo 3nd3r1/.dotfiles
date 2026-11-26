@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       line-length = 88;
-      target-version = "py38";
+      target-version = "py313";
 
       lint = {
         # Select rule categories - not too strict

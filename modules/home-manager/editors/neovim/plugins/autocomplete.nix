@@ -1,44 +1,35 @@
-{ lib, ... }:
 {
-  programs.nixvim.plugins = {
-    cmp = {
-      enable = true;
-      settings = {
-        mapping = {
-          # Tab key to confirm completion
-          "<Tab>" = "cmp.mapping.confirm({ select = true })";
-
-          # Ctrl+Space to trigger completion menu
-          "<C-c>" = "cmp.mapping.complete()";
-
-          # Navigate between completions
-          "<C-k>" = "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.select })";
-          "<C-j>" = "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.select })";
-        };
-
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "buffer"; }
+  programs.nixvim.plugins.blink-cmp = {
+    enable = true;
+    settings = {
+      keymap = {
+        preset = "none";
+        "<Tab>" = [
+          "accept"
+          "fallback"
         ];
-
-        formatting = {
-          format = lib.mkForce ''
-            function(entry, vim_item)
-              return require("lspkind").cmp_format({
-                mode = "symbol_text",
-                preset = "codicons",
-                maxwidth = 50,
-                ellipsis_char = "...",
-              })(entry, vim_item)
-            end
-          '';
-        };
+        "<C-c>" = [
+          "show"
+          "show_documentation"
+          "hide_documentation"
+        ];
+        "<C-k>" = [
+          "select_prev"
+          "fallback"
+        ];
+        "<C-j>" = [
+          "select_next"
+          "fallback"
+        ];
       };
+      completion = {
+        documentation.auto_show = true;
+      };
+      sources.default = [
+        "lsp"
+        "path"
+        "buffer"
+      ];
     };
-
-    cmp-nvim-lsp.enable = true;
-    cmp-buffer.enable = true;
-    luasnip.enable = true;
-    lspkind.enable = true;
   };
 }

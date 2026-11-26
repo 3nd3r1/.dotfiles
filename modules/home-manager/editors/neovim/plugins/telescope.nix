@@ -44,7 +44,7 @@
       action.__raw = ''
         function()
           require("telescope.builtin").find_files({
-            find_command = { "find", ".", "-type", "d" },
+            find_command = { "fd", "--type", "d" },
             prompt_title = "Find Directory",
             attach_mappings = function(_, map)
               map("i", "<CR>", function(prompt_bufnr)

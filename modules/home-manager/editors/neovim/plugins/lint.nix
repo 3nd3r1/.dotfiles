@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     yamllint
+    shellcheck
   ];
 
   xdg.configFile."yamllint/config".text = ''
@@ -23,6 +24,8 @@
       enable = true;
       lintersByFt = {
         yaml = [ "yamllint" ];
+        sh = [ "shellcheck" ];
+        bash = [ "shellcheck" ];
         typescript = [ "eslint" ];
         javascript = [ "eslint" ];
         typescriptreact = [ "eslint" ];
