@@ -8,7 +8,7 @@
     enable = true;
     systemd.enable = true;
 
-    customPalettes.${settings.theme}.dark = import (./palettes + "/${settings.theme}.nix");
+    customPalettes.${settings.theme} = import (./palettes + "/${settings.theme}.nix");
 
     settings = {
       theme = {
