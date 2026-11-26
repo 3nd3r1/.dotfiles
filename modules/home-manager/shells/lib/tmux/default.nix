@@ -119,10 +119,6 @@ in
 
       # Detach from session
       bind d detach
-
-      # Cht
-      bind-key -r i run-shell "tmux neww cht.sh --shell"
-
     '';
   };
 }
