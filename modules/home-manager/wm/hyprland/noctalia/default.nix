@@ -11,6 +11,10 @@
     customPalettes.${settings.theme} = import (./palettes + "/${settings.theme}.nix");
 
     settings = {
+      accessibility = {
+        font_scale = 1.15;
+      };
+
       theme = {
         mode = "dark";
         source = "custom";
@@ -48,7 +52,8 @@
         default = {
           enabled = true;
           position = "top";
-          thickness = 34;
+          thickness = 38;
+          font_scale = 1.2;
           margin_edge = 0;
           margin_ends = 0;
           radius = themeDetails.rounding;
@@ -63,6 +68,7 @@
           border = "outline_variant";
           border_width = 1.0;
           capsule = true;
+          capsule_radius = themeDetails.rounding;
           start = [ "workspaces" ];
           center = [ ];
           end = [
@@ -80,6 +86,12 @@
       };
 
       dock.enabled = false;
+      widget.workspaces = {
+        type = "workspaces";
+        style = "regular";
+        show_labels = true;
+        capsule_radius = themeDetails.rounding;
+      };
       wallpaper = {
         enabled = true;
         directory = "${settings.dotfilesDir}/assets/wallpapers";
