@@ -6,7 +6,7 @@ This repo is the home for my dotfiles. I manage them with Nix.
 
 - **WM**: hyprland + waybar (laptop), aerospace (work)
 - **Editor**: neovim (nixvim config)  
-- **Terminal**: kitty + tmux + zsh (oh-my-zsh)
+- **Terminal**: kitty + tmux + zsh (starship)
 - **Theme**: custom "pain" theme (purple/orange vibes)
 - **File manager**: thunar (laptop), finder (work)
 - **Launcher**: rofi (laptop)

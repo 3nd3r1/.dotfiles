@@ -3,7 +3,6 @@
   config,
   pkgs,
   lib,
-  inputs,
   ...
 }:
 let
@@ -18,28 +17,24 @@ let
     vim = "nvim";
     oldvim = "vim";
     neofetch = "fastfetch";
-  }
-  // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { wssh = "waypipe ssh"; };
+  };
 in
 {
   imports = [
     ../lib/tmux
+    ../lib/starship.nix
+    ../lib/cli.nix
     ../lib/zoxide.nix
     ../lib/fd.nix
     ../lib/fzf.nix
     ../lib/kubectl.nix
     ../lib/direnv.nix
     ../lib/yazi.nix
+    ../lib/nix-index.nix
   ]
   ++ (profileModules.${settings.profile} or [ ]);
 
   home.shell.enableZshIntegration = true;
-
-  # Move the custom directory
-  xdg.configFile."oh-my-zsh" = {
-    source = "${inputs.self}/config/oh-my-zsh";
-    recursive = true;
-  };
 
   programs.tmux.shell =
     if pkgs.stdenv.hostPlatform.isLinux then "${pkgs.zsh}/bin/zsh" else "/bin/zsh";
@@ -50,40 +45,24 @@ in
 
   programs.zsh = {
     enable = true;
+    defaultKeymap = "viins";
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
     shellAliases = aliases;
-    initContent = ''
-      bindkey -M viins '^ ' autosuggest-accept
-      bindkey -M viins '^C' send-break
 
-      [ -f "$HOME/.env" ] && source "$HOME/.env"
-    '';
-    oh-my-zsh = {
-      enable = true;
-      theme = "pain";
-      custom = "${config.home.homeDirectory}/.config/oh-my-zsh/custom";
-      plugins = [
-        "git"
-        "nvm"
-        "tmux"
-        "vi-mode"
-        "helm"
-        "kubectl"
-        "docker"
-        "fzf"
-        "golang"
-        "gcloud"
-        "poetry"
-        "virtualenv"
-        "rust"
-        "deno"
-      ];
-      extraConfig = ''
-        autoload -U colors && colors
+    history = {
+      size = 50000;
+      save = 50000;
+      share = true;
+      ignoreAllDups = true;
+    };
 
-        zstyle ':omz:plugins:nvm' lazy yes
+    initContent = lib.mkMerge [
+      (lib.mkOrder 550 ''
+        fpath=("${config.xdg.configHome}/zsh/completions" $fpath)
+      '')
+      ''
         zstyle ':completion:*' menu select
         zmodload zsh/complist
         bindkey -M menuselect 'h' vi-backward-char
@@ -91,21 +70,29 @@ in
         bindkey -M menuselect 'l' vi-forward-char
         bindkey -M menuselect 'j' vi-down-line-or-history
 
-        # Tmux
-        ZSH_TMUX_AUTOSTART=true
-        ZSH_TMUX_AUTOSTART_ONCE=false
-        ZSH_TMUX_AUTOQUIT=true
-        ZSH_TMUX_CONFIG="${config.home.homeDirectory}/.config/tmux/tmux.conf"
-        ZSH_TMUX_DEFAULT_SESSION_NAME="terminal"
+        bindkey -M viins '^ ' autosuggest-accept
+        bindkey -M viins '^C' send-break
 
-        # Fzf settings
-        DISABLE_FZF_AUTO_COMPLETION="true"
-        DISABLE_FZF_KEY_BINDINGS="false"
-        FZF_CTRL_T_COMMAND='find -L . -mindepth 1'
-        FZF_ALT_C_COMMAND='find -L . -type d -mindepth 1'
+        [ -f "$HOME/.env" ] && source "$HOME/.env"
 
-        fpath=($ZSH_CUSTOM/completions $fpath)
-      '';
-    };
+        # Lazy-load nvm if installed
+        if [ -s "$HOME/.nvm/nvm.sh" ]; then
+          export NVM_DIR="$HOME/.nvm"
+          _load_nvm() {
+            unset -f nvm node npm npx
+            source "$NVM_DIR/nvm.sh"
+          }
+          nvm()  { _load_nvm; nvm "$@"; }
+          node() { _load_nvm; node "$@"; }
+          npm()  { _load_nvm; npm "$@"; }
+          npx()  { _load_nvm; npx "$@"; }
+        fi
+
+        # Auto-start tmux on interactive shells
+        if [[ -z "$TMUX" && -o interactive && -t 0 && "$TERM" != "dumb" ]] && command -v tmux >/dev/null 2>&1; then
+          exec tmux new-session -A -s terminal
+        fi
+      ''
+    ];
   };
 }
