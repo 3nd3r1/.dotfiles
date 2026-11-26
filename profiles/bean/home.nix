@@ -38,7 +38,7 @@ in
   home.packages = with pkgs; [
     fastfetch
     docker
-    arandr
+    nwg-displays
     blueman
     telegram-desktop
     speedcrunch
