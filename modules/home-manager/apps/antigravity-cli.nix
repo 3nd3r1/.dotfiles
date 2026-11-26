@@ -7,6 +7,7 @@
     settings = {
       agentMode = "auto";
       enableTerminalSandbox = false;
+      toolPermission = "always-proceed";
     };
   };
 }
