@@ -2,7 +2,7 @@
   programs = {
     nix-index = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false;
     };
 
     nix-index-database.comma.enable = true;
