@@ -84,8 +84,7 @@
           inherit (themeDetails) shadow;
           background_opacity = themeDetails.opacity;
           compositor_blur = true;
-          border = "outline_variant";
-          border_width = 1.0;
+          border_width = 0.0;
           capsule = true;
           capsule_radius = themeDetails.rounding;
           start = [ "workspaces" ];
