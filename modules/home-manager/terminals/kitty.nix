@@ -26,7 +26,7 @@ in
       inactive_tab_font_style = "normal";
       inactive_text_alpha = "1.0";
       italic_font = "auto";
-      placement_strategy = "center";
+      placement_strategy = "top";
       resize_in_steps = "yes";
       scrollback_lines = 10000;
       touch_scroll_multiplier = "1.0";
