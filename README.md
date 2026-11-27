@@ -1,50 +1,53 @@
 # my dotfiles
 
-This repo is the home for my dotfiles. I manage them with Nix.
+NixOS and Home Manager dotfiles in one flake.
 
 ## what's here
 
-- **WM**: hyprland + waybar (laptop), aerospace (work)
-- **Editor**: neovim (nixvim config)  
-- **Terminal**: kitty + tmux + zsh (starship)
-- **Theme**: custom "pain" theme (purple/orange vibes)
-- **File manager**: thunar (laptop), finder (work)
-- **Launcher**: rofi (laptop)
+- wm: hyprland + kanshi (bean), aerospace (graff)
+- shell/bar/launcher: noctalia (bar, launcher, clipboard, notifications, lockscreen, idle, wallpaper, greeter on bean)
+- editor: neovim (nixvim)
+- terminal: kitty + tmux + zsh (starship)
+- browser: brave (bean)
+- file manager: thunar (bean), finder (graff)
+- theme: custom "pain" palette (purple and orange on black)
 
 ## setup
 
 ```bash
-# clone wherever
 git clone https://github.com/3nd3r1/.dotfiles ~/dotfiles
 cd ~/dotfiles
 
-# laptop setup
+# personal laptop (NixOS + Home Manager)
 make bean
 
-# work setup  
+# work mac (Home Manager)
 make graff
 ```
 
+Other make targets: `make update`, `make format`, `make lint`.
+
 ## profiles
 
-- `bean` - personal laptop
-- `graff` - work mac, home manager only
+- `bean`: personal laptop, NixOS + Home Manager (`x86_64-linux`)
+- `graff`: work mac, Home Manager only (`aarch64-darwin`, tracked `profiles/graff/Brewfile`)
 
 ## machine names
 
-machines are named after ender's game:
+Machines are named after Ender's Game:
 
-- `bean` - laptop
-- `graff` - work mac
-- `dragon` - desktop
-- `jane` - phone
+- `bean`: laptop
+- `graff`: work mac
+- `dragon`: desktop
+- `jane`: phone
 
 ## theme
 
-everything uses the "pain" colorscheme:
-- purple (#800080) 
-- orange (#ff8000)
-- black backgrounds
-- custom tmux/waybar/rofi themes
+Everything uses the "pain" colorscheme from `themes/pain.nix`:
+
+- purple (`#800080`)
+- orange (`#ff8000`)
+- black backgrounds (`#000000`)
+- Stylix plus custom noctalia, tmux and neovim themes
 
 ![preview](./assets/pictures/preview.png)
