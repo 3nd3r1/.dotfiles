@@ -93,10 +93,22 @@ in
     description = "neko";
     initialPassword = "neko";
     extraGroups = [ "networkmanager" ];
-    packages = with pkgs; [ google-chrome ];
+    packages = with pkgs; [
+      google-chrome
+      nautilus
+      loupe
+      papers
+      showtime
+      decibels
+      gnome-text-editor
+      gnome-calculator
+      gnome-calendar
+      gnome-clocks
+      gnome-console
+      gnome-system-monitor
+      snapshot
+    ];
   };
-
-  services.desktopManager.gnome.enable = true;
 
   nixpkgs.overlays = [
     (_: prev: {
@@ -123,6 +135,9 @@ in
 
   # Services
   services = {
+    desktopManager.gnome.enable = true;
+    gnome.core-apps.enable = false;
+
     # Sound
     pipewire = {
       enable = true;
@@ -156,8 +171,22 @@ in
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+  environment = {
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+    ];
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+
+    systemPackages = with pkgs; [
+      vim
+      wget
+      curl
+      kitty
+      git
+    ];
   };
 
   hardware = {
@@ -169,14 +198,6 @@ in
   };
 
   zramSwap.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    curl
-    kitty
-    git
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
