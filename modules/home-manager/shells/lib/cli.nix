@@ -24,5 +24,7 @@ in
       icons = "auto";
       git = true;
     };
+
+    zsh.shellAliases.du = "dust";
   };
 }
