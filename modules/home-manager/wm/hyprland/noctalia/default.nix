@@ -15,6 +15,25 @@
         font_scale = 1.2;
       };
 
+      keybinds = {
+        down = [
+          "Down"
+          "Ctrl+j"
+        ];
+        up = [
+          "Up"
+          "Ctrl+k"
+        ];
+        left = [
+          "Left"
+          "Ctrl+h"
+        ];
+        right = [
+          "Right"
+          "Ctrl+l"
+        ];
+      };
+
       theme = {
         mode = "dark";
         source = "custom";
