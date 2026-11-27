@@ -9,25 +9,12 @@ let
   isWork = settings.profile == "graff";
 in
 {
-  home = {
-    packages = lib.optionals (!isWork) (with pkgs; [ dust ]);
-    sessionVariables = {
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-    };
-  };
+  home.packages = lib.optionals (!isWork) (with pkgs; [ dust ]);
 
   programs = {
     btop = {
       enable = true;
       package = if isWork then mkBrewBin "btop" else pkgs.btop;
-    };
-
-    bat = {
-      enable = true;
-      package = if isWork then mkBrewBin "bat" else pkgs.bat;
-      config = {
-        theme = "ansi";
-      };
     };
 
     eza = {

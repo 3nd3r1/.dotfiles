@@ -5,7 +5,6 @@ cask "nikitabobko/tap/aerospace"
 cask "karabiner-elements"
 cask "kitty"
 
-brew "bat"
 brew "btop"
 brew "direnv"
 brew "dust"
