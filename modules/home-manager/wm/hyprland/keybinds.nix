@@ -63,8 +63,9 @@ in
     (bind "${mod} + SHIFT + F" "hl.dsp.window.float({ action = \"toggle\" })")
     (bind "${mod} + TAB" "hl.dsp.window.fullscreen()")
 
-    # Lock screen
+    # Lock screen / display layout
     (exec "SUPER + L" "noctalia msg session lock")
+    (exec "SUPER + P" "display-layout")
 
     # Application shortcuts.
     (exec "${mod} + Return" settings.preferredTerminal)

@@ -10,6 +10,7 @@ in
     ./settings.nix
     ./keybinds.nix
     ./rules.nix
+    ./kanshi.nix
 
     ./noctalia
   ];
